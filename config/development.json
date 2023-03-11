@@ -1,0 +1,6 @@
+{
+  "name": "starbooks-backend-dev",
+  "mail": {
+    "host": "dev-mail-server"
+  }
+}

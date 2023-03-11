@@ -1,0 +1,4 @@
+{
+    "JWTPrivateKey": "hcc_JWTPrivateKey",
+    "MongoPassword": "MongoDBPassword"
+}

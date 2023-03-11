@@ -1,0 +1,6 @@
+{
+    "name": "hcc-backend",
+    "JWTPrivateKey": "1234",
+    "db": "mongodb://localhost/hccDB_test",
+    "authEnabled": true
+}
