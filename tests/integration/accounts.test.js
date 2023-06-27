@@ -1,3 +1,4 @@
+import _ from "lodash";
 import mongoose from "mongoose";
 import request from "supertest";
 import server from "../../index";
@@ -5,10 +6,12 @@ import { logger } from "../../startup/logger";
 import { conn } from "../../startup/mongo";
 import { Account, roles } from "../../models/accountModel.js";
 import bcrypt from "bcrypt";
+import { Hospital } from "../../models/hospitalModel";
 
 describe("/api/accounts", () => {
     afterEach(async () => {
         await Account.collection.deleteMany({});
+        await Hospital.collection.deleteMany({});
         // server.close();
     });
 
@@ -22,17 +25,18 @@ describe("/api/accounts", () => {
         let token;
         let account1;
         let account2;
+        let hospital;
 
         beforeEach(async () => {
+            hospital = new Hospital({ name: "hospital1" });
             account1 = new Account({
                 email: "abc@abc.com",
                 password: "12345",
-                hospitalName: "hospital1",
+                hospital: hospital._id,
             });
             account2 = new Account({
                 email: "abcd@abcd.com",
                 password: "123456",
-                hospitalName: "hospital1",
                 accessLevel: roles.admin,
             });
             await account1.save();
@@ -71,17 +75,21 @@ describe("/api/accounts", () => {
         let account1;
         let account2;
 
+        let hospital;
+
         beforeEach(async () => {
+            hospital = new Hospital({ name: "hospital1" });
+            await hospital.save();
+
             account1 = new Account({
                 email: "abc@abc.com",
                 password: "12345",
-                hospitalName: "hospital1",
             });
             account2 = new Account({
                 email: "abcd@abcd.com",
                 password: "123456",
-                hospitalName: "hospital1",
-                accessLevel: roles.admin,
+                hospital: hospital._id,
+                accessLevel: roles.hospital,
             });
 
             await account1.save();
@@ -120,17 +128,27 @@ describe("/api/accounts", () => {
             expect(response.status).toBe(200);
             expect(response.body).toMatchObject({
                 accessLevel: roles.user,
+                profiles: [],
             });
+            expect(response.body).not.toHaveProperty("hospital");
             expect(response.body).not.toHaveProperty("password");
         });
 
-        it("should return role if role is set in account", async () => {
+        it("should return accessLevel if accessLevel is set in account and return hospital if role is hospital", async () => {
             const response = await exec();
 
             expect(response.status).toBe(200);
+            // expect(response.body).toHaveProperty(
+            //     "accessLevel",
+            //     account2.accessLevel
+            // );
             expect(response.body).toMatchObject({
                 accessLevel: account2.accessLevel,
             });
+            expect(response.body.hospital._id).toBe(
+                account2.hospital.toString()
+            );
+            // expect(response.body).not.toHaveProperty("profiles");
             expect(response.body).not.toHaveProperty("password");
         });
     });
@@ -233,22 +251,8 @@ describe("/api/accounts", () => {
             expect(response.status).toBe(400);
         });
 
-        it("should return 400 if phone number is less than 10 characters", async () => {
-            params.phone = "123";
-            const response = await exec();
-
-            expect(response.status).toBe(400);
-        });
-
-        it("should return 400 if phone number is greater than 14 characters", async () => {
-            params.phone = "+91 12345123456";
-            const response = await exec();
-
-            expect(response.status).toBe(400);
-        });
-
         it("should return 400 if additional parameters are passed", async () => {
-            params.other = "abc";
+            params.oldPassword = "abc";
             const response = await exec();
 
             expect(response.status).toBe(400);
@@ -275,16 +279,20 @@ describe("/api/accounts", () => {
     describe("POST /register", () => {
         let token;
         let params;
+        let hospital;
 
-        beforeEach(() => {
+        beforeEach(async () => {
+            hospital = new Hospital({ name: "hospital1" });
+            await hospital.save();
+
             token = new Account({
                 accessLevel: roles.admin,
             }).generateAuthToken();
             params = {
                 email: "abc@abc.com",
                 password: "Abc@starbooks1234",
-                hospitalName: "hospital1",
-                accessLevel: roles.doctor,
+                hospitalId: hospital._id,
+                accessLevel: roles.hospital,
             };
         });
 
@@ -332,7 +340,7 @@ describe("/api/accounts", () => {
         });
 
         it("should return 400 if email is already registered", async () => {
-            const account = new Account(params);
+            const account = new Account(_.pick(params, ["email", "password"]));
             await account.save();
 
             const response = await exec();
@@ -382,29 +390,22 @@ describe("/api/accounts", () => {
             expect(response.status).toBe(400);
         });
 
-        it("should return 400 if hospitalName is not provided", async () => {
-            delete params.hospitalName;
+        it("should return 400 if hospitalId is not provided", async () => {
+            delete params.hospitalId;
             const response = await exec();
 
             expect(response.status).toBe(400);
         });
 
-        it("should return 400 if hospitalName is less than 3 characters", async () => {
-            params.hospitalName = "ab";
+        it("should return 400 if hospitalId is not a valid Id", async () => {
+            params.hospitalId = 1234;
             const response = await exec();
 
             expect(response.status).toBe(400);
         });
 
-        it("should return 400 if phone number is less than 10 characters", async () => {
-            params.phone = "123";
-            const response = await exec();
-
-            expect(response.status).toBe(400);
-        });
-
-        it("should return 400 if phone number is greater than 14 characters", async () => {
-            params.phone = "+91 12345123456";
+        it("should return 400 if no hospital with the given hospitalId exists", async () => {
+            params.hospitalId = mongoose.Types.ObjectId();
             const response = await exec();
 
             expect(response.status).toBe(400);
@@ -445,7 +446,7 @@ describe("/api/accounts", () => {
         });
     });
 
-    describe("PATCH /resetPassword", () => {
+    describe("PATCH /changePassword", () => {
         let id;
         // let token;
         let params;
@@ -459,7 +460,6 @@ describe("/api/accounts", () => {
             const account = new Account({
                 email: "abc@abc.com",
                 password: password,
-                hospitalName: "hospital1",
             });
             await account.save();
             id = account._id;
@@ -475,7 +475,7 @@ describe("/api/accounts", () => {
         const exec = function () {
             return (
                 request(server)
-                    .patch("/api/accounts/resetPassword")
+                    .patch("/api/accounts/changePassword")
                     // .set("x-auth-token", token)
                     .send(params)
             );
@@ -603,7 +603,6 @@ describe("/api/accounts", () => {
             const account = new Account({
                 email: "abc@abc.com",
                 password: password,
-                hospitalName: "hospital1",
             });
             await account.save();
             id = account._id;
@@ -861,7 +860,6 @@ describe("/api/accounts", () => {
             const account = new Account({
                 email: "abc@abc.com",
                 password: password,
-                hospitalName: "hospital1",
             });
             await account.save();
             id = account._id;

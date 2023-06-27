@@ -1,7 +1,11 @@
-const a = [];
-
-{
-    a.push(1);
+async function ProcessAsync() {
+    setTimeout(function () {
+        console.log("Async End");
+    }, 2000);
 }
 
-console.log(a);
+await ProcessAsync();
+setTimeout(() => {
+    console.log("Timeout End");
+}, 1000);
+console.log("End");

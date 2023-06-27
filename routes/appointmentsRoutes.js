@@ -6,7 +6,7 @@ import { auth } from "../middleware/auth.js";
 import { checkOwner } from "../middleware/checkOwner.js";
 import { validateBody, validateEachParameter } from "../middleware/validate.js";
 import validateObjectId from "../middleware/validateObjectId.js";
-import { Patient } from "../models/patientModel.js";
+import { Profile } from "../models/profileModel.js";
 import { Account, roles } from "../models/accountModel.js";
 import {
     Appointment,
@@ -17,12 +17,12 @@ import {
     rescheduleAppointmentSchemaObject,
 } from "../models/appointmentModel.js";
 import moment from "moment";
-import { doctor } from "../middleware/doctor.js";
+import { doctor } from "../middleware/hospital.js";
 import { checkAccess } from "../middleware/checkAccess.js";
-import { Purpose } from "../models/purposeModel.js";
+import { Hospital } from "../models/hospitalModel.js";
 const router = express.Router();
 
-router.get("/", auth, async (req, res) => {
+router.get("/", [auth, doctor], async (req, res) => {
     let queryStr = JSON.stringify({ ...req.query });
     queryStr = queryStr.replace(
         /\b(gt|gte|lt|lte|eq|ne)\b/g,
@@ -30,11 +30,54 @@ router.get("/", auth, async (req, res) => {
     );
     const query = JSON.parse(queryStr);
 
-    if (req.account.accessLevel == roles.doctor)
-        query.createdByAccountId = req.account._id;
+    switch (req.account.accessLevel) {
+        case roles.hospital:
+            query.createdByAccountId = req.account._id;
+            break;
+        case roles.user:
+            if (!Object.keys(query).includes("profileId"))
+                return res.status(400).send("Please provide profileId");
+            query.profile = query.profileId;
+            delete query.profileId;
+            break;
+        case roles.admin:
+            break;
+        default:
+            return res.status(403).send("Invalid User Type");
+    }
+
+    let date = query.date ? date : undefined;
+    delete query.date;
 
     const appointments = await Appointment.find(query);
-    res.send(appointments);
+    res.send(
+        date
+            ? appointments.filter((a) => moment(a.timeSlot).isSame(date, "day"))
+            : appointments
+    );
+});
+
+router.get("/openslots", auth, async (req, res) => {
+    let queryStr = JSON.stringify({ ...req.query });
+    queryStr = queryStr.replace(
+        /\b(gt|gte|lt|lte|eq|ne)\b/g,
+        (match) => `$${match}`
+    );
+    const query = JSON.parse(queryStr);
+    query.profile = undefined;
+
+    if (req.account.accessLevel == roles.hospital)
+        query.createdByAccountId = req.account._id;
+
+    let date = query.date ? date : undefined;
+    delete query.date;
+
+    const appointments = await Appointment.find(query);
+    res.send(
+        date
+            ? appointments.filter((a) => moment(a.timeSlot).isSame(date, "day"))
+            : appointments
+    );
 });
 
 // router.get(
@@ -51,7 +94,7 @@ router.post(
     [auth, doctor, validateBody(createSlotsSchemaObject)],
     async (req, res) => {
         let createdByAccountId = req.account._id;
-        if (req.account.accessLevel != roles.doctor) {
+        if (req.account.accessLevel != roles.hospital) {
             if (!req.body.createdByAccountId) {
                 return res
                     .status(400)
@@ -60,7 +103,7 @@ router.post(
 
             const doctor = await Account.findById(req.body.createdByAccountId);
             if (!doctor) return res.status(400).send("Invalid account Id");
-            if (doctor.accessLevel != roles.doctor)
+            if (doctor.accessLevel != roles.hospital)
                 return res.status(400).send("Invalid doctor Id");
 
             createdByAccountId = doctor._id;
@@ -100,25 +143,25 @@ router.patch(
         ),
     ],
     async (req, res) => {
-        const patient = await Patient.findById(req.body.patientId);
-        if (!patient) return res.status(400).send("Invalid patientId");
-        const purpose = await Purpose.findById(req.body.purposeId);
-        if (!purpose) return res.status(400).send("Invalid purposeId");
+        const profile = await Profile.findById(req.body.profileId);
+        if (!profile) return res.status(400).send("Invalid profileId");
+        const hospital = await Hospital.findById(req.body.hospitalId);
+        if (!hospital) return res.status(400).send("Invalid hospitalId");
 
         let appointment = await Appointment.findById(req.params.id);
         if (!appointment) res.status(404).send("Resource not found");
 
-        if (appointment.patientId)
+        if (appointment.profile)
             return res
                 .status(400)
                 .send("Appointment slot has already been booked");
 
-        appointment.patientId = patient._id;
-        appointment.purpose = purpose;
+        appointment.profile = profile._id;
+        appointment.hospital = hospital;
         await appointment.save();
 
-        patient.appointments.push(appointment._id);
-        await patient.save();
+        profile.appointments.push(appointment._id);
+        await profile.save();
 
         res.send(appointment);
     }
@@ -130,21 +173,17 @@ router.patch(
         validateObjectId,
         auth,
         validateBody(rescheduleAppointmentSchemaObject),
-        checkOwner(
-            [roles.admin, roles.user],
-            Appointment,
-            "createdByAccountId"
-        ),
+        checkOwner([roles.admin, roles.user], Appointment, "hospital"),
         checkAccess(
-            [roles.admin, roles.doctor],
-            "patients",
+            [roles.admin, roles.hospital],
+            "profiles",
             Appointment,
-            "patientId"
+            "profile"
         ),
     ],
     async (req, res) => {
-        const purpose = await Purpose.findById(req.body.purposeId);
-        if (!purpose) return res.status(400).send("Invalid purposeId");
+        const hospital = await Hospital.findById(req.body.hospitalId);
+        if (!hospital) return res.status(400).send("Invalid hospitalId");
 
         let newAppointment = await Appointment.findById(
             req.body.newAppointmentId
@@ -163,28 +202,28 @@ router.patch(
                 .send("Cannot reschedule appointment to a different doctor");
         }
 
-        if (!appointment.patientId)
+        if (!appointment.profile)
             return res.status(400).send("Appointment has not been booked yet");
 
-        if (newAppointment.patientId)
+        if (newAppointment.profile)
             return res
                 .status(400)
                 .send("New appointment slot has already been booked");
 
-        const patient = await Patient.findById(appointment.patientId);
-        patient.appointments.splice(
-            patient.appointments.indexOf(appointment._id),
+        const profile = await Profile.findById(appointment.profile);
+        profile.appointments.splice(
+            profile.appointments.indexOf(appointment._id),
             1
         );
-        patient.appointments.push(newAppointment._id);
-        await patient.save();
+        profile.appointments.push(newAppointment._id);
+        await profile.save();
 
-        newAppointment.patientId = appointment.patientId;
-        newAppointment.purpose = purpose;
+        newAppointment.profile = { ...appointment.profile };
+        newAppointment.hospital = hospital;
         await newAppointment.save();
 
-        appointment.patientId = undefined;
-        appointment.purpose = undefined;
+        appointment.profile = undefined;
+        appointment.hospital = undefined;
         await appointment.save();
 
         res.send(newAppointment);
@@ -202,17 +241,17 @@ router.patch(
             "createdByAccountId"
         ),
         checkAccess(
-            [roles.admin, roles.doctor],
-            "patients",
+            [roles.admin, roles.hospital],
+            "profiles",
             Appointment,
-            "patientId"
+            "profile"
         ),
     ],
     async (req, res) => {
         const appointment = await Appointment.findById(req.params.id);
         if (!appointment) res.status(404).send("Resource not found");
 
-        if (!appointment.patientId)
+        if (!appointment.profile)
             return res
                 .status(400)
                 .send("Appointment slot has not yet been booked");
@@ -230,12 +269,12 @@ router.patch(
             createdByAccountId: appointment.createdByAccountId,
         }).save();
 
-        const patient = await Patient.findById(appointment.patientId);
-        patient.appointments.splice(
-            patient.appointments.indexOf(appointment._id),
+        const profile = await Profile.findById(appointment.profile._id);
+        profile.appointments.splice(
+            profile.appointments.indexOf(appointment._id),
             1
         );
-        await patient.save();
+        await profile.save();
 
         res.send(appointment);
     }
@@ -245,12 +284,12 @@ router.delete("/:id", [validateObjectId, auth, admin], async (req, res) => {
     const appointment = await Appointment.findByIdAndDelete(req.params.id);
     if (!appointment) return res.status(404).send("Resource not found");
 
-    const patient = await Patient.findById(appointment.patientId);
-    patient.appointments.splice(
-        patient.appointments.indexOf(appointment._id),
+    const profile = await Profile.findById(appointment.profile._id);
+    profile.appointments.splice(
+        profile.appointments.indexOf(appointment._id),
         1
     );
-    await patient.save();
+    await profile.save();
 
     res.send(appointment);
 });

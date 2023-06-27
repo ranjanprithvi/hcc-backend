@@ -18,7 +18,7 @@ describe("admin middleware", () => {
 
     it("should call next if account is at least doctor access level", () => {
         const account = {
-            accessLevel: roles.doctor,
+            accessLevel: roles.hospital,
         };
         const req = {
             account: account,

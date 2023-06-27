@@ -4,13 +4,13 @@ import helmet from "helmet";
 import morgan from "morgan";
 import { logger } from "./logger.js";
 import cors from "cors";
-import purposes from "../routes/purposesRoutes.js";
-import patients from "../routes/patientsRoutes.js";
+import hospitals from "../routes/hospitalsRoutes.js";
+import doctors from "../routes/doctorsRoutes.js";
+import profiles from "../routes/profilesRoutes.js";
 import auth from "../routes/authRoutes.js";
 import accounts from "../routes/accountsRoutes.js";
 import appointments from "../routes/appointmentsRoutes.js";
-import recordTypes from "../routes/recordTypesRoutes.js";
-import fields from "../routes/fieldsRoutes.js";
+import specializations from "../routes/specializationsRoutes.js";
 import medications from "../routes/medicationsRoutes.js";
 import prescriptions from "../routes/prescriptionsRoutes.js";
 import medicalRecords from "../routes/medicalRecordsRoutes.js";
@@ -26,13 +26,13 @@ export default function initialiseRoutes(app) {
     app.use(morgan("tiny"));
 
     app.use("/api/auth", auth);
-    app.use("/api/patients", patients);
+    app.use("/api/profiles", profiles);
     app.use("/api/accounts", accounts);
     app.use("/api/appointments", appointments);
-    app.use("/api/purposes", purposes);
+    app.use("/api/doctors", doctors);
+    app.use("/api/hospitals", hospitals);
     app.use("/api/medicalRecords", medicalRecords);
-    app.use("/api/recordTypes", recordTypes);
-    app.use("/api/fields", fields);
+    app.use("/api/specializations", specializations);
     app.use("/api/medications", medications);
     app.use("/api/prescriptions", prescriptions);
 

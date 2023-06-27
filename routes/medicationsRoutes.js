@@ -7,7 +7,7 @@ import {
     medicationSchemaObject,
 } from "../models/medicationModel.js";
 import { validateBody } from "../middleware/validate.js";
-import { doctor } from "../middleware/doctor.js";
+import { doctor } from "../middleware/hospital.js";
 const router = express.Router();
 
 router.get("/", async (req, res) => {

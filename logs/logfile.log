@@ -180,21 +180,21 @@
 2022-12-14T10:26:04.134Z [Starbooks] info: Morgan enabled
 2022-12-14T10:26:04.149Z [Starbooks] info: Listening on port 3000..
 2022-12-14T10:26:04.198Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-14T10:26:04.476Z [Starbooks] error: patient validation failed: dob: Cast to Number failed for value "1990-09-13T18:30:00.000Z" (type string) at path "dob" patient validation failed: dob: Cast to Number failed for value "1990-09-13T18:30:00.000Z" (type string) at path "dob"
-2022-12-14T10:26:04.495Z [Starbooks] error: patient validation failed: dob: Cast to Number failed for value "1990-09-13T18:30:00.000Z" (type string) at path "dob" patient validation failed: dob: Cast to Number failed for value "1990-09-13T18:30:00.000Z" (type string) at path "dob"
+2022-12-14T10:26:04.476Z [Starbooks] error: profile validation failed: dob: Cast to Number failed for value "1990-09-13T18:30:00.000Z" (type string) at path "dob" profile validation failed: dob: Cast to Number failed for value "1990-09-13T18:30:00.000Z" (type string) at path "dob"
+2022-12-14T10:26:04.495Z [Starbooks] error: profile validation failed: dob: Cast to Number failed for value "1990-09-13T18:30:00.000Z" (type string) at path "dob" profile validation failed: dob: Cast to Number failed for value "1990-09-13T18:30:00.000Z" (type string) at path "dob"
 2022-12-14T10:26:27.358Z [Starbooks] info: Morgan enabled
 2022-12-14T10:26:27.373Z [Starbooks] info: Listening on port 3000..
 2022-12-14T10:26:27.404Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-14T10:26:27.703Z [Starbooks] error: patient validation failed: dob: Cast to Number failed for value "1990-09-13T18:30:00.000Z" (type string) at path "dob" patient validation failed: dob: Cast to Number failed for value "1990-09-13T18:30:00.000Z" (type string) at path "dob"
-2022-12-14T10:26:27.723Z [Starbooks] error: patient validation failed: dob: Cast to Number failed for value "1990-09-13T18:30:00.000Z" (type string) at path "dob" patient validation failed: dob: Cast to Number failed for value "1990-09-13T18:30:00.000Z" (type string) at path "dob"
+2022-12-14T10:26:27.703Z [Starbooks] error: profile validation failed: dob: Cast to Number failed for value "1990-09-13T18:30:00.000Z" (type string) at path "dob" profile validation failed: dob: Cast to Number failed for value "1990-09-13T18:30:00.000Z" (type string) at path "dob"
+2022-12-14T10:26:27.723Z [Starbooks] error: profile validation failed: dob: Cast to Number failed for value "1990-09-13T18:30:00.000Z" (type string) at path "dob" profile validation failed: dob: Cast to Number failed for value "1990-09-13T18:30:00.000Z" (type string) at path "dob"
 2022-12-14T10:27:49.983Z [Starbooks] info: Morgan enabled
 2022-12-14T10:27:49.995Z [Starbooks] info: Listening on port 3000..
 2022-12-14T10:27:50.010Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
 2022-12-14T10:27:53.165Z [Starbooks] info: Morgan enabled
 2022-12-14T10:27:53.171Z [Starbooks] info: Listening on port 3000..
 2022-12-14T10:27:53.188Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-14T10:28:15.244Z [Starbooks] error: patient validation failed: dob: Cast to Number failed for value "1990-09-13T18:30:00.000Z" (type string) at path "dob" patient validation failed: dob: Cast to Number failed for value "1990-09-13T18:30:00.000Z" (type string) at path "dob"
-2022-12-14T10:28:29.410Z [Starbooks] error: patient validation failed: dob: Cast to Number failed for value "1990-09-13T18:30:00.000Z" (type string) at path "dob" patient validation failed: dob: Cast to Number failed for value "1990-09-13T18:30:00.000Z" (type string) at path "dob"
+2022-12-14T10:28:15.244Z [Starbooks] error: profile validation failed: dob: Cast to Number failed for value "1990-09-13T18:30:00.000Z" (type string) at path "dob" profile validation failed: dob: Cast to Number failed for value "1990-09-13T18:30:00.000Z" (type string) at path "dob"
+2022-12-14T10:28:29.410Z [Starbooks] error: profile validation failed: dob: Cast to Number failed for value "1990-09-13T18:30:00.000Z" (type string) at path "dob" profile validation failed: dob: Cast to Number failed for value "1990-09-13T18:30:00.000Z" (type string) at path "dob"
 2022-12-14T10:28:35.124Z [Starbooks] info: Morgan enabled
 2022-12-14T10:28:35.141Z [Starbooks] info: Listening on port 3000..
 2022-12-14T10:28:35.165Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
@@ -212,8 +212,8 @@
 2022-12-14T10:34:52.744Z [Starbooks] info: Morgan enabled
 2022-12-14T10:34:52.765Z [Starbooks] info: Listening on port 3000..
 2022-12-14T10:34:52.798Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-14T10:34:53.141Z [Starbooks] error: patient is not defined patient is not defined
-2022-12-14T10:34:53.159Z [Starbooks] error: patient is not defined patient is not defined
+2022-12-14T10:34:53.141Z [Starbooks] error: profile is not defined profile is not defined
+2022-12-14T10:34:53.159Z [Starbooks] error: profile is not defined profile is not defined
 2022-12-14T10:35:11.022Z [Starbooks] info: Morgan enabled
 2022-12-14T10:35:11.046Z [Starbooks] info: Listening on port 3000..
 2022-12-14T10:35:11.090Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
@@ -336,8 +336,8 @@
 2022-12-14T11:19:48.920Z [Starbooks] info: Morgan enabled
 2022-12-14T11:19:48.935Z [Starbooks] info: Listening on port 3000..
 2022-12-14T11:19:48.970Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-14T11:19:49.282Z [Starbooks] error: patient validation failed: dob: Path `dob` is required., gender: Path `gender` is required., name: Path `name` is required., accountId: Path `accountId` is required. patient validation failed: dob: Path `dob` is required., gender: Path `gender` is required., name: Path `name` is required., accountId: Path `accountId` is required.
-2022-12-14T11:19:49.304Z [Starbooks] error: patient validation failed: dob: Path `dob` is required., gender: Path `gender` is required., name: Path `name` is required., accountId: Path `accountId` is required. patient validation failed: dob: Path `dob` is required., gender: Path `gender` is required., name: Path `name` is required., accountId: Path `accountId` is required.
+2022-12-14T11:19:49.282Z [Starbooks] error: profile validation failed: dob: Path `dob` is required., gender: Path `gender` is required., name: Path `name` is required., accountId: Path `accountId` is required. profile validation failed: dob: Path `dob` is required., gender: Path `gender` is required., name: Path `name` is required., accountId: Path `accountId` is required.
+2022-12-14T11:19:49.304Z [Starbooks] error: profile validation failed: dob: Path `dob` is required., gender: Path `gender` is required., name: Path `name` is required., accountId: Path `accountId` is required. profile validation failed: dob: Path `dob` is required., gender: Path `gender` is required., name: Path `name` is required., accountId: Path `accountId` is required.
 2022-12-14T11:20:04.975Z [Starbooks] info: Morgan enabled
 2022-12-14T11:20:04.992Z [Starbooks] info: Listening on port 3000..
 2022-12-14T11:20:05.030Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
@@ -557,7 +557,7 @@
 2022-12-15T07:24:02.747Z [Starbooks] error: Cannot set headers after they are sent to the client Cannot set headers after they are sent to the client
 2022-12-15T07:24:02.963Z [Starbooks] error: Cannot set headers after they are sent to the client Cannot set headers after they are sent to the client
 2022-12-15T07:24:03.313Z [Starbooks] error: Cannot set headers after they are sent to the client Cannot set headers after they are sent to the client
-2022-12-15T07:24:03.536Z [Starbooks] error: No matching document found for id "639acb9306009788a2541032" version 0 modifiedPaths "patients" No matching document found for id "639acb9306009788a2541032" version 0 modifiedPaths "patients"
+2022-12-15T07:24:03.536Z [Starbooks] error: No matching document found for id "639acb9306009788a2541032" version 0 modifiedPaths "profiles" No matching document found for id "639acb9306009788a2541032" version 0 modifiedPaths "profiles"
 2022-12-15T07:33:48.180Z [Starbooks] info: Morgan enabled
 2022-12-15T07:33:48.195Z [Starbooks] info: Listening on port 3000..
 2022-12-15T07:33:48.235Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
@@ -587,7 +587,7 @@
 2022-12-15T07:56:39.276Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
 2022-12-15T07:56:39.504Z [Starbooks] error: Cannot set headers after they are sent to the client Cannot set headers after they are sent to the client
 2022-12-15T07:56:39.909Z [Starbooks] error: Cannot set headers after they are sent to the client Cannot set headers after they are sent to the client
-2022-12-15T07:56:40.237Z [Starbooks] error: No matching document found for id "639ad33822fd7e7f76457977" version 0 modifiedPaths "patients" No matching document found for id "639ad33822fd7e7f76457977" version 0 modifiedPaths "patients"
+2022-12-15T07:56:40.237Z [Starbooks] error: No matching document found for id "639ad33822fd7e7f76457977" version 0 modifiedPaths "profiles" No matching document found for id "639ad33822fd7e7f76457977" version 0 modifiedPaths "profiles"
 2022-12-15T08:00:04.302Z [Starbooks] info: Morgan enabled
 2022-12-15T08:00:04.318Z [Starbooks] info: Listening on port 3000..
 2022-12-15T08:00:04.379Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
@@ -920,167 +920,167 @@
 2022-12-19T20:36:28.971Z [Starbooks] info: Morgan enabled
 2022-12-19T20:36:28.985Z [Starbooks] info: Listening on port 3000..
 2022-12-19T20:36:29.036Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T20:36:29.654Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-19T20:36:29.654Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-19T20:37:05.020Z [Starbooks] info: Morgan enabled
 2022-12-19T20:37:05.032Z [Starbooks] info: Listening on port 3000..
 2022-12-19T20:37:05.079Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T20:37:05.685Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-19T20:37:05.685Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-19T20:37:17.823Z [Starbooks] info: Morgan enabled
 2022-12-19T20:37:17.837Z [Starbooks] info: Listening on port 3000..
 2022-12-19T20:37:17.886Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T20:37:18.423Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-19T20:37:18.423Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-19T20:39:56.720Z [Starbooks] info: Morgan enabled
 2022-12-19T20:39:56.732Z [Starbooks] info: Listening on port 3000..
 2022-12-19T20:39:56.773Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T20:39:57.348Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-19T20:39:57.348Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-19T20:40:14.149Z [Starbooks] info: Morgan enabled
 2022-12-19T20:40:14.161Z [Starbooks] info: Listening on port 3000..
 2022-12-19T20:40:14.202Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T20:40:14.777Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-19T20:40:14.777Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-19T20:41:24.556Z [Starbooks] info: Morgan enabled
 2022-12-19T20:41:24.568Z [Starbooks] info: Listening on port 3000..
 2022-12-19T20:41:24.607Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T20:41:25.141Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-19T20:41:25.141Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-19T20:41:59.282Z [Starbooks] info: Morgan enabled
 2022-12-19T20:41:59.296Z [Starbooks] info: Listening on port 3000..
 2022-12-19T20:41:59.335Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T20:41:59.867Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-19T20:41:59.867Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-19T20:42:15.157Z [Starbooks] info: Morgan enabled
 2022-12-19T20:42:15.175Z [Starbooks] info: Listening on port 3000..
 2022-12-19T20:42:15.235Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T20:42:15.838Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-19T20:42:15.838Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-19T20:42:36.153Z [Starbooks] info: Morgan enabled
 2022-12-19T20:42:36.166Z [Starbooks] info: Listening on port 3000..
 2022-12-19T20:42:36.204Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T20:42:36.766Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-19T20:42:36.766Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-19T21:40:23.696Z [Starbooks] info: Morgan enabled
 2022-12-19T21:40:23.718Z [Starbooks] info: Listening on port 3000..
 2022-12-19T21:40:23.751Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T21:40:24.336Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-19T21:40:24.336Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-19T21:40:53.250Z [Starbooks] info: Morgan enabled
 2022-12-19T21:40:53.263Z [Starbooks] info: Listening on port 3000..
 2022-12-19T21:40:53.292Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T21:40:53.884Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-19T21:40:53.884Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-19T21:42:37.326Z [Starbooks] info: Morgan enabled
 2022-12-19T21:42:37.340Z [Starbooks] info: Listening on port 3000..
 2022-12-19T21:42:37.366Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T21:42:37.964Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-19T21:42:37.964Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-19T22:31:58.721Z [Starbooks] info: Morgan enabled
 2022-12-19T22:31:58.733Z [Starbooks] info: Listening on port 3000..
 2022-12-19T22:31:58.769Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T22:31:59.470Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
-2022-12-19T22:31:59.740Z [Starbooks] error: patient is not defined patient is not defined
-2022-12-19T22:31:59.766Z [Starbooks] error: patient is not defined patient is not defined
+2022-12-19T22:31:59.470Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2022-12-19T22:31:59.740Z [Starbooks] error: profile is not defined profile is not defined
+2022-12-19T22:31:59.766Z [Starbooks] error: profile is not defined profile is not defined
 2022-12-19T22:32:38.663Z [Starbooks] info: Morgan enabled
 2022-12-19T22:32:38.678Z [Starbooks] info: Listening on port 3000..
 2022-12-19T22:32:38.710Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T22:32:39.290Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
-2022-12-19T22:32:39.547Z [Starbooks] error: patient is not defined patient is not defined
-2022-12-19T22:32:39.574Z [Starbooks] error: patient is not defined patient is not defined
+2022-12-19T22:32:39.290Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2022-12-19T22:32:39.547Z [Starbooks] error: profile is not defined profile is not defined
+2022-12-19T22:32:39.574Z [Starbooks] error: profile is not defined profile is not defined
 2022-12-19T22:35:03.051Z [Starbooks] info: Morgan enabled
 2022-12-19T22:35:03.074Z [Starbooks] info: Listening on port 3000..
 2022-12-19T22:35:03.116Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T22:35:03.697Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
-2022-12-19T22:35:04.021Z [Starbooks] error: patient is not defined patient is not defined
-2022-12-19T22:35:04.056Z [Starbooks] error: patient is not defined patient is not defined
+2022-12-19T22:35:03.697Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2022-12-19T22:35:04.021Z [Starbooks] error: profile is not defined profile is not defined
+2022-12-19T22:35:04.056Z [Starbooks] error: profile is not defined profile is not defined
 2022-12-19T22:37:26.758Z [Starbooks] info: Morgan enabled
 2022-12-19T22:37:26.777Z [Starbooks] info: Listening on port 3000..
 2022-12-19T22:37:26.841Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T22:37:27.441Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
-2022-12-19T22:37:27.722Z [Starbooks] error: patient is not defined patient is not defined
-2022-12-19T22:37:27.750Z [Starbooks] error: patient is not defined patient is not defined
+2022-12-19T22:37:27.441Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2022-12-19T22:37:27.722Z [Starbooks] error: profile is not defined profile is not defined
+2022-12-19T22:37:27.750Z [Starbooks] error: profile is not defined profile is not defined
 2022-12-19T22:39:33.435Z [Starbooks] info: Morgan enabled
 2022-12-19T22:39:33.459Z [Starbooks] info: Listening on port 3000..
 2022-12-19T22:39:33.505Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T22:39:34.190Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
-2022-12-19T22:39:34.573Z [Starbooks] error: patient is not defined patient is not defined
-2022-12-19T22:39:34.599Z [Starbooks] error: patient is not defined patient is not defined
+2022-12-19T22:39:34.190Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2022-12-19T22:39:34.573Z [Starbooks] error: profile is not defined profile is not defined
+2022-12-19T22:39:34.599Z [Starbooks] error: profile is not defined profile is not defined
 2022-12-19T22:47:35.730Z [Starbooks] info: Morgan enabled
 2022-12-19T22:47:35.751Z [Starbooks] info: Listening on port 3000..
 2022-12-19T22:47:35.783Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T22:47:36.367Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
-2022-12-19T22:47:36.520Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
-2022-12-19T22:47:36.641Z [Starbooks] error: patient is not defined patient is not defined
-2022-12-19T22:47:36.669Z [Starbooks] error: patient is not defined patient is not defined
-2022-12-19T22:47:36.749Z [Starbooks] error: patient is not defined patient is not defined
-2022-12-19T22:47:36.804Z [Starbooks] error: patient is not defined patient is not defined
-2022-12-19T22:47:36.838Z [Starbooks] error: patient is not defined patient is not defined
-2022-12-19T22:47:36.866Z [Starbooks] error: patient is not defined patient is not defined
+2022-12-19T22:47:36.367Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2022-12-19T22:47:36.520Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2022-12-19T22:47:36.641Z [Starbooks] error: profile is not defined profile is not defined
+2022-12-19T22:47:36.669Z [Starbooks] error: profile is not defined profile is not defined
+2022-12-19T22:47:36.749Z [Starbooks] error: profile is not defined profile is not defined
+2022-12-19T22:47:36.804Z [Starbooks] error: profile is not defined profile is not defined
+2022-12-19T22:47:36.838Z [Starbooks] error: profile is not defined profile is not defined
+2022-12-19T22:47:36.866Z [Starbooks] error: profile is not defined profile is not defined
 2022-12-19T22:57:10.381Z [Starbooks] info: Morgan enabled
 2022-12-19T22:57:10.405Z [Starbooks] info: Listening on port 3000..
 2022-12-19T22:57:10.429Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T22:57:10.995Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-19T22:57:10.995Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-19T22:57:11.151Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-19T23:05:39.423Z [Starbooks] info: Morgan enabled
 2022-12-19T23:05:39.442Z [Starbooks] info: Listening on port 3000..
 2022-12-19T23:05:39.478Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T23:05:40.082Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-19T23:05:40.082Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-19T23:05:40.239Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-19T23:08:03.709Z [Starbooks] info: Morgan enabled
 2022-12-19T23:08:03.728Z [Starbooks] info: Listening on port 3000..
 2022-12-19T23:08:03.755Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T23:08:04.366Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-19T23:08:04.366Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-19T23:08:04.524Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-19T23:08:54.874Z [Starbooks] info: Morgan enabled
 2022-12-19T23:08:54.889Z [Starbooks] info: Listening on port 3000..
 2022-12-19T23:08:54.942Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T23:08:55.607Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-19T23:08:55.607Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-19T23:08:55.793Z [Starbooks] error: Cannot set headers after they are sent to the client Cannot set headers after they are sent to the client
 2022-12-19T23:09:51.834Z [Starbooks] info: Morgan enabled
 2022-12-19T23:09:51.848Z [Starbooks] info: Listening on port 3000..
 2022-12-19T23:09:51.889Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T23:09:52.455Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-19T23:09:52.455Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-19T23:09:52.604Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-19T23:19:22.037Z [Starbooks] info: Morgan enabled
 2022-12-19T23:19:22.059Z [Starbooks] info: Listening on port 3000..
 2022-12-19T23:19:22.083Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T23:19:22.662Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-19T23:19:22.662Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-19T23:19:22.814Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-19T23:19:23.038Z [Starbooks] error: Cannot read properties of undefined (reading 'toString') Cannot read properties of undefined (reading 'toString')
 2022-12-19T23:22:17.480Z [Starbooks] info: Morgan enabled
 2022-12-19T23:22:17.498Z [Starbooks] info: Listening on port 3000..
 2022-12-19T23:22:17.540Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T23:22:18.139Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-19T23:22:18.139Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-19T23:22:18.318Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-19T23:22:18.600Z [Starbooks] error: Cannot read properties of undefined (reading 'toString') Cannot read properties of undefined (reading 'toString')
 2022-12-19T23:24:14.053Z [Starbooks] info: Morgan enabled
 2022-12-19T23:24:14.063Z [Starbooks] info: Listening on port 3000..
 2022-12-19T23:24:14.079Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T23:24:14.457Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-19T23:24:14.457Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-19T23:24:14.546Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-19T23:25:16.075Z [Starbooks] info: Morgan enabled
 2022-12-19T23:25:16.094Z [Starbooks] info: Listening on port 3000..
 2022-12-19T23:25:16.131Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T23:25:16.694Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-19T23:25:16.694Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-19T23:25:16.847Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-19T23:25:17.068Z [Starbooks] error: Cannot read properties of undefined (reading 'toString') Cannot read properties of undefined (reading 'toString')
 2022-12-19T23:28:28.414Z [Starbooks] info: Morgan enabled
 2022-12-19T23:28:28.424Z [Starbooks] info: Listening on port 3000..
 2022-12-19T23:28:28.444Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T23:28:28.807Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-19T23:28:28.807Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-19T23:28:28.892Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-19T23:28:29.024Z [Starbooks] error: Cannot read properties of undefined (reading 'toString') Cannot read properties of undefined (reading 'toString')
 2022-12-19T23:29:32.130Z [Starbooks] info: Morgan enabled
 2022-12-19T23:29:32.144Z [Starbooks] info: Listening on port 3000..
 2022-12-19T23:29:32.171Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T23:29:32.840Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-19T23:29:32.840Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-19T23:29:33.026Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-19T23:29:33.247Z [Starbooks] error: Cannot read properties of undefined (reading 'toString') Cannot read properties of undefined (reading 'toString')
 2022-12-19T23:30:08.708Z [Starbooks] info: Morgan enabled
 2022-12-19T23:30:08.728Z [Starbooks] info: Listening on port 3000..
 2022-12-19T23:30:08.772Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T23:30:09.338Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-19T23:30:09.338Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-19T23:30:09.488Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-19T23:30:09.705Z [Starbooks] error: Cannot read properties of undefined (reading 'toString') Cannot read properties of undefined (reading 'toString')
 2022-12-19T23:34:34.917Z [Starbooks] info: Morgan enabled
 2022-12-19T23:34:34.930Z [Starbooks] info: Listening on port 3000..
 2022-12-19T23:34:34.974Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-19T23:34:35.575Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-19T23:34:35.575Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-19T23:34:35.729Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-20T10:26:39.768Z [Starbooks] info: Morgan enabled
 2022-12-20T10:26:39.780Z [Starbooks] info: Listening on port 3000..
 2022-12-20T10:26:39.828Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-20T10:26:40.458Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T10:26:40.458Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T10:26:40.621Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-20T10:26:41.001Z [Starbooks] error: exclusionRoles.includes is not a function exclusionRoles.includes is not a function
 2022-12-20T10:26:41.022Z [Starbooks] error: exclusionRoles.includes is not a function exclusionRoles.includes is not a function
@@ -1093,7 +1093,7 @@
 2022-12-20T10:28:12.516Z [Starbooks] info: Morgan enabled
 2022-12-20T10:28:12.532Z [Starbooks] info: Listening on port 3000..
 2022-12-20T10:28:12.590Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-20T10:28:13.241Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T10:28:13.241Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T10:28:13.395Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-20T10:28:13.820Z [Starbooks] error: exclusionRoles.includes is not a function exclusionRoles.includes is not a function
 2022-12-20T10:28:13.842Z [Starbooks] error: exclusionRoles.includes is not a function exclusionRoles.includes is not a function
@@ -1106,139 +1106,139 @@
 2022-12-20T10:38:16.558Z [Starbooks] info: Morgan enabled
 2022-12-20T10:38:16.574Z [Starbooks] info: Listening on port 3000..
 2022-12-20T10:38:16.602Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-20T10:38:17.282Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T10:38:17.282Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T10:38:17.481Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-20T10:40:06.830Z [Starbooks] info: Morgan enabled
 2022-12-20T10:40:06.847Z [Starbooks] info: Listening on port 3000..
 2022-12-20T10:40:06.872Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-20T10:40:07.467Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T10:40:07.467Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T10:40:07.623Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-20T11:04:41.608Z [Starbooks] info: Morgan enabled
 2022-12-20T11:04:41.622Z [Starbooks] info: Listening on port 3000..
 2022-12-20T11:04:41.648Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-20T11:04:42.243Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
-2022-12-20T11:04:42.704Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T11:04:42.243Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2022-12-20T11:04:42.704Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T11:04:42.726Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:04:42.750Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:04:42.772Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:06:24.772Z [Starbooks] info: Morgan enabled
 2022-12-20T11:06:24.793Z [Starbooks] info: Listening on port 3000..
 2022-12-20T11:06:24.843Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-20T11:06:25.489Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
-2022-12-20T11:06:26.043Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T11:06:25.489Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2022-12-20T11:06:26.043Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T11:06:26.065Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:06:26.088Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:06:26.115Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:10:30.764Z [Starbooks] info: Morgan enabled
 2022-12-20T11:10:30.777Z [Starbooks] info: Listening on port 3000..
 2022-12-20T11:10:30.813Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-20T11:10:31.393Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T11:10:31.393Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T11:10:31.575Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-20T11:10:31.721Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:10:31.854Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:10:31.888Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:10:31.921Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:10:31.953Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
-2022-12-20T11:10:32.246Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T11:10:32.246Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T11:10:32.298Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:10:32.331Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:10:32.354Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:10:57.768Z [Starbooks] info: Morgan enabled
 2022-12-20T11:10:57.783Z [Starbooks] info: Listening on port 3000..
 2022-12-20T11:10:57.810Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-20T11:10:58.423Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T11:10:58.423Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T11:10:58.619Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-20T11:10:58.774Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:10:58.913Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:10:58.948Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:10:58.986Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:10:59.021Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
-2022-12-20T11:10:59.286Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T11:10:59.286Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T11:10:59.309Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:10:59.332Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:10:59.357Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:16:33.068Z [Starbooks] info: Morgan enabled
 2022-12-20T11:16:33.081Z [Starbooks] info: Listening on port 3000..
 2022-12-20T11:16:33.112Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-20T11:16:33.724Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T11:16:33.724Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T11:16:33.909Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
-2022-12-20T11:16:34.541Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T11:16:34.541Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T11:16:34.564Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:16:34.587Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:16:34.611Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:18:11.103Z [Starbooks] info: Morgan enabled
 2022-12-20T11:18:11.140Z [Starbooks] info: Listening on port 3000..
 2022-12-20T11:18:11.168Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-20T11:18:11.748Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T11:18:11.748Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T11:18:11.977Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
-2022-12-20T11:18:12.589Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T11:18:12.589Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T11:18:12.612Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:18:12.636Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:18:12.661Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:18:46.482Z [Starbooks] info: Morgan enabled
 2022-12-20T11:18:46.496Z [Starbooks] info: Listening on port 3000..
 2022-12-20T11:18:46.549Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-20T11:18:47.129Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T11:18:47.129Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T11:18:47.311Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
-2022-12-20T11:18:48.008Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T11:18:48.008Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T11:18:48.031Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:18:48.056Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:18:48.080Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:19:06.808Z [Starbooks] info: Morgan enabled
 2022-12-20T11:19:06.825Z [Starbooks] info: Listening on port 3000..
 2022-12-20T11:19:06.857Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-20T11:19:07.522Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T11:19:07.522Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T11:19:07.709Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
-2022-12-20T11:19:08.544Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T11:19:08.544Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T11:19:08.567Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:19:08.628Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:19:08.651Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:22:45.141Z [Starbooks] info: Morgan enabled
 2022-12-20T11:22:45.155Z [Starbooks] info: Listening on port 3000..
 2022-12-20T11:22:45.186Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-20T11:22:45.843Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T11:22:45.843Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T11:22:46.099Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
-2022-12-20T11:22:46.741Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T11:22:46.741Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T11:22:46.763Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:22:46.819Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:22:46.842Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:25:08.759Z [Starbooks] info: Morgan enabled
 2022-12-20T11:25:08.772Z [Starbooks] info: Listening on port 3000..
 2022-12-20T11:25:08.804Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-20T11:25:09.385Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T11:25:09.385Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T11:25:09.566Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
-2022-12-20T11:25:10.184Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T11:25:10.184Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T11:25:10.207Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:25:10.231Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:25:10.257Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
 2022-12-20T11:26:41.858Z [Starbooks] info: Morgan enabled
 2022-12-20T11:26:41.871Z [Starbooks] info: Listening on port 3000..
 2022-12-20T11:26:41.903Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-20T11:26:42.480Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T11:26:42.480Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T11:26:42.715Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
-2022-12-20T11:26:43.335Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T11:26:43.335Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T11:27:30.741Z [Starbooks] info: Morgan enabled
 2022-12-20T11:27:30.753Z [Starbooks] info: Listening on port 3000..
 2022-12-20T11:27:30.785Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-20T11:27:31.382Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T11:27:31.382Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T11:27:31.603Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
-2022-12-20T11:27:32.429Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T11:27:32.429Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T11:28:52.183Z [Starbooks] info: Morgan enabled
 2022-12-20T11:28:52.196Z [Starbooks] info: Listening on port 3000..
 2022-12-20T11:28:52.225Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-20T11:28:52.813Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T11:28:52.813Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T11:28:52.990Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
-2022-12-20T11:28:53.598Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T11:28:53.598Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T11:29:34.055Z [Starbooks] info: Morgan enabled
 2022-12-20T11:29:34.075Z [Starbooks] info: Listening on port 3000..
 2022-12-20T11:29:34.117Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-20T11:29:34.720Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T11:29:34.720Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T11:29:34.897Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
-2022-12-20T11:29:35.503Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T11:29:35.503Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T11:30:43.152Z [Starbooks] info: Morgan enabled
 2022-12-20T11:30:43.165Z [Starbooks] info: Listening on port 3000..
 2022-12-20T11:30:43.191Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-20T11:30:43.782Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T11:30:43.782Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T11:30:43.960Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-20T18:01:07.380Z [Starbooks] info: Morgan enabled
 2022-12-20T18:01:07.452Z [Starbooks] info: Listening on port 3000..
@@ -1267,7 +1267,7 @@
 2022-12-20T19:53:07.036Z [Starbooks] info: Morgan enabled
 2022-12-20T19:53:07.049Z [Starbooks] info: Listening on port 3000..
 2022-12-20T19:53:07.084Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-20T19:53:07.681Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-20T19:53:07.681Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-20T19:53:07.871Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-20T20:57:47.433Z [Starbooks] info: Morgan enabled
 2022-12-20T20:57:47.448Z [Starbooks] info: Listening on port 3000..
@@ -1293,7 +1293,7 @@
 2022-12-20T21:25:42.432Z [Starbooks] info: Morgan enabled
 2022-12-20T21:25:42.443Z [Starbooks] info: Listening on port 3000..
 2022-12-20T21:25:42.490Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-20T21:25:42.585Z [Starbooks] error: Cast to ObjectId failed for value "undefined" (type string) at path "patientId" for model "medicalRecord" Cast to ObjectId failed for value "undefined" (type string) at path "patientId" for model "medicalRecord"
+2022-12-20T21:25:42.585Z [Starbooks] error: Cast to ObjectId failed for value "undefined" (type string) at path "profileId" for model "medicalRecord" Cast to ObjectId failed for value "undefined" (type string) at path "profileId" for model "medicalRecord"
 2022-12-20T21:29:10.755Z [Starbooks] info: Morgan enabled
 2022-12-20T21:29:10.767Z [Starbooks] info: Listening on port 3000..
 2022-12-20T21:29:10.812Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
@@ -1948,7 +1948,7 @@
 2022-12-25T11:00:01.128Z [Starbooks] info: Morgan enabled
 2022-12-25T11:00:01.138Z [Starbooks] info: Listening on port 3000..
 2022-12-25T11:00:01.159Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-25T11:00:01.881Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-25T11:00:01.881Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-25T11:00:02.127Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-25T11:00:03.247Z [Starbooks] info: Morgan enabled
 2022-12-25T11:00:03.253Z [Starbooks] info: Listening on port 3000..
@@ -1977,7 +1977,7 @@
 2022-12-25T11:01:36.775Z [Starbooks] info: Morgan enabled
 2022-12-25T11:01:36.784Z [Starbooks] info: Listening on port 3000..
 2022-12-25T11:01:36.805Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-25T11:01:37.383Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-25T11:01:37.383Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-25T11:01:37.577Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-25T11:01:38.829Z [Starbooks] info: Morgan enabled
 2022-12-25T11:01:38.837Z [Starbooks] info: Listening on port 3000..
@@ -2015,7 +2015,7 @@
 2022-12-25T11:05:07.564Z [Starbooks] info: Morgan enabled
 2022-12-25T11:05:07.575Z [Starbooks] info: Listening on port 3000..
 2022-12-25T11:05:07.596Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-25T11:05:08.190Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-25T11:05:08.190Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-25T11:05:08.402Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-25T11:05:09.618Z [Starbooks] info: Morgan enabled
 2022-12-25T11:05:09.627Z [Starbooks] info: Listening on port 3000..
@@ -2047,7 +2047,7 @@
 2022-12-25T11:08:04.760Z [Starbooks] info: Morgan enabled
 2022-12-25T11:08:04.773Z [Starbooks] info: Listening on port 3000..
 2022-12-25T11:08:04.793Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-25T11:08:05.366Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-25T11:08:05.366Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-25T11:08:05.565Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-25T11:08:06.716Z [Starbooks] info: Morgan enabled
 2022-12-25T11:08:06.729Z [Starbooks] info: Listening on port 3000..
@@ -2076,7 +2076,7 @@
 2022-12-25T11:08:47.056Z [Starbooks] info: Morgan enabled
 2022-12-25T11:08:47.066Z [Starbooks] info: Listening on port 3000..
 2022-12-25T11:08:47.089Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-25T11:08:47.688Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-25T11:08:47.688Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-25T11:08:47.941Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-25T11:08:49.203Z [Starbooks] info: Morgan enabled
 2022-12-25T11:08:49.212Z [Starbooks] info: Listening on port 3000..
@@ -2111,7 +2111,7 @@
 2022-12-25T11:10:55.729Z [Starbooks] info: Morgan enabled
 2022-12-25T11:10:55.742Z [Starbooks] info: Listening on port 3000..
 2022-12-25T11:10:55.770Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-25T11:10:56.752Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-25T11:10:56.752Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-25T11:10:56.955Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-25T11:10:58.375Z [Starbooks] info: Morgan enabled
 2022-12-25T11:10:58.384Z [Starbooks] info: Listening on port 3000..
@@ -2134,42 +2134,42 @@
 2022-12-25T11:13:07.447Z [Starbooks] info: Morgan enabled
 2022-12-25T11:13:07.461Z [Starbooks] info: Listening on port 3000..
 2022-12-25T11:13:07.492Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-25T11:13:08.184Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-25T11:13:08.184Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-25T11:13:08.379Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-25T11:14:20.222Z [Starbooks] info: Morgan enabled
 2022-12-25T11:14:20.235Z [Starbooks] info: Listening on port 3000..
 2022-12-25T11:14:20.272Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-25T11:14:20.992Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-25T11:14:20.992Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-25T11:14:21.302Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-25T11:14:51.680Z [Starbooks] info: Morgan enabled
 2022-12-25T11:14:51.693Z [Starbooks] info: Listening on port 3000..
 2022-12-25T11:14:51.724Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-25T11:14:52.336Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-25T11:14:52.336Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-25T11:14:52.525Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-25T11:16:44.399Z [Starbooks] info: Morgan enabled
 2022-12-25T11:16:44.415Z [Starbooks] info: Listening on port 3000..
 2022-12-25T11:16:44.449Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-25T11:16:44.951Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-25T11:16:44.951Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-25T11:16:45.148Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-25T11:17:10.001Z [Starbooks] info: Morgan enabled
 2022-12-25T11:17:10.017Z [Starbooks] info: Listening on port 3000..
 2022-12-25T11:17:10.050Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-25T11:17:10.750Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-25T11:17:10.750Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-25T11:17:11.033Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-25T11:18:13.295Z [Starbooks] info: Morgan enabled
 2022-12-25T11:18:13.310Z [Starbooks] info: Listening on port 3000..
 2022-12-25T11:18:13.347Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-25T11:18:13.959Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-25T11:18:13.959Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-25T11:18:14.157Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-25T11:20:39.055Z [Starbooks] info: Morgan enabled
 2022-12-25T11:20:39.072Z [Starbooks] info: Listening on port 3000..
 2022-12-25T11:20:39.119Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-25T11:20:39.789Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-25T11:20:39.789Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-25T11:20:39.982Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-25T11:21:53.784Z [Starbooks] info: Morgan enabled
 2022-12-25T11:21:53.798Z [Starbooks] info: Listening on port 3000..
 2022-12-25T11:21:53.827Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-25T11:21:54.524Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-25T11:21:54.524Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-25T11:21:54.711Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-25T11:22:04.595Z [Starbooks] info: Morgan enabled
 2022-12-25T11:22:04.607Z [Starbooks] info: Listening on port 3000..
@@ -2183,7 +2183,7 @@
 2022-12-25T11:22:37.022Z [Starbooks] info: Morgan enabled
 2022-12-25T11:22:37.032Z [Starbooks] info: Listening on port 3000..
 2022-12-25T11:22:37.053Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-25T11:22:37.631Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-25T11:22:37.631Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-25T11:22:37.881Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-25T11:22:39.115Z [Starbooks] info: Morgan enabled
 2022-12-25T11:22:39.125Z [Starbooks] info: Listening on port 3000..
@@ -2254,7 +2254,7 @@
 2022-12-25T11:51:59.695Z [Starbooks] info: Morgan enabled
 2022-12-25T11:51:59.706Z [Starbooks] info: Listening on port 3000..
 2022-12-25T11:51:59.725Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-25T11:52:00.392Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-25T11:52:00.392Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-25T11:52:00.626Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-25T11:52:01.819Z [Starbooks] info: Morgan enabled
 2022-12-25T11:52:01.830Z [Starbooks] info: Listening on port 3000..
@@ -2283,7 +2283,7 @@
 2022-12-25T12:23:58.996Z [Starbooks] info: Morgan enabled
 2022-12-25T12:23:59.007Z [Starbooks] info: Listening on port 3000..
 2022-12-25T12:23:59.035Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2022-12-25T12:23:59.669Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2022-12-25T12:23:59.669Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2022-12-25T12:23:59.871Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2022-12-25T12:24:01.628Z [Starbooks] info: Morgan enabled
 2022-12-25T12:24:01.642Z [Starbooks] info: Listening on port 3000..
@@ -2333,7 +2333,7 @@
 2023-01-02T09:59:20.014Z [Starbooks] info: Morgan enabled
 2023-01-02T09:59:20.023Z [Starbooks] info: Listening on port 3000..
 2023-01-02T09:59:20.048Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
-2023-01-02T09:59:20.680Z [Starbooks] error: Cannot read properties of null (reading 'patientId') Cannot read properties of null (reading 'patientId')
+2023-01-02T09:59:20.680Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
 2023-01-02T09:59:20.897Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
 2023-01-02T09:59:22.166Z [Starbooks] info: Morgan enabled
 2023-01-02T09:59:22.176Z [Starbooks] info: Listening on port 3000..
@@ -2367,3 +2367,1098 @@
 2023-01-05T18:46:58.944Z [Starbooks] info: Morgan enabled
 2023-01-05T18:46:58.946Z [Starbooks] info: Listening on port 3000..
 2023-01-05T18:46:58.968Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-13T15:06:24.935Z [Starbooks] info: Morgan enabled
+2023-03-13T15:07:00.051Z [Starbooks] info: Morgan enabled
+2023-03-13T15:07:00.054Z [Starbooks] info: Listening on port 3000..
+2023-03-13T15:07:58.709Z [Starbooks] info: Morgan enabled
+2023-03-13T15:07:58.711Z [Starbooks] info: Listening on port 3000..
+2023-03-13T15:08:22.686Z [Starbooks] info: Morgan enabled
+2023-03-13T15:08:22.689Z [Starbooks] info: Listening on port 3001..
+2023-03-15T09:47:30.375Z [Starbooks] info: Morgan enabled
+2023-03-15T09:47:30.386Z [Starbooks] info: Listening on port 3001..
+2023-03-15T09:47:30.413Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T09:47:32.729Z [Starbooks] info: Morgan enabled
+2023-03-15T09:47:32.744Z [Starbooks] info: Listening on port 3001..
+2023-03-15T09:47:32.771Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T09:47:32.824Z [Starbooks] error: Cannot read properties of undefined (reading 'accessLevel') Cannot read properties of undefined (reading 'accessLevel')
+2023-03-15T09:47:32.860Z [Starbooks] error: Cannot read properties of undefined (reading 'accessLevel') Cannot read properties of undefined (reading 'accessLevel')
+2023-03-15T09:47:32.881Z [Starbooks] error: Cannot read properties of undefined (reading 'accessLevel') Cannot read properties of undefined (reading 'accessLevel')
+2023-03-15T09:47:33.375Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2023-03-15T09:47:33.584Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-15T09:47:34.870Z [Starbooks] info: Morgan enabled
+2023-03-15T09:47:34.880Z [Starbooks] info: Listening on port 3001..
+2023-03-15T09:47:34.902Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T09:47:36.755Z [Starbooks] info: Morgan enabled
+2023-03-15T09:47:36.766Z [Starbooks] info: Listening on port 3001..
+2023-03-15T09:47:36.788Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T09:47:40.248Z [Starbooks] info: Morgan enabled
+2023-03-15T09:47:40.255Z [Starbooks] info: Listening on port 3001..
+2023-03-15T09:47:40.282Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T09:47:41.306Z [Starbooks] info: Morgan enabled
+2023-03-15T09:47:41.312Z [Starbooks] info: Listening on port 3001..
+2023-03-15T09:47:41.335Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T09:47:42.069Z [Starbooks] info: Morgan enabled
+2023-03-15T09:47:42.074Z [Starbooks] info: Listening on port 3001..
+2023-03-15T09:47:42.095Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T09:47:42.831Z [Starbooks] info: Morgan enabled
+2023-03-15T09:47:42.837Z [Starbooks] info: Listening on port 3001..
+2023-03-15T09:47:42.860Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T09:47:43.589Z [Starbooks] info: Morgan enabled
+2023-03-15T09:47:43.598Z [Starbooks] info: Listening on port 3001..
+2023-03-15T09:47:43.619Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T09:47:44.334Z [Starbooks] info: Morgan enabled
+2023-03-15T09:47:44.343Z [Starbooks] info: Listening on port 3001..
+2023-03-15T09:47:44.373Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T09:50:23.749Z [Starbooks] info: Morgan enabled
+2023-03-15T09:50:23.763Z [Starbooks] info: Listening on port 3001..
+2023-03-15T09:50:23.808Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T09:50:24.412Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2023-03-15T09:50:24.598Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-15T09:50:25.684Z [Starbooks] info: Morgan enabled
+2023-03-15T09:50:25.694Z [Starbooks] info: Listening on port 3001..
+2023-03-15T09:50:25.722Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T09:50:27.626Z [Starbooks] info: Morgan enabled
+2023-03-15T09:50:27.636Z [Starbooks] info: Listening on port 3001..
+2023-03-15T09:50:27.660Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T09:50:31.003Z [Starbooks] info: Morgan enabled
+2023-03-15T09:50:31.012Z [Starbooks] info: Listening on port 3001..
+2023-03-15T09:50:31.033Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T09:50:32.676Z [Starbooks] info: Morgan enabled
+2023-03-15T09:50:32.683Z [Starbooks] info: Listening on port 3001..
+2023-03-15T09:50:32.707Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T09:50:33.707Z [Starbooks] info: Morgan enabled
+2023-03-15T09:50:33.716Z [Starbooks] info: Listening on port 3001..
+2023-03-15T09:50:33.745Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T09:50:34.616Z [Starbooks] info: Morgan enabled
+2023-03-15T09:50:34.622Z [Starbooks] info: Listening on port 3001..
+2023-03-15T09:50:34.642Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T09:50:35.266Z [Starbooks] info: Morgan enabled
+2023-03-15T09:50:35.271Z [Starbooks] info: Listening on port 3001..
+2023-03-15T09:50:35.294Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T09:50:35.954Z [Starbooks] info: Morgan enabled
+2023-03-15T09:50:35.960Z [Starbooks] info: Listening on port 3001..
+2023-03-15T09:50:35.980Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T09:50:36.641Z [Starbooks] info: Morgan enabled
+2023-03-15T09:50:36.647Z [Starbooks] info: Listening on port 3001..
+2023-03-15T09:50:36.672Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T10:54:47.005Z [Starbooks] info: Morgan enabled
+2023-03-15T10:54:47.018Z [Starbooks] info: Listening on port 3001..
+2023-03-15T10:54:47.045Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T10:54:47.674Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2023-03-15T10:54:47.862Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-15T11:14:40.028Z [Starbooks] info: Morgan enabled
+2023-03-15T11:14:40.043Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:14:40.069Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:14:40.699Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2023-03-15T11:14:40.900Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-15T11:15:23.852Z [Starbooks] info: Morgan enabled
+2023-03-15T11:15:23.865Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:15:23.892Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:15:24.491Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2023-03-15T11:15:24.699Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-15T11:17:09.310Z [Starbooks] info: Morgan enabled
+2023-03-15T11:17:09.322Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:17:09.354Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:17:09.963Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2023-03-15T11:17:10.180Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-15T11:17:33.599Z [Starbooks] info: Morgan enabled
+2023-03-15T11:17:33.611Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:17:33.646Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:17:33.918Z [Starbooks] error: appointment validation failed: timeSlot: Cast to date failed for value "moment()" (type string) at path "timeSlot" appointment validation failed: timeSlot: Cast to date failed for value "moment()" (type string) at path "timeSlot"
+2023-03-15T11:17:34.034Z [Starbooks] error: appointment validation failed: timeSlot: Cast to date failed for value "moment()" (type string) at path "timeSlot" appointment validation failed: timeSlot: Cast to date failed for value "moment()" (type string) at path "timeSlot"
+2023-03-15T11:17:34.050Z [Starbooks] error: appointment validation failed: timeSlot: Cast to date failed for value "moment()" (type string) at path "timeSlot" appointment validation failed: timeSlot: Cast to date failed for value "moment()" (type string) at path "timeSlot"
+2023-03-15T11:17:45.595Z [Starbooks] info: Morgan enabled
+2023-03-15T11:17:45.608Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:17:45.636Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:17:46.243Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2023-03-15T11:17:46.436Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-15T11:20:17.010Z [Starbooks] info: Morgan enabled
+2023-03-15T11:20:17.024Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-15T11:20:36.968Z [Starbooks] info: Morgan enabled
+2023-03-15T11:20:36.970Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:20:36.981Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-15T11:20:53.146Z [Starbooks] info: Morgan enabled
+2023-03-15T11:20:53.157Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:20:53.205Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:20:56.580Z [Starbooks] info: Morgan enabled
+2023-03-15T11:20:56.592Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:20:56.615Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:20:57.169Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2023-03-15T11:20:57.363Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-15T11:20:58.663Z [Starbooks] info: Morgan enabled
+2023-03-15T11:20:58.674Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:20:58.695Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:20:59.547Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:20:59.593Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:20:59.627Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:20:59.657Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:21:00.535Z [Starbooks] info: Morgan enabled
+2023-03-15T11:21:00.544Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:21:00.565Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:21:01.222Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:21:01.262Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:21:01.289Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:21:01.315Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:21:02.013Z [Starbooks] info: Morgan enabled
+2023-03-15T11:21:02.021Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:21:02.048Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:21:03.055Z [Starbooks] info: Morgan enabled
+2023-03-15T11:21:03.064Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:21:03.094Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:21:03.944Z [Starbooks] info: Morgan enabled
+2023-03-15T11:21:03.950Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:21:03.972Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:21:04.631Z [Starbooks] info: Morgan enabled
+2023-03-15T11:21:04.637Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:21:04.657Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:21:05.285Z [Starbooks] info: Morgan enabled
+2023-03-15T11:21:05.297Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:21:05.317Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:21:05.975Z [Starbooks] info: Morgan enabled
+2023-03-15T11:21:05.981Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:21:06.002Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:22:28.283Z [Starbooks] info: Morgan enabled
+2023-03-15T11:22:28.295Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:22:28.323Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:22:29.205Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:22:29.249Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:22:29.281Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:22:29.311Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:22:30.432Z [Starbooks] info: Morgan enabled
+2023-03-15T11:22:30.442Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:22:30.470Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:22:31.173Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:22:31.210Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:22:31.238Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:22:31.264Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:22:32.244Z [Starbooks] info: Morgan enabled
+2023-03-15T11:22:32.256Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:22:32.278Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:22:35.623Z [Starbooks] info: Morgan enabled
+2023-03-15T11:22:35.632Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:22:35.655Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:22:36.210Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2023-03-15T11:22:36.413Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-15T11:22:37.494Z [Starbooks] info: Morgan enabled
+2023-03-15T11:22:37.501Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:22:37.528Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:22:38.510Z [Starbooks] info: Morgan enabled
+2023-03-15T11:22:38.519Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:22:38.551Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:22:39.413Z [Starbooks] info: Morgan enabled
+2023-03-15T11:22:39.419Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:22:39.439Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:22:40.062Z [Starbooks] info: Morgan enabled
+2023-03-15T11:22:40.068Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:22:40.091Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:22:40.737Z [Starbooks] info: Morgan enabled
+2023-03-15T11:22:40.744Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:22:40.768Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:22:41.451Z [Starbooks] info: Morgan enabled
+2023-03-15T11:22:41.457Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:22:41.477Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:26:58.259Z [Starbooks] info: Morgan enabled
+2023-03-15T11:26:58.274Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:26:58.302Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:26:58.915Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2023-03-15T11:26:59.099Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-15T11:27:56.947Z [Starbooks] info: Morgan enabled
+2023-03-15T11:27:56.960Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:27:57.004Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:27:57.606Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2023-03-15T11:27:57.793Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-15T11:28:56.860Z [Starbooks] info: Morgan enabled
+2023-03-15T11:28:56.878Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:28:56.908Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:28:57.507Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2023-03-15T11:28:57.718Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-15T11:30:07.503Z [Starbooks] info: Morgan enabled
+2023-03-15T11:30:07.517Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:30:07.546Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:30:08.173Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2023-03-15T11:30:08.363Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-15T11:30:35.777Z [Starbooks] info: Morgan enabled
+2023-03-15T11:30:35.792Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:30:35.820Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:30:36.456Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2023-03-15T11:30:36.647Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-15T11:31:31.025Z [Starbooks] info: Morgan enabled
+2023-03-15T11:31:31.038Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:31:31.067Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:31:31.681Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2023-03-15T11:31:31.870Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-15T11:31:54.346Z [Starbooks] info: Morgan enabled
+2023-03-15T11:31:54.359Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:31:54.386Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:31:55.297Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:31:55.342Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:31:55.373Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:31:55.401Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:31:56.344Z [Starbooks] info: Morgan enabled
+2023-03-15T11:31:56.353Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:31:56.380Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:31:57.040Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:31:57.078Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:31:57.105Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:31:57.131Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:31:58.124Z [Starbooks] info: Morgan enabled
+2023-03-15T11:31:58.135Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:31:58.157Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:32:01.473Z [Starbooks] info: Morgan enabled
+2023-03-15T11:32:01.484Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:32:01.504Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:32:02.074Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2023-03-15T11:32:02.265Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-15T11:32:03.361Z [Starbooks] info: Morgan enabled
+2023-03-15T11:32:03.375Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:32:03.400Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:32:04.374Z [Starbooks] info: Morgan enabled
+2023-03-15T11:32:04.383Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:32:04.413Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:32:05.274Z [Starbooks] info: Morgan enabled
+2023-03-15T11:32:05.280Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:32:05.299Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:32:05.930Z [Starbooks] info: Morgan enabled
+2023-03-15T11:32:05.936Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:32:05.963Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:32:06.631Z [Starbooks] info: Morgan enabled
+2023-03-15T11:32:06.637Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:32:06.657Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:32:07.306Z [Starbooks] info: Morgan enabled
+2023-03-15T11:32:07.313Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:32:07.338Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:35:45.850Z [Starbooks] info: Morgan enabled
+2023-03-15T11:35:45.862Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:35:45.903Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:35:46.608Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:35:46.652Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:35:46.679Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:35:46.704Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:37:30.732Z [Starbooks] info: Morgan enabled
+2023-03-15T11:37:30.745Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:37:30.805Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:37:31.541Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:37:31.579Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:37:31.607Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:37:31.633Z [Starbooks] error: moment is not defined moment is not defined
+2023-03-15T11:38:31.247Z [Starbooks] info: Morgan enabled
+2023-03-15T11:38:31.259Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:38:31.297Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:38:56.581Z [Starbooks] info: Morgan enabled
+2023-03-15T11:38:56.594Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:38:56.635Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:39:47.257Z [Starbooks] info: Morgan enabled
+2023-03-15T11:39:47.274Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:39:47.300Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T11:40:37.107Z [Starbooks] info: Morgan enabled
+2023-03-15T11:40:37.119Z [Starbooks] info: Listening on port 3001..
+2023-03-15T11:40:37.162Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T12:38:21.802Z [Starbooks] info: Morgan enabled
+2023-03-15T12:38:21.817Z [Starbooks] info: Listening on port 3001..
+2023-03-15T12:38:21.859Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T12:38:23.839Z [Starbooks] info: Morgan enabled
+2023-03-15T12:38:23.849Z [Starbooks] info: Listening on port 3001..
+2023-03-15T12:38:23.881Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T12:38:27.247Z [Starbooks] info: Morgan enabled
+2023-03-15T12:38:27.257Z [Starbooks] info: Listening on port 3001..
+2023-03-15T12:38:27.280Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T12:38:28.968Z [Starbooks] info: Morgan enabled
+2023-03-15T12:38:28.977Z [Starbooks] info: Listening on port 3001..
+2023-03-15T12:38:29.020Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T12:38:29.651Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2023-03-15T12:38:29.843Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-15T12:38:30.905Z [Starbooks] info: Morgan enabled
+2023-03-15T12:38:30.912Z [Starbooks] info: Listening on port 3001..
+2023-03-15T12:38:30.937Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T12:38:31.955Z [Starbooks] info: Morgan enabled
+2023-03-15T12:38:31.964Z [Starbooks] info: Listening on port 3001..
+2023-03-15T12:38:31.993Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T12:38:32.841Z [Starbooks] info: Morgan enabled
+2023-03-15T12:38:32.847Z [Starbooks] info: Listening on port 3001..
+2023-03-15T12:38:32.868Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T12:38:33.528Z [Starbooks] info: Morgan enabled
+2023-03-15T12:38:33.534Z [Starbooks] info: Listening on port 3001..
+2023-03-15T12:38:33.554Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T12:38:34.201Z [Starbooks] info: Morgan enabled
+2023-03-15T12:38:34.207Z [Starbooks] info: Listening on port 3001..
+2023-03-15T12:38:34.232Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T12:38:34.865Z [Starbooks] info: Morgan enabled
+2023-03-15T12:38:34.873Z [Starbooks] info: Listening on port 3001..
+2023-03-15T12:38:34.893Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T19:55:24.818Z [Starbooks] info: Morgan enabled
+2023-03-15T19:55:24.842Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-15T19:55:47.478Z [Starbooks] info: Morgan enabled
+2023-03-15T19:55:47.481Z [Starbooks] info: Listening on port 3001..
+2023-03-15T19:55:47.492Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-15T20:49:52.816Z [Starbooks] info: Morgan enabled
+2023-03-15T20:49:52.828Z [Starbooks] info: Listening on port 3001..
+2023-03-15T20:49:52.880Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T20:50:45.988Z [Starbooks] info: Morgan enabled
+2023-03-15T20:50:46.000Z [Starbooks] info: Listening on port 3001..
+2023-03-15T20:50:46.042Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-15T20:52:30.162Z [Starbooks] info: Morgan enabled
+2023-03-15T20:52:30.165Z [Starbooks] info: Listening on port 3001..
+2023-03-15T20:52:30.178Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T06:59:31.177Z [Starbooks] info: Morgan enabled
+2023-03-16T06:59:31.194Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T06:59:42.002Z [Starbooks] info: Morgan enabled
+2023-03-16T06:59:42.005Z [Starbooks] info: Listening on port 3001..
+2023-03-16T06:59:42.017Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T07:27:56.837Z [Starbooks] info: Morgan enabled
+2023-03-16T07:27:56.840Z [Starbooks] info: Listening on port 3001..
+2023-03-16T07:27:56.853Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T07:28:24.331Z [Starbooks] info: Morgan enabled
+2023-03-16T07:28:24.333Z [Starbooks] info: Listening on port 3001..
+2023-03-16T07:28:24.345Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T07:28:31.470Z [Starbooks] info: Morgan enabled
+2023-03-16T07:28:31.472Z [Starbooks] info: Listening on port 3001..
+2023-03-16T07:28:31.487Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T07:28:34.142Z [Starbooks] info: Morgan enabled
+2023-03-16T07:28:34.144Z [Starbooks] info: Listening on port 3001..
+2023-03-16T07:28:34.158Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T07:30:18.164Z [Starbooks] info: Morgan enabled
+2023-03-16T07:30:18.166Z [Starbooks] info: Listening on port 3001..
+2023-03-16T07:30:18.179Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T07:30:19.315Z [Starbooks] info: Morgan enabled
+2023-03-16T07:30:19.317Z [Starbooks] info: Listening on port 3001..
+2023-03-16T07:30:19.328Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T08:35:10.232Z [Starbooks] info: Morgan enabled
+2023-03-16T08:35:10.234Z [Starbooks] info: Listening on port 3001..
+2023-03-16T08:35:10.247Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:10:39.178Z [Starbooks] info: Morgan enabled
+2023-03-16T09:10:39.180Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:10:39.189Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:10:42.565Z [Starbooks] info: Morgan enabled
+2023-03-16T09:10:42.567Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:10:42.579Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:10:44.473Z [Starbooks] info: Morgan enabled
+2023-03-16T09:10:44.475Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:10:44.486Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:10:52.805Z [Starbooks] info: Morgan enabled
+2023-03-16T09:10:52.807Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:10:52.819Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:11:31.226Z [Starbooks] info: Morgan enabled
+2023-03-16T09:11:31.228Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:11:31.239Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:11:43.226Z [Starbooks] info: Morgan enabled
+2023-03-16T09:11:43.228Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:11:43.240Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:12:13.343Z [Starbooks] info: Morgan enabled
+2023-03-16T09:12:13.346Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:12:13.362Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:14:08.536Z [Starbooks] info: Morgan enabled
+2023-03-16T09:14:08.539Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:14:08.556Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:14:38.963Z [Starbooks] info: Morgan enabled
+2023-03-16T09:14:38.965Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:14:38.976Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:14:41.542Z [Starbooks] info: Morgan enabled
+2023-03-16T09:14:41.544Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:14:41.556Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:14:44.178Z [Starbooks] info: Morgan enabled
+2023-03-16T09:14:44.180Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:14:44.192Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:14:47.912Z [Starbooks] info: Morgan enabled
+2023-03-16T09:14:47.914Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:14:47.925Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:15:19.092Z [Starbooks] info: Morgan enabled
+2023-03-16T09:15:19.094Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:15:19.106Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:15:27.412Z [Starbooks] info: Morgan enabled
+2023-03-16T09:15:27.414Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:15:27.425Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:15:29.238Z [Starbooks] info: Morgan enabled
+2023-03-16T09:15:29.240Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:15:29.251Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:16:04.302Z [Starbooks] info: Morgan enabled
+2023-03-16T09:16:04.304Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:16:04.315Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:16:15.747Z [Starbooks] info: Morgan enabled
+2023-03-16T09:16:15.749Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:16:15.760Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:16:33.755Z [Starbooks] info: Morgan enabled
+2023-03-16T09:16:33.757Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:16:33.768Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:17:04.547Z [Starbooks] info: Morgan enabled
+2023-03-16T09:17:04.549Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:17:04.563Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:17:07.120Z [Starbooks] info: Morgan enabled
+2023-03-16T09:17:07.123Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:17:07.135Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:17:12.700Z [Starbooks] info: Morgan enabled
+2023-03-16T09:17:12.703Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:17:12.715Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:17:31.118Z [Starbooks] info: Morgan enabled
+2023-03-16T09:17:31.120Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:17:31.133Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:17:38.276Z [Starbooks] info: Morgan enabled
+2023-03-16T09:17:38.278Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:17:38.288Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:17:49.674Z [Starbooks] info: Morgan enabled
+2023-03-16T09:17:49.676Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:17:49.689Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:17:52.702Z [Starbooks] info: Morgan enabled
+2023-03-16T09:17:52.705Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:17:52.718Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:17:54.773Z [Starbooks] info: Morgan enabled
+2023-03-16T09:17:54.776Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:17:54.787Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:18:07.417Z [Starbooks] info: Morgan enabled
+2023-03-16T09:18:07.420Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:18:07.433Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:18:14.772Z [Starbooks] info: Morgan enabled
+2023-03-16T09:18:14.774Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:18:14.786Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:18:15.562Z [Starbooks] info: Morgan enabled
+2023-03-16T09:18:15.565Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:18:15.576Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:18:16.315Z [Starbooks] info: Morgan enabled
+2023-03-16T09:18:16.317Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:18:16.331Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:18:27.830Z [Starbooks] info: Morgan enabled
+2023-03-16T09:18:27.832Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:18:27.843Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:18:29.466Z [Starbooks] info: Morgan enabled
+2023-03-16T09:18:29.469Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:18:29.485Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:18:31.318Z [Starbooks] info: Morgan enabled
+2023-03-16T09:18:31.320Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:18:31.331Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:18:39.033Z [Starbooks] info: Morgan enabled
+2023-03-16T09:18:39.035Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:18:39.047Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:18:40.225Z [Starbooks] info: Morgan enabled
+2023-03-16T09:18:40.228Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:18:40.240Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:18:43.624Z [Starbooks] info: Morgan enabled
+2023-03-16T09:18:43.626Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:18:43.638Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:18:47.576Z [Starbooks] info: Morgan enabled
+2023-03-16T09:18:47.578Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:18:47.590Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:18:50.262Z [Starbooks] info: Morgan enabled
+2023-03-16T09:18:50.264Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:18:50.275Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-16T09:18:51.379Z [Starbooks] info: Morgan enabled
+2023-03-16T09:18:51.381Z [Starbooks] info: Listening on port 3001..
+2023-03-16T09:18:51.392Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-24T08:42:06.586Z [Starbooks] info: Morgan enabled
+2023-03-24T08:42:06.602Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-24T08:42:38.334Z [Starbooks] info: Morgan enabled
+2023-03-24T08:42:38.352Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-24T08:42:55.247Z [Starbooks] info: Morgan enabled
+2023-03-24T08:42:55.250Z [Starbooks] info: Listening on port 3001..
+2023-03-24T08:42:55.264Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-24T08:43:55.360Z [Starbooks] info: Morgan enabled
+2023-03-24T08:43:55.374Z [Starbooks] info: Listening on port 3001..
+2023-03-24T08:43:55.400Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-24T08:43:57.702Z [Starbooks] info: Morgan enabled
+2023-03-24T08:43:57.712Z [Starbooks] info: Listening on port 3001..
+2023-03-24T08:43:57.765Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-24T08:43:58.485Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2023-03-24T08:43:58.678Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-24T08:43:59.909Z [Starbooks] info: Morgan enabled
+2023-03-24T08:43:59.921Z [Starbooks] info: Listening on port 3001..
+2023-03-24T08:43:59.941Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-24T08:44:01.788Z [Starbooks] info: Morgan enabled
+2023-03-24T08:44:01.797Z [Starbooks] info: Listening on port 3001..
+2023-03-24T08:44:01.822Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-24T08:44:05.235Z [Starbooks] info: Morgan enabled
+2023-03-24T08:44:05.245Z [Starbooks] info: Listening on port 3001..
+2023-03-24T08:44:05.269Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-24T08:44:06.334Z [Starbooks] info: Morgan enabled
+2023-03-24T08:44:06.340Z [Starbooks] info: Listening on port 3001..
+2023-03-24T08:44:06.360Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-24T08:44:07.051Z [Starbooks] info: Morgan enabled
+2023-03-24T08:44:07.060Z [Starbooks] info: Listening on port 3001..
+2023-03-24T08:44:07.080Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-24T08:44:07.802Z [Starbooks] info: Morgan enabled
+2023-03-24T08:44:07.808Z [Starbooks] info: Listening on port 3001..
+2023-03-24T08:44:07.847Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-24T08:44:08.538Z [Starbooks] info: Morgan enabled
+2023-03-24T08:44:08.544Z [Starbooks] info: Listening on port 3001..
+2023-03-24T08:44:08.565Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-24T08:44:09.257Z [Starbooks] info: Morgan enabled
+2023-03-24T08:44:09.268Z [Starbooks] info: Listening on port 3001..
+2023-03-24T08:44:09.298Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-24T08:44:44.490Z [Starbooks] info: Morgan enabled
+2023-03-24T08:44:44.504Z [Starbooks] info: Listening on port 3001..
+2023-03-24T08:44:44.530Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-24T08:44:45.243Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2023-03-24T08:44:45.429Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-25T17:30:00.080Z [Starbooks] info: Morgan enabled
+2023-03-25T17:30:00.097Z [Starbooks] info: Listening on port 3001..
+2023-03-25T17:30:00.129Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-25T17:30:01.006Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-25T17:30:01.621Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-25T17:30:01.644Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-25T17:30:01.667Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-25T17:30:39.721Z [Starbooks] info: Morgan enabled
+2023-03-25T17:30:39.734Z [Starbooks] info: Listening on port 3001..
+2023-03-25T17:30:39.762Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-25T17:30:40.486Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-03-25T17:30:40.690Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-28T11:45:25.231Z [Starbooks] info: Morgan enabled
+2023-03-28T11:45:25.244Z [Starbooks] info: Listening on port 3001..
+2023-03-28T11:45:25.272Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-28T11:45:25.348Z [Starbooks] error: Cannot read properties of undefined (reading 'accessLevel') Cannot read properties of undefined (reading 'accessLevel')
+2023-03-28T11:45:25.396Z [Starbooks] error: Cannot read properties of undefined (reading 'accessLevel') Cannot read properties of undefined (reading 'accessLevel')
+2023-03-28T11:45:25.419Z [Starbooks] error: Cannot read properties of undefined (reading 'accessLevel') Cannot read properties of undefined (reading 'accessLevel')
+2023-03-28T11:45:25.441Z [Starbooks] error: Cannot read properties of undefined (reading 'accessLevel') Cannot read properties of undefined (reading 'accessLevel')
+2023-03-28T11:45:25.460Z [Starbooks] error: Cannot read properties of undefined (reading 'accessLevel') Cannot read properties of undefined (reading 'accessLevel')
+2023-03-28T11:45:25.480Z [Starbooks] error: Cannot read properties of undefined (reading 'accessLevel') Cannot read properties of undefined (reading 'accessLevel')
+2023-03-28T11:45:25.498Z [Starbooks] error: Cannot read properties of undefined (reading 'accessLevel') Cannot read properties of undefined (reading 'accessLevel')
+2023-03-28T11:45:25.903Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2023-03-28T11:45:26.102Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-28T11:45:26.184Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T11:45:26.259Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T11:45:26.388Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T11:45:26.419Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T11:45:26.448Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T11:45:26.479Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T11:49:39.782Z [Starbooks] info: Morgan enabled
+2023-03-28T11:49:39.795Z [Starbooks] info: Listening on port 3001..
+2023-03-28T11:49:39.823Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-28T11:49:39.888Z [Starbooks] error: Cannot read properties of undefined (reading 'accessLevel') Cannot read properties of undefined (reading 'accessLevel')
+2023-03-28T11:49:39.939Z [Starbooks] error: Cannot read properties of undefined (reading 'accessLevel') Cannot read properties of undefined (reading 'accessLevel')
+2023-03-28T11:49:39.960Z [Starbooks] error: Cannot read properties of undefined (reading 'accessLevel') Cannot read properties of undefined (reading 'accessLevel')
+2023-03-28T11:49:39.981Z [Starbooks] error: Cannot read properties of undefined (reading 'accessLevel') Cannot read properties of undefined (reading 'accessLevel')
+2023-03-28T11:49:40.001Z [Starbooks] error: Cannot read properties of undefined (reading 'accessLevel') Cannot read properties of undefined (reading 'accessLevel')
+2023-03-28T11:49:40.020Z [Starbooks] error: Cannot read properties of undefined (reading 'accessLevel') Cannot read properties of undefined (reading 'accessLevel')
+2023-03-28T11:49:40.040Z [Starbooks] error: Cannot read properties of undefined (reading 'accessLevel') Cannot read properties of undefined (reading 'accessLevel')
+2023-03-28T11:49:40.585Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2023-03-28T11:49:40.779Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-28T11:49:40.862Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T11:49:40.934Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T11:49:41.081Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T11:49:41.111Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T11:49:41.139Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T11:49:41.183Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T12:01:47.099Z [Starbooks] info: Morgan enabled
+2023-03-28T12:01:47.112Z [Starbooks] info: Listening on port 3001..
+2023-03-28T12:01:47.139Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-28T12:01:47.210Z [Starbooks] error: Cannot read properties of undefined (reading 'accessLevel') Cannot read properties of undefined (reading 'accessLevel')
+2023-03-28T12:01:47.259Z [Starbooks] error: Cannot read properties of undefined (reading 'accessLevel') Cannot read properties of undefined (reading 'accessLevel')
+2023-03-28T12:01:47.282Z [Starbooks] error: Cannot read properties of undefined (reading 'accessLevel') Cannot read properties of undefined (reading 'accessLevel')
+2023-03-28T12:01:47.302Z [Starbooks] error: Cannot read properties of undefined (reading 'accessLevel') Cannot read properties of undefined (reading 'accessLevel')
+2023-03-28T12:01:47.322Z [Starbooks] error: Cannot read properties of undefined (reading 'accessLevel') Cannot read properties of undefined (reading 'accessLevel')
+2023-03-28T12:01:47.866Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2023-03-28T12:01:48.059Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-28T12:01:48.143Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T12:01:48.216Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T12:01:48.348Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T12:01:48.376Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T12:01:48.407Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T12:01:48.435Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T12:04:59.842Z [Starbooks] info: Morgan enabled
+2023-03-28T12:04:59.856Z [Starbooks] info: Listening on port 3001..
+2023-03-28T12:04:59.883Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-28T12:05:00.599Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2023-03-28T12:05:00.801Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-28T12:05:00.883Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T12:05:00.955Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T12:05:01.087Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T12:05:01.120Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T12:05:01.149Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T12:05:01.180Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T12:05:57.243Z [Starbooks] info: Morgan enabled
+2023-03-28T12:05:57.258Z [Starbooks] info: Listening on port 3001..
+2023-03-28T12:05:57.298Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-28T12:05:57.988Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2023-03-28T12:05:58.182Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-28T12:05:58.263Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T12:05:58.335Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T12:05:58.468Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T12:05:58.498Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T12:05:58.526Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T12:05:58.556Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T12:06:24.734Z [Starbooks] info: Morgan enabled
+2023-03-28T12:06:24.748Z [Starbooks] info: Listening on port 3001..
+2023-03-28T12:06:24.785Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-28T12:06:25.482Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2023-03-28T12:06:25.680Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-28T12:06:25.761Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T12:06:25.834Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T12:06:25.965Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T12:06:25.996Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T12:06:26.026Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T12:06:26.056Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-28T13:34:50.588Z [Starbooks] info: Morgan enabled
+2023-03-28T13:34:50.605Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-28T13:34:59.712Z [Starbooks] info: Morgan enabled
+2023-03-28T13:34:59.716Z [Starbooks] info: Listening on port 3001..
+2023-03-28T13:34:59.729Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-03-29T13:13:10.267Z [Starbooks] info: Morgan enabled
+2023-03-29T13:13:10.279Z [Starbooks] info: Listening on port 3001..
+2023-03-29T13:13:10.308Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-29T13:13:11.101Z [Starbooks] error: Cannot read properties of null (reading 'profileId') Cannot read properties of null (reading 'profileId')
+2023-03-29T13:13:11.323Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-29T13:13:11.486Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-29T13:13:11.561Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-29T13:13:11.696Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-29T13:13:11.728Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-29T13:13:11.757Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-29T13:13:11.787Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-29T13:15:36.010Z [Starbooks] info: Morgan enabled
+2023-03-29T13:15:36.024Z [Starbooks] info: Listening on port 3001..
+2023-03-29T13:15:36.065Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-29T13:15:36.751Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-03-29T13:15:36.943Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-29T13:15:37.029Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-29T13:15:37.120Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-29T13:15:37.254Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-29T13:15:37.284Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-29T13:15:37.316Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-29T13:15:37.349Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-29T13:16:30.872Z [Starbooks] info: Morgan enabled
+2023-03-29T13:16:30.885Z [Starbooks] info: Listening on port 3001..
+2023-03-29T13:16:30.913Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-29T13:16:31.574Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-03-29T13:16:31.762Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-29T13:16:31.844Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-29T13:16:31.913Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-29T13:16:32.045Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-29T13:16:32.074Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-29T13:16:32.102Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-29T13:16:32.132Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-03-29T13:18:59.556Z [Starbooks] info: Morgan enabled
+2023-03-29T13:18:59.567Z [Starbooks] info: Listening on port 3001..
+2023-03-29T13:18:59.598Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-29T13:19:00.308Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-03-29T13:19:00.498Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-29T13:19:00.587Z [Starbooks] error: appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 3a c4 86 7d ca e6 48 e6 de c7> }" (type Object) at path "profile" because of "BSONTypeError" appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 3a c4 86 7d ca e6 48 e6 de c7> }" (type Object) at path "profile" because of "BSONTypeError"
+2023-03-29T13:19:00.664Z [Starbooks] error: appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 3a c4 86 7d ca e6 48 e6 df 11> }" (type Object) at path "profile" because of "BSONTypeError" appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 3a c4 86 7d ca e6 48 e6 df 11> }" (type Object) at path "profile" because of "BSONTypeError"
+2023-03-29T13:19:00.802Z [Starbooks] error: appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 3a c4 86 7d ca e6 48 e6 df 99> }" (type Object) at path "profile" because of "BSONTypeError" appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 3a c4 86 7d ca e6 48 e6 df 99> }" (type Object) at path "profile" because of "BSONTypeError"
+2023-03-29T13:19:00.836Z [Starbooks] error: appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 3a c4 86 7d ca e6 48 e6 df b4> }" (type Object) at path "profile" because of "BSONTypeError" appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 3a c4 86 7d ca e6 48 e6 df b4> }" (type Object) at path "profile" because of "BSONTypeError"
+2023-03-29T13:19:00.868Z [Starbooks] error: appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 3a c4 86 7d ca e6 48 e6 df cf> }" (type Object) at path "profile" because of "BSONTypeError" appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 3a c4 86 7d ca e6 48 e6 df cf> }" (type Object) at path "profile" because of "BSONTypeError"
+2023-03-29T13:19:00.901Z [Starbooks] error: appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 3a c4 86 7d ca e6 48 e6 df ea> }" (type Object) at path "profile" because of "BSONTypeError" appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 3a c4 86 7d ca e6 48 e6 df ea> }" (type Object) at path "profile" because of "BSONTypeError"
+2023-03-29T13:23:22.032Z [Starbooks] info: Morgan enabled
+2023-03-29T13:23:22.045Z [Starbooks] info: Listening on port 3001..
+2023-03-29T13:23:22.086Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-29T13:23:22.754Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-03-29T13:23:22.941Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-29T13:23:23.089Z [Starbooks] error: appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 3b cb 68 67 5f c5 3e 04 56 b2> }" (type Object) at path "profile" because of "BSONTypeError" appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 3b cb 68 67 5f c5 3e 04 56 b2> }" (type Object) at path "profile" because of "BSONTypeError"
+2023-03-29T13:23:23.222Z [Starbooks] error: appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 3b cb 68 67 5f c5 3e 04 57 3a> }" (type Object) at path "profile" because of "BSONTypeError" appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 3b cb 68 67 5f c5 3e 04 57 3a> }" (type Object) at path "profile" because of "BSONTypeError"
+2023-03-29T13:23:23.256Z [Starbooks] error: appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 3b cb 68 67 5f c5 3e 04 57 55> }" (type Object) at path "profile" because of "BSONTypeError" appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 3b cb 68 67 5f c5 3e 04 57 55> }" (type Object) at path "profile" because of "BSONTypeError"
+2023-03-29T13:23:23.286Z [Starbooks] error: appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 3b cb 68 67 5f c5 3e 04 57 70> }" (type Object) at path "profile" because of "BSONTypeError" appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 3b cb 68 67 5f c5 3e 04 57 70> }" (type Object) at path "profile" because of "BSONTypeError"
+2023-03-29T13:23:23.318Z [Starbooks] error: appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 3b cb 68 67 5f c5 3e 04 57 8b> }" (type Object) at path "profile" because of "BSONTypeError" appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 3b cb 68 67 5f c5 3e 04 57 8b> }" (type Object) at path "profile" because of "BSONTypeError"
+2023-03-29T14:08:27.979Z [Starbooks] info: Morgan enabled
+2023-03-29T14:08:27.991Z [Starbooks] info: Listening on port 3001..
+2023-03-29T14:08:28.025Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-03-29T14:08:28.706Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-03-29T14:08:28.917Z [Starbooks] error: Cannot read properties of null (reading 'createdByAccountId') Cannot read properties of null (reading 'createdByAccountId')
+2023-03-29T14:08:29.070Z [Starbooks] error: appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 46 5d 43 29 98 42 c3 be d0 d5> }" (type Object) at path "profile" because of "BSONTypeError" appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 46 5d 43 29 98 42 c3 be d0 d5> }" (type Object) at path "profile" because of "BSONTypeError"
+2023-03-29T14:08:29.203Z [Starbooks] error: appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 46 5d 43 29 98 42 c3 be d1 5d> }" (type Object) at path "profile" because of "BSONTypeError" appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 46 5d 43 29 98 42 c3 be d1 5d> }" (type Object) at path "profile" because of "BSONTypeError"
+2023-03-29T14:08:29.238Z [Starbooks] error: appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 46 5d 43 29 98 42 c3 be d1 78> }" (type Object) at path "profile" because of "BSONTypeError" appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 46 5d 43 29 98 42 c3 be d1 78> }" (type Object) at path "profile" because of "BSONTypeError"
+2023-03-29T14:08:29.270Z [Starbooks] error: appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 46 5d 43 29 98 42 c3 be d1 93> }" (type Object) at path "profile" because of "BSONTypeError" appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 46 5d 43 29 98 42 c3 be d1 93> }" (type Object) at path "profile" because of "BSONTypeError"
+2023-03-29T14:08:29.301Z [Starbooks] error: appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 46 5d 43 29 98 42 c3 be d1 ae> }" (type Object) at path "profile" because of "BSONTypeError" appointment validation failed: profile: Cast to ObjectId failed for value "{ [Symbol(id)]: <Buffer 64 24 46 5d 43 29 98 42 c3 be d1 ae> }" (type Object) at path "profile" because of "BSONTypeError"
+2023-04-07T21:05:04.255Z [Starbooks] info: Morgan enabled
+2023-04-07T21:05:04.270Z [Starbooks] info: Listening on port 3001..
+2023-04-07T21:05:04.306Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-07T21:11:59.343Z [Starbooks] info: Morgan enabled
+2023-04-07T21:11:59.355Z [Starbooks] info: Listening on port 3001..
+2023-04-07T21:11:59.401Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-07T21:12:29.134Z [Starbooks] info: Morgan enabled
+2023-04-07T21:12:29.148Z [Starbooks] info: Listening on port 3001..
+2023-04-07T21:12:29.198Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-07T21:13:39.550Z [Starbooks] info: Morgan enabled
+2023-04-07T21:13:39.561Z [Starbooks] info: Listening on port 3001..
+2023-04-07T21:13:39.594Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-07T21:15:10.858Z [Starbooks] info: Morgan enabled
+2023-04-07T21:15:10.873Z [Starbooks] info: Listening on port 3001..
+2023-04-07T21:15:10.915Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-07T21:16:08.572Z [Starbooks] info: Morgan enabled
+2023-04-07T21:16:08.585Z [Starbooks] info: Listening on port 3001..
+2023-04-07T21:16:08.628Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T20:39:40.693Z [Starbooks] info: Morgan enabled
+2023-04-08T20:39:40.733Z [Starbooks] info: Listening on port 3001..
+2023-04-08T20:39:40.779Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T20:41:25.716Z [Starbooks] info: Morgan enabled
+2023-04-08T20:41:25.725Z [Starbooks] info: Listening on port 3001..
+2023-04-08T20:41:25.766Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T20:43:57.678Z [Starbooks] info: Morgan enabled
+2023-04-08T20:43:57.686Z [Starbooks] info: Listening on port 3001..
+2023-04-08T20:43:57.729Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T20:44:31.950Z [Starbooks] info: Morgan enabled
+2023-04-08T20:44:31.958Z [Starbooks] info: Listening on port 3001..
+2023-04-08T20:44:32.001Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T20:46:03.860Z [Starbooks] info: Morgan enabled
+2023-04-08T20:46:03.868Z [Starbooks] info: Listening on port 3001..
+2023-04-08T20:46:03.910Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T20:47:40.594Z [Starbooks] info: Morgan enabled
+2023-04-08T20:47:40.602Z [Starbooks] info: Listening on port 3001..
+2023-04-08T20:47:40.647Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T20:57:12.319Z [Starbooks] info: Morgan enabled
+2023-04-08T20:57:12.327Z [Starbooks] info: Listening on port 3001..
+2023-04-08T20:57:12.368Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T20:59:47.005Z [Starbooks] info: Morgan enabled
+2023-04-08T20:59:47.013Z [Starbooks] info: Listening on port 3001..
+2023-04-08T20:59:47.054Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T21:01:56.462Z [Starbooks] info: Morgan enabled
+2023-04-08T21:01:56.471Z [Starbooks] info: Listening on port 3001..
+2023-04-08T21:01:56.501Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T21:03:06.223Z [Starbooks] info: Morgan enabled
+2023-04-08T21:03:06.232Z [Starbooks] info: Listening on port 3001..
+2023-04-08T21:03:06.265Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T21:05:19.071Z [Starbooks] info: Morgan enabled
+2023-04-08T21:05:19.079Z [Starbooks] info: Listening on port 3001..
+2023-04-08T21:05:19.128Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T21:05:55.834Z [Starbooks] info: Morgan enabled
+2023-04-08T21:05:55.843Z [Starbooks] info: Listening on port 3001..
+2023-04-08T21:05:55.882Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T21:06:07.338Z [Starbooks] info: Morgan enabled
+2023-04-08T21:06:07.347Z [Starbooks] info: Listening on port 3001..
+2023-04-08T21:06:07.389Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T21:06:31.226Z [Starbooks] info: Morgan enabled
+2023-04-08T21:06:31.237Z [Starbooks] info: Listening on port 3001..
+2023-04-08T21:06:31.299Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T21:07:26.215Z [Starbooks] info: Morgan enabled
+2023-04-08T21:07:26.224Z [Starbooks] info: Listening on port 3001..
+2023-04-08T21:07:26.266Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T21:09:07.830Z [Starbooks] info: Morgan enabled
+2023-04-08T21:09:07.838Z [Starbooks] info: Listening on port 3001..
+2023-04-08T21:09:07.881Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T21:09:18.052Z [Starbooks] info: Morgan enabled
+2023-04-08T21:09:18.061Z [Starbooks] info: Listening on port 3001..
+2023-04-08T21:09:18.113Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T21:09:40.689Z [Starbooks] info: Morgan enabled
+2023-04-08T21:09:40.700Z [Starbooks] info: Listening on port 3001..
+2023-04-08T21:09:40.735Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T21:10:06.012Z [Starbooks] info: Morgan enabled
+2023-04-08T21:10:06.033Z [Starbooks] info: Listening on port 3001..
+2023-04-08T21:10:06.060Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T21:10:50.879Z [Starbooks] info: Morgan enabled
+2023-04-08T21:10:50.887Z [Starbooks] info: Listening on port 3001..
+2023-04-08T21:10:50.936Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T21:11:46.651Z [Starbooks] info: Morgan enabled
+2023-04-08T21:11:46.659Z [Starbooks] info: Listening on port 3001..
+2023-04-08T21:11:46.702Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T21:13:00.722Z [Starbooks] info: Morgan enabled
+2023-04-08T21:13:00.730Z [Starbooks] info: Listening on port 3001..
+2023-04-08T21:13:00.759Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T21:13:37.779Z [Starbooks] info: Morgan enabled
+2023-04-08T21:13:37.787Z [Starbooks] info: Listening on port 3001..
+2023-04-08T21:13:37.830Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T21:16:53.122Z [Starbooks] info: Morgan enabled
+2023-04-08T21:16:53.131Z [Starbooks] info: Listening on port 3001..
+2023-04-08T21:16:53.175Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T21:16:53.460Z [Starbooks] error: doctor validation failed: practicingSince: Path `practicingSince` is required. doctor validation failed: practicingSince: Path `practicingSince` is required.
+2023-04-08T21:17:47.843Z [Starbooks] info: Morgan enabled
+2023-04-08T21:17:47.853Z [Starbooks] info: Listening on port 3001..
+2023-04-08T21:17:47.879Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T21:17:48.202Z [Starbooks] error: doctor validation failed: practicingSince: Path `practicingSince` is required. doctor validation failed: practicingSince: Path `practicingSince` is required.
+2023-04-08T21:18:38.769Z [Starbooks] info: Morgan enabled
+2023-04-08T21:18:38.778Z [Starbooks] info: Listening on port 3001..
+2023-04-08T21:18:38.821Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T21:18:39.117Z [Starbooks] error: doctor validation failed: practicingSince: Path `practicingSince` is required. doctor validation failed: practicingSince: Path `practicingSince` is required.
+2023-04-08T21:19:11.800Z [Starbooks] info: Morgan enabled
+2023-04-08T21:19:11.812Z [Starbooks] info: Listening on port 3001..
+2023-04-08T21:19:11.839Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T21:19:51.766Z [Starbooks] info: Morgan enabled
+2023-04-08T21:19:51.774Z [Starbooks] info: Listening on port 3001..
+2023-04-08T21:19:51.817Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T21:20:18.829Z [Starbooks] info: Morgan enabled
+2023-04-08T21:20:18.837Z [Starbooks] info: Listening on port 3001..
+2023-04-08T21:20:18.877Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-08T21:20:35.802Z [Starbooks] info: Morgan enabled
+2023-04-08T21:20:35.810Z [Starbooks] info: Listening on port 3001..
+2023-04-08T21:20:35.858Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-09T10:04:11.806Z [Starbooks] info: Morgan enabled
+2023-04-09T10:04:11.832Z [Starbooks] info: Listening on port 3001..
+2023-04-09T10:04:11.861Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-09T10:50:21.096Z [Starbooks] info: Morgan enabled
+2023-04-09T10:50:21.113Z [Starbooks] info: Listening on port 3001..
+2023-04-09T10:50:21.164Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-09T10:50:49.887Z [Starbooks] info: Morgan enabled
+2023-04-09T10:50:49.898Z [Starbooks] info: Listening on port 3001..
+2023-04-09T10:50:49.940Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-09T10:51:51.407Z [Starbooks] info: Morgan enabled
+2023-04-09T10:51:51.419Z [Starbooks] info: Listening on port 3001..
+2023-04-09T10:51:51.451Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-09T10:52:22.499Z [Starbooks] info: Morgan enabled
+2023-04-09T10:52:22.514Z [Starbooks] info: Listening on port 3001..
+2023-04-09T10:52:22.545Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-09T10:52:42.832Z [Starbooks] info: Morgan enabled
+2023-04-09T10:52:42.844Z [Starbooks] info: Listening on port 3001..
+2023-04-09T10:52:42.873Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-09T10:54:50.000Z [Starbooks] info: Morgan enabled
+2023-04-09T10:54:50.013Z [Starbooks] info: Listening on port 3001..
+2023-04-09T10:54:50.056Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-09T10:55:00.840Z [Starbooks] info: Morgan enabled
+2023-04-09T10:55:00.856Z [Starbooks] info: Listening on port 3001..
+2023-04-09T10:55:00.884Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-09T11:41:29.828Z [Starbooks] info: Morgan enabled
+2023-04-09T11:41:29.852Z [Starbooks] info: Listening on port 3001..
+2023-04-09T11:41:29.878Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-09T11:42:15.346Z [Starbooks] info: Morgan enabled
+2023-04-09T11:42:15.354Z [Starbooks] info: Listening on port 3001..
+2023-04-09T11:42:15.407Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-09T11:42:52.618Z [Starbooks] info: Morgan enabled
+2023-04-09T11:42:52.626Z [Starbooks] info: Listening on port 3001..
+2023-04-09T11:42:52.670Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-09T11:43:26.127Z [Starbooks] info: Morgan enabled
+2023-04-09T11:43:26.136Z [Starbooks] info: Listening on port 3001..
+2023-04-09T11:43:26.177Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-09T11:43:45.492Z [Starbooks] info: Morgan enabled
+2023-04-09T11:43:45.500Z [Starbooks] info: Listening on port 3001..
+2023-04-09T11:43:45.548Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-09T11:43:55.783Z [Starbooks] info: Morgan enabled
+2023-04-09T11:43:55.791Z [Starbooks] info: Listening on port 3001..
+2023-04-09T11:43:55.840Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-09T11:44:14.547Z [Starbooks] info: Morgan enabled
+2023-04-09T11:44:14.556Z [Starbooks] info: Listening on port 3001..
+2023-04-09T11:44:14.597Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-09T11:44:27.056Z [Starbooks] info: Morgan enabled
+2023-04-09T11:44:27.064Z [Starbooks] info: Listening on port 3001..
+2023-04-09T11:44:27.107Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-09T12:09:56.397Z [Starbooks] info: Morgan enabled
+2023-04-09T12:09:56.414Z [Starbooks] info: Listening on port 3001..
+2023-04-09T12:09:56.440Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-09T12:09:57.089Z [Starbooks] error: Cannot read properties of null (reading 'hospital') Cannot read properties of null (reading 'hospital')
+2023-04-09T12:10:19.020Z [Starbooks] info: Morgan enabled
+2023-04-09T12:10:19.031Z [Starbooks] info: Listening on port 3001..
+2023-04-09T12:10:19.075Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-09T12:10:19.701Z [Starbooks] error: Cannot read properties of null (reading 'hospital') Cannot read properties of null (reading 'hospital')
+2023-04-09T12:11:09.829Z [Starbooks] info: Morgan enabled
+2023-04-09T12:11:09.838Z [Starbooks] info: Listening on port 3001..
+2023-04-09T12:11:09.865Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-09T12:27:43.840Z [Starbooks] info: Morgan enabled
+2023-04-09T12:27:43.851Z [Starbooks] info: Listening on port 3001..
+2023-04-09T12:27:43.882Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-09T12:27:51.752Z [Starbooks] info: Morgan enabled
+2023-04-09T12:27:51.763Z [Starbooks] info: Listening on port 3001..
+2023-04-09T12:27:51.805Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-09T12:28:42.851Z [Starbooks] info: Morgan enabled
+2023-04-09T12:28:42.860Z [Starbooks] info: Listening on port 3001..
+2023-04-09T12:28:42.904Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-09T12:29:28.961Z [Starbooks] info: Morgan enabled
+2023-04-09T12:29:28.971Z [Starbooks] info: Listening on port 3001..
+2023-04-09T12:29:29.016Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-09T18:44:59.741Z [Starbooks] info: Morgan enabled
+2023-04-09T18:44:59.758Z [Starbooks] info: Listening on port 3001..
+2023-04-09T18:44:59.821Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-04-18T20:38:55.399Z [Starbooks] info: Morgan enabled
+2023-04-18T20:38:55.408Z [Starbooks] info: Listening on port 3001..
+2023-04-18T20:38:55.436Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-13T11:38:12.617Z [Starbooks] info: Morgan enabled
+2023-06-13T11:38:12.633Z [Starbooks] info: Listening on port 3001..
+2023-06-13T11:38:12.669Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-13T11:39:13.407Z [Starbooks] info: Morgan enabled
+2023-06-13T11:39:13.420Z [Starbooks] info: Listening on port 3001..
+2023-06-13T11:39:13.449Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-13T11:39:14.108Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-13T11:39:14.291Z [Starbooks] error: Cannot read properties of undefined (reading 'toString') Cannot read properties of undefined (reading 'toString')
+2023-06-13T11:39:14.509Z [Starbooks] error: Cannot read properties of undefined (reading 'toString') Cannot read properties of undefined (reading 'toString')
+2023-06-13T11:39:14.536Z [Starbooks] error: Cannot read properties of undefined (reading 'toString') Cannot read properties of undefined (reading 'toString')
+2023-06-13T11:39:14.562Z [Starbooks] error: Cannot read properties of undefined (reading 'toString') Cannot read properties of undefined (reading 'toString')
+2023-06-13T11:39:14.590Z [Starbooks] error: Cannot read properties of undefined (reading 'toString') Cannot read properties of undefined (reading 'toString')
+2023-06-13T11:39:14.616Z [Starbooks] error: Cannot read properties of undefined (reading 'toString') Cannot read properties of undefined (reading 'toString')
+2023-06-13T11:39:14.644Z [Starbooks] error: Cannot read properties of undefined (reading 'toString') Cannot read properties of undefined (reading 'toString')
+2023-06-13T18:01:51.519Z [Starbooks] info: Morgan enabled
+2023-06-13T18:01:51.530Z [Starbooks] info: Listening on port 3001..
+2023-06-13T18:01:51.549Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-13T18:01:52.628Z [Starbooks] info: Morgan enabled
+2023-06-13T18:01:52.639Z [Starbooks] info: Listening on port 3001..
+2023-06-13T18:01:52.652Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-13T18:01:53.056Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-13T18:03:52.852Z [Starbooks] info: Morgan enabled
+2023-06-13T18:03:52.863Z [Starbooks] info: Listening on port 3001..
+2023-06-13T18:03:52.879Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-13T18:03:53.918Z [Starbooks] info: Morgan enabled
+2023-06-13T18:03:53.929Z [Starbooks] info: Listening on port 3001..
+2023-06-13T18:03:53.942Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-13T18:03:54.330Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-14T18:13:50.296Z [Starbooks] info: Morgan enabled
+2023-06-14T18:13:50.335Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-06-14T18:14:15.238Z [Starbooks] info: Morgan enabled
+2023-06-14T18:14:15.241Z [Starbooks] info: Listening on port 3001..
+2023-06-14T18:14:15.253Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-06-14T18:15:07.276Z [Starbooks] info: Morgan enabled
+2023-06-14T18:15:07.288Z [Starbooks] info: Listening on port 3001..
+2023-06-14T18:15:07.340Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-14T18:16:11.610Z [Starbooks] info: Morgan enabled
+2023-06-14T18:16:11.623Z [Starbooks] info: Listening on port 3001..
+2023-06-14T18:16:11.659Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-14T18:16:12.340Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-14T18:16:12.533Z [Starbooks] error: Cannot read properties of undefined (reading 'toString') Cannot read properties of undefined (reading 'toString')
+2023-06-14T18:16:12.733Z [Starbooks] error: Cannot read properties of undefined (reading 'toString') Cannot read properties of undefined (reading 'toString')
+2023-06-14T18:16:12.759Z [Starbooks] error: Cannot read properties of undefined (reading 'toString') Cannot read properties of undefined (reading 'toString')
+2023-06-14T18:16:12.785Z [Starbooks] error: Cannot read properties of undefined (reading 'toString') Cannot read properties of undefined (reading 'toString')
+2023-06-14T18:16:12.813Z [Starbooks] error: Cannot read properties of undefined (reading 'toString') Cannot read properties of undefined (reading 'toString')
+2023-06-14T18:16:12.840Z [Starbooks] error: Cannot read properties of undefined (reading 'toString') Cannot read properties of undefined (reading 'toString')
+2023-06-14T18:16:12.868Z [Starbooks] error: Cannot read properties of undefined (reading 'toString') Cannot read properties of undefined (reading 'toString')
+2023-06-15T11:40:48.551Z [Starbooks] info: Morgan enabled
+2023-06-15T11:40:48.564Z [Starbooks] info: Listening on port 3001..
+2023-06-15T11:40:48.648Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-15T12:20:22.711Z [Starbooks] info: Morgan enabled
+2023-06-15T12:20:22.728Z [Starbooks] info: Listening on port 3001..
+2023-06-15T12:20:22.778Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-15T12:20:47.381Z [Starbooks] info: Morgan enabled
+2023-06-15T12:20:47.397Z [Starbooks] info: Listening on port 3001..
+2023-06-15T12:20:47.457Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-15T12:24:50.910Z [Starbooks] info: Morgan enabled
+2023-06-15T12:24:50.925Z [Starbooks] info: Listening on port 3001..
+2023-06-15T12:24:50.979Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-15T12:26:41.257Z [Starbooks] info: Morgan enabled
+2023-06-15T12:26:41.275Z [Starbooks] info: Listening on port 3001..
+2023-06-15T12:26:41.314Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-15T12:34:18.072Z [Starbooks] info: Morgan enabled
+2023-06-15T12:34:18.082Z [Starbooks] info: Listening on port 3001..
+2023-06-15T12:34:18.124Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-15T12:41:06.968Z [Starbooks] info: Morgan enabled
+2023-06-15T12:41:06.983Z [Starbooks] info: Listening on port 3001..
+2023-06-15T12:41:07.039Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-15T12:42:47.261Z [Starbooks] info: Morgan enabled
+2023-06-15T12:42:47.284Z [Starbooks] info: Listening on port 3001..
+2023-06-15T12:42:47.335Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-15T12:43:43.174Z [Starbooks] info: Morgan enabled
+2023-06-15T12:43:43.187Z [Starbooks] info: Listening on port 3001..
+2023-06-15T12:43:43.236Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-15T12:45:32.124Z [Starbooks] info: Morgan enabled
+2023-06-15T12:45:32.144Z [Starbooks] info: Listening on port 3001..
+2023-06-15T12:45:32.209Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-15T12:48:07.575Z [Starbooks] info: Morgan enabled
+2023-06-15T12:48:07.590Z [Starbooks] info: Listening on port 3001..
+2023-06-15T12:48:07.638Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-15T12:49:53.587Z [Starbooks] info: Morgan enabled
+2023-06-15T12:49:53.611Z [Starbooks] info: Listening on port 3001..
+2023-06-15T12:49:53.653Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-15T12:50:31.823Z [Starbooks] info: Morgan enabled
+2023-06-15T12:50:31.841Z [Starbooks] info: Listening on port 3001..
+2023-06-15T12:50:31.889Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-15T12:51:54.787Z [Starbooks] info: Morgan enabled
+2023-06-15T12:51:54.803Z [Starbooks] info: Listening on port 3001..
+2023-06-15T12:51:54.862Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-15T12:54:40.961Z [Starbooks] info: Morgan enabled
+2023-06-15T12:54:40.973Z [Starbooks] info: Listening on port 3001..
+2023-06-15T12:54:41.027Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-15T12:55:08.154Z [Starbooks] info: Morgan enabled
+2023-06-15T12:55:08.170Z [Starbooks] info: Listening on port 3001..
+2023-06-15T12:55:08.218Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-15T12:55:47.320Z [Starbooks] info: Morgan enabled
+2023-06-15T12:55:47.334Z [Starbooks] info: Listening on port 3001..
+2023-06-15T12:55:47.389Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-15T12:56:19.418Z [Starbooks] info: Morgan enabled
+2023-06-15T12:56:19.438Z [Starbooks] info: Listening on port 3001..
+2023-06-15T12:56:19.488Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-15T12:59:33.227Z [Starbooks] info: Morgan enabled
+2023-06-15T12:59:33.244Z [Starbooks] info: Listening on port 3001..
+2023-06-15T12:59:33.293Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-15T12:59:49.568Z [Starbooks] info: Morgan enabled
+2023-06-15T12:59:49.581Z [Starbooks] info: Listening on port 3001..
+2023-06-15T12:59:49.626Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-15T13:00:45.795Z [Starbooks] info: Morgan enabled
+2023-06-15T13:00:45.809Z [Starbooks] info: Listening on port 3001..
+2023-06-15T13:00:45.853Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-15T13:05:23.234Z [Starbooks] info: Morgan enabled
+2023-06-15T13:05:23.251Z [Starbooks] info: Listening on port 3001..
+2023-06-15T13:05:23.302Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-15T13:05:42.495Z [Starbooks] info: Morgan enabled
+2023-06-15T13:05:42.508Z [Starbooks] info: Listening on port 3001..
+2023-06-15T13:05:42.558Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-15T13:06:01.969Z [Starbooks] info: Morgan enabled
+2023-06-15T13:06:01.982Z [Starbooks] info: Listening on port 3001..
+2023-06-15T13:06:02.029Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-15T13:06:30.442Z [Starbooks] info: Morgan enabled
+2023-06-15T13:06:30.458Z [Starbooks] info: Listening on port 3001..
+2023-06-15T13:06:30.501Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-15T13:07:20.695Z [Starbooks] info: Morgan enabled
+2023-06-15T13:07:20.712Z [Starbooks] info: Listening on port 3001..
+2023-06-15T13:07:20.760Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-15T16:14:34.024Z [Starbooks] info: Morgan enabled
+2023-06-15T16:14:34.038Z [Starbooks] info: Listening on port 3001..
+2023-06-15T16:14:34.100Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-15T16:14:34.265Z [Starbooks] error: Cannot read properties of null (reading 'accessLevel') Cannot read properties of null (reading 'accessLevel')
+2023-06-27T06:36:05.885Z [Starbooks] info: Morgan enabled
+2023-06-27T06:36:05.906Z [Starbooks] info: Listening on port 3001..
+2023-06-27T06:36:51.122Z [Starbooks] info: Morgan enabled
+2023-06-27T06:36:51.137Z [Starbooks] info: Listening on port 3001..
+2023-06-27T06:37:22.522Z [Starbooks] info: Morgan enabled
+2023-06-27T06:37:22.535Z [Starbooks] info: Listening on port 3001..
+2023-06-27T06:37:22.580Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-27T06:38:25.546Z [Starbooks] info: Morgan enabled
+2023-06-27T06:38:25.557Z [Starbooks] info: Listening on port 3001..
+2023-06-27T06:38:25.602Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-27T06:38:34.363Z [Starbooks] info: Morgan enabled
+2023-06-27T06:38:34.377Z [Starbooks] info: Listening on port 3001..
+2023-06-27T06:38:34.429Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-27T06:45:45.304Z [Starbooks] info: Morgan enabled
+2023-06-27T06:45:45.332Z [Starbooks] info: Listening on port 3001..
+2023-06-27T06:45:45.379Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-27T06:46:34.429Z [Starbooks] info: Morgan enabled
+2023-06-27T06:46:34.444Z [Starbooks] info: Listening on port 3001..
+2023-06-27T06:46:34.493Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-27T06:46:51.864Z [Starbooks] info: Morgan enabled
+2023-06-27T06:46:51.882Z [Starbooks] info: Listening on port 3001..
+2023-06-27T06:46:51.930Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-27T06:47:19.605Z [Starbooks] info: Morgan enabled
+2023-06-27T06:47:19.628Z [Starbooks] info: Listening on port 3001..
+2023-06-27T06:47:19.687Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-27T06:47:51.185Z [Starbooks] info: Morgan enabled
+2023-06-27T06:47:51.210Z [Starbooks] info: Listening on port 3001..
+2023-06-27T06:47:51.256Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-27T06:50:04.653Z [Starbooks] info: Morgan enabled
+2023-06-27T06:50:04.672Z [Starbooks] info: Listening on port 3001..
+2023-06-27T06:50:04.733Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-27T06:50:39.319Z [Starbooks] info: Morgan enabled
+2023-06-27T06:50:39.342Z [Starbooks] info: Listening on port 3001..
+2023-06-27T06:50:39.384Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-27T06:53:54.381Z [Starbooks] info: Morgan enabled
+2023-06-27T06:53:54.402Z [Starbooks] info: Listening on port 3001..
+2023-06-27T06:53:54.446Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-27T06:54:33.380Z [Starbooks] info: Morgan enabled
+2023-06-27T06:54:33.398Z [Starbooks] info: Listening on port 3001..
+2023-06-27T06:54:33.444Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-27T06:55:24.162Z [Starbooks] info: Morgan enabled
+2023-06-27T06:55:24.179Z [Starbooks] info: Listening on port 3001..
+2023-06-27T06:55:24.229Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-27T06:56:15.673Z [Starbooks] info: Morgan enabled
+2023-06-27T06:56:15.690Z [Starbooks] info: Listening on port 3001..
+2023-06-27T06:56:15.736Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-27T06:56:28.928Z [Starbooks] info: Morgan enabled
+2023-06-27T06:56:28.944Z [Starbooks] info: Listening on port 3001..
+2023-06-27T06:56:28.991Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-27T06:56:53.233Z [Starbooks] info: Morgan enabled
+2023-06-27T06:56:53.255Z [Starbooks] info: Listening on port 3001..
+2023-06-27T06:56:53.302Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-27T06:57:13.064Z [Starbooks] info: Morgan enabled
+2023-06-27T06:57:13.081Z [Starbooks] info: Listening on port 3001..
+2023-06-27T06:57:13.134Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-27T06:57:41.552Z [Starbooks] info: Morgan enabled
+2023-06-27T06:57:41.572Z [Starbooks] info: Listening on port 3001..
+2023-06-27T06:57:41.620Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-27T06:58:24.493Z [Starbooks] info: Morgan enabled
+2023-06-27T06:58:24.510Z [Starbooks] info: Listening on port 3001..
+2023-06-27T06:58:24.554Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-27T06:58:44.904Z [Starbooks] info: Morgan enabled
+2023-06-27T06:58:44.921Z [Starbooks] info: Listening on port 3001..
+2023-06-27T06:58:44.971Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-27T06:59:08.357Z [Starbooks] info: Morgan enabled
+2023-06-27T06:59:08.373Z [Starbooks] info: Listening on port 3001..
+2023-06-27T06:59:08.421Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-27T06:59:59.396Z [Starbooks] info: Morgan enabled
+2023-06-27T06:59:59.416Z [Starbooks] info: Listening on port 3001..
+2023-06-27T06:59:59.456Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-27T07:02:59.993Z [Starbooks] info: Morgan enabled
+2023-06-27T07:03:00.010Z [Starbooks] info: Listening on port 3001..
+2023-06-27T07:03:00.062Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-27T07:07:36.901Z [Starbooks] info: Morgan enabled
+2023-06-27T07:07:36.917Z [Starbooks] info: Listening on port 3001..
+2023-06-27T07:07:36.970Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-27T07:08:02.853Z [Starbooks] info: Morgan enabled
+2023-06-27T07:08:02.870Z [Starbooks] info: Listening on port 3001..
+2023-06-27T07:08:02.915Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-27T07:08:40.787Z [Starbooks] info: Morgan enabled
+2023-06-27T07:08:40.812Z [Starbooks] info: Listening on port 3001..
+2023-06-27T07:08:40.858Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-27T07:11:08.427Z [Starbooks] info: Morgan enabled
+2023-06-27T07:11:08.447Z [Starbooks] info: Listening on port 3001..
+2023-06-27T07:11:08.489Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-27T10:14:17.668Z [Starbooks] info: Morgan enabled
+2023-06-27T10:14:17.698Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-06-27T10:14:50.761Z [Starbooks] info: Morgan enabled
+2023-06-27T10:14:50.764Z [Starbooks] info: Listening on port 3001..
+2023-06-27T10:14:50.776Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-06-27T10:16:03.755Z [Starbooks] info: Morgan enabled
+2023-06-27T10:16:03.758Z [Starbooks] info: Listening on port 3001..
+2023-06-27T10:16:03.771Z [Starbooks] info: Connected to mongodb://localhost/hccDB..

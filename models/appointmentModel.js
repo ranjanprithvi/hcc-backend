@@ -1,14 +1,18 @@
 import Joi from "joi";
+import moment from "moment";
 import mongoose, { model, Schema } from "mongoose";
-import { purposeSchema } from "./purposeModel.js";
+import { hospitalSchema } from "./hospitalModel.js";
 
 export const appointmentSchema = {
     timeSlot: Joi.date().required(),
-    createdByAccountId: Joi.string()
+    doctorId: Joi.string()
         .regex(/^[a-f\d]{24}$/i)
         .required(),
-    // patientId: Joi.string().regex(/^[a-f\d]{24}$/i),
-    // purposeId: Joi.alternatives().conditional("patientId", {
+    hospitalId: Joi.string()
+        .regex(/^[a-f\d]{24}$/i)
+        .required(),
+    // profileId: Joi.string().regex(/^[a-f\d]{24}$/i),
+    // hospitalId: Joi.alternatives().conditional("profileId", {
     //     is: Joi.string(),
     //     then: Joi.string()
     //         .regex(/^[a-f\d]{24}$/i)
@@ -21,18 +25,23 @@ export const appointmentSchema = {
 export const appointmentSchemaObject = Joi.object(appointmentSchema);
 
 const createSlotsSchema = {
-    startTime: Joi.date().min(new Date()).required(),
+    startTime: Joi.date().min(moment()).required(),
     endTime: Joi.date().min(Joi.ref("startTime")).required(),
-    createdByAccountId: Joi.string().regex(/^[a-f\d]{24}$/i),
+    doctorId: Joi.string()
+        .regex(/^[a-f\d]{24}$/i)
+        .required(),
+    hospitalId: Joi.string()
+        .regex(/^[a-f\d]{24}$/i)
+        .required(),
 };
 
 export const createSlotsSchemaObject = Joi.object(createSlotsSchema);
 
 const bookAppointmentSchema = {
-    patientId: Joi.string()
+    profileId: Joi.string()
         .regex(/^[a-f\d]{24}$/i)
         .required(),
-    purposeId: Joi.string()
+    hospitalId: Joi.string()
         .regex(/^[a-f\d]{24}$/i)
         .required(),
 };
@@ -43,7 +52,7 @@ const rescheduleAppointmentSchema = {
     newAppointmentId: Joi.string()
         .regex(/^[a-f\d]{24}$/i)
         .required(),
-    purposeId: Joi.string()
+    hospitalId: Joi.string()
         .regex(/^[a-f\d]{24}$/i)
         .required(),
 };
@@ -53,21 +62,19 @@ export const rescheduleAppointmentSchemaObject = Joi.object(
 );
 
 const dbSchema = new Schema({
-    timeSlot: { type: Date, min: new Date(), required: true },
-    createdByAccountId: {
+    timeSlot: { type: Date, min: moment(), required: true },
+    hospital: {
         type: mongoose.Types.ObjectId,
-        ref: "account",
+        ref: "hospital",
         index: true,
     },
-    patientId: {
+    doctor: {
         type: mongoose.Types.ObjectId,
-        ref: "patient",
+        ref: "doctor",
     },
-    purpose: {
-        type: purposeSchema,
-        required: function () {
-            return this.patientId;
-        },
+    profile: {
+        type: mongoose.Types.ObjectId,
+        ref: "profile",
     },
     cancelled: Boolean,
 });

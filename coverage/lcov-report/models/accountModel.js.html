@@ -218,7 +218,7 @@ export const accountSchema = {
     email: Joi.string().email().min(5).max(255).required(),
     password: passwordComplexity(complexityOptions).required(),
     accessLevel: Joi.number().valid(...Object.values(roles)),
-    patients: Joi.array(),
+    profiles: Joi.array(),
     oldPassword: Joi.allow(),
 };
 export const accountSchemaObject = Joi.object(accountSchema);
@@ -237,7 +237,7 @@ const dbSchema = new Schema({
         enum: Object.values(roles),
         default: roles.user,
     },
-    patients: [{ type: Types.ObjectId, ref: "patient" }],
+    profiles: [{ type: Types.ObjectId, ref: "profile" }],
 });
 &nbsp;
 dbSchema.methods.generateAuthToken = <span class="fstat-no" title="function not covered" >fu</span>nction () {
@@ -246,7 +246,7 @@ dbSchema.methods.generateAuthToken = <span class="fstat-no" title="function not 
             _id: this._id,
             email: this.email,
             accessLevel: this.accessLevel,
-            patients: this.patients,
+            profiles: this.profiles,
         },
         config.get("JWTPrivateKey")
         // ,{ expiresIn: "24h" }

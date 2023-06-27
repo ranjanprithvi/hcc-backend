@@ -17,7 +17,7 @@ const complexityOptions = {
 
 export const roles = {
     user: 1,
-    doctor: 5,
+    hospital: 5,
     admin: 10,
 };
 
@@ -25,21 +25,13 @@ export const accountSchema = {
     email: Joi.string().email().min(5).max(255).required(),
     password: passwordComplexity(complexityOptions).required(),
     accessLevel: Joi.number().valid(...Object.values(roles)),
-    hospitalName: Joi.alternatives().conditional("accessLevel", {
-        is: roles.doctor,
-        then: Joi.string().min(3).required(),
-        otherwise: Joi.forbidden(),
-    }),
-    fieldId: Joi.alternatives().conditional("accessLevel", {
-        is: roles.doctor,
+    hospitalId: Joi.alternatives().conditional("accessLevel", {
+        is: roles.hospital,
         then: Joi.string().regex(/^[a-f\d]{24}$/i),
         otherwise: Joi.forbidden(),
     }),
-    phone: Joi.string().max(14).min(10),
-    patients: Joi.array(),
-    oldPassword: Joi.allow(),
+    oldPassword: Joi.string(),
 };
-export const accountSchemaObject = Joi.object(accountSchema);
 
 const dbSchema = new Schema({
     email: {
@@ -55,35 +47,38 @@ const dbSchema = new Schema({
         enum: Object.values(roles),
         default: roles.user,
     },
-    hospitalName: {
-        type: String,
+    hospital: {
+        type: Types.ObjectId,
+        ref: "hospital",
         required: function () {
-            return this.accessLevel == roles.doctor;
+            return this.accessLevel == roles.hospital;
         },
     },
-    field: { type: Types.ObjectId, ref: "field" },
-    phone: { type: String, maxLength: 14, minLength: 10 },
-    patients: [{ type: Types.ObjectId, ref: "patient" }],
-    // doctorName: {
-    //     type: String,
-    //     required: function () {
-    //         return this.accessLevel == roles.doctor;
-    //     },
-    // },
+    profiles: [
+        {
+            type: Types.ObjectId,
+            ref: "profile",
+            required: function () {
+                return this.accessLevel == roles.user;
+            },
+        },
+    ],
 });
 
-dbSchema.methods.generateAuthToken = function () {
-    const token = jwt.sign(
-        {
-            _id: this._id,
-            email: this.email,
-            accessLevel: this.accessLevel,
-            patients: this.patients,
-            hospitalName: this.hospitalName,
-        },
-        config.get("JWTPrivateKey")
-        // ,{ expiresIn: "24h" }
-    );
+dbSchema.methods.generateAuthToken = function (expiresIn) {
+    let info = {
+        _id: this._id,
+        email: this.email,
+        accessLevel: this.accessLevel,
+    };
+    if (this.accessLevel == roles.hospital) info.hospital = this.hospital;
+    else if (this.accessLevel == roles.user) info.profiles = this.profiles;
+
+    const options = {};
+    if (expiresIn) options.expiresIn = expiresIn;
+
+    const token = jwt.sign(info, config.get("JWTPrivateKey"), options);
+
     return token;
 };
 

@@ -17,7 +17,9 @@ export const validateEachParameter = (schema) => {
             for (let key in req.body) {
                 if (Object.keys(schema).includes(key)) {
                     Joi.assert(req.body[key], schema[key]);
-                } else return res.status(400).send(`${key} not allowed`);
+                } else {
+                    return res.status(400).send(`${key} not allowed`);
+                }
             }
         } catch (err) {
             return res.status(400).send(err.message);

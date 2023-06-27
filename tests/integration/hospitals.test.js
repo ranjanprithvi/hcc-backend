@@ -3,10 +3,10 @@ import request from "supertest";
 import server from "../../index";
 import { logger } from "../../startup/logger";
 import { conn } from "../../startup/mongo";
-import { Purpose } from "../../models/purposeModel.js";
+import { Hospital } from "../../models/hospitalModel.js";
 import { Account, roles } from "../../models/accountModel.js";
 
-describe("/api/purposes", () => {
+describe("/api/hospitals", () => {
     // beforeEach(() => {
     //     server = require("../../index");
     // });
@@ -14,7 +14,7 @@ describe("/api/purposes", () => {
     //     server.close();
     // });
     afterEach(async () => {
-        await Purpose.collection.deleteMany({});
+        await Hospital.collection.deleteMany({});
         // server.close();
     });
 
@@ -25,37 +25,37 @@ describe("/api/purposes", () => {
     });
 
     describe("GET /", () => {
-        it("should return all the purposes", async () => {
-            await Purpose.collection.insertMany([
-                { name: "purpose1" },
-                { name: "purpose2" },
+        it("should return all the hospitals", async () => {
+            await Hospital.collection.insertMany([
+                { name: "hospital1" },
+                { name: "hospital2" },
             ]);
-            const res = await request(server).get("/api/purposes");
+            const res = await request(server).get("/api/hospitals");
             expect(res.status).toBe(200);
             expect(res.body.length).toBe(2);
         });
     });
     describe("GET /:id", () => {
-        it("should return a purpose if valid id is passed", async () => {
-            const purpose = new Purpose({ name: "purpose1" });
-            await purpose.save();
+        it("should return 404 status if id is not valid", async () => {
+            const response = await request(server).get("/api/hospitals/1");
+            expect(response.status).toBe(404);
+        });
+
+        it("should return 404 status if no hospital with given id is found", async () => {
+            const id = mongoose.Types.ObjectId();
+            const response = await request(server).get("/api/hospitals/" + id);
+            expect(response.status).toBe(404);
+        });
+
+        it("should return a hospital if valid id is passed", async () => {
+            const hospital = new Hospital({ name: "Hospital1" });
+            await hospital.save();
 
             const response = await request(server).get(
-                `/api/purposes/${purpose._id}`
+                `/api/hospitals/${hospital._id}`
             );
             expect(response.status).toBe(200);
-            expect(response.body).toHaveProperty("name", "purpose1");
-        });
-
-        it("should return 404 status if id is not valid", async () => {
-            const response = await request(server).get("/api/purposes/1");
-            expect(response.status).toBe(404);
-        });
-
-        it("should return 404 status if no purpose with given id is found", async () => {
-            const id = mongoose.Types.ObjectId();
-            const response = await request(server).get("/api/purposes/" + id);
-            expect(response.status).toBe(404);
+            expect(response.body).toHaveProperty("name", hospital.name);
         });
     });
 
@@ -67,12 +67,12 @@ describe("/api/purposes", () => {
             token = new Account({
                 accessLevel: roles.admin,
             }).generateAuthToken();
-            params = { name: "purpose1" };
+            params = { name: "Hospital1" };
         });
 
         const exec = function () {
             return request(server)
-                .post("/api/purposes")
+                .post("/api/hospitals")
                 .set("x-auth-token", token)
                 .send(params);
         };
@@ -91,14 +91,14 @@ describe("/api/purposes", () => {
             expect(response.status).toBe(403);
         });
 
-        it("should return 400 if purpose has less than 3 characters", async () => {
+        it("should return 400 if hospital has less than 3 characters", async () => {
             params = { name: "ge" };
             const response = await exec();
 
             expect(response.status).toBe(400);
         });
 
-        it("should return 400 if purpose name is not passed", async () => {
+        it("should return 400 if hospital name is not passed", async () => {
             params = {};
             const response = await exec();
 
@@ -106,38 +106,39 @@ describe("/api/purposes", () => {
         });
 
         it("should return 400 if additional parameters are passed", async () => {
-            params = { name: "purpose1", title: "new" };
+            params = { name: "hospital1", title: "new" };
             const response = await exec();
 
             expect(response.status).toBe(400);
         });
 
-        it("should return 400 if purpose is not unique", async () => {
-            const purpose = new Purpose(params);
-            await purpose.save();
+        it("should return 400 if hospital is not unique", async () => {
+            const hospital = new Hospital(params);
+            await hospital.save();
 
             const response = await exec();
 
             expect(response.status).toBe(400);
         });
 
-        it("should save purpose if request is valid", async () => {
+        it("should save hospital if request is valid", async () => {
             await exec();
 
-            const purpose = await Purpose.findOne({ name: "purpose1" });
-            expect(purpose).not.toBeNull();
+            const hospital = await Hospital.findOne({ name: params.name });
+            expect(hospital).not.toBeNull();
         });
 
-        it("should return purpose if request is valid", async () => {
+        it("should return hospital if request is valid", async () => {
             const response = await exec();
 
             expect(response.status).toBe(201);
             expect(response.body).toHaveProperty("_id");
-            expect(response.body).toHaveProperty("name", "purpose1");
+            expect(response.body).toHaveProperty("name", params.name);
+            expect(response.body).toHaveProperty("doctors", []);
         });
     });
 
-    describe("PUT /:id", () => {
+    describe("PATCH /:id", () => {
         let id;
         let token;
         let params;
@@ -145,17 +146,19 @@ describe("/api/purposes", () => {
         // beforeAll(async () => {});
 
         beforeEach(async () => {
-            const purpose = new Purpose({ name: "purpose1" });
-            await purpose.save();
-            id = purpose._id;
+            const hospital = new Hospital({ name: "Hospital1" });
+            await hospital.save();
+            id = hospital._id;
 
-            token = new Account().generateAuthToken();
-            params = { name: "purpose2" };
+            token = new Account({
+                accessLevel: roles.admin,
+            }).generateAuthToken();
+            params = { name: "Hospital2" };
         });
 
         const exec = function () {
             return request(server)
-                .put("/api/purposes/" + id)
+                .patch("/api/hospitals/" + id)
                 .set("x-auth-token", token)
                 .send(params);
         };
@@ -167,22 +170,15 @@ describe("/api/purposes", () => {
             expect(response.status).toBe(401);
         });
 
-        it("should return 400 if purpose has less than 3 characters", async () => {
-            params = { name: "ge" };
-            const response = await exec();
-
-            expect(response.status).toBe(400);
-        });
-
-        it("should return 400 if purpose name is not passed", async () => {
-            params = {};
+        it("should return 400 if hospital has less than 3 characters", async () => {
+            params = { name: "ho" };
             const response = await exec();
 
             expect(response.status).toBe(400);
         });
 
         it("should return 400 if additional parameters are passed", async () => {
-            params = { name: "purpose1", title: "new" };
+            params = { name: "hospital1", title: "new" };
             const response = await exec();
 
             expect(response.status).toBe(400);
@@ -194,33 +190,34 @@ describe("/api/purposes", () => {
             expect(response.status).toBe(404);
         });
 
-        it("should return 404 status if no purpose with given id is found", async () => {
+        it("should return 404 status if no hospital with given id is found", async () => {
             id = mongoose.Types.ObjectId();
             const response = await exec();
             expect(response.status).toBe(404);
         });
 
-        it("should return 400 if purpose is not unique", async () => {
-            const purpose = new Purpose({ name: "purpose2" });
-            await purpose.save();
+        it("should return 400 if hospital is not unique", async () => {
+            const hospital = new Hospital({ name: params.name });
+            await hospital.save();
 
             const response = await exec();
 
             expect(response.status).toBe(400);
         });
 
-        it("should save purpose if request is valid", async () => {
+        it("should save hospital if request is valid", async () => {
             await exec();
 
-            const purpose = await Purpose.findOne({ name: "purpose2" });
-            expect(purpose).not.toBeNull();
+            const hospital = await Hospital.findOne({ name: params.name });
+            expect(hospital).not.toBeNull();
         });
 
-        it("should return purpose if request is valid", async () => {
+        it("should return hospital if request is valid", async () => {
             const response = await exec();
 
             expect(response.status).toBe(200);
-            expect(response.body).toHaveProperty("name", "purpose2");
+            expect(response.body).toHaveProperty("name", params.name);
+            expect(response.body).toHaveProperty("doctors");
         });
     });
 
@@ -231,9 +228,9 @@ describe("/api/purposes", () => {
         // beforeAll(async () => {});
 
         beforeEach(async () => {
-            const purpose = new Purpose({ name: "purpose1" });
-            await purpose.save();
-            id = purpose._id;
+            const hospital = new Hospital({ name: "hospital1" });
+            await hospital.save();
+            id = hospital._id;
 
             token = new Account({
                 accessLevel: roles.admin,
@@ -242,7 +239,7 @@ describe("/api/purposes", () => {
 
         const exec = function () {
             return request(server)
-                .delete("/api/purposes/" + id)
+                .delete("/api/hospitals/" + id)
                 .set("x-auth-token", token);
         };
 
@@ -267,25 +264,25 @@ describe("/api/purposes", () => {
             expect(response.status).toBe(404);
         });
 
-        it("should return 404 status if no purpose with given id is found", async () => {
+        it("should return 404 status if no hospital with given id is found", async () => {
             id = mongoose.Types.ObjectId();
             const response = await exec();
             expect(response.status).toBe(404);
         });
 
-        it("should remove purpose from the db if id is valid", async () => {
+        it("should remove hospital from the db if id is valid", async () => {
             await exec();
 
-            const purpose = await Purpose.findOne({ name: "purpose1" });
-            expect(purpose).toBeNull();
+            const hospital = await Hospital.findOne({ name: "hospital1" });
+            expect(hospital).toBeNull();
         });
 
-        it("should return purpose if id is valid", async () => {
+        it("should return hospital if id is valid", async () => {
             const response = await exec();
 
             expect(response.status).toBe(200);
             expect(response.body).toHaveProperty("_id");
-            expect(response.body).toHaveProperty("name", "purpose1");
+            expect(response.body).toHaveProperty("name", "hospital1");
         });
     });
 });

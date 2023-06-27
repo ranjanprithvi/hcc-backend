@@ -1,6 +1,6 @@
 {
-  "name": "starbooks-backend-prod",
-  "mail": {
-    "host": "prod-mail-server"
-  }
+    "name": "hcc-backend-prod",
+    "mail": {
+        "host": "prod-mail-server"
+    }
 }

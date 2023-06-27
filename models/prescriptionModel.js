@@ -1,11 +1,12 @@
 import Joi from "joi";
 import _ from "lodash";
+import moment from "moment";
 import mongoose, { Schema, model } from "mongoose";
-import { fieldSchema } from "./fieldModel.js";
+import { specializationSchema } from "./specializationModel.js";
 import { medicationSchema } from "./medicationModel.js";
 
 export const prescriptionSchema = {
-    patientId: Joi.string()
+    profileId: Joi.string()
         .regex(/^[a-f\d]{24}$/i)
         .required(),
     recordName: Joi.string().min(3).max(50).required(),
@@ -17,11 +18,16 @@ export const prescriptionSchema = {
             sizeInBytes: Joi.number().min(1).required(),
         })
     ),
-    hospitalName: Joi.string().required(),
-    fieldId: Joi.string()
+    doctorId: Joi.string()
         .regex(/^[a-f\d]{24}$/i)
         .required(),
-    dateOnDocument: Joi.date().max(new Date()),
+    specializationId: Joi.string()
+        .regex(/^[a-f\d]{24}$/i)
+        .required(),
+    hospitalId: Joi.string()
+        .regex(/^[a-f\d]{24}$/i)
+        .required(),
+    dateOnDocument: Joi.date().max(moment()),
     medications: Joi.array().items(
         Joi.object({
             medicationId: Joi.string()
@@ -37,16 +43,11 @@ export const prescriptionSchema = {
 export const prescriptionSchemaObject = Joi.object(prescriptionSchema);
 
 const dbSchema = new Schema({
-    patientId: {
+    profileId: {
         type: mongoose.Types.ObjectId,
-        ref: "patient",
+        ref: "profile",
         required: true,
         index: true,
-    },
-    createdByAccountId: {
-        type: mongoose.Types.ObjectId,
-        ref: "account",
-        required: true,
     },
     // recordName: {
     //     type: String,
@@ -69,10 +70,18 @@ const dbSchema = new Schema({
         type: [{ name: String, sizeInBytes: { type: Number, min: 1 } }],
         default: [],
     },
-    hospitalName: { type: String, required: true },
-    field: { type: fieldSchema, required: true },
-    dateOnDocument: { type: Date, max: new Date() },
-    dateUploaded: { type: Date, required: true },
+    doctor: {
+        type: mongoose.Types.ObjectId,
+        ref: "doctor",
+        required: true,
+    },
+    specialization: { type: specializationSchema, required: true },
+    hospital: {
+        type: mongoose.Types.ObjectId,
+        ref: "hospital",
+        required: true,
+    },
+    dateOnDocument: { type: Date, max: moment() },
     medications: {
         type: [
             {

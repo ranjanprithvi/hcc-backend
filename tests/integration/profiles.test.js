@@ -3,14 +3,14 @@ import request from "supertest";
 import server from "../../index";
 import { logger } from "../../startup/logger";
 import { conn } from "../../startup/mongo";
-import { Patient } from "../../models/patientModel.js";
+import { Profile } from "../../models/profileModel.js";
 import bcrypt from "bcrypt";
 import { Account, roles } from "../../models/accountModel.js";
 import { admin } from "../../middleware/admin";
 
-describe("/api/patients", () => {
+describe("/api/profiles", () => {
     afterEach(async () => {
-        await Patient.collection.deleteMany({});
+        await Profile.collection.deleteMany({});
         await Account.collection.deleteMany({});
         // server.close();
     });
@@ -25,7 +25,7 @@ describe("/api/patients", () => {
         let token;
         const exec = async function () {
             return await request(server)
-                .get("/api/patients")
+                .get("/api/profiles")
                 .set("x-auth-token", token);
         };
 
@@ -41,17 +41,17 @@ describe("/api/patients", () => {
             expect(res.status).toBe(403);
         });
 
-        it("should return all the patients if client is admin", async () => {
-            await Patient.collection.insertMany([
+        it("should return all the profiles if client is admin", async () => {
+            await Profile.collection.insertMany([
                 {
                     accountId: mongoose.Types.ObjectId(),
-                    name: "patient1",
+                    name: "profile1",
                     gender: "male",
                     dob: "09/16/1990",
                 },
                 {
                     accountId: mongoose.Types.ObjectId(),
-                    name: "patient2",
+                    name: "profile2",
                     gender: "other",
                     dob: "05/20/1990",
                 },
@@ -67,28 +67,28 @@ describe("/api/patients", () => {
     });
 
     describe("GET /:id", () => {
-        let token, id, patient, account;
+        let token, id, profile, account;
 
         beforeEach(async () => {
             account = new Account({ email: "abc@abc.com", password: "123456" });
 
-            patient = new Patient({
+            profile = new Profile({
                 accountId: account._id,
-                name: "patient1",
+                name: "profile1",
                 gender: "female",
                 dob: new Date("09/14/1990"),
             });
-            await patient.save();
-            account.patients = [patient._id];
+            await profile.save();
+            account.profiles = [profile._id];
             await account.save();
-            id = patient._id;
+            id = profile._id;
 
             token = account.generateAuthToken();
         });
 
         const exec = async function () {
             return await request(server)
-                .get("/api/patients/" + id)
+                .get("/api/profiles/" + id)
                 .set("x-auth-token", token);
         };
 
@@ -98,7 +98,7 @@ describe("/api/patients", () => {
             expect(res.status).toBe(401);
         });
 
-        it("should return 403 if patient does not belong to account", async () => {
+        it("should return 403 if profile does not belong to account", async () => {
             token = new Account().generateAuthToken();
             const res = await exec();
             expect(res.status).toBe(403);
@@ -118,23 +118,23 @@ describe("/api/patients", () => {
             expect(response.status).toBe(404);
         });
 
-        it("should return 404 status if no patient with given id is found", async () => {
+        it("should return 404 status if no profile with given id is found", async () => {
             id = mongoose.Types.ObjectId();
             const response = await exec();
             expect(response.status).toBe(404);
         });
 
-        it("should return the patient if request is valid", async () => {
+        it("should return the profile if request is valid", async () => {
             const res = await exec();
             expect(res.status).toBe(200);
-            expect(res.body).toHaveProperty("_id", patient._id.toString());
+            expect(res.body).toHaveProperty("_id", profile._id.toString());
             expect(res.body).toHaveProperty(
                 "accountId",
-                patient.accountId.toString()
+                profile.accountId.toString()
             );
-            expect(res.body).toHaveProperty("name", patient.name);
-            expect(res.body).toHaveProperty("gender", patient.gender);
-            expect(new Date(res.body.dob)).toEqual(patient.dob);
+            expect(res.body).toHaveProperty("name", profile.name);
+            expect(res.body).toHaveProperty("gender", profile.gender);
+            expect(new Date(res.body.dob)).toEqual(profile.dob);
         });
     });
 
@@ -148,7 +148,7 @@ describe("/api/patients", () => {
 
             params = {
                 accountId: account._id,
-                name: "patient1",
+                name: "profile1",
                 gender: "female",
                 dob: "09/14/1990",
             };
@@ -156,7 +156,7 @@ describe("/api/patients", () => {
 
         const exec = async function () {
             return await request(server)
-                .post("/api/patients")
+                .post("/api/profiles")
                 .set("x-auth-token", token)
                 .send(params);
         };
@@ -167,7 +167,7 @@ describe("/api/patients", () => {
             expect(res.status).toBe(401);
         });
 
-        it("should allow for patient creation if account is admin", async () => {
+        it("should allow for profile creation if account is admin", async () => {
             const adminAccount = new Account({
                 email: "admin@abc.com",
                 password: "123456",
@@ -247,6 +247,20 @@ describe("/api/patients", () => {
             expect(response.status).toBe(400);
         });
 
+        it("should return 400 if phone number is less than 10 characters", async () => {
+            params.phone = "123";
+            const response = await exec();
+
+            expect(response.status).toBe(400);
+        });
+
+        it("should return 400 if phone number is greater than 14 characters", async () => {
+            params.phone = "+91 12345123456";
+            const response = await exec();
+
+            expect(response.status).toBe(400);
+        });
+
         it("should return 400 if additional parameters are passed", async () => {
             params.other = "abc";
             const response = await exec();
@@ -254,19 +268,19 @@ describe("/api/patients", () => {
             expect(response.status).toBe(400);
         });
 
-        it("should store the patient in the db if request is valid", async () => {
+        it("should store the profile in the db if request is valid", async () => {
             await exec();
-            const patient = await Patient.findOne({
+            const profile = await Profile.findOne({
                 accountId: params.accountId,
                 name: params.name,
                 gender: params.gender,
                 dob: new Date(params.dob).toISOString(),
             });
 
-            expect(patient).not.toBeNull();
+            expect(profile).not.toBeNull();
         });
 
-        it("should return the patient if request is valid", async () => {
+        it("should return the profile if request is valid", async () => {
             const res = await exec();
             expect(res.status).toBe(201);
             expect(res.body).toHaveProperty("_id");
@@ -282,38 +296,38 @@ describe("/api/patients", () => {
             );
         });
 
-        it("should add patient to account if request is valid", async () => {
+        it("should add profile to account if request is valid", async () => {
             const res = await exec();
             account = await Account.findById(account._id);
             expect(res.status).toBe(201);
-            expect(account.patients[0].toString()).toEqual(res.body._id);
+            expect(account.profiles[0].toString()).toEqual(res.body._id);
         });
     });
 
     describe("PATCH /:id", () => {
-        let token, params, account, patient, id;
+        let token, params, account, profile, id;
 
         beforeEach(async () => {
             account = new Account({ email: "abc@abc.com", password: "123456" });
 
-            patient = new Patient({
+            profile = new Profile({
                 accountId: account._id,
-                name: "patient1",
+                name: "profile1",
                 gender: "male",
                 dob: new Date("09/18/1991"),
             });
-            account.patients = [patient._id];
+            account.profiles = [profile._id];
             await account.save();
-            await patient.save();
+            await profile.save();
 
             token = account.generateAuthToken();
-            id = patient._id;
+            id = profile._id;
             params = {};
         });
 
         const exec = async function () {
             return await request(server)
-                .patch("/api/patients/" + id)
+                .patch("/api/profiles/" + id)
                 .set("x-auth-token", token)
                 .send(params);
         };
@@ -324,7 +338,7 @@ describe("/api/patients", () => {
             expect(res.status).toBe(401);
         });
 
-        it("should return 403 if patient does not belong to account", async () => {
+        it("should return 403 if profile does not belong to account", async () => {
             token = new Account().generateAuthToken();
             const res = await exec();
             expect(res.status).toBe(403);
@@ -381,6 +395,20 @@ describe("/api/patients", () => {
             expect(response.status).toBe(400);
         });
 
+        it("should return 400 if phone number is less than 10 characters", async () => {
+            params.phone = "123";
+            const response = await exec();
+
+            expect(response.status).toBe(400);
+        });
+
+        it("should return 400 if phone number is greater than 14 characters", async () => {
+            params.phone = "+91 12345123456";
+            const response = await exec();
+
+            expect(response.status).toBe(400);
+        });
+
         it("should return 400 if unexpected parameter is passed", async () => {
             params.other = "abc";
             const response = await exec();
@@ -394,22 +422,22 @@ describe("/api/patients", () => {
             expect(response.status).toBe(404);
         });
 
-        it("should return 404 status if no patient with given id is found", async () => {
+        it("should return 404 status if no profile with given id is found", async () => {
             id = mongoose.Types.ObjectId();
             const response = await exec();
             expect(response.status).toBe(404);
         });
 
         it("should change the property in the db if request is valid", async () => {
-            params.name = "patient2";
+            params.name = "profile2";
             await exec();
-            const patient = await Patient.findById(id);
+            const profile = await Profile.findById(id);
 
-            expect(patient).toHaveProperty("name", params.name);
+            expect(profile).toHaveProperty("name", params.name);
         });
 
-        it("should return the patient if request is valid", async () => {
-            params.name = "patient2";
+        it("should return the profile if request is valid", async () => {
+            params.name = "profile2";
             const res = await exec();
             expect(res.status).toBe(200);
             expect(res.body).toHaveProperty("_id", id.toString());
@@ -421,29 +449,29 @@ describe("/api/patients", () => {
     });
 
     describe("DELETE /:id", () => {
-        let token, id, patient, account;
+        let token, id, profile, account;
 
         beforeEach(async () => {
             account = new Account({ email: "abc@abc.com", password: "123456" });
 
-            patient = new Patient({
+            profile = new Profile({
                 accountId: account._id,
-                name: "patient1",
+                name: "profile1",
                 gender: "female",
                 dob: new Date("09/14/1990"),
             });
-            account.patients = [patient._id];
+            account.profiles = [profile._id];
 
             await account.save();
-            await patient.save();
-            id = patient._id;
+            await profile.save();
+            id = profile._id;
 
             token = account.generateAuthToken();
         });
 
         const exec = async function () {
             return await request(server)
-                .delete("/api/patients/" + id)
+                .delete("/api/profiles/" + id)
                 .set("x-auth-token", token);
         };
 
@@ -453,7 +481,7 @@ describe("/api/patients", () => {
             expect(res.status).toBe(401);
         });
 
-        it("should return 403 if patient does not belong to account", async () => {
+        it("should return 403 if profile does not belong to account", async () => {
             token = new Account().generateAuthToken();
             const res = await exec();
             expect(res.status).toBe(403);
@@ -473,37 +501,37 @@ describe("/api/patients", () => {
             expect(response.status).toBe(404);
         });
 
-        it("should return 404 status if no patient with given id is found", async () => {
+        it("should return 404 status if no profile with given id is found", async () => {
             id = mongoose.Types.ObjectId();
             const response = await exec();
             expect(response.status).toBe(404);
         });
 
-        it("should remove the patient from the db if request is valid", async () => {
+        it("should remove the profile from the db if request is valid", async () => {
             await exec();
 
-            const patient = await Patient.findById(id);
-            expect(patient).toBeNull();
+            const profile = await Profile.findById(id);
+            expect(profile).toBeNull();
         });
 
-        it("should remove the patient from the account if request is valid", async () => {
+        it("should remove the profile from the account if request is valid", async () => {
             await exec();
 
             account = await Account.findById(account._id);
-            expect(account.patients).toEqual([]);
+            expect(account.profiles).toEqual([]);
         });
 
-        it("should return the patient if request is valid", async () => {
+        it("should return the profile if request is valid", async () => {
             const res = await exec();
             expect(res.status).toBe(200);
-            expect(res.body).toHaveProperty("_id", patient._id.toString());
+            expect(res.body).toHaveProperty("_id", profile._id.toString());
             expect(res.body).toHaveProperty(
                 "accountId",
-                patient.accountId.toString()
+                profile.accountId.toString()
             );
-            expect(res.body).toHaveProperty("name", patient.name);
-            expect(res.body).toHaveProperty("gender", patient.gender);
-            expect(new Date(res.body.dob)).toEqual(patient.dob);
+            expect(res.body).toHaveProperty("name", profile.name);
+            expect(res.body).toHaveProperty("gender", profile.gender);
+            expect(new Date(res.body.dob)).toEqual(profile.dob);
         });
     });
 });

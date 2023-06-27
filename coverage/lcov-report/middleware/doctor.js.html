@@ -101,7 +101,7 @@ export function doctor(req, res, next) {
     // 401 Unauthorised - When the jwt is invalid
     // 403 Forbidden - When the user doesnt have the permissions to make the request
 &nbsp;
-    if (req.account.accessLevel &lt; roles.doctor)
+    if (req.account.accessLevel &lt; roles.hospital)
 <span class="cstat-no" title="statement not covered" >        return res.status(403).send("Access Denied");</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    next();</span>

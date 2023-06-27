@@ -67,7 +67,7 @@ describe("/api/medications", () => {
 
         beforeEach(() => {
             token = new Account({
-                accessLevel: roles.doctor,
+                accessLevel: roles.hospital,
             }).generateAuthToken();
             params = { name: "medication1" };
         });
@@ -154,7 +154,7 @@ describe("/api/medications", () => {
             id = medication._id;
 
             token = new Account({
-                accessLevel: roles.doctor,
+                accessLevel: roles.hospital,
             }).generateAuthToken();
             params = { name: "medication2" };
         });
@@ -251,7 +251,7 @@ describe("/api/medications", () => {
             id = medication._id;
 
             token = new Account({
-                accessLevel: roles.doctor,
+                accessLevel: roles.hospital,
             }).generateAuthToken();
         });
 

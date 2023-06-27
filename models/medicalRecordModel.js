@@ -1,19 +1,16 @@
 import Joi from "joi";
 import _ from "lodash";
+import moment from "moment";
 import mongoose, { Schema, model } from "mongoose";
-import { fieldSchema } from "./fieldModel.js";
-import { recordTypeSchema } from "./recordTypeModel.js";
 
 export const medicalRecordSchema = {
-    patientId: Joi.string()
-        .regex(/^[a-f\d]{24}$/i)
-        .required(),
-    recordName: Joi.string().min(3).max(50).required(),
-    numberOfParts: Joi.number(),
-    recordTypeId: Joi.string()
+    profileId: Joi.string()
         .regex(/^[a-f\d]{24}$/i)
         .required(),
     s3Path: Joi.string().required(),
+    recordName: Joi.string().min(3).max(50).required(),
+    numberOfParts: Joi.number(),
+    recordType: Joi.string().required(),
     files: Joi.array()
         .items(
             Joi.object({
@@ -23,25 +20,44 @@ export const medicalRecordSchema = {
         )
         .min(1)
         .required(),
-    hospitalName: Joi.string().required(),
-    fieldId: Joi.string()
-        .regex(/^[a-f\d]{24}$/i)
-        .required(),
-    dateOnDocument: Joi.date().max(new Date()),
+    hospitalId: Joi.string().regex(/^[a-f\d]{24}$/i),
+    hospitalName: Joi.when("hospitalId", {
+        is: null,
+        then: Joi.string().required(),
+        otherwise: Joi.forbidden(),
+    }),
+    // hospitalName: Joi.alternatives().conditional("hospitalId", {
+    //     is: null,
+    //     then: Joi.string().required(),
+    //     otherwise: Joi.forbidden(),
+    // }),
+    doctorId: Joi.when("hospitalId", {
+        is: null,
+        then: Joi.forbidden(),
+        otherwise: Joi.string()
+            .regex(/^[a-f\d]{24}$/i)
+            .required(),
+    }),
+    doctorName: Joi.when("doctorId", {
+        is: null,
+        then: Joi.string().required(),
+        otherwise: Joi.forbidden(),
+    }),
+    specializationId: Joi.when("doctorId", {
+        is: null,
+        then: Joi.string().required(),
+        otherwise: Joi.forbidden(),
+    }),
+    dateOnDocument: Joi.date().max(moment()),
 };
 export const medicalRecordSchemaObject = Joi.object(medicalRecordSchema);
 
 const dbSchema = new Schema({
-    patientId: {
+    profileId: {
         type: mongoose.Types.ObjectId,
-        ref: "patient",
+        ref: "profile",
         required: true,
         index: true,
-    },
-    createdByAccountId: {
-        type: mongoose.Types.ObjectId,
-        ref: "account",
-        required: true,
     },
     // recordName: {
     //     type: String,
@@ -68,11 +84,35 @@ const dbSchema = new Schema({
             "Please provide at least one file",
         ],
     },
-    recordType: { type: recordTypeSchema, required: true },
-    hospitalName: { type: String, required: true },
-    field: { type: fieldSchema, required: true },
-    dateOnDocument: { type: Date, max: new Date() },
-    dateUploaded: { type: Date, required: true },
+    recordType: { type: String, required: true },
+    hospital: {
+        type: mongoose.Types.ObjectId,
+        ref: "hospital",
+    },
+    hospitalName: {
+        type: String,
+        required: function () {
+            return !this.hospital;
+        },
+    },
+    doctor: {
+        type: mongoose.Types.ObjectId,
+        ref: "doctor",
+    },
+    doctorName: {
+        type: String,
+        required: function () {
+            return !this.doctor;
+        },
+    },
+    specialization: {
+        type: mongoose.Types.ObjectId,
+        ref: "specialization",
+        required: function () {
+            return !this.doctor;
+        },
+    },
+    dateOnDocument: { type: Date, max: moment() },
 });
 
 export const MedicalRecord = model("medicalRecord", dbSchema);

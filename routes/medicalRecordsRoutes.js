@@ -1,19 +1,21 @@
 import express from "express";
 import _ from "lodash";
+import moment from "moment";
 import { admin } from "../middleware/admin.js";
 import { auth } from "../middleware/auth.js";
 import { checkOwner } from "../middleware/checkOwner.js";
 import { validateBody, validateEachParameter } from "../middleware/validate.js";
 import validateObjectId from "../middleware/validateObjectId.js";
-import { Patient } from "../models/patientModel.js";
+import { Profile } from "../models/profileModel.js";
 import { Account, roles } from "../models/accountModel.js";
 import {
     MedicalRecord,
     medicalRecordSchema,
     medicalRecordSchemaObject,
 } from "../models/medicalRecordModel.js";
-import { RecordType } from "../models/recordTypeModel.js";
-import { Field } from "../models/fieldModel.js";
+import { Specialization } from "../models/specializationModel.js";
+import { Doctor } from "../models/doctorModel.js";
+import { Hospital } from "../models/hospitalModel.js";
 const router = express.Router();
 
 router.get("/", auth, async (req, res) => {
@@ -25,11 +27,11 @@ router.get("/", auth, async (req, res) => {
     const query = JSON.parse(queryStr);
 
     if (req.account.accessLevel != roles.admin) {
-        if (!query.patientId)
-            return res.status(400).send("Please provide patientId");
+        if (!query.profileId)
+            return res.status(400).send("Please provide profileId");
 
-        if (!req.account.patients.includes(query.patientId))
-            query.createdByAccountId = req.account._id;
+        if (!req.account.profiles.includes(query.profileId))
+            query.hospital = req.hospital;
     }
     const medicalRecords = await MedicalRecord.find(query);
     res.send(medicalRecords);
@@ -49,18 +51,24 @@ router.post(
     [auth, validateBody(medicalRecordSchemaObject)],
     async (req, res) => {
         if (req.account.accessLevel == roles.user) {
-            if (!req.account.patients.includes(req.body.patientId))
+            if (!req.account.profiles.includes(req.body.profileId))
                 return res.status(403).send("Access Denied");
         }
 
-        const patient = await Patient.findById(req.body.patientId);
-        if (!patient) return res.status(400).send("Invalid PatientId");
+        const profile = await Profile.findById(req.body.profileId);
+        if (!profile) return res.status(400).send("Invalid ProfileId");
 
-        const recordType = await RecordType.findById(req.body.recordTypeId);
-        if (!recordType) return res.status(400).send("Invalid RecordTypeId");
+        const doctor = await Doctor.findById(req.body.doctorId);
+        if (!doctor) return res.status(400).send("Invalid doctorId");
 
-        const field = await Field.findById(req.body.fieldId);
-        if (!field) return res.status(400).send("Invalid Field");
+        const hospital = await Hospital.findById(req.body.hospitalId);
+        if (!hospital) return res.status(400).send("Invalid hospitalId");
+
+        // const specialization = await Specialization.findById(
+        //     req.body.specializationId
+        // );
+        // if (!specialization)
+        //     return res.status(400).send("Invalid specialization");
 
         req.body.folderPath = req.body.s3Path + req.body.recordName;
 
@@ -70,25 +78,24 @@ router.post(
         if (medicalRecord)
             return res.status(400).send("Record name should be unique");
 
-        const hospitalName = req.account.hospitalName || req.body.hospitalName;
+        const h = req.account.hospital || req.body.hospital;
 
         medicalRecord = new MedicalRecord({
             ..._.pick(req.body, [
-                "patientId",
+                "profileId",
                 "folderPath",
                 "files",
                 "dateOnDocument",
             ]),
             recordType,
             hospitalName,
-            field,
+            specialization,
             createdByAccountId: req.account._id,
-            dateUploaded: new Date(),
         });
         await medicalRecord.save();
 
-        patient.medicalRecords.push(medicalRecord._id);
-        await patient.save();
+        profile.medicalRecords.push(medicalRecord._id);
+        await profile.save();
 
         res.status(201).send(medicalRecord);
     }
@@ -105,7 +112,7 @@ router.patch(
                 "recordTypeId",
                 "dateOnDocument",
                 "hospitalName",
-                "fieldId",
+                "specializationId",
             ])
         ),
         checkOwner([roles.admin], MedicalRecord, "createdByAccountId"),
@@ -119,10 +126,13 @@ router.patch(
                 return res.status(400).send("Invalid recordTypeId");
             params.recordType = recordType;
         }
-        if (req.body.fieldId) {
-            const field = await Field.findById(req.body.fieldId);
-            if (!field) return res.status(400).send("Invalid fieldId");
-            params.field = field;
+        if (req.body.specializationId) {
+            const specialization = await Specialization.findById(
+                req.body.specializationId
+            );
+            if (!specialization)
+                return res.status(400).send("Invalid specializationId");
+            params.specialization = specialization;
         }
 
         let medicalRecord = await MedicalRecord.findByIdAndUpdate(
@@ -162,12 +172,12 @@ router.delete(
         );
         if (!medicalRecord) return res.status(404).send("Resource not found");
 
-        const patient = await Patient.findById(medicalRecord.patientId);
-        patient.medicalRecords.splice(
-            patient.medicalRecords.indexOf(medicalRecord._id),
+        const profile = await Profile.findById(medicalRecord.profileId);
+        profile.medicalRecords.splice(
+            profile.medicalRecords.indexOf(medicalRecord._id),
             1
         );
-        await patient.save();
+        await profile.save();
 
         res.send(medicalRecord);
     }

@@ -2,7 +2,7 @@ import request from "supertest";
 import server from "../../index";
 import { conn } from "../../startup/mongo";
 import { logger } from "../../startup/logger";
-import { Purpose } from "../../models/purposeModel.js";
+import { Hospital } from "../../models/hospitalModel.js";
 import { Account, roles } from "../../models/accountModel.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
@@ -24,15 +24,15 @@ describe("auth", () => {
         });
 
         afterEach(async () => {
-            await Purpose.collection.deleteMany({});
+            await Hospital.collection.deleteMany({});
             // server.close();
         });
 
         const exec = function () {
             return request(server)
-                .post("/api/purposes")
+                .post("/api/hospitals")
                 .set("x-auth-token", token)
-                .send({ name: "purpose1" });
+                .send({ name: "hospital1" });
         };
 
         it("should return 401 if no token is passed", async () => {

@@ -1,18 +1,19 @@
 import express from "express";
 import _ from "lodash";
+import moment from "moment";
 import { admin } from "../middleware/admin.js";
 import { auth } from "../middleware/auth.js";
 import { checkOwner } from "../middleware/checkOwner.js";
 import { validateBody, validateEachParameter } from "../middleware/validate.js";
 import validateObjectId from "../middleware/validateObjectId.js";
-import { Patient } from "../models/patientModel.js";
+import { Profile } from "../models/profileModel.js";
 import { Account, roles } from "../models/accountModel.js";
 import {
     Prescription,
     prescriptionSchema,
     prescriptionSchemaObject,
 } from "../models/prescriptionModel.js";
-import { Field } from "../models/fieldModel.js";
+import { Specialization } from "../models/specializationModel.js";
 import { Medication } from "../models/medicationModel.js";
 const router = express.Router();
 
@@ -25,10 +26,10 @@ router.get("/", auth, async (req, res) => {
     const query = JSON.parse(queryStr);
 
     if (req.account.accessLevel != roles.admin) {
-        if (!query.patientId)
-            return res.status(400).send("Please provide patientId");
+        if (!query.profileId)
+            return res.status(400).send("Please provide profileId");
 
-        if (!req.account.patients.includes(query.patientId))
+        if (!req.account.profiles.includes(query.profileId))
             query.createdByAccountId = req.account._id;
     }
     const prescriptions = await Prescription.find(query);
@@ -49,15 +50,18 @@ router.post(
     [auth, validateBody(prescriptionSchemaObject)],
     async (req, res) => {
         if (req.account.accessLevel == roles.user) {
-            if (!req.account.patients.includes(req.body.patientId))
+            if (!req.account.profiles.includes(req.body.profileId))
                 return res.status(403).send("Access Denied");
         }
 
-        const patient = await Patient.findById(req.body.patientId);
-        if (!patient) return res.status(400).send("Invalid PatientId");
+        const profile = await Profile.findById(req.body.profileId);
+        if (!profile) return res.status(400).send("Invalid ProfileId");
 
-        const field = await Field.findById(req.body.fieldId);
-        if (!field) return res.status(400).send("Invalid Field");
+        const specialization = await Specialization.findById(
+            req.body.specializationId
+        );
+        if (!specialization)
+            return res.status(400).send("Invalid specialization");
 
         req.body.folderPath = req.body.s3Path + req.body.recordName;
 
@@ -85,22 +89,21 @@ router.post(
 
         prescription = new Prescription({
             ..._.pick(req.body, [
-                "patientId",
+                "profileId",
                 "content",
                 "folderPath",
                 "files",
                 "dateOnDocument",
             ]),
             hospitalName,
-            field,
+            specialization,
             createdByAccountId: req.account._id,
-            dateUploaded: new Date(),
             medications,
         });
         await prescription.save();
 
-        patient.prescriptions.push(prescription._id);
-        await patient.save();
+        profile.prescriptions.push(prescription._id);
+        await profile.save();
 
         res.status(201).send(prescription);
     }
@@ -117,7 +120,7 @@ router.patch(
                 "content",
                 "dateOnDocument",
                 "hospitalName",
-                "fieldId",
+                "specializationId",
             ])
         ),
         checkOwner([roles.admin], Prescription, "createdByAccountId"),
@@ -129,10 +132,13 @@ router.patch(
             "content",
         ]);
 
-        if (req.body.fieldId) {
-            const field = await Field.findById(req.body.fieldId);
-            if (!field) return res.status(400).send("Invalid fieldId");
-            params.field = field;
+        if (req.body.specializationId) {
+            const specialization = await Specialization.findById(
+                req.body.specializationId
+            );
+            if (!specialization)
+                return res.status(400).send("Invalid specializationId");
+            params.specialization = specialization;
         }
 
         let prescription = await Prescription.findByIdAndUpdate(
@@ -172,12 +178,12 @@ router.delete(
         );
         if (!prescription) return res.status(404).send("Resource not found");
 
-        const patient = await Patient.findById(prescription.patientId);
-        patient.prescriptions.splice(
-            patient.prescriptions.indexOf(prescription._id),
+        const profile = await Profile.findById(prescription.profileId);
+        profile.prescriptions.splice(
+            profile.prescriptions.indexOf(prescription._id),
             1
         );
-        await patient.save();
+        await profile.save();
 
         res.send(prescription);
     }

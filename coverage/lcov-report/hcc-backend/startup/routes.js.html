@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>17/17</span>
+                <span class='fraction'>18/18</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>17/17</span>
+                <span class='fraction'>18/18</span>
             </div>
         
             
@@ -104,7 +104,8 @@
 <a name='L39'></a><a href='#L39'>39</a>
 <a name='L40'></a><a href='#L40'>40</a>
 <a name='L41'></a><a href='#L41'>41</a>
-<a name='L42'></a><a href='#L42'>42</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -123,27 +124,28 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { error } from "../middleware/error.js";
 import express from "express";
@@ -151,17 +153,17 @@ import helmet from "helmet";
 import morgan from "morgan";
 import { logger } from "./logger.js";
 import cors from "cors";
-import purposes from "../routes/purposesRoutes";
-import patients from "../routes/patientsRoutes";
-import auth from "../routes/authRoutes";
-import accounts from "../routes/accountsRoutes";
-import appointments from "../routes/appointmentsRoutes";
-import recordTypes from "../routes/recordTypesRoutes";
-import fields from "../routes/fieldsRoutes";
-import medications from "../routes/medicationsRoutes";
-import prescriptions from "../routes/prescriptionsRoutes";
-&nbsp;
-import medicalRecords from "../routes/medicalRecordsRoutes";
+import hospitals from "../routes/hospitalsRoutes.js";
+import doctors from "../routes/doctorsRoutes.js";
+import profiles from "../routes/profilesRoutes.js";
+import auth from "../routes/authRoutes.js";
+import accounts from "../routes/accountsRoutes.js";
+import appointments from "../routes/appointmentsRoutes.js";
+import recordTypes from "../routes/recordTypesRoutes.js";
+import specializations from "../routes/specializationsRoutes.js";
+import medications from "../routes/medicationsRoutes.js";
+import prescriptions from "../routes/prescriptionsRoutes.js";
+import medicalRecords from "../routes/medicalRecordsRoutes.js";
 &nbsp;
 export default function initialiseRoutes(app) {
     app.use(cors());
@@ -174,13 +176,14 @@ export default function initialiseRoutes(app) {
     app.use(morgan("tiny"));
 &nbsp;
     app.use("/api/auth", auth);
-    app.use("/api/patients", patients);
+    app.use("/api/profiles", profiles);
     app.use("/api/accounts", accounts);
     app.use("/api/appointments", appointments);
-    app.use("/api/purposes", purposes);
+    app.use("/api/doctors", doctors);
+    app.use("/api/hospitals", hospitals);
     app.use("/api/medicalRecords", medicalRecords);
     app.use("/api/recordTypes", recordTypes);
-    app.use("/api/fields", fields);
+    app.use("/api/specializations", specializations);
     app.use("/api/medications", medications);
     app.use("/api/prescriptions", prescriptions);
 &nbsp;
@@ -193,7 +196,7 @@ export default function initialiseRoutes(app) {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-01-02T09:59:34.236Z
+                at 2023-06-27T07:11:09.294Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

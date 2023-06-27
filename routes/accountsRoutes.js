@@ -2,18 +2,23 @@ import express from "express";
 import bcrypt from "bcrypt";
 import _ from "lodash";
 import { Account, roles } from "../models/accountModel.js";
-import { accountSchema, accountSchemaObject } from "../models/accountModel.js";
+import { accountSchema } from "../models/accountModel.js";
 import { auth } from "../middleware/auth.js";
 import { admin } from "../middleware/admin.js";
 import validateObjectId from "../middleware/validateObjectId.js";
 import { validateBody, validateEachParameter } from "../middleware/validate.js";
+import { Hospital } from "../models/hospitalModel.js";
+import Joi from "joi";
 const router = express.Router();
 
 router.get("/me", auth, async (req, res) => {
-    const account = await Account.findById(req.account._id).select("-password");
+    const account = await Account.findById(req.account._id)
+        .select("-password")
+        .populate("hospital");
     if (!account) {
         return res.status(400).send("Account not found");
     }
+    if (account.accessLevel == roles.hospital) delete account.profiles;
     res.send(account);
 });
 
@@ -24,7 +29,7 @@ router.get("/", [auth, admin], async (req, res) => {
 
 router.post(
     "/registerUser",
-    validateBody(accountSchemaObject),
+    validateBody(Joi.object(_.pick(accountSchema, ["email", "password"]))),
     async (req, res) => {
         let account = await Account.findOne({ email: req.body.email });
         if (account) return res.status(400).send("Account already registered.");
@@ -32,7 +37,7 @@ router.post(
         const salt = await bcrypt.genSalt(10);
         const password = await bcrypt.hash(req.body.password, salt);
         account = new Account({
-            ..._.pick(req.body, ["email", "hospitalName"]),
+            email: req.body.email,
             password,
         });
 
@@ -51,17 +56,42 @@ router.post(
 
 router.post(
     "/register",
-    [auth, admin, validateBody(accountSchemaObject)],
+    [
+        auth,
+        admin,
+        validateBody(
+            Joi.object(
+                _.pick(accountSchema, [
+                    "email",
+                    "password",
+                    "accessLevel",
+                    "hospitalId",
+                ])
+            )
+        ),
+    ],
     async (req, res) => {
         let account = await Account.findOne({ email: req.body.email });
         if (account) return res.status(400).send("Account already registered.");
 
         const salt = await bcrypt.genSalt(10);
         const password = await bcrypt.hash(req.body.password, salt);
-        account = new Account({
-            ..._.pick(req.body, ["email", "hospitalName", "accessLevel"]),
+
+        const accountObj = {
+            ..._.pick(req.body, ["email", "accessLevel"]),
             password,
-        });
+        };
+
+        if (req.body.accessLevel == roles.hospital) {
+            if (!req.body.hospitalId)
+                return res.status(400).send("Please enter hospitalId");
+
+            let hospital = await Hospital.findById(req.body.hospitalId);
+            if (!hospital) return res.status(400).send("Invalid hospitalId");
+            accountObj.hospital = hospital._id;
+        }
+
+        account = new Account(accountObj);
 
         try {
             await account.save();
@@ -77,8 +107,12 @@ router.post(
 );
 
 router.patch(
-    "/resetPassword",
-    [validateEachParameter(accountSchema)],
+    "/changePassword",
+    [
+        validateEachParameter(
+            _.pick(accountSchema, ["email", "password", "oldPassword"])
+        ),
+    ],
     async (req, res) => {
         if (!req.body.email) {
             return res.status(400).send("Please enter email");
@@ -117,7 +151,7 @@ router.patch(
 
 router.patch(
     "/forgotPassword",
-    [auth, validateEachParameter(accountSchema)],
+    [auth, validateEachParameter(_.pick(accountSchema, ["email", "password"]))],
     async (req, res) => {
         let account = await Account.findById(req.account._id);
         if (!account) return res.status(404).send("Account not found");

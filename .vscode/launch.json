@@ -2,6 +2,15 @@
     "version": "0.2.0",
     "configurations": [
       {
+        "name": "Launch Rough",
+        "program": "${workspaceFolder}/rough.js",
+        "request": "launch",
+        "skipFiles": [
+          "<node_internals>/**"
+        ],
+        "type": "node"
+      },
+      {
         "name": "Debug Tests Single Run",
         "type": "node",
         "request": "launch",

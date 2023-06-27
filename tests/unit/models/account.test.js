@@ -12,19 +12,19 @@ describe("account.generateAuthToken", () => {
             accessLevel: roles.admin,
             password: "1234556",
             hospitalName: "hospital1",
-            fieldId: mongoose.Types.ObjectId(),
+            specializationId: mongoose.Types.ObjectId(),
             phone: "+91 2322343234",
-            patients: [new mongoose.Types.ObjectId()],
+            profiles: [new mongoose.Types.ObjectId()],
         };
 
         const account = new Account(payload);
         const token = account.generateAuthToken();
         const decoded = jwt.verify(token, config.get("JWTPrivateKey"));
-        expect(_.omit(decoded, ["_id", "iat", "patients"])).toEqual(
+        expect(_.omit(decoded, ["_id", "iat", "profiles"])).toEqual(
             _.pick(payload, ["email", "accessLevel", "hospitalName"])
         );
-        expect(decoded.patients.map((p) => p.toString())).toEqual(
-            expect.arrayContaining(payload.patients.map((p) => p.toString()))
+        expect(decoded.profiles.map((p) => p.toString())).toEqual(
+            expect.arrayContaining(payload.profiles.map((p) => p.toString()))
         );
     });
 });

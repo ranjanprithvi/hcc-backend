@@ -1,0 +1,10 @@
+DELETE https://localhost:7270/jokes/1
+# Content-Type: application/json
+
+# {
+#     "content":"Why couldnt the bicycle get up? Because it was two-tired",
+#     "rating": 3.9
+# }
+
+###
+GET https://localhost:7270/jokes
