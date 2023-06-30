@@ -3462,3 +3462,1398 @@
 2023-06-27T10:16:03.755Z [Starbooks] info: Morgan enabled
 2023-06-27T10:16:03.758Z [Starbooks] info: Listening on port 3001..
 2023-06-27T10:16:03.771Z [Starbooks] info: Connected to mongodb://localhost/hccDB..
+2023-06-28T05:16:25.592Z [Starbooks] info: Morgan enabled
+2023-06-28T05:16:25.605Z [Starbooks] info: Listening on port 3001..
+2023-06-28T05:16:25.633Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T05:16:26.169Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:16:26.189Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:16:26.208Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:16:26.229Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:16:26.245Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:16:26.263Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:16:26.281Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:16:26.299Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:16:26.335Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:16:26.361Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:16:26.379Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:16:26.397Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:16:26.414Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:16:26.431Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:16:26.450Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:18:46.579Z [Starbooks] info: Morgan enabled
+2023-06-28T05:18:46.592Z [Starbooks] info: Listening on port 3001..
+2023-06-28T05:18:46.623Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T05:18:46.909Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:18:46.928Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:18:46.952Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:18:46.985Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:18:47.002Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:18:47.021Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:18:47.039Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:18:47.058Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:18:47.076Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:18:47.094Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:18:47.112Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:18:47.129Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:18:47.146Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:18:47.164Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:18:47.182Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:19:17.818Z [Starbooks] info: Morgan enabled
+2023-06-28T05:19:17.830Z [Starbooks] info: Listening on port 3001..
+2023-06-28T05:19:17.858Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T05:19:18.132Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:19:18.150Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:19:18.168Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:19:18.188Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:19:18.205Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:19:18.221Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:19:18.239Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:19:18.256Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:19:18.273Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:19:18.291Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:19:18.309Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:19:18.325Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:19:18.342Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:19:18.360Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:19:18.378Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:28:23.565Z [Starbooks] info: Morgan enabled
+2023-06-28T05:28:23.580Z [Starbooks] info: Listening on port 3001..
+2023-06-28T05:28:23.612Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T05:28:23.895Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:28:23.914Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:28:23.931Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:28:23.951Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:28:23.969Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:28:23.986Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:28:24.003Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:28:24.022Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:28:24.039Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:28:24.057Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:28:24.073Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:28:24.090Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:28:24.109Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:28:24.127Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:28:24.153Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:28:24.481Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T05:28:24.501Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T05:28:24.518Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T05:29:10.168Z [Starbooks] info: Morgan enabled
+2023-06-28T05:29:10.178Z [Starbooks] info: Listening on port 3001..
+2023-06-28T05:29:10.195Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T05:29:10.256Z [Starbooks] error: Cannot read properties of undefined (reading 'includes') Cannot read properties of undefined (reading 'includes')
+2023-06-28T05:29:11.270Z [Starbooks] info: Morgan enabled
+2023-06-28T05:29:11.282Z [Starbooks] info: Listening on port 3001..
+2023-06-28T05:29:11.297Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T05:29:11.463Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:29:11.476Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:29:11.485Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:29:11.495Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:29:11.504Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:29:11.516Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:29:11.525Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:29:11.535Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:29:11.547Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:29:11.558Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:29:11.567Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:29:11.575Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:29:11.584Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:29:11.594Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:29:11.603Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:48:27.295Z [Starbooks] info: Morgan enabled
+2023-06-28T05:48:27.305Z [Starbooks] info: Listening on port 3001..
+2023-06-28T05:48:27.323Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T05:48:27.376Z [Starbooks] error: Cannot read properties of undefined (reading 'includes') Cannot read properties of undefined (reading 'includes')
+2023-06-28T05:48:42.165Z [Starbooks] info: Morgan enabled
+2023-06-28T05:48:42.178Z [Starbooks] info: Listening on port 3001..
+2023-06-28T05:48:42.206Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T05:48:42.489Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:48:42.507Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:48:42.525Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:48:42.546Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:48:42.574Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:48:42.594Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:48:42.612Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:48:42.629Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:48:42.647Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:48:42.664Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:48:42.681Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:48:42.699Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:48:42.715Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:48:42.733Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:48:42.752Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:48:43.124Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T05:48:43.145Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T05:48:43.167Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T05:49:19.481Z [Starbooks] info: Morgan enabled
+2023-06-28T05:49:19.495Z [Starbooks] info: Listening on port 3001..
+2023-06-28T05:49:19.522Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T05:49:19.862Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:19.882Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:19.900Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:19.920Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:19.939Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:19.957Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:19.975Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:19.995Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:20.015Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:20.033Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:20.052Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:20.070Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:20.087Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:20.105Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:20.124Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:20.542Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T05:49:20.561Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T05:49:20.580Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T05:49:23.782Z [Starbooks] info: Morgan enabled
+2023-06-28T05:49:23.796Z [Starbooks] info: Listening on port 3001..
+2023-06-28T05:49:23.822Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T05:49:24.155Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:24.174Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:24.194Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:24.217Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:24.237Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:24.255Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:24.273Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:24.293Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:24.311Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:24.330Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:24.349Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:24.366Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:24.383Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:24.409Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:24.433Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:49:24.848Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T05:49:24.872Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T05:49:24.890Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T05:55:21.535Z [Starbooks] info: Morgan enabled
+2023-06-28T05:55:21.565Z [Starbooks] info: Listening on port 3001..
+2023-06-28T05:55:21.599Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T05:55:21.908Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:55:21.928Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:55:21.947Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:55:21.969Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:55:21.987Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:55:22.006Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:55:22.026Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:55:22.044Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:55:22.062Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:55:22.080Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:55:22.099Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:55:22.117Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:55:22.148Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:55:22.169Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:55:22.188Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:55:22.669Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T05:55:22.688Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T05:55:22.706Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T05:56:50.298Z [Starbooks] info: Morgan enabled
+2023-06-28T05:56:50.311Z [Starbooks] info: Listening on port 3001..
+2023-06-28T05:56:50.340Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T05:56:50.654Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:56:50.673Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:56:50.709Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:56:50.737Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:56:50.757Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:56:50.775Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:56:50.794Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:56:50.813Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:56:50.833Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:56:50.852Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:56:50.869Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:56:50.887Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:56:50.906Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:56:50.925Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:56:50.950Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:56:51.419Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T05:56:51.438Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T05:56:51.456Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T05:59:58.998Z [Starbooks] info: Morgan enabled
+2023-06-28T05:59:59.011Z [Starbooks] info: Listening on port 3001..
+2023-06-28T05:59:59.040Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T05:59:59.321Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:59:59.346Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:59:59.365Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:59:59.385Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:59:59.406Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:59:59.424Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:59:59.443Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:59:59.461Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:59:59.479Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:59:59.498Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:59:59.516Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:59:59.536Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:59:59.553Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:59:59.571Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T05:59:59.592Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T06:00:00.009Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T06:00:00.040Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T06:00:00.062Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T09:58:11.429Z [Starbooks] info: Morgan enabled
+2023-06-28T09:58:11.443Z [Starbooks] info: Listening on port 3001..
+2023-06-28T09:58:11.480Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T09:58:11.768Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T09:58:11.790Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T09:58:11.822Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T09:58:11.841Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T09:58:11.861Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T09:58:11.881Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T09:58:11.901Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T09:58:11.922Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T09:58:11.942Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T09:58:11.962Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T09:58:11.982Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T09:58:12.002Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T09:58:12.023Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T09:58:12.452Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T09:58:12.473Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T09:58:12.491Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T10:07:45.787Z [Starbooks] info: Morgan enabled
+2023-06-28T10:07:45.803Z [Starbooks] info: Listening on port 3001..
+2023-06-28T10:07:45.852Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T10:07:46.131Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:07:46.152Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:07:46.185Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:07:46.205Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:07:46.224Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:07:46.245Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:07:46.264Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:07:46.284Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:07:46.304Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:07:46.324Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:07:46.345Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:07:46.364Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:07:46.384Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:07:46.862Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T10:07:46.897Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T10:07:46.918Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T10:16:56.086Z [Starbooks] info: Morgan enabled
+2023-06-28T10:16:56.102Z [Starbooks] info: Listening on port 3001..
+2023-06-28T10:16:56.133Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T10:16:56.395Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:16:56.417Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:16:56.449Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:16:56.469Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:16:56.489Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:16:56.518Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:16:56.547Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:16:56.567Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:16:56.587Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:16:56.607Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:16:56.627Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:16:56.647Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:16:56.667Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:16:56.712Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:16:56.737Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:16:56.760Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:16:56.783Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:16:56.806Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:16:56.866Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:16:56.893Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:16:56.915Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:16:56.939Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:16:56.977Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:16:57.014Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:16:57.038Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:16:57.062Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:16:57.087Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:16:57.642Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T10:16:57.662Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T10:16:57.680Z [Starbooks] error: Cannot read properties of null (reading 'appointments') Cannot read properties of null (reading 'appointments')
+2023-06-28T10:18:17.311Z [Starbooks] info: Morgan enabled
+2023-06-28T10:18:17.325Z [Starbooks] info: Listening on port 3001..
+2023-06-28T10:18:17.366Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T10:18:17.632Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:18:17.654Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:18:17.686Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:18:17.708Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:18:17.729Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:18:17.753Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:18:17.777Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:18:17.799Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:18:17.819Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:18:17.840Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:18:17.861Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:18:17.881Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:18:17.902Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:18:17.942Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:18:17.967Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:18:17.990Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:18:18.012Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:18:18.035Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:18:18.058Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:18:18.080Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:18:18.103Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:18:18.125Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:18:18.186Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:18:18.212Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:18:18.237Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:18:18.276Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:18:18.304Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:29.533Z [Starbooks] info: Morgan enabled
+2023-06-28T10:20:29.551Z [Starbooks] info: Listening on port 3001..
+2023-06-28T10:20:29.578Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T10:20:29.852Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:29.873Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:29.933Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:29.954Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:29.974Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:29.995Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.015Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.049Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.073Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.093Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.114Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.134Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.157Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.198Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.222Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.245Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.269Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.292Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.315Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.337Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.359Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.384Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.421Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.447Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.469Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.497Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.523Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.566Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.590Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.615Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.641Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.666Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.690Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.714Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.741Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.768Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.794Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.819Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.860Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.885Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.911Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.935Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.962Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:30.987Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:20:31.041Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:34.600Z [Starbooks] info: Morgan enabled
+2023-06-28T10:21:34.617Z [Starbooks] info: Listening on port 3001..
+2023-06-28T10:21:34.644Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T10:21:34.919Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:34.949Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:34.981Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.002Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.022Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.043Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.063Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.084Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.105Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.126Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.147Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.166Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.187Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.227Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.253Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.276Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.300Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.322Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.345Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.369Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.391Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.413Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.451Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.476Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.499Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.524Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.548Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.593Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.620Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.647Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.676Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.700Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.724Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.749Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.777Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.804Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.830Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.855Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.897Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.933Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.963Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:35.987Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:36.020Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:36.046Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:21:36.073Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:41.964Z [Starbooks] info: Morgan enabled
+2023-06-28T10:23:41.978Z [Starbooks] info: Listening on port 3001..
+2023-06-28T10:23:42.007Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T10:23:42.280Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:42.302Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:42.334Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:42.353Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:42.375Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:42.396Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:42.416Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:42.436Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:42.458Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:42.478Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:42.498Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:42.518Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:42.538Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:42.581Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:42.607Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:42.632Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:42.656Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:42.679Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:42.703Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:42.725Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:42.748Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:42.771Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:42.809Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:42.835Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:42.857Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:42.883Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:42.908Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:42.950Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:42.976Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:43.002Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:43.028Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:43.052Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:43.076Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:43.101Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:43.128Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:43.154Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:43.181Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:43.205Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:43.246Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:43.271Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:43.298Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:43.330Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:43.358Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:43.384Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:23:43.417Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:44.405Z [Starbooks] info: Morgan enabled
+2023-06-28T10:24:44.419Z [Starbooks] info: Listening on port 3001..
+2023-06-28T10:24:44.451Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T10:24:44.743Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:44.765Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:44.799Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:44.819Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:44.840Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:44.862Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:44.883Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:44.903Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:44.923Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:44.945Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:44.965Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:44.985Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.006Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.048Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.073Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.097Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.120Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.143Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.166Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.188Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.211Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.234Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.277Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.303Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.326Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.351Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.377Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.421Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.446Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.471Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.496Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.520Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.544Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.569Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.596Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.626Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.652Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.677Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.718Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.744Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.770Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.795Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.822Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.847Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:24:45.875Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:35.884Z [Starbooks] info: Morgan enabled
+2023-06-28T10:25:35.901Z [Starbooks] info: Listening on port 3001..
+2023-06-28T10:25:35.958Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T10:25:36.255Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:36.277Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:36.309Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:36.329Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:36.350Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:36.370Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:36.390Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:36.411Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:36.431Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:36.452Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:36.472Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:36.493Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:36.515Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:36.556Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:36.581Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:36.604Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:36.628Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:36.653Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:36.679Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:36.708Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:36.734Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:36.756Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:36.801Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:36.827Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:36.850Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:36.875Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:36.901Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:36.951Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:36.976Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:37.005Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:37.032Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:37.055Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:37.080Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:37.103Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:37.131Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:37.157Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:37.183Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:37.207Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:37.248Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:37.274Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:37.300Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:37.325Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:37.353Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:37.378Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:37.406Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:54.654Z [Starbooks] info: Morgan enabled
+2023-06-28T10:25:54.668Z [Starbooks] info: Listening on port 3001..
+2023-06-28T10:25:54.697Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T10:25:54.970Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:54.992Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.026Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.048Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.068Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.090Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.110Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.130Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.150Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.171Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.192Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.212Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.245Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.288Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.314Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.338Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.362Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.385Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.409Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.432Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.454Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.478Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.518Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.544Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.567Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.592Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.619Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.678Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.707Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.736Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.765Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.793Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.817Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.841Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.869Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.896Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.922Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.948Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:55.988Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:56.014Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:56.040Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:56.064Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:56.092Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:56.118Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:25:56.146Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:44.775Z [Starbooks] info: Morgan enabled
+2023-06-28T10:26:44.791Z [Starbooks] info: Listening on port 3001..
+2023-06-28T10:26:44.822Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T10:26:45.101Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.123Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.156Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.177Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.197Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.218Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.237Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.258Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.279Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.300Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.321Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.340Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.362Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.402Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.427Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.451Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.475Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.498Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.528Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.553Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.576Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.599Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.636Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.661Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.684Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.709Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.734Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.776Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.802Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.829Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.853Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.877Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.901Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.925Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.952Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:45.978Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:46.003Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:46.029Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:46.070Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:46.110Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:46.137Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:46.160Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:46.187Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:46.213Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:46.239Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:59.327Z [Starbooks] info: Morgan enabled
+2023-06-28T10:26:59.340Z [Starbooks] info: Listening on port 3001..
+2023-06-28T10:26:59.374Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T10:26:59.648Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:59.669Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:59.701Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:59.720Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:59.741Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:59.761Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:59.780Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:59.800Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:59.820Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:59.840Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:59.859Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:59.884Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:59.904Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:59.945Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:26:59.969Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.002Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.031Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.054Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.077Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.102Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.125Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.148Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.185Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.215Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.237Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.263Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.287Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.330Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.357Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.383Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.408Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.436Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.464Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.487Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.516Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.543Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.568Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.593Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.632Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.658Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.683Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.707Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.735Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.760Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:27:00.787Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:02.562Z [Starbooks] info: Morgan enabled
+2023-06-28T10:31:02.576Z [Starbooks] info: Listening on port 3001..
+2023-06-28T10:31:02.604Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T10:31:02.884Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:02.915Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:02.947Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:02.973Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.011Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.042Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.064Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.087Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.110Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.131Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.151Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.171Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.192Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.233Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.258Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.292Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.316Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.341Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.376Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.400Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.422Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.445Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.484Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.510Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.533Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.559Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.586Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.629Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.665Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.694Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.720Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.744Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.769Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.793Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.826Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.852Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.878Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.902Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.944Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.970Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:03.996Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:04.020Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:04.048Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:04.073Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:31:04.101Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:44.839Z [Starbooks] info: Morgan enabled
+2023-06-28T10:38:44.861Z [Starbooks] info: Listening on port 3001..
+2023-06-28T10:38:44.895Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T10:38:45.184Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.205Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.238Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.259Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.279Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.299Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.318Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.338Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.358Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.379Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.401Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.420Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.441Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.485Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.510Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.547Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.573Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.595Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.618Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.640Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.663Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.687Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.734Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.787Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.811Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.836Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.862Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.905Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.932Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.957Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:45.982Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:46.006Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:46.030Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:46.054Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:46.081Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:46.108Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:46.134Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:46.159Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:46.208Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:46.235Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:46.261Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:46.285Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:46.312Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:46.337Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:38:46.367Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:39:38.666Z [Starbooks] info: Morgan enabled
+2023-06-28T10:39:38.682Z [Starbooks] info: Listening on port 3001..
+2023-06-28T10:39:38.711Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T10:40:15.519Z [Starbooks] info: Morgan enabled
+2023-06-28T10:40:15.539Z [Starbooks] info: Listening on port 3001..
+2023-06-28T10:40:15.570Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T10:41:04.595Z [Starbooks] info: Morgan enabled
+2023-06-28T10:41:04.616Z [Starbooks] info: Listening on port 3001..
+2023-06-28T10:41:04.645Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T10:41:38.490Z [Starbooks] info: Morgan enabled
+2023-06-28T10:41:38.507Z [Starbooks] info: Listening on port 3001..
+2023-06-28T10:41:38.537Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T10:42:50.031Z [Starbooks] info: Morgan enabled
+2023-06-28T10:42:50.050Z [Starbooks] info: Listening on port 3001..
+2023-06-28T10:42:50.082Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T10:47:48.246Z [Starbooks] info: Morgan enabled
+2023-06-28T10:47:48.267Z [Starbooks] info: Listening on port 3001..
+2023-06-28T10:47:48.313Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T10:48:06.183Z [Starbooks] info: Morgan enabled
+2023-06-28T10:48:06.202Z [Starbooks] info: Listening on port 3001..
+2023-06-28T10:48:06.232Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T10:48:06.552Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:06.575Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:06.607Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:06.627Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:06.648Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:06.669Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:06.689Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:06.709Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:06.730Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:06.751Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:06.772Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:06.792Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:06.813Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:06.853Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:06.879Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:06.901Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:06.925Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:06.948Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:06.971Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:06.993Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:07.016Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:07.039Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:07.097Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:07.122Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:07.145Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:07.169Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:07.196Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:07.239Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:07.265Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:07.289Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:07.314Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:07.338Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:07.362Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:07.385Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:07.413Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:07.438Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:07.464Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:07.487Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:07.529Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:07.554Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:07.580Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:07.604Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:07.630Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:07.655Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:48:07.682Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:04.043Z [Starbooks] info: Morgan enabled
+2023-06-28T10:51:04.058Z [Starbooks] info: Listening on port 3001..
+2023-06-28T10:51:04.087Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T10:51:04.376Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:04.398Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:04.430Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:04.450Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:04.470Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:04.491Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:04.512Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:04.534Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:04.554Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:04.576Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:04.597Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:04.617Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:04.638Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:04.681Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:04.706Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:04.732Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:04.756Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:04.778Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:04.801Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:04.825Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:04.848Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:04.871Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:04.911Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:04.937Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:04.960Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:04.985Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:05.013Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:05.073Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:05.115Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:05.141Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:05.166Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:05.192Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:05.217Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:05.242Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:05.270Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:05.297Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:05.324Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:05.349Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:05.396Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:05.426Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:05.452Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:05.476Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:05.503Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:05.528Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:51:05.556Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:52:10.189Z [Starbooks] info: Morgan enabled
+2023-06-28T10:52:10.206Z [Starbooks] info: Listening on port 3001..
+2023-06-28T10:52:10.236Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T10:52:10.315Z [Starbooks] error: schemaObject.validate is not a function schemaObject.validate is not a function
+2023-06-28T10:54:44.673Z [Starbooks] info: Morgan enabled
+2023-06-28T10:54:44.690Z [Starbooks] info: Listening on port 3001..
+2023-06-28T10:54:44.735Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T11:06:03.228Z [Starbooks] info: Morgan enabled
+2023-06-28T11:06:03.240Z [Starbooks] info: Listening on port 3001..
+2023-06-28T11:06:03.270Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T11:06:19.874Z [Starbooks] info: Morgan enabled
+2023-06-28T11:06:19.890Z [Starbooks] info: Listening on port 3001..
+2023-06-28T11:06:19.921Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T11:06:53.406Z [Starbooks] info: Morgan enabled
+2023-06-28T11:06:53.421Z [Starbooks] info: Listening on port 3001..
+2023-06-28T11:06:53.458Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T11:07:33.924Z [Starbooks] info: Morgan enabled
+2023-06-28T11:07:33.943Z [Starbooks] info: Listening on port 3001..
+2023-06-28T11:07:33.977Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T11:08:32.734Z [Starbooks] info: Morgan enabled
+2023-06-28T11:08:32.753Z [Starbooks] info: Listening on port 3001..
+2023-06-28T11:08:32.784Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T11:09:32.660Z [Starbooks] info: Morgan enabled
+2023-06-28T11:09:32.680Z [Starbooks] info: Listening on port 3001..
+2023-06-28T11:09:32.725Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T12:49:04.942Z [Starbooks] info: Morgan enabled
+2023-06-28T12:49:04.959Z [Starbooks] info: Listening on port 3001..
+2023-06-28T12:49:05.002Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T12:51:08.091Z [Starbooks] info: Morgan enabled
+2023-06-28T12:51:08.107Z [Starbooks] info: Listening on port 3001..
+2023-06-28T12:51:08.142Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T12:53:49.190Z [Starbooks] info: Morgan enabled
+2023-06-28T12:53:49.211Z [Starbooks] info: Listening on port 3001..
+2023-06-28T12:53:49.250Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T12:56:10.025Z [Starbooks] info: Morgan enabled
+2023-06-28T12:56:10.039Z [Starbooks] info: Listening on port 3001..
+2023-06-28T12:56:10.071Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T12:56:48.261Z [Starbooks] info: Morgan enabled
+2023-06-28T12:56:48.276Z [Starbooks] info: Listening on port 3001..
+2023-06-28T12:56:48.306Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T14:47:55.328Z [Starbooks] info: Morgan enabled
+2023-06-28T14:47:55.343Z [Starbooks] info: Listening on port 3001..
+2023-06-28T14:47:55.380Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T14:47:55.705Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-28T14:53:56.606Z [Starbooks] info: Morgan enabled
+2023-06-28T14:53:56.620Z [Starbooks] info: Listening on port 3001..
+2023-06-28T14:53:56.651Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T14:53:57.155Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-28T14:56:03.775Z [Starbooks] info: Morgan enabled
+2023-06-28T14:56:03.789Z [Starbooks] info: Listening on port 3001..
+2023-06-28T14:56:03.823Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T14:56:04.135Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-28T15:03:00.735Z [Starbooks] info: Morgan enabled
+2023-06-28T15:03:00.747Z [Starbooks] info: Listening on port 3001..
+2023-06-28T15:03:00.779Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T15:03:01.121Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-28T15:04:08.090Z [Starbooks] info: Morgan enabled
+2023-06-28T15:04:08.104Z [Starbooks] info: Listening on port 3001..
+2023-06-28T15:04:08.136Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T15:04:45.774Z [Starbooks] info: Morgan enabled
+2023-06-28T15:04:45.788Z [Starbooks] info: Listening on port 3001..
+2023-06-28T15:04:45.821Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T15:04:46.184Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-28T15:06:05.089Z [Starbooks] info: Morgan enabled
+2023-06-28T15:06:05.109Z [Starbooks] info: Listening on port 3001..
+2023-06-28T15:06:05.163Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T15:06:05.487Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-28T15:06:46.163Z [Starbooks] info: Morgan enabled
+2023-06-28T15:06:46.176Z [Starbooks] info: Listening on port 3001..
+2023-06-28T15:06:46.209Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T15:06:46.535Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-28T15:09:37.999Z [Starbooks] info: Morgan enabled
+2023-06-28T15:09:38.013Z [Starbooks] info: Listening on port 3001..
+2023-06-28T15:09:38.058Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T15:09:38.373Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-28T15:10:24.138Z [Starbooks] info: Morgan enabled
+2023-06-28T15:10:24.159Z [Starbooks] info: Listening on port 3001..
+2023-06-28T15:10:24.190Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T15:10:24.503Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-28T15:11:37.087Z [Starbooks] info: Morgan enabled
+2023-06-28T15:11:37.104Z [Starbooks] info: Listening on port 3001..
+2023-06-28T15:11:37.141Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T15:11:37.465Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-28T15:12:52.780Z [Starbooks] info: Morgan enabled
+2023-06-28T15:12:52.795Z [Starbooks] info: Listening on port 3001..
+2023-06-28T15:12:52.845Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T15:12:53.158Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-28T15:14:07.414Z [Starbooks] info: Morgan enabled
+2023-06-28T15:14:07.429Z [Starbooks] info: Listening on port 3001..
+2023-06-28T15:14:07.465Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T15:15:21.566Z [Starbooks] info: Morgan enabled
+2023-06-28T15:15:21.584Z [Starbooks] info: Listening on port 3001..
+2023-06-28T15:15:21.632Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T15:15:53.966Z [Starbooks] info: Morgan enabled
+2023-06-28T15:15:53.985Z [Starbooks] info: Listening on port 3001..
+2023-06-28T15:15:54.018Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T15:16:12.267Z [Starbooks] info: Morgan enabled
+2023-06-28T15:16:12.286Z [Starbooks] info: Listening on port 3001..
+2023-06-28T15:16:12.321Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T15:16:12.642Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-28T15:17:10.844Z [Starbooks] info: Morgan enabled
+2023-06-28T15:17:10.858Z [Starbooks] info: Listening on port 3001..
+2023-06-28T15:17:10.891Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T15:17:11.216Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-28T15:31:13.928Z [Starbooks] info: Morgan enabled
+2023-06-28T15:31:13.944Z [Starbooks] info: Listening on port 3001..
+2023-06-28T15:31:13.977Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T15:38:16.761Z [Starbooks] info: Morgan enabled
+2023-06-28T15:38:16.778Z [Starbooks] info: Listening on port 3001..
+2023-06-28T15:38:16.806Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T15:38:17.045Z [Starbooks] error: Cannot read properties of undefined (reading 'includes') Cannot read properties of undefined (reading 'includes')
+2023-06-28T15:38:17.216Z [Starbooks] error: Cannot read properties of undefined (reading 'includes') Cannot read properties of undefined (reading 'includes')
+2023-06-28T15:38:17.237Z [Starbooks] error: Cannot read properties of undefined (reading 'includes') Cannot read properties of undefined (reading 'includes')
+2023-06-28T15:40:46.910Z [Starbooks] info: Morgan enabled
+2023-06-28T15:40:46.927Z [Starbooks] info: Listening on port 3001..
+2023-06-28T15:40:46.972Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T15:41:46.969Z [Starbooks] info: Morgan enabled
+2023-06-28T15:41:46.987Z [Starbooks] info: Listening on port 3001..
+2023-06-28T15:41:47.034Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T15:42:11.962Z [Starbooks] info: Morgan enabled
+2023-06-28T15:42:11.987Z [Starbooks] info: Listening on port 3001..
+2023-06-28T15:42:12.032Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T15:42:53.100Z [Starbooks] info: Morgan enabled
+2023-06-28T15:42:53.119Z [Starbooks] info: Listening on port 3001..
+2023-06-28T15:42:53.161Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T15:43:34.931Z [Starbooks] info: Morgan enabled
+2023-06-28T15:43:34.944Z [Starbooks] info: Listening on port 3001..
+2023-06-28T15:43:34.976Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T16:27:17.206Z [Starbooks] info: Morgan enabled
+2023-06-28T16:27:17.226Z [Starbooks] info: Listening on port 3001..
+2023-06-28T16:27:17.256Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T16:27:17.999Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-28T16:27:18.246Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-28T16:27:38.436Z [Starbooks] info: Morgan enabled
+2023-06-28T16:27:38.448Z [Starbooks] info: Listening on port 3001..
+2023-06-28T16:27:38.477Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T16:28:18.512Z [Starbooks] info: Morgan enabled
+2023-06-28T16:28:18.530Z [Starbooks] info: Listening on port 3001..
+2023-06-28T16:28:18.564Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T16:28:54.174Z [Starbooks] info: Morgan enabled
+2023-06-28T16:28:54.188Z [Starbooks] info: Listening on port 3001..
+2023-06-28T16:28:54.217Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T16:29:17.123Z [Starbooks] info: Morgan enabled
+2023-06-28T16:29:17.137Z [Starbooks] info: Listening on port 3001..
+2023-06-28T16:29:17.170Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T16:31:40.758Z [Starbooks] info: Morgan enabled
+2023-06-28T16:31:40.779Z [Starbooks] info: Listening on port 3001..
+2023-06-28T16:31:40.811Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T16:32:24.981Z [Starbooks] info: Morgan enabled
+2023-06-28T16:32:24.994Z [Starbooks] info: Listening on port 3001..
+2023-06-28T16:32:25.035Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T16:32:35.683Z [Starbooks] info: Morgan enabled
+2023-06-28T16:32:35.698Z [Starbooks] info: Listening on port 3001..
+2023-06-28T16:32:35.736Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T16:32:36.519Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-28T16:32:36.726Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-28T16:32:59.930Z [Starbooks] info: Morgan enabled
+2023-06-28T16:32:59.947Z [Starbooks] info: Listening on port 3001..
+2023-06-28T16:32:59.987Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T16:33:00.832Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-28T16:33:01.038Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-28T16:33:18.998Z [Starbooks] info: Morgan enabled
+2023-06-28T16:33:19.016Z [Starbooks] info: Listening on port 3001..
+2023-06-28T16:33:19.046Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T16:33:19.881Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-28T16:33:20.095Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-28T16:35:39.326Z [Starbooks] info: Morgan enabled
+2023-06-28T16:35:39.344Z [Starbooks] info: Listening on port 3001..
+2023-06-28T16:35:39.373Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T16:35:40.014Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-28T16:35:40.249Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-28T16:36:05.835Z [Starbooks] info: Morgan enabled
+2023-06-28T16:36:05.849Z [Starbooks] info: Listening on port 3001..
+2023-06-28T16:36:05.883Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T16:36:11.972Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-28T16:36:12.399Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-28T16:36:50.637Z [Starbooks] info: Morgan enabled
+2023-06-28T16:36:50.651Z [Starbooks] info: Listening on port 3001..
+2023-06-28T16:36:50.687Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T16:36:51.444Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-28T16:36:51.653Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-28T16:54:26.279Z [Starbooks] info: Morgan enabled
+2023-06-28T16:54:26.311Z [Starbooks] info: Listening on port 3001..
+2023-06-28T16:54:26.415Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T16:54:27.239Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-28T16:54:27.439Z [Starbooks] error: Cannot read properties of null (reading 'profile') Cannot read properties of null (reading 'profile')
+2023-06-28T16:54:36.246Z [Starbooks] info: Morgan enabled
+2023-06-28T16:54:36.254Z [Starbooks] info: Listening on port 3001..
+2023-06-28T16:54:36.301Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T16:54:52.501Z [Starbooks] info: Morgan enabled
+2023-06-28T16:54:52.514Z [Starbooks] info: Listening on port 3001..
+2023-06-28T16:54:52.590Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T16:59:19.442Z [Starbooks] info: Morgan enabled
+2023-06-28T16:59:19.452Z [Starbooks] info: Listening on port 3001..
+2023-06-28T16:59:19.500Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T16:59:46.532Z [Starbooks] info: Morgan enabled
+2023-06-28T16:59:46.547Z [Starbooks] info: Listening on port 3001..
+2023-06-28T16:59:46.594Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T17:00:28.679Z [Starbooks] info: Morgan enabled
+2023-06-28T17:00:28.690Z [Starbooks] info: Listening on port 3001..
+2023-06-28T17:00:28.734Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T17:00:43.666Z [Starbooks] info: Morgan enabled
+2023-06-28T17:00:43.681Z [Starbooks] info: Listening on port 3001..
+2023-06-28T17:00:43.723Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T17:01:01.236Z [Starbooks] info: Morgan enabled
+2023-06-28T17:01:01.246Z [Starbooks] info: Listening on port 3001..
+2023-06-28T17:01:01.296Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T17:01:28.165Z [Starbooks] info: Morgan enabled
+2023-06-28T17:01:28.178Z [Starbooks] info: Listening on port 3001..
+2023-06-28T17:01:28.218Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T17:01:55.331Z [Starbooks] info: Morgan enabled
+2023-06-28T17:01:55.345Z [Starbooks] info: Listening on port 3001..
+2023-06-28T17:01:55.385Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T17:02:09.967Z [Starbooks] info: Morgan enabled
+2023-06-28T17:02:09.987Z [Starbooks] info: Listening on port 3001..
+2023-06-28T17:02:10.052Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T17:32:34.828Z [Starbooks] info: Morgan enabled
+2023-06-28T17:32:34.848Z [Starbooks] info: Listening on port 3001..
+2023-06-28T17:32:34.907Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T17:35:48.979Z [Starbooks] info: Morgan enabled
+2023-06-28T17:35:48.998Z [Starbooks] info: Listening on port 3001..
+2023-06-28T17:35:49.046Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T17:37:56.113Z [Starbooks] info: Morgan enabled
+2023-06-28T17:37:56.125Z [Starbooks] info: Listening on port 3001..
+2023-06-28T17:37:56.170Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T17:38:51.790Z [Starbooks] info: Morgan enabled
+2023-06-28T17:38:51.805Z [Starbooks] info: Listening on port 3001..
+2023-06-28T17:38:51.851Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T17:39:17.983Z [Starbooks] info: Morgan enabled
+2023-06-28T17:39:18.005Z [Starbooks] info: Listening on port 3001..
+2023-06-28T17:39:18.052Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T17:39:31.704Z [Starbooks] info: Morgan enabled
+2023-06-28T17:39:31.714Z [Starbooks] info: Listening on port 3001..
+2023-06-28T17:39:31.758Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T17:40:18.665Z [Starbooks] info: Morgan enabled
+2023-06-28T17:40:18.684Z [Starbooks] info: Listening on port 3001..
+2023-06-28T17:40:18.730Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T17:40:26.462Z [Starbooks] info: Morgan enabled
+2023-06-28T17:40:26.482Z [Starbooks] info: Listening on port 3001..
+2023-06-28T17:40:26.516Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T17:50:38.378Z [Starbooks] info: Morgan enabled
+2023-06-28T17:50:38.396Z [Starbooks] info: Listening on port 3001..
+2023-06-28T17:50:38.450Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T17:50:39.087Z [Starbooks] error: Cannot read properties of null (reading 'profiles') Cannot read properties of null (reading 'profiles')
+2023-06-28T17:50:39.129Z [Starbooks] error: Cannot read properties of null (reading 'profiles') Cannot read properties of null (reading 'profiles')
+2023-06-28T17:50:39.148Z [Starbooks] error: Cannot read properties of null (reading 'profiles') Cannot read properties of null (reading 'profiles')
+2023-06-28T17:50:39.169Z [Starbooks] error: Cannot read properties of null (reading 'profiles') Cannot read properties of null (reading 'profiles')
+2023-06-28T17:51:15.336Z [Starbooks] info: Morgan enabled
+2023-06-28T17:51:15.356Z [Starbooks] info: Listening on port 3001..
+2023-06-28T17:51:15.408Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T17:52:58.870Z [Starbooks] info: Morgan enabled
+2023-06-28T17:52:58.904Z [Starbooks] info: Listening on port 3001..
+2023-06-28T17:52:58.942Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T17:54:13.316Z [Starbooks] info: Morgan enabled
+2023-06-28T17:54:13.335Z [Starbooks] info: Listening on port 3001..
+2023-06-28T17:54:13.394Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T17:54:13.599Z [Starbooks] error: profile validation failed: account: Path `account` is required. profile validation failed: account: Path `account` is required.
+2023-06-28T17:54:13.749Z [Starbooks] error: profile validation failed: account: Path `account` is required. profile validation failed: account: Path `account` is required.
+2023-06-28T17:54:13.765Z [Starbooks] error: profile validation failed: account: Path `account` is required. profile validation failed: account: Path `account` is required.
+2023-06-28T17:54:13.778Z [Starbooks] error: profile validation failed: account: Path `account` is required. profile validation failed: account: Path `account` is required.
+2023-06-28T17:56:40.274Z [Starbooks] info: Morgan enabled
+2023-06-28T17:56:40.295Z [Starbooks] info: Listening on port 3001..
+2023-06-28T17:56:40.339Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T17:57:16.767Z [Starbooks] info: Morgan enabled
+2023-06-28T17:57:16.782Z [Starbooks] info: Listening on port 3001..
+2023-06-28T17:57:16.836Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T17:57:53.571Z [Starbooks] info: Morgan enabled
+2023-06-28T17:57:53.586Z [Starbooks] info: Listening on port 3001..
+2023-06-28T17:57:53.626Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-28T18:00:15.984Z [Starbooks] info: Morgan enabled
+2023-06-28T18:00:15.992Z [Starbooks] info: Listening on port 3001..
+2023-06-28T18:00:16.027Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T03:07:02.227Z [Starbooks] info: Morgan enabled
+2023-06-29T03:07:02.239Z [Starbooks] info: Listening on port 3001..
+2023-06-29T03:07:02.264Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T03:07:02.367Z [Starbooks] error: Cannot read properties of undefined (reading 'includes') Cannot read properties of undefined (reading 'includes')
+2023-06-29T15:24:27.941Z [Starbooks] info: Morgan enabled
+2023-06-29T15:24:27.953Z [Starbooks] info: Listening on port 3001..
+2023-06-29T15:24:27.978Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T15:25:40.257Z [Starbooks] info: Morgan enabled
+2023-06-29T15:25:40.273Z [Starbooks] info: Listening on port 3001..
+2023-06-29T15:25:40.302Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T15:26:25.609Z [Starbooks] info: Morgan enabled
+2023-06-29T15:26:25.621Z [Starbooks] info: Listening on port 3001..
+2023-06-29T15:26:25.664Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T15:26:55.191Z [Starbooks] info: Morgan enabled
+2023-06-29T15:26:55.204Z [Starbooks] info: Listening on port 3001..
+2023-06-29T15:26:55.247Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T15:37:13.634Z [Starbooks] info: Morgan enabled
+2023-06-29T15:37:13.647Z [Starbooks] info: Listening on port 3001..
+2023-06-29T15:37:13.695Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T17:17:09.652Z [Starbooks] info: Morgan enabled
+2023-06-29T17:17:09.669Z [Starbooks] info: Listening on port 3001..
+2023-06-29T17:17:09.697Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T17:17:43.710Z [Starbooks] info: Morgan enabled
+2023-06-29T17:17:43.722Z [Starbooks] info: Listening on port 3001..
+2023-06-29T17:17:43.755Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T17:18:09.895Z [Starbooks] info: Morgan enabled
+2023-06-29T17:18:09.906Z [Starbooks] info: Listening on port 3001..
+2023-06-29T17:18:09.937Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T17:18:33.076Z [Starbooks] info: Morgan enabled
+2023-06-29T17:18:33.089Z [Starbooks] info: Listening on port 3001..
+2023-06-29T17:18:33.119Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T17:18:33.921Z [Starbooks] error: recordType is not defined recordType is not defined
+2023-06-29T18:29:28.126Z [Starbooks] info: Morgan enabled
+2023-06-29T18:29:28.145Z [Starbooks] info: Listening on port 3001..
+2023-06-29T18:29:28.178Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T18:30:15.284Z [Starbooks] info: Morgan enabled
+2023-06-29T18:30:15.296Z [Starbooks] info: Listening on port 3001..
+2023-06-29T18:30:15.332Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T18:30:28.431Z [Starbooks] info: Morgan enabled
+2023-06-29T18:30:28.442Z [Starbooks] info: Listening on port 3001..
+2023-06-29T18:30:28.474Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T18:33:03.852Z [Starbooks] info: Morgan enabled
+2023-06-29T18:33:03.865Z [Starbooks] info: Listening on port 3001..
+2023-06-29T18:33:03.896Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T18:33:34.651Z [Starbooks] info: Morgan enabled
+2023-06-29T18:33:34.663Z [Starbooks] info: Listening on port 3001..
+2023-06-29T18:33:34.697Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T18:36:01.189Z [Starbooks] info: Morgan enabled
+2023-06-29T18:36:01.201Z [Starbooks] info: Listening on port 3001..
+2023-06-29T18:36:01.231Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T18:37:48.109Z [Starbooks] info: Morgan enabled
+2023-06-29T18:37:48.121Z [Starbooks] info: Listening on port 3001..
+2023-06-29T18:37:48.156Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T18:41:06.583Z [Starbooks] info: Morgan enabled
+2023-06-29T18:41:06.595Z [Starbooks] info: Listening on port 3001..
+2023-06-29T18:41:06.627Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T18:44:18.208Z [Starbooks] info: Morgan enabled
+2023-06-29T18:44:18.221Z [Starbooks] info: Listening on port 3001..
+2023-06-29T18:44:18.251Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T18:44:36.749Z [Starbooks] info: Morgan enabled
+2023-06-29T18:44:36.760Z [Starbooks] info: Listening on port 3001..
+2023-06-29T18:44:36.797Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T18:44:47.808Z [Starbooks] info: Morgan enabled
+2023-06-29T18:44:47.820Z [Starbooks] info: Listening on port 3001..
+2023-06-29T18:44:47.850Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T18:44:48.123Z [Starbooks] error: recordType is not defined recordType is not defined
+2023-06-29T18:44:48.254Z [Starbooks] error: recordType is not defined recordType is not defined
+2023-06-29T18:44:48.449Z [Starbooks] error: recordType is not defined recordType is not defined
+2023-06-29T18:44:48.633Z [Starbooks] error: recordType is not defined recordType is not defined
+2023-06-29T18:44:48.657Z [Starbooks] error: recordType is not defined recordType is not defined
+2023-06-29T18:44:48.682Z [Starbooks] error: recordType is not defined recordType is not defined
+2023-06-29T18:44:48.705Z [Starbooks] error: recordType is not defined recordType is not defined
+2023-06-29T18:44:48.728Z [Starbooks] error: recordType is not defined recordType is not defined
+2023-06-29T18:50:56.124Z [Starbooks] info: Morgan enabled
+2023-06-29T18:50:56.137Z [Starbooks] info: Listening on port 3001..
+2023-06-29T18:50:56.181Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T18:53:18.100Z [Starbooks] info: Morgan enabled
+2023-06-29T18:53:18.112Z [Starbooks] info: Listening on port 3001..
+2023-06-29T18:53:18.149Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T18:55:10.005Z [Starbooks] info: Morgan enabled
+2023-06-29T18:55:10.021Z [Starbooks] info: Listening on port 3001..
+2023-06-29T18:55:10.068Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T19:12:04.623Z [Starbooks] info: Morgan enabled
+2023-06-29T19:12:04.635Z [Starbooks] info: Listening on port 3001..
+2023-06-29T19:12:04.667Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T19:12:11.373Z [Starbooks] info: Morgan enabled
+2023-06-29T19:12:11.389Z [Starbooks] info: Listening on port 3001..
+2023-06-29T19:12:11.419Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T19:14:55.204Z [Starbooks] info: Morgan enabled
+2023-06-29T19:14:55.216Z [Starbooks] info: Listening on port 3001..
+2023-06-29T19:14:55.248Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T19:16:28.076Z [Starbooks] info: Morgan enabled
+2023-06-29T19:16:28.087Z [Starbooks] info: Listening on port 3001..
+2023-06-29T19:16:28.119Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T19:16:37.865Z [Starbooks] info: Morgan enabled
+2023-06-29T19:16:37.877Z [Starbooks] info: Listening on port 3001..
+2023-06-29T19:16:37.912Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T19:17:57.651Z [Starbooks] info: Morgan enabled
+2023-06-29T19:17:57.664Z [Starbooks] info: Listening on port 3001..
+2023-06-29T19:17:57.698Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T19:18:19.701Z [Starbooks] info: Morgan enabled
+2023-06-29T19:18:19.712Z [Starbooks] info: Listening on port 3001..
+2023-06-29T19:18:19.746Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T19:19:50.692Z [Starbooks] info: Morgan enabled
+2023-06-29T19:19:50.704Z [Starbooks] info: Listening on port 3001..
+2023-06-29T19:19:50.735Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T19:20:57.785Z [Starbooks] info: Morgan enabled
+2023-06-29T19:20:57.798Z [Starbooks] info: Listening on port 3001..
+2023-06-29T19:20:57.828Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T19:21:16.327Z [Starbooks] info: Morgan enabled
+2023-06-29T19:21:16.339Z [Starbooks] info: Listening on port 3001..
+2023-06-29T19:21:16.373Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T19:21:58.617Z [Starbooks] info: Morgan enabled
+2023-06-29T19:21:58.629Z [Starbooks] info: Listening on port 3001..
+2023-06-29T19:21:58.660Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T19:22:18.903Z [Starbooks] info: Morgan enabled
+2023-06-29T19:22:18.916Z [Starbooks] info: Listening on port 3001..
+2023-06-29T19:22:18.946Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T19:22:34.255Z [Starbooks] info: Morgan enabled
+2023-06-29T19:22:34.267Z [Starbooks] info: Listening on port 3001..
+2023-06-29T19:22:34.296Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T19:23:35.579Z [Starbooks] info: Morgan enabled
+2023-06-29T19:23:35.590Z [Starbooks] info: Listening on port 3001..
+2023-06-29T19:23:35.625Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T19:25:44.408Z [Starbooks] info: Morgan enabled
+2023-06-29T19:25:44.421Z [Starbooks] info: Listening on port 3001..
+2023-06-29T19:25:44.452Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T19:26:11.934Z [Starbooks] info: Morgan enabled
+2023-06-29T19:26:11.945Z [Starbooks] info: Listening on port 3001..
+2023-06-29T19:26:11.975Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T19:26:29.614Z [Starbooks] info: Morgan enabled
+2023-06-29T19:26:29.625Z [Starbooks] info: Listening on port 3001..
+2023-06-29T19:26:29.656Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T19:27:17.900Z [Starbooks] info: Morgan enabled
+2023-06-29T19:27:17.912Z [Starbooks] info: Listening on port 3001..
+2023-06-29T19:27:17.943Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-29T19:27:44.992Z [Starbooks] info: Morgan enabled
+2023-06-29T19:27:45.004Z [Starbooks] info: Listening on port 3001..
+2023-06-29T19:27:45.033Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-30T14:03:05.903Z [Starbooks] info: Morgan enabled
+2023-06-30T14:03:05.916Z [Starbooks] info: Listening on port 3001..
+2023-06-30T14:03:05.951Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-30T14:04:32.723Z [Starbooks] info: Morgan enabled
+2023-06-30T14:04:32.737Z [Starbooks] info: Listening on port 3001..
+2023-06-30T14:04:32.767Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-30T14:07:58.837Z [Starbooks] info: Morgan enabled
+2023-06-30T14:07:58.852Z [Starbooks] info: Listening on port 3001..
+2023-06-30T14:07:58.883Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-30T14:10:08.032Z [Starbooks] info: Morgan enabled
+2023-06-30T14:10:08.048Z [Starbooks] info: Listening on port 3001..
+2023-06-30T14:10:08.076Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-30T14:10:50.422Z [Starbooks] info: Morgan enabled
+2023-06-30T14:10:50.437Z [Starbooks] info: Listening on port 3001..
+2023-06-30T14:10:50.468Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-30T14:13:48.845Z [Starbooks] info: Morgan enabled
+2023-06-30T14:13:48.860Z [Starbooks] info: Listening on port 3001..
+2023-06-30T14:13:48.889Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-30T14:14:30.322Z [Starbooks] info: Morgan enabled
+2023-06-30T14:14:30.335Z [Starbooks] info: Listening on port 3001..
+2023-06-30T14:14:30.382Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-30T14:20:02.116Z [Starbooks] info: Morgan enabled
+2023-06-30T14:20:02.132Z [Starbooks] info: Listening on port 3001..
+2023-06-30T14:20:02.174Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-30T14:23:02.846Z [Starbooks] info: Morgan enabled
+2023-06-30T14:23:02.860Z [Starbooks] info: Listening on port 3001..
+2023-06-30T14:23:02.900Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-30T14:23:19.660Z [Starbooks] info: Morgan enabled
+2023-06-30T14:23:19.673Z [Starbooks] info: Listening on port 3001..
+2023-06-30T14:23:19.702Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-30T14:24:26.256Z [Starbooks] info: Morgan enabled
+2023-06-30T14:24:26.270Z [Starbooks] info: Listening on port 3001..
+2023-06-30T14:24:26.299Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-30T14:27:06.242Z [Starbooks] info: Morgan enabled
+2023-06-30T14:27:06.255Z [Starbooks] info: Listening on port 3001..
+2023-06-30T14:27:06.285Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-30T14:34:08.472Z [Starbooks] info: Morgan enabled
+2023-06-30T14:34:08.485Z [Starbooks] info: Listening on port 3001..
+2023-06-30T14:34:08.520Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-30T14:38:42.423Z [Starbooks] info: Morgan enabled
+2023-06-30T14:38:42.437Z [Starbooks] info: Listening on port 3001..
+2023-06-30T14:38:42.482Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-30T17:16:55.497Z [Starbooks] info: Morgan enabled
+2023-06-30T17:16:55.512Z [Starbooks] info: Listening on port 3001..
+2023-06-30T17:17:12.346Z [Starbooks] info: Morgan enabled
+2023-06-30T17:17:12.360Z [Starbooks] info: Listening on port 3001..
+2023-06-30T17:17:12.391Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-30T17:18:23.019Z [Starbooks] info: Morgan enabled
+2023-06-30T17:18:23.033Z [Starbooks] info: Listening on port 3001..
+2023-06-30T17:18:23.065Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-30T17:18:30.491Z [Starbooks] info: Morgan enabled
+2023-06-30T17:18:30.505Z [Starbooks] info: Listening on port 3001..
+2023-06-30T17:18:30.536Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-30T17:21:17.800Z [Starbooks] info: Morgan enabled
+2023-06-30T17:21:17.816Z [Starbooks] info: Listening on port 3001..
+2023-06-30T17:21:17.853Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-30T17:24:25.768Z [Starbooks] info: Morgan enabled
+2023-06-30T17:24:25.783Z [Starbooks] info: Listening on port 3001..
+2023-06-30T17:24:25.816Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..
+2023-06-30T17:33:14.998Z [Starbooks] info: Morgan enabled
+2023-06-30T17:33:15.014Z [Starbooks] info: Listening on port 3001..
+2023-06-30T17:33:15.062Z [Starbooks] info: Connected to mongodb://localhost/hccDB_test..

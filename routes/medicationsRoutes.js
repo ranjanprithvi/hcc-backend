@@ -7,7 +7,7 @@ import {
     medicationSchemaObject,
 } from "../models/medicationModel.js";
 import { validateBody } from "../middleware/validate.js";
-import { doctor } from "../middleware/hospital.js";
+import { hospital } from "../middleware/hospital.js";
 const router = express.Router();
 
 router.get("/", async (req, res) => {
@@ -23,7 +23,7 @@ router.get("/:id", validateObjectId, async (req, res) => {
 
 router.post(
     "/",
-    [auth, doctor, validateBody(medicationSchemaObject)],
+    [auth, hospital, validateBody(medicationSchemaObject)],
     async (req, res) => {
         let medication = await Medication.findOne({ name: req.body.name });
         if (medication)
@@ -37,7 +37,7 @@ router.post(
 
 router.put(
     "/:id",
-    [validateObjectId, auth, doctor, validateBody(medicationSchemaObject)],
+    [validateObjectId, auth, hospital, validateBody(medicationSchemaObject)],
     async (req, res) => {
         let medication = await Medication.findOne({ name: req.body.name });
         if (medication)
@@ -53,7 +53,7 @@ router.put(
     }
 );
 
-router.delete("/:id", [validateObjectId, auth, doctor], async (req, res) => {
+router.delete("/:id", [validateObjectId, auth, hospital], async (req, res) => {
     const medication = await Medication.findByIdAndDelete(req.params.id);
     if (!medication) return res.status(404).send("Resource not found");
     res.send(medication);

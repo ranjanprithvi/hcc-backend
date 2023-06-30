@@ -10,12 +10,14 @@ import { Profile } from "../models/profileModel.js";
 import { Account, roles } from "../models/accountModel.js";
 import {
     MedicalRecord,
+    editMedicalRecordSchema,
     medicalRecordSchema,
     medicalRecordSchemaObject,
 } from "../models/medicalRecordModel.js";
 import { Specialization } from "../models/specializationModel.js";
 import { Doctor } from "../models/doctorModel.js";
 import { Hospital } from "../models/hospitalModel.js";
+import { checkAccess } from "../middleware/checkAccess.js";
 const router = express.Router();
 
 router.get("/", auth, async (req, res) => {
@@ -30,9 +32,14 @@ router.get("/", auth, async (req, res) => {
         if (!query.profileId)
             return res.status(400).send("Please provide profileId");
 
-        if (!req.account.profiles.includes(query.profileId))
-            query.hospital = req.hospital;
+        if (req.account.accessLevel == roles.user)
+            if (!req.account.profiles.includes(query.profileId))
+                return res.status(403).send("Access Denied");
+
+        query.profile = query.profileId;
+        delete query.profileId;
     }
+
     const medicalRecords = await MedicalRecord.find(query);
     res.send(medicalRecords);
 });
@@ -50,25 +57,30 @@ router.post(
     "/",
     [auth, validateBody(medicalRecordSchemaObject)],
     async (req, res) => {
-        if (req.account.accessLevel == roles.user) {
-            if (!req.account.profiles.includes(req.body.profileId))
-                return res.status(403).send("Access Denied");
-        }
-
         const profile = await Profile.findById(req.body.profileId);
         if (!profile) return res.status(400).send("Invalid ProfileId");
 
-        const doctor = await Doctor.findById(req.body.doctorId);
-        if (!doctor) return res.status(400).send("Invalid doctorId");
+        if (req.account.accessLevel == roles.user) {
+            if (!req.account.profiles.includes(req.body.profileId))
+                return res.status(403).send("Access Denied");
+            req.body.external = true;
+        }
 
-        const hospital = await Hospital.findById(req.body.hospitalId);
-        if (!hospital) return res.status(400).send("Invalid hospitalId");
+        if (req.body.doctorId) {
+            const doctor = await Doctor.findById(req.body.doctorId);
+            if (!doctor) return res.status(400).send("Invalid doctorId");
 
-        // const specialization = await Specialization.findById(
-        //     req.body.specializationId
-        // );
-        // if (!specialization)
-        //     return res.status(400).send("Invalid specialization");
+            console.log(req.account.accessLevel);
+            if (req.account.accessLevel == roles.hospital)
+                if (doctor.hospital != req.account.hospital)
+                    return res.status(403).send("Access Denied");
+        } else {
+            const specialization = await Specialization.findById(
+                req.body.specializationId
+            );
+            if (!specialization)
+                return res.status(400).send("Invalid specialization");
+        }
 
         req.body.folderPath = req.body.s3Path + req.body.recordName;
 
@@ -78,19 +90,20 @@ router.post(
         if (medicalRecord)
             return res.status(400).send("Record name should be unique");
 
-        const h = req.account.hospital || req.body.hospital;
-
         medicalRecord = new MedicalRecord({
+            profile: req.body.profileId,
+            doctor: req.body.doctorId,
+            specialization: req.body.specializationId,
+            folderPath: req.body.s3Path + req.body.recordName,
+
             ..._.pick(req.body, [
-                "profileId",
-                "folderPath",
-                "files",
+                "doctorName",
+                "hospitalName",
+                "recordType",
                 "dateOnDocument",
+                "external",
+                "files",
             ]),
-            recordType,
-            hospitalName,
-            specialization,
-            createdByAccountId: req.account._id,
         });
         await medicalRecord.save();
 
@@ -106,54 +119,60 @@ router.patch(
     [
         validateObjectId,
         auth,
-        validateEachParameter(
-            _.pick(medicalRecordSchema, [
-                "recordName",
-                "recordTypeId",
-                "dateOnDocument",
-                "hospitalName",
-                "specializationId",
-            ])
+        validateEachParameter(editMedicalRecordSchema),
+        checkOwner(
+            [roles.admin, roles.user],
+            "hospital",
+            MedicalRecord,
+            "doctor.hospital",
+            "doctor"
         ),
-        checkOwner([roles.admin], MedicalRecord, "createdByAccountId"),
+        checkOwner(
+            [roles.admin, roles.hospital],
+            "_id",
+            MedicalRecord,
+            "profile.account",
+            "profile"
+        ),
     ],
     async (req, res) => {
-        let params = _.pick(req.body, ["dateOnDocument", "hospitalName"]);
+        // if(req.body.doctorId){}
 
-        if (req.body.recordTypeId) {
-            const recordType = await RecordType.findById(req.body.recordTypeId);
-            if (!recordType)
-                return res.status(400).send("Invalid recordTypeId");
-            params.recordType = recordType;
-        }
         if (req.body.specializationId) {
             const specialization = await Specialization.findById(
                 req.body.specializationId
             );
             if (!specialization)
                 return res.status(400).send("Invalid specializationId");
-            params.specialization = specialization;
+            req.body.specialization = specialization._id;
+            delete req.body.specializationId;
         }
 
-        let medicalRecord = await MedicalRecord.findByIdAndUpdate(
+        let medicalRecord = await MedicalRecord.findById(req.params.id);
+        if (!medicalRecord) res.status(404).send("Resource not found");
+        if (req.account.accessLevel == roles.user) {
+            if (!medicalRecord.external)
+                return res.status(403).send("Access Denied");
+        }
+
+        medicalRecord = await MedicalRecord.findByIdAndUpdate(
             req.params.id,
             {
-                $set: params,
+                $set: req.body,
             },
             { new: true, runValidators: true }
         );
-        if (!medicalRecord) res.status(404).send("Resource not found");
 
-        if (req.body.recordName) {
-            let s = medicalRecord.folderPath.split("/");
-            s.splice(-1);
-            medicalRecord.folderPath = s.join("/") + "/" + req.body.recordName;
-            const mr = await MedicalRecord.findOne({
-                folderPath: medicalRecord.folderPath,
-            });
-            if (mr) return res.status(400).send("Record name should be unique");
-            await medicalRecord.save();
-        }
+        // if (req.body.recordName) {
+        //     let s = medicalRecord.folderPath.split("/");
+        //     s.splice(-1);
+        //     medicalRecord.folderPath = s.join("/") + "/" + req.body.recordName;
+        //     const mr = await MedicalRecord.findOne({
+        //         folderPath: medicalRecord.folderPath,
+        //     });
+        //     if (mr) return res.status(400).send("Record name should be unique");
+        //     await medicalRecord.save();
+        // }
 
         res.send(medicalRecord);
     }

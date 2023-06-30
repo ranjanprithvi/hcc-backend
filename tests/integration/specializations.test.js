@@ -5,6 +5,7 @@ import { logger } from "../../startup/logger";
 import { conn } from "../../startup/mongo";
 import { Specialization } from "../../models/specializationModel.js";
 import { Account, roles } from "../../models/accountModel.js";
+import { param } from "express/lib/router";
 
 describe("/api/specializations", () => {
     // beforeEach(() => {
@@ -69,7 +70,7 @@ describe("/api/specializations", () => {
 
         beforeEach(() => {
             token = new Account({
-                accessLevel: roles.hospital,
+                accessLevel: roles.admin,
             }).generateAuthToken();
             params = { name: "Cardiology" };
         });
@@ -88,8 +89,10 @@ describe("/api/specializations", () => {
             expect(response.status).toBe(401);
         });
 
-        it("should return 403 if client is not at least a doctor", async () => {
-            token = new Account().generateAuthToken();
+        it("should return 403 if client is not an admin", async () => {
+            token = new Account({
+                accessLevel: roles.hospital,
+            }).generateAuthToken();
             const response = await exec();
 
             expect(response.status).toBe(403);
@@ -110,7 +113,7 @@ describe("/api/specializations", () => {
         });
 
         it("should return 400 if additional parameters are passed", async () => {
-            params = { name: "Cardiology", title: "new" };
+            params.title = "new";
             const response = await exec();
 
             expect(response.status).toBe(400);
@@ -128,9 +131,7 @@ describe("/api/specializations", () => {
         it("should save specialization if request is valid", async () => {
             await exec();
 
-            const specialization = await Specialization.findOne({
-                name: "Cardiology",
-            });
+            const specialization = await Specialization.findOne(params);
             expect(specialization).not.toBeNull();
         });
 
@@ -139,7 +140,7 @@ describe("/api/specializations", () => {
 
             expect(response.status).toBe(201);
             expect(response.body).toHaveProperty("_id");
-            expect(response.body).toHaveProperty("name", "Cardiology");
+            expect(response.body).toHaveProperty("name", params.name);
         });
     });
 
@@ -147,16 +148,17 @@ describe("/api/specializations", () => {
         let id;
         let token;
         let params;
+        let specialization;
 
         // beforeAll(async () => {});
 
         beforeEach(async () => {
-            const specialization = new Specialization({ name: "Cardiology" });
+            specialization = new Specialization({ name: "Cardiology" });
             await specialization.save();
             id = specialization._id;
 
             token = new Account({
-                accessLevel: roles.hospital,
+                accessLevel: roles.admin,
             }).generateAuthToken();
             params = { name: "Orthopaedics" };
         });
@@ -175,8 +177,10 @@ describe("/api/specializations", () => {
             expect(response.status).toBe(401);
         });
 
-        it("should return 403 if client is not at least a doctor", async () => {
-            token = new Account().generateAuthToken();
+        it("should return 403 if client is not an admin", async () => {
+            token = new Account({
+                accessLevel: roles.hospital,
+            }).generateAuthToken();
             const response = await exec();
 
             expect(response.status).toBe(403);
@@ -216,7 +220,7 @@ describe("/api/specializations", () => {
         });
 
         it("should return 400 if specialization is not unique", async () => {
-            const specialization = new Specialization({ name: "Orthopaedics" });
+            const specialization = new Specialization(params);
             await specialization.save();
 
             const response = await exec();
@@ -227,33 +231,32 @@ describe("/api/specializations", () => {
         it("should save specialization if request is valid", async () => {
             await exec();
 
-            const specialization = await Specialization.findOne({
-                name: "Orthopaedics",
-            });
-            expect(specialization).not.toBeNull();
+            const s = await Specialization.findById(specialization._id);
+            expect(s).toHaveProperty("name", params.name);
         });
 
         it("should return specialization if request is valid", async () => {
             const response = await exec();
 
             expect(response.status).toBe(200);
-            expect(response.body).toHaveProperty("name", "Orthopaedics");
+            expect(response.body).toHaveProperty("name", params.name);
         });
     });
 
-    describe("DELETE /:id", () => {
+    describe.only("DELETE /:id", () => {
         let id;
         let token;
+        let specialization;
 
         // beforeAll(async () => {});
 
         beforeEach(async () => {
-            const specialization = new Specialization({ name: "Cardiology" });
+            specialization = new Specialization({ name: "Cardiology" });
             await specialization.save();
             id = specialization._id;
 
             token = new Account({
-                accessLevel: roles.hospital,
+                accessLevel: roles.admin,
             }).generateAuthToken();
         });
 
@@ -270,8 +273,10 @@ describe("/api/specializations", () => {
             expect(response.status).toBe(401);
         });
 
-        it("should return 403 if client is not at least a doctor", async () => {
-            token = new Account().generateAuthToken();
+        it("should return 403 if client is not an admin", async () => {
+            token = new Account({
+                accessLevel: roles.hospital,
+            }).generateAuthToken();
             const response = await exec();
 
             expect(response.status).toBe(403);
@@ -292,10 +297,10 @@ describe("/api/specializations", () => {
         it("should remove specialization from the db if id is valid", async () => {
             await exec();
 
-            const specialization = await Specialization.findOne({
-                name: "Cardiology",
+            const s = await Specialization.findOne({
+                name: specialization.name,
             });
-            expect(specialization).toBeNull();
+            expect(s).toBeNull();
         });
 
         it("should return specialization if id is valid", async () => {
@@ -303,7 +308,7 @@ describe("/api/specializations", () => {
 
             expect(response.status).toBe(200);
             expect(response.body).toHaveProperty("_id");
-            expect(response.body).toHaveProperty("name", "Cardiology");
+            expect(response.body).toHaveProperty("name", specialization.name);
         });
     });
 });

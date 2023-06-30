@@ -44,13 +44,13 @@ describe("/api/profiles", () => {
         it("should return all the profiles if client is admin", async () => {
             await Profile.collection.insertMany([
                 {
-                    accountId: mongoose.Types.ObjectId(),
+                    account: mongoose.Types.ObjectId(),
                     name: "profile1",
                     gender: "male",
                     dob: "09/16/1990",
                 },
                 {
-                    accountId: mongoose.Types.ObjectId(),
+                    account: mongoose.Types.ObjectId(),
                     name: "profile2",
                     gender: "other",
                     dob: "05/20/1990",
@@ -73,7 +73,7 @@ describe("/api/profiles", () => {
             account = new Account({ email: "abc@abc.com", password: "123456" });
 
             profile = new Profile({
-                accountId: account._id,
+                account: account._id,
                 name: "profile1",
                 gender: "female",
                 dob: new Date("09/14/1990"),
@@ -129,8 +129,8 @@ describe("/api/profiles", () => {
             expect(res.status).toBe(200);
             expect(res.body).toHaveProperty("_id", profile._id.toString());
             expect(res.body).toHaveProperty(
-                "accountId",
-                profile.accountId.toString()
+                "account",
+                profile.account.toString()
             );
             expect(res.body).toHaveProperty("name", profile.name);
             expect(res.body).toHaveProperty("gender", profile.gender);
@@ -151,6 +151,7 @@ describe("/api/profiles", () => {
                 name: "profile1",
                 gender: "female",
                 dob: "09/14/1990",
+                phone: "1234567890",
             };
         });
 
@@ -180,7 +181,7 @@ describe("/api/profiles", () => {
             expect(res.status).toBe(201);
         });
 
-        it("should return 400 if accountId is not provided", async () => {
+        it("should return 400 if account is not provided", async () => {
             delete params.accountId;
             const response = await exec();
             expect(response.status).toBe(400);
@@ -271,7 +272,7 @@ describe("/api/profiles", () => {
         it("should store the profile in the db if request is valid", async () => {
             await exec();
             const profile = await Profile.findOne({
-                accountId: params.accountId,
+                account: params.accountId,
                 name: params.name,
                 gender: params.gender,
                 dob: new Date(params.dob).toISOString(),
@@ -285,7 +286,7 @@ describe("/api/profiles", () => {
             expect(res.status).toBe(201);
             expect(res.body).toHaveProperty("_id");
             expect(res.body).toHaveProperty(
-                "accountId",
+                "account",
                 params.accountId.toString()
             );
             expect(res.body).toHaveProperty("name", params.name);
@@ -311,7 +312,7 @@ describe("/api/profiles", () => {
             account = new Account({ email: "abc@abc.com", password: "123456" });
 
             profile = new Profile({
-                accountId: account._id,
+                account: account._id,
                 name: "profile1",
                 gender: "male",
                 dob: new Date("09/18/1991"),
@@ -441,7 +442,7 @@ describe("/api/profiles", () => {
             const res = await exec();
             expect(res.status).toBe(200);
             expect(res.body).toHaveProperty("_id", id.toString());
-            expect(res.body).toHaveProperty("accountId");
+            expect(res.body).toHaveProperty("account");
             expect(res.body).toHaveProperty("name", params.name);
             expect(res.body).toHaveProperty("gender");
             expect(res.body).toHaveProperty("dob");
@@ -455,7 +456,7 @@ describe("/api/profiles", () => {
             account = new Account({ email: "abc@abc.com", password: "123456" });
 
             profile = new Profile({
-                accountId: account._id,
+                account: account._id,
                 name: "profile1",
                 gender: "female",
                 dob: new Date("09/14/1990"),
@@ -526,8 +527,8 @@ describe("/api/profiles", () => {
             expect(res.status).toBe(200);
             expect(res.body).toHaveProperty("_id", profile._id.toString());
             expect(res.body).toHaveProperty(
-                "accountId",
-                profile.accountId.toString()
+                "account",
+                profile.account.toString()
             );
             expect(res.body).toHaveProperty("name", profile.name);
             expect(res.body).toHaveProperty("gender", profile.gender);

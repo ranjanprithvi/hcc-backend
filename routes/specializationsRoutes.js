@@ -7,7 +7,7 @@ import {
     specializationSchemaObject,
 } from "../models/specializationModel.js";
 import { validateBody } from "../middleware/validate.js";
-import { doctor } from "../middleware/hospital.js";
+import { hospital } from "../middleware/hospital.js";
 const router = express.Router();
 
 router.get("/", async (req, res) => {
@@ -23,7 +23,7 @@ router.get("/:id", validateObjectId, async (req, res) => {
 
 router.post(
     "/",
-    [auth, doctor, validateBody(specializationSchemaObject)],
+    [auth, admin, validateBody(specializationSchemaObject)],
     async (req, res) => {
         let specialization = await Specialization.findOne({
             name: req.body.name,
@@ -39,7 +39,7 @@ router.post(
 
 router.put(
     "/:id",
-    [validateObjectId, auth, doctor, validateBody(specializationSchemaObject)],
+    [validateObjectId, auth, admin, validateBody(specializationSchemaObject)],
     async (req, res) => {
         let specialization = await Specialization.findOne({
             name: req.body.name,
@@ -57,7 +57,7 @@ router.put(
     }
 );
 
-router.delete("/:id", [validateObjectId, auth, doctor], async (req, res) => {
+router.delete("/:id", [validateObjectId, auth, admin], async (req, res) => {
     const specialization = await Specialization.findByIdAndDelete(
         req.params.id
     );

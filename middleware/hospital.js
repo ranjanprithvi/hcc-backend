@@ -1,7 +1,7 @@
 import config from "config";
 import { roles } from "../models/accountModel.js";
 
-export function doctor(req, res, next) {
+export function hospital(req, res, next) {
     if (!config.get("authEnabled")) return next();
 
     // 401 Unauthorised - When the jwt is invalid

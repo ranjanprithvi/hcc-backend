@@ -10,12 +10,16 @@ export const profileSchema = {
     name: Joi.string().min(3).max(50).required(),
     gender: Joi.string().valid("male", "female", "other").required(),
     dob: Joi.date().max(moment()).required(),
-    phone: Joi.string().max(14).min(10).pattern(/^[0-9]+$/).required(),
+    phone: Joi.string()
+        .max(14)
+        .min(10)
+        .pattern(/^[0-9]+$/)
+        .required(),
 };
 export const profileSchemaObject = Joi.object(profileSchema);
 
 const dbSchema = new Schema({
-    accountId: {
+    account: {
         type: mongoose.Types.ObjectId,
         ref: "account",
         required: true,

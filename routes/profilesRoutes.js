@@ -12,6 +12,7 @@ import {
     profileSchema,
     profileSchemaObject,
 } from "../models/profileModel.js";
+import { checkOwner } from "../middleware/checkOwner.js";
 const router = express.Router();
 
 router.get("/", [auth, admin], async (req, res) => {
@@ -21,7 +22,11 @@ router.get("/", [auth, admin], async (req, res) => {
 
 router.get(
     "/:id",
-    [validateObjectId, auth, checkAccess([roles.admin], "profiles", Profile)],
+    [
+        validateObjectId,
+        auth,
+        checkOwner([roles.admin, roles.hospital], "_id", Profile, "account"),
+    ],
     async (req, res) => {
         const profile = await Profile.findById(req.params.id);
         if (!profile) return res.status(404).send("Resource not found");
@@ -33,9 +38,14 @@ router.post(
     "/",
     [auth, validateBody(profileSchemaObject)],
     async (req, res) => {
+        if (req.account.accessLevel == roles.hospital)
+            return res.status(403).send("Access Denied");
+
         const account = await Account.findById(req.body.accountId);
         if (!account) return res.status(400).send("Invalid Account Id");
 
+        req.body.account = account._id;
+        delete req.body.accountId;
         const profile = await new Profile(req.body).save();
 
         account.profiles.push(profile._id);
@@ -50,10 +60,13 @@ router.patch(
     [
         validateObjectId,
         auth,
-        checkAccess([roles.admin], "profiles", Profile),
+        checkOwner([roles.admin, roles.hospital], "_id", Profile, "account"),
         validateEachParameter(_.omit(profileSchema, ["accountId"])),
     ],
     async (req, res) => {
+        if (req.account.accessLevel == roles.hospital)
+            return res.status(403).send("Access Denied");
+
         const profile = await Profile.findByIdAndUpdate(
             req.params.id,
             {
@@ -68,12 +81,19 @@ router.patch(
 
 router.delete(
     "/:id",
-    [validateObjectId, auth, checkAccess([roles.admin], "profiles", Profile)],
+    [
+        validateObjectId,
+        auth,
+        checkOwner([roles.admin, roles.hospital], "_id", Profile, "account"),
+    ],
     async (req, res) => {
+        if (req.account.accessLevel == roles.hospital)
+            return res.status(403).send("Access Denied");
+
         const profile = await Profile.findByIdAndDelete(req.params.id);
         if (!profile) return res.status(404).send("Resource not found");
 
-        const account = await Account.findById(profile.accountId);
+        const account = await Account.findById(profile.account);
         account.profiles.splice(account.profiles.indexOf(profile._id), 1);
         await account.save();
 

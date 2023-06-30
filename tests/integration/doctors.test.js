@@ -8,7 +8,6 @@ import { Account, roles } from "../../models/accountModel.js";
 import { Hospital } from "../../models/hospitalModel";
 import { Specialization } from "../../models/specializationModel";
 import moment from "moment";
-import { param } from "express/lib/router";
 
 describe("/api/doctors", () => {
     // beforeEach(() => {
@@ -72,6 +71,7 @@ describe("/api/doctors", () => {
             expect(res.body.length).toBe(2);
         });
     });
+
     describe("GET /:id", () => {
         let doctor, id, token, doctorObj;
         beforeEach(async () => {
@@ -129,6 +129,7 @@ describe("/api/doctors", () => {
             token = new Account({
                 accessLevel: roles.admin,
             }).generateAuthToken();
+
             params = {
                 name: "Doctor1",
                 hospitalId: hospital._id,
@@ -247,13 +248,6 @@ describe("/api/doctors", () => {
 
         it("should return 400 if additional parameters are passed", async () => {
             params.title = "new";
-            const response = await exec();
-
-            expect(response.status).toBe(400);
-        });
-
-        it("should return 400 if additional parameters are passed", async () => {
-            params = { name: "Cardiology", title: "new" };
             const response = await exec();
 
             expect(response.status).toBe(400);

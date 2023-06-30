@@ -16,6 +16,7 @@ export const checkAccess = (exclusionRoles, accountList, Model, property) => {
         } else {
             id = req.params.id;
         }
+        console.log(id);
 
         if (!req.account[accountList].includes(id)) {
             return res.status(403).send("Access Denied");
