@@ -12,7 +12,6 @@ import {
     profileSchema,
     profileSchemaObject,
 } from "../models/profileModel.js";
-import { checkOwner } from "../middleware/checkOwner.js";
 const router = express.Router();
 
 router.get("/", [auth, admin], async (req, res) => {
@@ -25,7 +24,7 @@ router.get(
     [
         validateObjectId,
         auth,
-        checkOwner([roles.admin, roles.hospital], "_id", Profile, "account"),
+        checkAccess([roles.admin, roles.hospital], "_id", Profile, "account"),
     ],
     async (req, res) => {
         const profile = await Profile.findById(req.params.id);
@@ -60,7 +59,7 @@ router.patch(
     [
         validateObjectId,
         auth,
-        checkOwner([roles.admin, roles.hospital], "_id", Profile, "account"),
+        checkAccess([roles.admin, roles.hospital], "_id", Profile, "account"),
         validateEachParameter(_.omit(profileSchema, ["accountId"])),
     ],
     async (req, res) => {
@@ -84,7 +83,7 @@ router.delete(
     [
         validateObjectId,
         auth,
-        checkOwner([roles.admin, roles.hospital], "_id", Profile, "account"),
+        checkAccess([roles.admin, roles.hospital], "_id", Profile, "account"),
     ],
     async (req, res) => {
         if (req.account.accessLevel == roles.hospital)

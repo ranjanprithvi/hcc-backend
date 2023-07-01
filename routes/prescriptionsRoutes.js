@@ -3,7 +3,7 @@ import _ from "lodash";
 import moment from "moment";
 import { admin } from "../middleware/admin.js";
 import { auth } from "../middleware/auth.js";
-import { checkOwner } from "../middleware/checkOwner.js";
+import { checkAccess } from "../middleware/checkAccess.js";
 import { validateBody, validateEachParameter } from "../middleware/validate.js";
 import validateObjectId from "../middleware/validateObjectId.js";
 import { Profile } from "../models/profileModel.js";
@@ -123,7 +123,7 @@ router.patch(
                 "specializationId",
             ])
         ),
-        checkOwner([roles.admin], Prescription, "createdByAccountId"),
+        checkAccess([roles.admin], Prescription, "createdByAccountId"),
     ],
     async (req, res) => {
         let params = _.pick(req.body, [
@@ -170,7 +170,7 @@ router.delete(
     [
         validateObjectId,
         auth,
-        checkOwner([roles.admin], Prescription, "createdByAccountId"),
+        checkAccess([roles.admin], Prescription, "createdByAccountId"),
     ],
     async (req, res) => {
         const prescription = await Prescription.findByIdAndDelete(

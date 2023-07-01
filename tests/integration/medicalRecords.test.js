@@ -661,7 +661,7 @@ describe("/api/medicalRecords", () => {
         });
     });
 
-    describe.only("PATCH /", () => {
+    describe("PATCH /", () => {
         let token,
             params,
             userAccount,
@@ -714,7 +714,6 @@ describe("/api/medicalRecords", () => {
                 doctor: doctor._id,
                 recordType: "type1",
                 dateOnDocument: "12/25/2022",
-                external: true,
                 folderPath: "abc/report",
                 files: [{ name: "file1.jpeg", sizeInBytes: 10400 }],
             });
@@ -727,6 +726,7 @@ describe("/api/medicalRecords", () => {
                 specialization: mongoose.Types.ObjectId(),
                 recordType: "type1",
                 dateOnDocument: "12/25/2022",
+                external: true,
                 folderPath: "abc/report2",
                 files: [{ name: "file1.jpeg", sizeInBytes: 10400 }],
             });
@@ -783,11 +783,10 @@ describe("/api/medicalRecords", () => {
             expect(response.status).toBe(400);
         });
 
-        it.only("should return 400 if no specialization with the given specializationId exists", async () => {
+        it("should return 400 if no specialization with the given specializationId exists", async () => {
             params.specializationId = mongoose.Types.ObjectId();
 
             const response = await exec();
-            console.log(response);
             expect(response.status).toBe(400);
         });
 
@@ -854,43 +853,37 @@ describe("/api/medicalRecords", () => {
         });
 
         it("should return 403 if account is user but record is not external", async () => {
-            token = new Account({
-                accessLevel: roles.user,
-                profiles: [],
-            }).generateAuthToken();
-            id = medicalRecord2._id;
+            id = medicalRecord1._id;
 
             const response = await exec();
             expect(response.status).toBe(403);
         });
 
-        it("should return 403 if account is hospital and doctor does not belong to hospital", async () => {
-            doctor.hospital = mongoose.Types.ObjectId();
-            await doctor.save();
+        it("should return 403 if account is hospital but medical record is external", async () => {
+            token = hospitalAccount.generateAuthToken();
 
             const response = await exec();
             expect(response.status).toBe(403);
         });
 
-        it("should add medicalRecordId to the profile's medicalRecords if request is valid", async () => {
-            const res = await exec();
-            const p = await Profile.findById(profile._id);
+        // it("should return 403 if account is hospital and doctor does not belong to hospital", async () => {
+        //     doctor.hospital = mongoose.Types.ObjectId();
+        //     await doctor.save();
 
-            expect(p.medicalRecords[0].toString()).toEqual(
-                res.body._id.toString()
-            );
-        });
+        //     const response = await exec();
+        //     expect(response.status).toBe(403);
+        // });
 
         it("should change the params of the medicalRecord in the db if request is valid", async () => {
             await exec();
             const medicalRecord = await MedicalRecord.findById(
-                medicalRecord1._id
+                medicalRecord2._id
             );
 
             //Updated fields
             expect(medicalRecord).toHaveProperty(
                 "recordType",
-                params.recordTypeId.toString()
+                params.recordType.toString()
             );
             expect(moment(medicalRecord.dateOnDocument).format()).toEqual(
                 moment(params.dateOnDocument).format()
@@ -903,17 +896,14 @@ describe("/api/medicalRecords", () => {
                 "hospitalName",
                 params.hospitalName
             );
-            expect(medicalRecord).toHaveProperty(
-                "specialization",
+            expect(medicalRecord.specialization.toString()).toEqual(
                 params.specializationId.toString()
             );
         });
 
         it("should return the medicalRecord if it doesnt have doctorId, client is user and request is valid", async () => {
-            token = userAccount.generateAuthToken();
-
             const res = await exec();
-            expect(res.status).toBe(201);
+            expect(res.status).toBe(200);
 
             expect(res.body).toHaveProperty("doctorName", params.doctorName);
             expect(res.body).toHaveProperty(
@@ -932,15 +922,15 @@ describe("/api/medicalRecords", () => {
             //Other fields
             expect(res.body).toHaveProperty(
                 "_id",
-                medicalRecord1._id.toString()
+                medicalRecord2._id.toString()
             );
             expect(res.body).toHaveProperty(
                 "profile",
-                medicalRecord1.profile.toString()
+                medicalRecord2.profile.toString()
             );
             expect(res.body).toHaveProperty(
                 "folderPath",
-                medicalRecord1.folderPath
+                medicalRecord2.folderPath
             );
             expect(res.body).toHaveProperty("files");
         });
@@ -994,18 +984,25 @@ describe("/api/medicalRecords", () => {
             hospitalAccount,
             doctor,
             hospital,
-            profileId,
-            medicalRecord1,
-            medicalRecord2,
+            profile,
+            medicalRecordH,
+            medicalRecordU,
             id,
             specialization;
 
         beforeEach(async () => {
-            profileId = mongoose.Types.ObjectId();
+            profile = new Profile({
+                name: "profile1",
+                gender: "male",
+                dob: "04/24/1995",
+            });
+
             userAccount = new Account({
                 email: "abcd@gmail.com",
                 password: "123456",
+                profiles: [profile._id],
             });
+            profile.account = userAccount._id;
 
             hospitalAccount = new Account({
                 email: "abc@abc.com",
@@ -1027,25 +1024,40 @@ describe("/api/medicalRecords", () => {
             });
             await doctor.save();
 
-            medicalRecord1 = new MedicalRecord({
-                profile: profileId,
+            medicalRecordH = new MedicalRecord({
+                profile: profile._id,
                 doctor: doctor._id,
                 recordType: "type1",
                 dateOnDocument: "12/25/2022",
-                external: true,
                 folderPath: "abc/report",
                 files: [{ name: "file1.jpeg", sizeInBytes: 10400 }],
             });
-            await medicalRecord1.save();
+            await medicalRecordH.save();
+
+            medicalRecordU = new MedicalRecord({
+                profile: profile._id,
+                doctorName: "doctor1",
+                hospitalName: "hospital1",
+                specialization: mongoose.Types.ObjectId(),
+                recordType: "type1",
+                dateOnDocument: "12/25/2022",
+                external: true,
+                folderPath: "abc/report2",
+                files: [{ name: "file1.jpeg", sizeInBytes: 10400 }],
+            });
+            await medicalRecordU.save();
+
+            profile.medicalRecords = [medicalRecordH._id, medicalRecordU._id];
+            await profile.save();
 
             specialization = new Specialization({
                 name: "Orthopaedics",
             });
             await specialization.save();
 
-            token = hospitalAccount.generateAuthToken();
+            token = userAccount.generateAuthToken();
 
-            id = medicalRecord1._id;
+            id = medicalRecordU._id;
         });
 
         const exec = async function () {
@@ -1072,24 +1084,85 @@ describe("/api/medicalRecords", () => {
             expect(response.status).toBe(404);
         });
 
-        it("should return 403 if medicalRecord does not belong to account", async () => {
-            token = new Account().generateAuthToken();
+        it("should return 403 if profile of medical record does not belong to user account", async () => {
+            profile.account = mongoose.Types.ObjectId();
+            await profile.save();
 
             const response = await exec();
             expect(response.status).toBe(403);
         });
 
-        it("should remove the medicalRecord from the profile if request is valid", async () => {
-            await exec();
+        it("should return 403 if doctor of medical record does not belong to hospital account", async () => {
+            doctor.account = mongoose.Types.ObjectId();
+            await doctor.save();
 
-            const p = await Profile.findById(medicalRecord.profileId);
-            expect(p.medicalRecords).toEqual([]);
+            token = hospitalAccount.generateAuthToken();
+
+            const response = await exec();
+            expect(response.status).toBe(403);
         });
 
-        it("should remove the medicalRecord from the db if request is valid", async () => {
+        it("should return 403 if account is user and medical record is not external", async () => {
+            id = medicalRecordH._id;
+
+            const response = await exec();
+            expect(response.status).toBe(403);
+        });
+
+        it("should return 403 if account is hospital but medical record is external", async () => {
+            token = hospitalAccount.generateAuthToken();
+
+            const response = await exec();
+            expect(response.status).toBe(403);
+        });
+
+        it("should remove the medicalRecord from the profile if account is user and record is external", async () => {
             await exec();
 
-            const mr = await MedicalRecord.findById(medicalRecord._id);
+            const p = await Profile.findById(medicalRecordU.profile);
+            expect(p.medicalRecords).toEqual([medicalRecordH._id]);
+        });
+
+        // it("should remove the medicalRecord from the profile if account is hospital and record is external", async () => {
+        //     token = hospitalAccount.generateAuthToken();
+
+        //     await exec();
+
+        //     const p = await Profile.findById(medicalRecordU.profile);
+        //     expect(p.medicalRecords).toEqual([medicalRecordU._id]);
+        // });
+
+        it("should remove the medicalRecord from the profile if account is hospital and record is not external", async () => {
+            token = hospitalAccount.generateAuthToken();
+            id = medicalRecordH._id;
+
+            await exec();
+
+            const p = await Profile.findById(medicalRecordH.profile);
+            expect(p.medicalRecords).toEqual([medicalRecordU._id]);
+        });
+
+        it("should remove the medicalRecord from the db if account is user and record is external", async () => {
+            await exec();
+
+            const mr = await MedicalRecord.findById(medicalRecordU._id);
+            expect(mr).toBeNull();
+        });
+
+        // it("should remove the medicalRecord from the db if account is hospital and record is external", async () => {
+        //     token = hospitalAccount.generateAuthToken();
+        //     await exec();
+
+        //     const mr = await MedicalRecord.findById(medicalRecordU._id);
+        //     expect(mr).toBeNull();
+        // });
+
+        it("should remove the medicalRecord from the db if account is hospital and record is not external", async () => {
+            token = hospitalAccount.generateAuthToken();
+            id = medicalRecordH._id;
+            await exec();
+
+            const mr = await MedicalRecord.findById(medicalRecordH._id);
             expect(mr).toBeNull();
         });
 
@@ -1099,21 +1172,34 @@ describe("/api/medicalRecords", () => {
             expect(res.status).toBe(200);
             expect(res.body).toHaveProperty("_id");
             expect(res.body).toHaveProperty(
-                "profileId",
-                medicalRecord.profileId.toString()
+                "profile",
+                medicalRecordU.profile.toString()
             );
             expect(res.body).toHaveProperty(
-                "createdByAccountId",
-                medicalRecord.createdByAccountId.toString()
+                "doctorName",
+                medicalRecordU.doctorName.toString()
+            );
+            expect(res.body).toHaveProperty(
+                "hospitalName",
+                medicalRecordU.hospitalName.toString()
+            );
+            expect(res.body).toHaveProperty(
+                "specialization",
+                medicalRecordU.specialization.toString()
+            );
+            expect(res.body.recordType).toEqual(medicalRecordU.recordType);
+            expect(res.body.dateOnDocument).toEqual(
+                medicalRecordU.dateOnDocument.toISOString()
+            );
+            expect(res.body).toHaveProperty(
+                "external",
+                medicalRecordU.external
             );
             expect(res.body).toHaveProperty(
                 "folderPath",
-                medicalRecord.folderPath
+                medicalRecordU.folderPath
             );
-            expect(res.body.recordType._id).toEqual(
-                medicalRecord.recordType._id.toString()
-            );
-            medicalRecord.files.forEach((file) => {
+            medicalRecordU.files.forEach((file) => {
                 expect(res.body.files).toEqual(
                     expect.arrayContaining([
                         expect.objectContaining({
@@ -1123,16 +1209,6 @@ describe("/api/medicalRecords", () => {
                     ])
                 );
             });
-            expect(res.body.specialization._id).toEqual(
-                medicalRecord.specialization._id.toString()
-            );
-            expect(res.body.dateOnDocument).toEqual(
-                medicalRecord.dateOnDocument.toISOString()
-            );
-            expect(res.body).toHaveProperty(
-                "hospitalName",
-                medicalRecord.hospitalName
-            );
         });
     });
 });

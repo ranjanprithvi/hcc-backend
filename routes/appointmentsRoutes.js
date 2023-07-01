@@ -3,7 +3,7 @@ import _ from "lodash";
 import mongoose from "mongoose";
 import { admin } from "../middleware/admin.js";
 import { auth } from "../middleware/auth.js";
-import { checkOwner } from "../middleware/checkOwner.js";
+import { checkAccess } from "../middleware/checkAccess.js";
 import { validateBody, validateEachParameter } from "../middleware/validate.js";
 import validateObjectId from "../middleware/validateObjectId.js";
 import { Profile } from "../models/profileModel.js";
@@ -11,7 +11,6 @@ import { Account, roles } from "../models/accountModel.js";
 import { Appointment, appointmentSchema } from "../models/appointmentModel.js";
 import moment from "moment";
 import { hospital } from "../middleware/hospital.js";
-import { checkAccess } from "../middleware/checkAccess.js";
 import { Doctor } from "../models/doctorModel.js";
 import Joi from "joi";
 const router = express.Router();
@@ -155,7 +154,7 @@ router.patch(
         validateObjectId,
         auth,
         validateBody(Joi.object(_.pick(appointmentSchema, ["profileId"]))),
-        checkOwner(
+        checkAccess(
             [roles.admin, roles.user],
             "hospital",
             Appointment,
@@ -201,14 +200,14 @@ router.patch(
         validateBody(
             Joi.object(_.pick(appointmentSchema, ["newAppointmentId"]))
         ),
-        checkOwner(
+        checkAccess(
             [roles.admin, roles.user],
             "hospital",
             Appointment,
             "doctor.hospital",
             "doctor"
         ),
-        checkOwner(
+        checkAccess(
             [roles.admin, roles.hospital],
             "_id",
             Appointment,
@@ -269,14 +268,14 @@ router.patch(
     [
         validateObjectId,
         auth,
-        checkOwner(
+        checkAccess(
             [roles.admin, roles.user],
             "hospital",
             Appointment,
             "doctor.hospital",
             "doctor"
         ),
-        checkOwner(
+        checkAccess(
             [roles.admin, roles.hospital],
             "_id",
             Appointment,

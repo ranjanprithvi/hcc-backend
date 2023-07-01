@@ -3,7 +3,7 @@ import _ from "lodash";
 import moment from "moment";
 import { admin } from "../middleware/admin.js";
 import { auth } from "../middleware/auth.js";
-import { checkOwner } from "../middleware/checkOwner.js";
+import { checkAccess } from "../middleware/checkAccess.js";
 import { validateBody, validateEachParameter } from "../middleware/validate.js";
 import validateObjectId from "../middleware/validateObjectId.js";
 import { Profile } from "../models/profileModel.js";
@@ -17,7 +17,6 @@ import {
 import { Specialization } from "../models/specializationModel.js";
 import { Doctor } from "../models/doctorModel.js";
 import { Hospital } from "../models/hospitalModel.js";
-import { checkAccess } from "../middleware/checkAccess.js";
 const router = express.Router();
 
 router.get("/", auth, async (req, res) => {
@@ -70,7 +69,6 @@ router.post(
             const doctor = await Doctor.findById(req.body.doctorId);
             if (!doctor) return res.status(400).send("Invalid doctorId");
 
-            console.log(req.account.accessLevel);
             if (req.account.accessLevel == roles.hospital)
                 if (doctor.hospital != req.account.hospital)
                     return res.status(403).send("Access Denied");
@@ -120,14 +118,14 @@ router.patch(
         validateObjectId,
         auth,
         validateEachParameter(editMedicalRecordSchema),
-        checkOwner(
+        checkAccess(
             [roles.admin, roles.user],
             "hospital",
             MedicalRecord,
             "doctor.hospital",
             "doctor"
         ),
-        checkOwner(
+        checkAccess(
             [roles.admin, roles.hospital],
             "_id",
             MedicalRecord,
@@ -183,15 +181,31 @@ router.delete(
     [
         validateObjectId,
         auth,
-        checkOwner([roles.admin], MedicalRecord, "createdByAccountId"),
+        checkAccess(
+            [roles.admin, roles.user],
+            "hospital",
+            MedicalRecord,
+            "doctor.hospital",
+            "doctor"
+        ),
+        checkAccess(
+            [roles.admin, roles.hospital],
+            "_id",
+            MedicalRecord,
+            "profile.account",
+            "profile"
+        ),
     ],
     async (req, res) => {
-        const medicalRecord = await MedicalRecord.findByIdAndDelete(
-            req.params.id
-        );
+        let medicalRecord = await MedicalRecord.findById(req.params.id);
         if (!medicalRecord) return res.status(404).send("Resource not found");
+        if (req.account.accessLevel == roles.user)
+            if (!medicalRecord.external)
+                return res.status(403).send("Access Denied");
 
-        const profile = await Profile.findById(medicalRecord.profileId);
+        medicalRecord = await MedicalRecord.findByIdAndDelete(req.params.id);
+
+        let profile = await Profile.findById(medicalRecord.profile);
         profile.medicalRecords.splice(
             profile.medicalRecords.indexOf(medicalRecord._id),
             1
