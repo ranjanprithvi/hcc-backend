@@ -243,7 +243,7 @@ describe("/api/specializations", () => {
         });
     });
 
-    describe.only("DELETE /:id", () => {
+    describe("DELETE /:id", () => {
         let id;
         let token;
         let specialization;

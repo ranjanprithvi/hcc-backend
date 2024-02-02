@@ -11,9 +11,8 @@ const params = {
 };
 
 export const getCredentials = async () => {
-    let creds = await sts.assumeRole(params);
-    console.log(creds);
-    return creds;
+    let res = await sts.assumeRole(params);
+    return res.Credentials;
 };
 
 getCredentials();

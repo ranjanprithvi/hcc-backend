@@ -10,11 +10,13 @@ import { Profile } from "../models/profileModel.js";
 import { Account, roles } from "../models/accountModel.js";
 import {
     Prescription,
+    editPrescriptionSchema,
     prescriptionSchema,
     prescriptionSchemaObject,
 } from "../models/prescriptionModel.js";
 import { Specialization } from "../models/specializationModel.js";
-import { Medication } from "../models/medicationModel.js";
+import { Doctor } from "../models/doctorModel.js";
+import { Hospital } from "../models/hospitalModel.js";
 const router = express.Router();
 
 router.get("/", auth, async (req, res) => {
@@ -29,9 +31,14 @@ router.get("/", auth, async (req, res) => {
         if (!query.profileId)
             return res.status(400).send("Please provide profileId");
 
-        if (!req.account.profiles.includes(query.profileId))
-            query.createdByAccountId = req.account._id;
+        if (req.account.accessLevel == roles.user)
+            if (!req.account.profiles.includes(query.profileId))
+                return res.status(403).send("Access Denied");
+
+        query.profile = query.profileId;
+        delete query.profileId;
     }
+
     const prescriptions = await Prescription.find(query);
     res.send(prescriptions);
 });
@@ -49,19 +56,29 @@ router.post(
     "/",
     [auth, validateBody(prescriptionSchemaObject)],
     async (req, res) => {
-        if (req.account.accessLevel == roles.user) {
-            if (!req.account.profiles.includes(req.body.profileId))
-                return res.status(403).send("Access Denied");
-        }
-
         const profile = await Profile.findById(req.body.profileId);
         if (!profile) return res.status(400).send("Invalid ProfileId");
 
-        const specialization = await Specialization.findById(
-            req.body.specializationId
-        );
-        if (!specialization)
-            return res.status(400).send("Invalid specialization");
+        if (req.account.accessLevel == roles.user) {
+            if (!req.account.profiles.includes(req.body.profileId))
+                return res.status(403).send("Access Denied");
+            req.body.external = true;
+        }
+
+        if (req.body.doctorId) {
+            const doctor = await Doctor.findById(req.body.doctorId);
+            if (!doctor) return res.status(400).send("Invalid doctorId");
+
+            if (req.account.accessLevel == roles.hospital)
+                if (doctor.hospital != req.account.hospital)
+                    return res.status(403).send("Access Denied");
+        } else {
+            const specialization = await Specialization.findById(
+                req.body.specializationId
+            );
+            if (!specialization)
+                return res.status(400).send("Invalid specialization");
+        }
 
         req.body.folderPath = req.body.s3Path + req.body.recordName;
 
@@ -71,34 +88,20 @@ router.post(
         if (prescription)
             return res.status(400).send("Record name should be unique");
 
-        const hospitalName = req.account.hospitalName || req.body.hospitalName;
-
-        const medications = [];
-
-        if (req.body.medications) {
-            for (const m of req.body.medications) {
-                const medication = await Medication.findById(m.medicationId);
-                if (!medication)
-                    return res.status(400).send("Invalid medicationId");
-                medications.push({
-                    ..._.pick(m, ["dosage", "interval", "durationInDays"]),
-                    medication,
-                });
-            }
-        }
-
         prescription = new Prescription({
+            profile: req.body.profileId,
+            doctor: req.body.doctorId,
+            specialization: req.body.specializationId,
+            folderPath: req.body.s3Path + req.body.recordName,
+
             ..._.pick(req.body, [
-                "profileId",
+                "doctorName",
+                "hospitalName",
                 "content",
-                "folderPath",
-                "files",
                 "dateOnDocument",
+                "external",
+                "files",
             ]),
-            hospitalName,
-            specialization,
-            createdByAccountId: req.account._id,
-            medications,
         });
         await prescription.save();
 
@@ -114,23 +117,24 @@ router.patch(
     [
         validateObjectId,
         auth,
-        validateEachParameter(
-            _.pick(prescriptionSchema, [
-                "recordName",
-                "content",
-                "dateOnDocument",
-                "hospitalName",
-                "specializationId",
-            ])
+        validateEachParameter(editPrescriptionSchema),
+        checkAccess(
+            [roles.admin, roles.user],
+            "hospital",
+            Prescription,
+            "doctor.hospital",
+            "doctor"
         ),
-        checkAccess([roles.admin], Prescription, "createdByAccountId"),
+        checkAccess(
+            [roles.admin, roles.hospital],
+            "_id",
+            Prescription,
+            "profile.account",
+            "profile"
+        ),
     ],
     async (req, res) => {
-        let params = _.pick(req.body, [
-            "dateOnDocument",
-            "hospitalName",
-            "content",
-        ]);
+        // if(req.body.doctorId){}
 
         if (req.body.specializationId) {
             const specialization = await Specialization.findById(
@@ -138,28 +142,35 @@ router.patch(
             );
             if (!specialization)
                 return res.status(400).send("Invalid specializationId");
-            params.specialization = specialization;
+            req.body.specialization = specialization._id;
+            delete req.body.specializationId;
         }
 
-        let prescription = await Prescription.findByIdAndUpdate(
+        let prescription = await Prescription.findById(req.params.id);
+        if (!prescription) res.status(404).send("Resource not found");
+        if (req.account.accessLevel == roles.user) {
+            if (!prescription.external)
+                return res.status(403).send("Access Denied");
+        }
+
+        prescription = await Prescription.findByIdAndUpdate(
             req.params.id,
             {
-                $set: params,
+                $set: req.body,
             },
             { new: true, runValidators: true }
         );
-        if (!prescription) res.status(404).send("Resource not found");
 
-        if (req.body.recordName) {
-            let s = prescription.folderPath.split("/");
-            s.splice(-1);
-            prescription.folderPath = s.join("/") + "/" + req.body.recordName;
-            const mr = await Prescription.findOne({
-                folderPath: prescription.folderPath,
-            });
-            if (mr) return res.status(400).send("Record name should be unique");
-            await prescription.save();
-        }
+        // if (req.body.recordName) {
+        //     let s = prescription.folderPath.split("/");
+        //     s.splice(-1);
+        //     prescription.folderPath = s.join("/") + "/" + req.body.recordName;
+        //     const mr = await Prescription.findOne({
+        //         folderPath: prescription.folderPath,
+        //     });
+        //     if (mr) return res.status(400).send("Record name should be unique");
+        //     await prescription.save();
+        // }
 
         res.send(prescription);
     }
@@ -170,15 +181,31 @@ router.delete(
     [
         validateObjectId,
         auth,
-        checkAccess([roles.admin], Prescription, "createdByAccountId"),
+        checkAccess(
+            [roles.admin, roles.user],
+            "hospital",
+            Prescription,
+            "doctor.hospital",
+            "doctor"
+        ),
+        checkAccess(
+            [roles.admin, roles.hospital],
+            "_id",
+            Prescription,
+            "profile.account",
+            "profile"
+        ),
     ],
     async (req, res) => {
-        const prescription = await Prescription.findByIdAndDelete(
-            req.params.id
-        );
+        let prescription = await Prescription.findById(req.params.id);
         if (!prescription) return res.status(404).send("Resource not found");
+        if (req.account.accessLevel == roles.user)
+            if (!prescription.external)
+                return res.status(403).send("Access Denied");
 
-        const profile = await Profile.findById(prescription.profileId);
+        prescription = await Prescription.findByIdAndDelete(req.params.id);
+
+        let profile = await Profile.findById(prescription.profile);
         profile.prescriptions.splice(
             profile.prescriptions.indexOf(prescription._id),
             1

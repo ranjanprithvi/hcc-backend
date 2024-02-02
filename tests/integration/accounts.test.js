@@ -276,7 +276,7 @@ describe("/api/accounts", () => {
         });
     });
 
-    describe("POST /register", () => {
+    describe("POST /registerHospital", () => {
         let token;
         let params;
         let hospital;
@@ -291,14 +291,14 @@ describe("/api/accounts", () => {
             params = {
                 email: "abc@abc.com",
                 password: "Abc@starbooks1234",
-                hospitalId: hospital._id,
                 accessLevel: roles.hospital,
+                hospitalId: hospital._id,
             };
         });
 
         const exec = function () {
             return request(server)
-                .post("/api/accounts/register")
+                .post("/api/accounts/registerHospital")
                 .set("x-auth-token", token)
                 .send(params);
         };
@@ -418,6 +418,13 @@ describe("/api/accounts", () => {
             expect(response.status).toBe(400);
         });
 
+        it("should return 400 if accessLevel is not roles.hospital", async () => {
+            params.accessLevel = roles.admin;
+            const response = await exec();
+
+            expect(response.status).toBe(400);
+        });
+
         it("should return 400 if additional parameters are passed", async () => {
             params.other = "abc";
             const response = await exec();
@@ -438,10 +445,7 @@ describe("/api/accounts", () => {
             expect(response.status).toBe(201);
             expect(response.body).toHaveProperty("_id");
             expect(response.body).toHaveProperty("email", params.email);
-            expect(response.body).toHaveProperty(
-                "accessLevel",
-                params.accessLevel
-            );
+            expect(response.body).toHaveProperty("accessLevel", roles.hospital);
             expect(response.body).not.toHaveProperty("password");
         });
     });

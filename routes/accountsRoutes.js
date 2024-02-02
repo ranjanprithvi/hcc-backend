@@ -14,7 +14,13 @@ const router = express.Router();
 router.get("/me", auth, async (req, res) => {
     const account = await Account.findById(req.account._id)
         .select("-password")
-        .populate("hospital");
+        .populate([
+            { path: "profiles" },
+            {
+                path: "hospital",
+                populate: { path: "doctors", model: "doctor" },
+            },
+        ]);
     if (!account) {
         return res.status(400).send("Account not found");
     }
@@ -55,7 +61,7 @@ router.post(
 );
 
 router.post(
-    "/register",
+    "/registerHospital",
     [
         auth,
         admin,
@@ -72,26 +78,22 @@ router.post(
     ],
     async (req, res) => {
         let account = await Account.findOne({ email: req.body.email });
-        if (account) return res.status(400).send("Account already registered.");
+        if (account) return res.status(400).send("Email already registered.");
+
+        if (req.body.accessLevel != roles.hospital)
+            return res.status(400).send("AccessLevel should be hospital");
+
+        let hospital = await Hospital.findById(req.body.hospitalId);
+        if (!hospital) return res.status(400).send("Invalid hospitalId");
+        req.body.hospital = hospital._id;
 
         const salt = await bcrypt.genSalt(10);
         const password = await bcrypt.hash(req.body.password, salt);
 
-        const accountObj = {
-            ..._.pick(req.body, ["email", "accessLevel"]),
+        account = new Account({
+            ..._.pick(req.body, ["email", "accessLevel", "hospital"]),
             password,
-        };
-
-        if (req.body.accessLevel == roles.hospital) {
-            if (!req.body.hospitalId)
-                return res.status(400).send("Please enter hospitalId");
-
-            let hospital = await Hospital.findById(req.body.hospitalId);
-            if (!hospital) return res.status(400).send("Invalid hospitalId");
-            accountObj.hospital = hospital._id;
-        }
-
-        account = new Account(accountObj);
+        });
 
         try {
             await account.save();

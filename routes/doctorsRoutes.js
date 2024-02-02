@@ -21,7 +21,11 @@ router.get("/", async (req, res) => {
     );
     const query = JSON.parse(queryStr);
 
-    const doctors = await Doctor.find(query);
+    const doctors = await Doctor.find(query).populate({
+        path: "appointments",
+        populate: { path: "appointments", model: "appointment" },
+    });
+    console.log(doctors);
     res.send(doctors);
 });
 

@@ -1,7 +1,7 @@
 import express from "express";
 import _ from "lodash";
 import mongoose from "mongoose";
-import { admin } from "../middleware/admin.js";
+import { hospital } from "../middleware/hospital.js";
 import { auth } from "../middleware/auth.js";
 import { checkAccess } from "../middleware/checkAccess.js";
 import { validateBody, validateEachParameter } from "../middleware/validate.js";
@@ -14,7 +14,7 @@ import {
 } from "../models/profileModel.js";
 const router = express.Router();
 
-router.get("/", [auth, admin], async (req, res) => {
+router.get("/", [auth, hospital], async (req, res) => {
     const profiles = await Profile.find();
     res.send(profiles);
 });
@@ -40,11 +40,23 @@ router.post(
         if (req.account.accessLevel == roles.hospital)
             return res.status(403).send("Access Denied");
 
-        const account = await Account.findById(req.body.accountId);
+        let id;
+        if (req.account.accessLevel == roles.user) {
+            id = req.account._id;
+        } else {
+            if (!req.body.accountId)
+                return res.status(400).send("accountId is required");
+            id = req.body.accountId;
+            delete req.body.accountId;
+        }
+
+        const account = await Account.findById(id);
         if (!account) return res.status(400).send("Invalid Account Id");
 
+        if (account.accessLevel != roles.user)
+            return res.status(400).send("Account must be a user");
+
         req.body.account = account._id;
-        delete req.body.accountId;
         const profile = await new Profile(req.body).save();
 
         account.profiles.push(profile._id);

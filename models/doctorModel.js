@@ -16,6 +16,16 @@ export const doctorSchema = {
 
 export const doctorSchemaObject = Joi.object(doctorSchema);
 
+const appointmentGroupSchema = {
+    date: {
+        type: Date,
+        // min: moment().startOf("day"),
+        required: true,
+        unique: true,
+    },
+    appointments: [{ type: Types.ObjectId, ref: "appointment" }],
+};
+
 const dbSchema = new Schema({
     name: { type: String, minLength: 3, required: true },
     hospital: {
@@ -36,6 +46,7 @@ const dbSchema = new Schema({
         min: 1950,
         max: moment().year(),
     },
+    appointments: [{ type: appointmentGroupSchema }],
 });
 
 export const Doctor = model("doctor", dbSchema);

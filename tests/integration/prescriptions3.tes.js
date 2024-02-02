@@ -28,7 +28,7 @@ describe("/api/prescriptions", () => {
         server.close();
     });
 
-    describe("GET /", () => {
+    describe.only("GET /", () => {
         let token, queryStr, profileId, profileId2, account;
 
         beforeEach(async () => {
@@ -45,15 +45,12 @@ describe("/api/prescriptions", () => {
                 {
                     profile: profileId2,
                     doctor: mongoose.Types.ObjectId(),
-                    content: "report1234",
+                    content: "a".repeat(11),
                     dateOnDocument: moment().subtract(1, "days").toDate(),
-                    folderPath: "abc/report1",
-                    files: [{ name: "file1.jpeg", sizeInBytes: 10400 }],
                 },
                 {
                     profile: profileId,
                     doctor: mongoose.Types.ObjectId(),
-                    content: "report1234",
                     folderPath: "abcd/report1",
                     files: [{ name: "file1.jpeg", sizeInBytes: 10400 }],
                 },
@@ -62,23 +59,21 @@ describe("/api/prescriptions", () => {
                     doctorName: "doctor1",
                     hospitalName: "hospital1",
                     specialization: mongoose.Types.ObjectId(),
-                    content: "report1234",
                     folderPath: "abc/report2",
                     files: [{ name: "file1.jpeg", sizeInBytes: 10400 }],
                 },
                 {
                     profile: profileId2,
                     doctor: mongoose.Types.ObjectId(),
-                    content: "report1234",
-                    folderPath: "abcs/report",
-                    files: [{ name: "file1.jpeg", sizeInBytes: 10400 }],
+                    content: "a".repeat(11),
                 },
                 {
                     profile: profileId2,
                     doctor: mongoose.Types.ObjectId(),
-                    content: "report1234",
+                    content: "a".repeat(11),
                     folderPath: "abcs/report2",
                     files: [{ name: "file1.jpeg", sizeInBytes: 10400 }],
+                    dateOnDocument: moment().subtract(1, "days").toDate(),
                 },
             ]);
         });
@@ -154,9 +149,9 @@ describe("/api/prescriptions", () => {
     //         prescription = new Prescription({
     //             timeSlot: moment().add(7, "days"),
     //             profileId: mongoose.Types.ObjectId(),
-    //             content: {
+    //             recordType: {
     //                 _id: mongoose.Types.ObjectId().toString(),
-    //                 name: "report1234",
+    //                 name: "report",
     //             },
     //         });
     //         await prescription.save();
@@ -214,8 +209,8 @@ describe("/api/prescriptions", () => {
     //             prescription.profileId.toString()
     //         );
 
-    //         expect(res.body.content._id).toEqual(
-    //             prescription.content._id.toString()
+    //         expect(res.body.recordType._id).toEqual(
+    //             prescription.recordType._id.toString()
     //         );
     //         expect(new Date(res.body.timeSlot)).toEqual(prescription.timeSlot);
     //     });
@@ -224,6 +219,7 @@ describe("/api/prescriptions", () => {
     describe("POST /", () => {
         let token,
             params,
+            params2,
             profile,
             hospital,
             doctor,
@@ -279,13 +275,18 @@ describe("/api/prescriptions", () => {
 
             params = {
                 profileId: profile._id,
+                doctorId: doctor._id,
+                dateOnDocument: "02/19/2019",
+                content: "a".repeat(11),
+            };
+            params2 = {
+                profileId: profile._id,
                 doctorName: "doctor1",
                 hospitalName: "hospital2",
                 specializationId: specialization._id,
                 dateOnDocument: "02/19/2019",
-                content: "report1234",
                 s3Path: "abc/",
-                recordName: "ECG",
+                recordName: "pre1",
                 files: [{ name: "file1.jpeg", sizeInBytes: 10400 }],
             };
         });
@@ -332,22 +333,19 @@ describe("/api/prescriptions", () => {
 
         it("should return 400 if doctorId is not valid", async () => {
             params.doctorId = 1;
+
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
         it("should return 400 if no doctor with the given doctorId exists", async () => {
             params.doctorId = mongoose.Types.ObjectId();
+
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
         it("should return 403 if account's hospital is not the same as doctor's hospital", async () => {
-            params.doctorId = doctor._id;
-            delete params.doctorName;
-            delete params.hospitalName;
-            delete params.specializationId;
-
             doctor.hospital = mongoose.Types.ObjectId();
             await doctor.save();
 
@@ -356,52 +354,54 @@ describe("/api/prescriptions", () => {
         });
 
         it("should return 400 if doctorName is not provided when doctorId is not provided", async () => {
-            delete params.doctorName;
+            delete params2.doctorName;
+            params = params2;
+
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
         it("should return 400 if doctorName is provided when doctorId is provided", async () => {
-            params.doctor = doctor._id;
-            delete params.hospitalName;
-            delete params.specializationId;
+            params.doctorName = "doctor1";
 
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
         it("should return 400 if hospitalName is not provided when doctorId is not provided", async () => {
-            delete params.hospitalName;
+            delete params2.hospitalName;
+            params = params2;
+
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
         it("should return 400 if hospitalName is provided when doctorId is provided", async () => {
-            params.doctor = doctor._id;
-            delete params.doctorName;
-            delete params.specializationId;
+            params.hospitalName = "hospital1";
 
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
         it("should return 400 if specializationId is not provided when doctorId is not provided", async () => {
-            delete params.specializationId;
+            delete params2.specializationId;
+            params = params2;
+
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
         it("should return 400 if specializationId is provided when doctorId is provided", async () => {
-            params.doctor = doctor._id;
-            delete params.doctorName;
-            delete params.hospitalName;
+            params.specializationId = mongoose.Types.ObjectId();
 
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
         it("should return 400 if no specialization with the given specializationId exists", async () => {
-            params.specializationId = mongoose.Types.ObjectId();
+            params2.specializationId = mongoose.Types.ObjectId();
+            params = params2;
+
             const response = await exec();
             expect(response.status).toBe(400);
         });
@@ -430,97 +430,152 @@ describe("/api/prescriptions", () => {
             expect(response.status).toBe(400);
         });
 
-        it("should return 400 if content is more than 5000 characters", async () => {
+        it("should return 400 if content is greater than 5000 characters", async () => {
             params.content = "a".repeat(5001);
+            const response = await exec();
+            expect(response.status).toBe(400);
+        });
+
+        it("should return 400 if s3Path is not provided when content is not provided", async () => {
+            delete params2.s3Path;
+            params = params2;
 
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
-        it("should return 400 if s3Path is not provided", async () => {
-            delete params.s3Path;
+        it("should return 400 if s3Path is provided when content is provided", async () => {
+            params.s3Path = "s3Path";
+
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
         it("should return 400 if s3Path is not valid", async () => {
-            params.s3Path = 1;
+            params2.s3Path = 1;
+            params = params2;
+
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
-        it("should return 400 if recordName is not provided", async () => {
-            delete params.recordName;
+        it("should return 400 if recordName is not provided when content is not provided", async () => {
+            delete params2.recordName;
+            params = params2;
+
+            const response = await exec();
+            expect(response.status).toBe(400);
+        });
+
+        it("should return 400 if recordName is provided when content is provided", async () => {
+            params.recordName = "recordName";
+
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
         it("should return 400 if recordName is not valid", async () => {
-            params.recordName = 1;
+            params2.recordName = 1;
+            params = params2;
+
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
         it("should return 400 if recordName is less than 3 characters", async () => {
-            params.recordName = "ab";
+            params2.recordName = "ab";
+            params = params2;
+
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
         it("should return 400 if recordName is greater than 50 characters", async () => {
-            params.recordName =
-                "kashdfjahskdfjkashdfkasdhfjksakjsahfdjkasdhfjksdfhskdf";
+            params2.recordName = "a".repeat(51);
+            params = params2;
+
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
         it("should return 400 if recordName is not unique in this s3Path", async () => {
             await Prescription.collection.insertOne({
-                folderPath: "abc/ECG",
+                folderPath: "abc/pre1",
             });
+            params = params2;
+
+            const response = await exec();
+            expect(response.status).toBe(400);
+        });
+
+        it("should return 400 if files is not provided when content is not provided", async () => {
+            delete params2.files;
+            params = params2;
+
+            const response = await exec();
+            expect(response.status).toBe(400);
+        });
+
+        it("should return 400 if files is provided when content is provided", async () => {
+            params2.files = [{ name: "file1.jpeg", sizeInBytes: 10400 }];
+            params = params2;
 
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
         it("should return 400 if files is not an array", async () => {
-            params.files = "abc";
+            params2.files = "abc";
+            params = params2;
+
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
-        // it("should return 400 if files is an empty array", async () => {
-        //     params.files = [];
-        //     const response = await exec();
-        //     expect(response.status).toBe(400);
-        // });
+        it("should return 400 if files is an empty array", async () => {
+            params2.files = [];
+            params = params2;
+
+            const response = await exec();
+            expect(response.status).toBe(400);
+        });
 
         it("should return 400 if a file does not contain name", async () => {
-            params.files = [{ sizeInBytes: 10400 }];
+            params2.files = [{ sizeInBytes: 10400 }];
+            params = params2;
+
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
         it("should return 400 if a file name is not a string", async () => {
-            params.files = [{ name: 400, sizeInBytes: 10400 }];
+            params2.files = [{ name: 400, sizeInBytes: 10400 }];
+            params = params2;
+
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
         it("should return 400 if a file sizeInBytes is not a number", async () => {
-            params.files = [{ name: "abc", sizeInBytes: "abc" }];
+            params2.files = [{ name: "abc", sizeInBytes: "abc" }];
+            params = params2;
+
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
         it("should return 400 if a file sizeInBytes is not a positive number", async () => {
-            params.files = [{ name: "abc", sizeInBytes: 0 }];
+            params2.files = [{ name: "abc", sizeInBytes: 0 }];
+            params = params2;
+
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
         it("should return 400 if a file does not contain sizeInBytes", async () => {
-            params.files = [{ name: "abc" }];
+            params2.files = [{ name: "abc" }];
+            params = params2;
+
             const response = await exec();
             expect(response.status).toBe(400);
         });
@@ -554,39 +609,50 @@ describe("/api/prescriptions", () => {
         it("should store the prescription in the db if request is valid", async () => {
             await exec();
             const prescriptions = await Prescription.find({
-                folderPath: params.s3Path + params.recordName,
+                content: params.content,
+            });
+
+            expect(prescriptions.length).toBe(1);
+        });
+
+        it("should store the prescription in the db if request is valid", async () => {
+            params = params2;
+
+            await exec();
+            const prescriptions = await Prescription.find({
+                folderPath: params2.s3Path + params2.recordName,
             });
 
             expect(prescriptions.length).toBe(1);
         });
 
         it("should return the prescription when client is hospital, doctorId is not provided and request is valid", async () => {
+            params = params2;
             const res = await exec();
             expect(res.status).toBe(201);
 
             expect(res.body).toHaveProperty("_id");
             expect(res.body).toHaveProperty(
                 "profile",
-                params.profileId.toString()
+                params2.profileId.toString()
             );
-            expect(res.body).toHaveProperty("doctorName", params.doctorName);
+            expect(res.body).toHaveProperty("doctorName", params2.doctorName);
             expect(res.body).toHaveProperty(
                 "hospitalName",
-                params.hospitalName
+                params2.hospitalName
             );
             expect(res.body).toHaveProperty(
                 "specialization",
-                params.specializationId.toString()
+                params2.specializationId.toString()
             );
-            expect(res.body).toHaveProperty("content", params.content);
             expect(moment(res.body.dateOnDocument).format()).toEqual(
-                moment(params.dateOnDocument).format()
+                moment(params2.dateOnDocument).format()
             );
             expect(res.body).toHaveProperty(
                 "folderPath",
-                params.s3Path + params.recordName
+                params2.s3Path + params2.recordName
             );
-            params.files.forEach((file) => {
+            params2.files.forEach((file) => {
                 expect(res.body.files).toEqual(
                     expect.arrayContaining([expect.objectContaining(file)])
                 );
@@ -594,11 +660,6 @@ describe("/api/prescriptions", () => {
         });
 
         it("should return the prescription when client is hospital, doctorId is provided and request is valid", async () => {
-            params.doctorId = doctor._id;
-            delete params.doctorName;
-            delete params.hospitalName;
-            delete params.specializationId;
-
             const res = await exec();
             expect(res.status).toBe(201);
 
@@ -611,50 +672,42 @@ describe("/api/prescriptions", () => {
                 "doctor",
                 params.doctorId.toString()
             );
-            expect(res.body).toHaveProperty("content", params.content);
             expect(moment(res.body.dateOnDocument).format()).toEqual(
                 moment(params.dateOnDocument).format()
             );
-            expect(res.body).toHaveProperty(
-                "folderPath",
-                params.s3Path + params.recordName
-            );
-            params.files.forEach((file) => {
-                expect(res.body.files).toEqual(
-                    expect.arrayContaining([expect.objectContaining(file)])
-                );
-            });
+            expect(res.body).toHaveProperty("content", params.content);
         });
 
         it("should return the prescription when client is user and request is valid", async () => {
             token = userAccount.generateAuthToken();
+            params = params2;
+
             const res = await exec();
             expect(res.status).toBe(201);
 
             expect(res.body).toHaveProperty("_id");
             expect(res.body).toHaveProperty(
                 "profile",
-                params.profileId.toString()
+                params2.profileId.toString()
             );
-            expect(res.body).toHaveProperty("doctorName", params.doctorName);
+            expect(res.body).toHaveProperty("doctorName", params2.doctorName);
             expect(res.body).toHaveProperty(
                 "hospitalName",
-                params.hospitalName
+                params2.hospitalName
             );
             expect(res.body).toHaveProperty(
                 "specialization",
-                params.specializationId.toString()
+                params2.specializationId.toString()
             );
-            expect(res.body).toHaveProperty("content", params.content);
             expect(moment(res.body.dateOnDocument).format()).toEqual(
-                moment(params.dateOnDocument).format()
+                moment(params2.dateOnDocument).format()
             );
             expect(res.body).toHaveProperty("external", true);
             expect(res.body).toHaveProperty(
                 "folderPath",
-                params.s3Path + params.recordName
+                params2.s3Path + params2.recordName
             );
-            params.files.forEach((file) => {
+            params2.files.forEach((file) => {
                 expect(res.body.files).toEqual(
                     expect.arrayContaining([expect.objectContaining(file)])
                 );
@@ -713,7 +766,7 @@ describe("/api/prescriptions", () => {
             prescription1 = new Prescription({
                 profile: profile._id,
                 doctor: doctor._id,
-                content: "record1234",
+                recordType: "type1",
                 dateOnDocument: "12/25/2022",
                 folderPath: "abc/report",
                 files: [{ name: "file1.jpeg", sizeInBytes: 10400 }],
@@ -725,7 +778,7 @@ describe("/api/prescriptions", () => {
                 doctorName: "doctor1",
                 hospitalName: "hospital1",
                 specialization: mongoose.Types.ObjectId(),
-                content: "record1234",
+                recordType: "type1",
                 dateOnDocument: "12/25/2022",
                 external: true,
                 folderPath: "abc/report2",
@@ -741,7 +794,7 @@ describe("/api/prescriptions", () => {
             token = userAccount.generateAuthToken();
 
             params = {
-                content: "record12345",
+                recordType: "type2",
                 dateOnDocument: "10/23/2021",
                 doctorName: "doctor2",
                 hospitalName: "hospital2",
@@ -791,21 +844,14 @@ describe("/api/prescriptions", () => {
             expect(response.status).toBe(400);
         });
 
-        it("should return 400 if content is not valid", async () => {
-            params.content = 1;
+        it("should return 400 if recordType is not valid", async () => {
+            params.recordType = 1;
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
-        it("should return 400 if content is less than 10 characters", async () => {
-            params.content = "a".repeat(9);
-
-            const response = await exec();
-            expect(response.status).toBe(400);
-        });
-
-        it("should return 400 if content is more than 5000 characters", async () => {
-            params.content = "a".repeat(5001);
+        it("should return 400 if recordType is more than 10 characters", async () => {
+            params.recordType = "a".repeat(11);
 
             const response = await exec();
             expect(response.status).toBe(400);
@@ -888,8 +934,8 @@ describe("/api/prescriptions", () => {
 
             //Updated fields
             expect(prescription).toHaveProperty(
-                "content",
-                params.content.toString()
+                "recordType",
+                params.recordType.toString()
             );
             expect(moment(prescription.dateOnDocument).format()).toEqual(
                 moment(params.dateOnDocument).format()
@@ -920,7 +966,7 @@ describe("/api/prescriptions", () => {
                 "specialization",
                 params.specializationId.toString()
             );
-            expect(res.body).toHaveProperty("content", params.content);
+            expect(res.body).toHaveProperty("recordType", params.recordType);
             expect(moment(res.body.dateOnDocument).format()).toEqual(
                 moment(params.dateOnDocument).format()
             );
@@ -955,7 +1001,7 @@ describe("/api/prescriptions", () => {
         //         "doctor",
         //         params.doctorId.toString()
         //     );
-        //     expect(res.body).toHaveProperty("content", params.content);
+        //     expect(res.body).toHaveProperty("recordType", params.recordType);
         //     expect(moment(res.body.dateOnDocument).format()).toEqual(
         //         moment(params.dateOnDocument).format()
         //     );
@@ -970,7 +1016,7 @@ describe("/api/prescriptions", () => {
         //         "doctor",
         //         params.doctorId.toString()
         //     );
-        //     expect(res.body).toHaveProperty("content", params.content);
+        //     expect(res.body).toHaveProperty("recordType", params.recordType);
         //     expect(res.body).toHaveProperty(
         //         "folderPath",
         //         params.s3Path + params.recordName
@@ -1033,7 +1079,7 @@ describe("/api/prescriptions", () => {
             prescriptionH = new Prescription({
                 profile: profile._id,
                 doctor: doctor._id,
-                content: "record1234",
+                recordType: "type1",
                 dateOnDocument: "12/25/2022",
                 folderPath: "abc/report",
                 files: [{ name: "file1.jpeg", sizeInBytes: 10400 }],
@@ -1045,7 +1091,7 @@ describe("/api/prescriptions", () => {
                 doctorName: "doctor1",
                 hospitalName: "hospital1",
                 specialization: mongoose.Types.ObjectId(),
-                content: "record1234",
+                recordType: "type1",
                 dateOnDocument: "12/25/2022",
                 external: true,
                 folderPath: "abc/report2",
@@ -1193,7 +1239,7 @@ describe("/api/prescriptions", () => {
                 "specialization",
                 prescriptionU.specialization.toString()
             );
-            expect(res.body.content).toEqual(prescriptionU.content);
+            expect(res.body.recordType).toEqual(prescriptionU.recordType);
             expect(res.body.dateOnDocument).toEqual(
                 prescriptionU.dateOnDocument.toISOString()
             );

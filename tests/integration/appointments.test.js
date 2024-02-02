@@ -361,12 +361,14 @@ describe("/api/appointments", () => {
 
             token = account.generateAuthToken();
 
-            const startTime = moment("12-11-2031").format();
-            const endTime = moment("12-11-2031").add(40, "minutes");
+            // const startTime = moment("2031-11-12T13:00:00").format();
+            // const endTime = moment("2031-11-12T13:00:00").add(40, "minutes");
             params = {
                 doctorId: doctor._id,
-                startTime,
-                endTime,
+                date: "2031-11-12",
+                startTime: "17:00",
+                endTime: "17:40",
+                durationInMinutes: "20",
             };
         });
 
@@ -456,20 +458,32 @@ describe("/api/appointments", () => {
             expect(response.status).toBe(201);
         });
 
+        it("should return 400 if date is not provided", async () => {
+            delete params.date;
+            const response = await exec();
+            expect(response.status).toBe(400);
+        });
+
+        it("should return 400 if date is in the past", async () => {
+            params.date = "2010-04-10";
+            const response = await exec();
+            expect(response.status).toBe(400);
+        });
+
+        it("should return 400 if date is invalid", async () => {
+            params.date = "2010-99-10";
+            const response = await exec();
+            expect(response.status).toBe(400);
+        });
+
         it("should return 400 if startTime is not provided", async () => {
             delete params.startTime;
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
-        it("should return 400 if startTime is not a date", async () => {
+        it("should return 400 if startTime is not a valid time", async () => {
             params.startTime = "a";
-            const response = await exec();
-            expect(response.status).toBe(400);
-        });
-
-        it("should return 400 if startTime is not in the future", async () => {
-            params.startTime = "09/14/2010";
             const response = await exec();
             expect(response.status).toBe(400);
         });
@@ -480,20 +494,26 @@ describe("/api/appointments", () => {
             expect(response.status).toBe(400);
         });
 
-        it("should return 400 if endTime is not a date", async () => {
+        it("should return 400 if endTime is not a valid time", async () => {
             params.endTime = "a";
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
-        it("should return 400 if endTime is not in the future", async () => {
-            params.endTime = "09/13/2010";
+        it("should return 400 if endTime is before startTime", async () => {
+            params.endTime = "16:00";
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
-        it("should return 400 if endTime is before startTime", async () => {
-            params.endTime = moment("12/11/2031").add(-2, "minutes");
+        it("should return 400 if durationInMinutes is not provided", async () => {
+            delete params.durationInMinutes;
+            const response = await exec();
+            expect(response.status).toBe(400);
+        });
+
+        it("should return 400 if durationInMinutes is not a number", async () => {
+            params.durationInMinutes = "a";
             const response = await exec();
             expect(response.status).toBe(400);
         });
@@ -515,7 +535,7 @@ describe("/api/appointments", () => {
             expect(appointments.length).toBe(2);
         });
 
-        it("should return the appointment if request is valid", async () => {
+        it("should return the appointments if request is valid", async () => {
             const res = await exec();
             expect(res.status).toBe(201);
             expect(res.body.length).toBe(2);
@@ -750,11 +770,16 @@ describe("/api/appointments", () => {
                 hospital: hospital._id,
             });
 
+            account = new Account({
+                email: "abc@abc.com",
+                password: "123456",
+            });
+
             profile = new Profile({
                 name: "profile1",
                 gender: "male",
                 dob: "04/24/1995",
-                account: mongoose.Types.ObjectId(),
+                account: account._id,
                 appointments: [],
             });
 
@@ -770,12 +795,6 @@ describe("/api/appointments", () => {
             });
 
             profile.appointments.push(appointment._id);
-
-            account = new Account({
-                email: "abc@abc.com",
-                password: "123456",
-                profiles: [profile._id],
-            });
 
             await doctor.save();
             await hospital.save();
@@ -891,12 +910,12 @@ describe("/api/appointments", () => {
             expect(response.status).toBe(404);
         });
 
-        it("should return 400 status if appointment slot is not booked", async () => {
+        it("should return 403 status if appointment slot is not booked", async () => {
             appointment.profile = undefined;
             await appointment.save();
 
             const response = await exec();
-            expect(response.status).toBe(400);
+            expect(response.status).toBe(403);
         });
 
         it("should return 400 status if newAppointment slot is already booked", async () => {
@@ -907,7 +926,7 @@ describe("/api/appointments", () => {
             expect(response.status).toBe(400);
         });
 
-        it("should remove the profile  properties in the db if request is valid", async () => {
+        it("should remove the profile properties in the db if request is valid", async () => {
             await exec();
             const appointment = await Appointment.findById(id);
 
@@ -983,11 +1002,16 @@ describe("/api/appointments", () => {
                 hospital: hospital._id,
             });
 
+            account = new Account({
+                email: "abc@abc.com",
+                password: "123456",
+            });
+
             profile = new Profile({
                 name: "profile1",
                 gender: "male",
                 dob: "04/24/1995",
-                account: mongoose.Types.ObjectId(),
+                account: account._id,
                 appointments: [],
             });
 
@@ -998,12 +1022,6 @@ describe("/api/appointments", () => {
             });
 
             profile.appointments.push(appointment._id);
-
-            account = new Account({
-                email: "abc@abc.com",
-                password: "123456",
-                profiles: [profile._id],
-            });
 
             await hospital.save();
             await doctor.save();
@@ -1062,15 +1080,15 @@ describe("/api/appointments", () => {
             expect(response.status).toBe(404);
         });
 
-        it("should return 400 status if appointment slot is not booked", async () => {
+        it("should return 403 status if appointment slot is not booked", async () => {
             appointment.profile = undefined;
             await appointment.save();
 
             const response = await exec();
-            expect(response.status).toBe(400);
+            expect(response.status).toBe(403);
         });
 
-        it("should set canceled to true in the db if request is valid", async () => {
+        it("should set cancelled to true in the db if request is valid", async () => {
             await exec();
             const appointment = await Appointment.findById(id);
 

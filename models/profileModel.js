@@ -4,17 +4,16 @@ import moment from "moment";
 import mongoose, { Schema, model } from "mongoose";
 
 export const profileSchema = {
-    accountId: Joi.string()
-        .regex(/^[a-f\d]{24}$/i)
-        .required(),
+    // For admin
+    accountId: Joi.string().regex(/^[a-f\d]{24}$/i),
+
     name: Joi.string().min(3).max(50).required(),
     gender: Joi.string().valid("male", "female", "other").required(),
     dob: Joi.date().max(moment()).required(),
     phone: Joi.string()
         .max(14)
         .min(10)
-        .pattern(/^[0-9]+$/)
-        .required(),
+        .pattern(/^[0-9]+$/),
 };
 export const profileSchemaObject = Joi.object(profileSchema);
 

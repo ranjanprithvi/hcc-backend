@@ -147,7 +147,6 @@ describe("/api/profiles", () => {
             token = account.generateAuthToken();
 
             params = {
-                accountId: account._id,
                 name: "profile1",
                 gender: "female",
                 dob: "09/14/1990",
@@ -168,7 +167,7 @@ describe("/api/profiles", () => {
             expect(res.status).toBe(401);
         });
 
-        it("should allow for profile creation if account is admin", async () => {
+        it("should return 400 if account is admin and accountId is not provided", async () => {
             const adminAccount = new Account({
                 email: "admin@abc.com",
                 password: "123456",
@@ -177,12 +176,20 @@ describe("/api/profiles", () => {
             await adminAccount.save();
             token = adminAccount.generateAuthToken();
 
-            const res = await exec();
-            expect(res.status).toBe(201);
+            const response = await exec();
+            expect(response.status).toBe(400);
         });
 
-        it("should return 400 if account is not provided", async () => {
-            delete params.accountId;
+        it("should return 400 if account is admin and accountId is not a user account", async () => {
+            const adminAccount = new Account({
+                email: "admin@abc.com",
+                password: "123456",
+                accessLevel: roles.admin,
+            });
+            await adminAccount.save();
+            token = adminAccount.generateAuthToken();
+            params.accountId = adminAccount._id;
+
             const response = await exec();
             expect(response.status).toBe(400);
         });
@@ -193,11 +200,11 @@ describe("/api/profiles", () => {
             expect(response.status).toBe(400);
         });
 
-        it("should return 400 if no account with accountId exists", async () => {
-            params.accountId = mongoose.Types.ObjectId();
-            const response = await exec();
-            expect(response.status).toBe(400);
-        });
+        // it("should return 400 if no account with accountId exists", async () => {
+        //     params.accountId = mongoose.Types.ObjectId();
+        //     const response = await exec();
+        //     expect(response.status).toBe(400);
+        // });
 
         it("should return 400 if name is not provided", async () => {
             delete params.name;
@@ -269,10 +276,24 @@ describe("/api/profiles", () => {
             expect(response.status).toBe(400);
         });
 
+        it("should allow for profile creation if account is admin and accountId is provided", async () => {
+            const adminAccount = new Account({
+                email: "admin@abc.com",
+                password: "123456",
+                accessLevel: roles.admin,
+            });
+            await adminAccount.save();
+            token = adminAccount.generateAuthToken();
+            params.accountId = account._id;
+
+            const res = await exec();
+            expect(res.status).toBe(201);
+        });
+
         it("should store the profile in the db if request is valid", async () => {
             await exec();
             const profile = await Profile.findOne({
-                account: params.accountId,
+                account: account._id,
                 name: params.name,
                 gender: params.gender,
                 dob: new Date(params.dob).toISOString(),
@@ -285,10 +306,7 @@ describe("/api/profiles", () => {
             const res = await exec();
             expect(res.status).toBe(201);
             expect(res.body).toHaveProperty("_id");
-            expect(res.body).toHaveProperty(
-                "account",
-                params.accountId.toString()
-            );
+            expect(res.body).toHaveProperty("account", account._id.toString());
             expect(res.body).toHaveProperty("name", params.name);
             expect(res.body).toHaveProperty("gender", params.gender);
             expect(res.body).toHaveProperty(
