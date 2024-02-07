@@ -30,10 +30,14 @@ describe("/api/appointments", () => {
         let token,
             queryStr,
             profile,
+            profile2,
             doctor,
             hospital,
+            hospitalAccount,
             userAccount,
-            hospitalAccount;
+            doctorQuery,
+            dateQuery,
+            appointment4;
 
         beforeEach(async () => {
             doctor = new Doctor({
@@ -61,45 +65,75 @@ describe("/api/appointments", () => {
                 account: mongoose.Types.ObjectId(),
             });
 
+            profile2 = new Profile({
+                name: "profile2",
+                gender: "male",
+                dob: "04/24/1993",
+                account: mongoose.Types.ObjectId(),
+            });
+
             userAccount = new Account({
                 accessLevel: roles.user,
                 profiles: [profile._id],
             });
 
-            token = new Account({
-                accessLevel: roles.admin,
-            }).generateAuthToken();
+            token = userAccount.generateAuthToken();
 
-            // await userAccount.save();
             await doctor.save();
             await hospital.save();
             await profile.save();
-            // await hospitalAccount.save();
+            await profile2.save();
 
-            await Appointment.collection.insertMany([
-                {
-                    timeSlot: moment().add(7, "days"),
-                    profile: mongoose.Types.ObjectId(),
-                    doctor: doctor._id,
-                },
-                {
-                    timeSlot: moment().add(7, "days"),
-                    doctor: doctor._id,
-                },
-                {
-                    timeSlot: moment().add(7, "days"),
-                    profile: profile._id,
-                    doctor: doctor._id,
-                    cancelled: true,
-                },
-                {
-                    timeSlot: moment().add(7, "days"),
-                    profile: profile._id,
-                    doctor: mongoose.Types.ObjectId(),
-                },
-            ]);
-            queryStr = "/?doctorId=" + doctor._id;
+            const appointment1 = new Appointment({
+                timeSlot: moment().add(7, "days"),
+                profile: profile._id,
+                doctor: doctor._id,
+                cancelled: true,
+            });
+            const appointment2 = new Appointment({
+                timeSlot: moment().add(7, "days"),
+                profile: profile._id,
+                doctor: mongoose.Types.ObjectId(),
+            });
+            const appointment3 = new Appointment({
+                timeSlot: moment().add(7, "days"),
+                profile: profile2._id,
+                doctor: doctor._id,
+            });
+            appointment4 = new Appointment({
+                timeSlot: moment().add(7, "days"),
+                doctor: doctor._id,
+            });
+            const appointment5 = new Appointment({
+                timeSlot: moment().add(8, "days"),
+                doctor: doctor._id,
+            });
+
+            await appointment1.save();
+            await appointment2.save();
+            await appointment3.save();
+            await appointment4.save();
+            await appointment5.save();
+
+            doctor.appointments.push({
+                date: moment().add(7, "days"),
+                appointments: [
+                    appointment1._id,
+                    appointment3._id,
+                    appointment4._id,
+                ],
+            });
+            doctor.appointments.push({
+                date: moment().add(8, "days"),
+                appointments: [appointment5._id],
+            });
+            await doctor.save();
+
+            doctorQuery = "doctorId=" + doctor._id;
+            dateQuery = "date=" + moment().add(7, "days").format("YYYY-MM-DD");
+            queryStr = "/?" + doctorQuery + "&" + dateQuery;
         });
+
         const exec = async function () {
             return await request(server)
                 .get("/api/appointments" + queryStr)
@@ -112,53 +146,40 @@ describe("/api/appointments", () => {
             expect(res.status).toBe(401);
         });
 
-        // it("should return 400 if client is a user and profileId is not provided in query", async () => {
-        //     token = new Account({ profiles: [profileId] }).generateAuthToken();
-        //     const res = await exec();
-        //     expect(res.status).toBe(400);
-        // });
-
-        // it("should return 403 if client is a user and profileId is not in account", async () => {
-        //     token = new Account({ profiles: [profileId] }).generateAuthToken();
-        //     query = { profileId: mongoose.Types.ObjectId().toString() };
-
-        //     const res = await exec();
-        //     expect(res.status).toBe(403);
-        // });
-
-        it("should return 403 if client is not one of the role options", async () => {
-            token = new Account({ accessLevel: 8 }).generateAuthToken();
-
-            const res = await exec();
-            expect(res.status).toBe(403);
-        });
-
-        // it("should return only appointments belonging to the profile when client is a user", async () => {
-        //     token = new Account({ profiles: [profileId] }).generateAuthToken();
-        //     query = { profileId: profileId.toString() };
-
-        //     const res = await exec();
-        //     expect(res.status).toBe(200);
-        //     expect(res.body.length).toBe(2);
-        // });
-
         it("should return 400 when doctorId is not provided in query", async () => {
-            token = userAccount.generateAuthToken();
-            queryStr = "";
+            queryStr = "/?" + dateQuery;
 
             const res = await exec();
             expect(res.status).toBe(400);
         });
 
-        it("should return only open appointment slots when client is a user", async () => {
-            token = userAccount.generateAuthToken();
+        it("should return 400 when date is not provided in query", async () => {
+            queryStr = "/?" + doctorQuery;
 
+            const res = await exec();
+            expect(res.status).toBe(400);
+        });
+
+        it("should return only open appointment slots of that date when client is a user", async () => {
             const res = await exec();
             expect(res.status).toBe(200);
             expect(res.body.length).toBe(1);
+            expect(res.body[0]).toHaveProperty(
+                "_id",
+                appointment4._id.toString()
+            );
         });
 
-        it("should return only appointments of the doctorId when client is a hospital", async () => {
+        it("should return 403 when doctor does not belong to the hospital", async () => {
+            token = hospitalAccount.generateAuthToken();
+            doctor.hospital = mongoose.Types.ObjectId();
+            await doctor.save();
+
+            const res = await exec();
+            expect(res.status).toBe(403);
+        });
+
+        it("should return only appointments of the doctorId and date when client is a hospital", async () => {
             token = hospitalAccount.generateAuthToken();
 
             const res = await exec();
@@ -167,98 +188,161 @@ describe("/api/appointments", () => {
         });
 
         it("should return all the appointments if client is an admin", async () => {
+            token = new Account({
+                accessLevel: roles.admin,
+            }).generateAuthToken();
+            queryStr = "";
+
             const res = await exec();
             expect(res.status).toBe(200);
-            expect(res.body.length).toBe(4);
+            expect(res.body.length).toBe(5);
         });
     });
 
-    // describe("GET /openslots", () => {
-    //     let token, query, profileId, doctorAccount;
+    describe("GET /my", () => {
+        let token,
+            queryStr,
+            profile,
+            profile2,
+            doctor,
+            hospital,
+            userAccount,
+            profileQuery;
 
-    //     beforeEach(async () => {
-    //         profileId = mongoose.Types.ObjectId();
-    //         doctorAccount = new Account({
-    //             accessLevel: roles.hospital,
-    //             hospital: mongoose.Types.ObjectId(),
-    //         });
-    //         token = new Account({
-    //             accessLevel: roles.admin,
-    //         }).generateAuthToken();
-    //         await Appointment.collection.insertMany([
-    //             {
-    //                 createdByAccountId: doctorAccount._id,
-    //                 timeSlot: moment("2023-03-16T19:42:00+05:30").add(1, "day"),
-    //                 profile: mongoose.Types.ObjectId(),
-    //                 hospital: {
-    //                     _id: mongoose.Types.ObjectId(),
-    //                     name: "General Checkup",
-    //                 },
-    //             },
-    //             {
-    //                 createdByAccountId: doctorAccount._id,
-    //                 timeSlot: moment("2023-03-16T19:42:00+05:30").add(1, "day"),
-    //             },
-    //             {
-    //                 createdByAccountId: doctorAccount._id,
-    //                 timeSlot: moment("2023-03-16T22:42:00+05:30"),
-    //             },
-    //             {
-    //                 createdByAccountId: doctorAccount._id,
-    //                 timeSlot: moment("2023-03-17T22:42:00+05:30"),
-    //             },
-    //             {
-    //                 createdByAccountId: mongoose.Types.ObjectId(),
-    //                 timeSlot: moment("2023-03-17T21:42:00+05:30"),
-    //             },
+        beforeEach(async () => {
+            doctor = new Doctor({
+                name: "doctor1",
+                specialization: mongoose.Types.ObjectId(),
+                qualifications: "MBBS",
+                practicingSince: "1995",
+            });
+            hospital = new Hospital({
+                name: "Hospital 1",
+                doctors: [doctor._id],
+            });
+            doctor.hospital = hospital._id;
 
-    //             {
-    //                 createdByAccountId: doctorAccount._id,
-    //                 timeSlot: moment("2023-03-17T22:42:00+05:30"),
-    //                 profile: profileId,
-    //                 hospital: {
-    //                     _id: mongoose.Types.ObjectId(),
-    //                     name: "General Checkup",
-    //                 },
-    //                 cancelled: true,
-    //             },
-    //             {
-    //                 createdByAccountId: mongoose.Types.ObjectId(),
-    //                 timeSlot: moment().add(7, "days"),
-    //                 profile: profileId,
-    //                 hospital: {
-    //                     _id: mongoose.Types.ObjectId(),
-    //                     name: "Follow-Up",
-    //                 },
-    //             },
-    //         ]);
-    //     });
-    //     const exec = async function () {
-    //         return await request(server)
-    //             .get("/api/appointments/openslots")
-    //             .set("x-auth-token", token);
-    //     };
+            profile = new Profile({
+                name: "profile1",
+                gender: "male",
+                dob: "04/24/1995",
+                account: mongoose.Types.ObjectId(),
+            });
 
-    //     it("should return 401 if client is not logged in", async () => {
-    //         token = "";
-    //         const res = await exec();
-    //         expect(res.status).toBe(401);
-    //     });
+            profile2 = new Profile({
+                name: "profile2",
+                gender: "male",
+                dob: "04/24/1993",
+                account: mongoose.Types.ObjectId(),
+            });
 
-    //     it("should return only appointments belonging to the account when client is a doctor", async () => {
-    //         token = doctorAccount.generateAuthToken();
+            userAccount = new Account({
+                accessLevel: roles.user,
+                email: "asdf@akdjf.com",
+                password: "123456",
+                profiles: [profile._id],
+            });
+            await userAccount.save();
 
-    //         const res = await exec();
-    //         expect(res.status).toBe(200);
-    //         expect(res.body.length).toBe(3);
-    //     });
+            token = userAccount.generateAuthToken();
 
-    //     it("should return all the appointments if client is not a doctor", async () => {
-    //         const res = await exec();
-    //         expect(res.status).toBe(200);
-    //         expect(res.body.length).toBe(4);
-    //     });
-    // });
+            await doctor.save();
+            await hospital.save();
+
+            const appointment1 = new Appointment({
+                timeSlot: moment().add(7, "days"),
+                profile: profile._id,
+                doctor: doctor._id,
+                cancelled: true,
+            });
+            const appointment2 = new Appointment({
+                timeSlot: moment().add(7, "days"),
+                profile: profile._id,
+                doctor: mongoose.Types.ObjectId(),
+            });
+            const appointment3 = new Appointment({
+                timeSlot: moment().add(7, "days"),
+                profile: profile2._id,
+                doctor: doctor._id,
+            });
+            const appointment4 = new Appointment({
+                timeSlot: moment().add(7, "days"),
+                doctor: doctor._id,
+            });
+            const appointment5 = new Appointment({
+                timeSlot: moment().add(8, "days"),
+                doctor: doctor._id,
+            });
+
+            profile.appointments.push(appointment1._id);
+            profile.appointments.push(appointment2._id);
+            profile2.appointments.push(appointment3._id);
+            await profile.save();
+            await profile2.save();
+
+            await appointment1.save();
+            await appointment2.save();
+            await appointment3.save();
+            await appointment4.save();
+            await appointment5.save();
+
+            doctor.appointments.push({
+                date: moment().add(7, "days"),
+                appointments: [
+                    appointment1._id,
+                    appointment3._id,
+                    appointment4._id,
+                ],
+            });
+            doctor.appointments.push({
+                date: moment().add(8, "days"),
+                appointments: [appointment5._id],
+            });
+            await doctor.save();
+
+            profileQuery = "profileId=" + profile._id;
+            queryStr = "/?" + profileQuery;
+        });
+
+        const exec = async function () {
+            return await request(server)
+                .get("/api/appointments/my" + queryStr)
+                .set("x-auth-token", token);
+        };
+
+        it("should return 401 if client is not logged in", async () => {
+            token = "";
+            const res = await exec();
+            expect(res.status).toBe(401);
+        });
+
+        it("should return 400 when profileId is not provided in query", async () => {
+            queryStr = "";
+
+            const res = await exec();
+            expect(res.status).toBe(400);
+        });
+
+        it("should return 400 when profileId is invalid", async () => {
+            queryStr = "/?profileId=" + mongoose.Types.ObjectId();
+
+            const res = await exec();
+            expect(res.status).toBe(400);
+        });
+
+        it("should return 403 when profileId does not belong to the account", async () => {
+            queryStr = "/?profileId=" + profile2._id;
+
+            const res = await exec();
+            expect(res.status).toBe(403);
+        });
+
+        it("should return only appointments belonging to that profileId", async () => {
+            const res = await exec();
+            expect(res.status).toBe(200);
+            expect(res.body.length).toBe(2);
+        });
+    });
 
     // describe("GET /:id", () => {
     //     let token, id, appointment;
@@ -343,6 +427,12 @@ describe("/api/appointments", () => {
                 specialization: mongoose.Types.ObjectId(),
                 qualifications: "MBBS",
                 practicingSince: "1995",
+                appointments: [
+                    {
+                        date: "2031-11-11",
+                        appointments: [mongoose.Types.ObjectId()],
+                    },
+                ],
             });
             hospital = new Hospital({
                 name: "Hospital 1",
@@ -367,7 +457,7 @@ describe("/api/appointments", () => {
                 doctorId: doctor._id,
                 date: "2031-11-12",
                 startTime: "17:00",
-                endTime: "17:40",
+                endTime: "18:00",
                 durationInMinutes: "20",
             };
         });
@@ -431,22 +521,6 @@ describe("/api/appointments", () => {
             const response = await exec();
             expect(response.status).toBe(403);
         });
-
-        // it("should return 400 if client is admin and the account with the given createdByAccountId is not a doctor", async () => {
-        //     token = new Account({
-        //         accessLevel: roles.admin,
-        //     }).generateAuthToken();
-        //     account = new Account({
-        //         email: "abcd@abc.com",
-        //         password: "123456",
-        //         accessLevel: roles.admin,
-        //     });
-        //     await account.save();
-        //     params.createdByAccountId = account._id;
-
-        //     const response = await exec();
-        //     expect(response.status).toBe(400);
-        // });
 
         it("should allow for appointment slots creation if client is admin and doctorId is valid", async () => {
             token = new Account({
@@ -527,18 +601,41 @@ describe("/api/appointments", () => {
 
         it("should store the appointments in the db if request is valid", async () => {
             await exec();
-            const appointments = await Appointment.find({
-                createdByAccountId: account._id,
-            });
+            const appointments = await Appointment.find();
 
             expect(appointments).not.toBeNull();
-            expect(appointments.length).toBe(2);
+            expect(appointments.length).toBe(3);
+        });
+
+        it("should add the appointments to the doctor's list if request is valid", async () => {
+            params.date = "2031-11-11";
+            await exec();
+            const doc = await Doctor.findById(doctor._id);
+            const group = doc.appointments.find((g) =>
+                moment(g.date).isSame(moment(params.date), "day")
+            );
+
+            expect(doc.appointments.length).toBe(1);
+            expect(group).not.toBeNull();
+            expect(group.appointments.length).toBe(4);
+        });
+
+        it("should create a new group and add the appointments to the doctor's list if day group doesnt exist", async () => {
+            await exec();
+            const doc = await Doctor.findById(doctor._id);
+            const group = doc.appointments.find((g) =>
+                moment(g.date).isSame(moment(params.date), "day")
+            );
+
+            expect(doc.appointments.length).toBe(2);
+            expect(group).not.toBeNull();
+            expect(group.appointments.length).toBe(3);
         });
 
         it("should return the appointments if request is valid", async () => {
             const res = await exec();
             expect(res.status).toBe(201);
-            expect(res.body.length).toBe(2);
+            expect(res.body.length).toBe(3);
 
             expect(res.body[0]).toHaveProperty("_id");
             expect(res.body[0]).toHaveProperty("doctor", doctor._id.toString());
@@ -549,7 +646,7 @@ describe("/api/appointments", () => {
         });
     });
 
-    describe("PATCH /book/:id", () => {
+    describe("PATCH /appointments/book/:id", () => {
         let token,
             params,
             account,
@@ -795,6 +892,16 @@ describe("/api/appointments", () => {
             });
 
             profile.appointments.push(appointment._id);
+            doctor.appointments.push(
+                {
+                    date: moment().add(7, "days"),
+                    appointments: [appointment._id],
+                },
+                {
+                    date: moment().add(8, "days"),
+                    appointments: [newAppointment._id],
+                }
+            );
 
             await doctor.save();
             await hospital.save();
@@ -806,7 +913,7 @@ describe("/api/appointments", () => {
             token = account.generateAuthToken();
             id = appointment._id;
             params = {
-                newAppointmentId: newAppointment._id.toString(),
+                rescheduledAppointmentId: newAppointment._id.toString(),
             };
         });
 
@@ -823,20 +930,32 @@ describe("/api/appointments", () => {
             expect(res.status).toBe(401);
         });
 
-        it("should return 400 if newAppointmentId is not provided", async () => {
-            delete params.newAppointmentId;
+        it("should return 404 if appointment id is invalid", async () => {
+            id = 1;
+            const response = await exec();
+            expect(response.status).toBe(404);
+        });
+
+        it("should return 404 if appointment id is not found", async () => {
+            id = mongoose.Types.ObjectId();
+            const response = await exec();
+            expect(response.status).toBe(404);
+        });
+
+        it("should return 400 if rescheduledAppointmentId is not provided", async () => {
+            delete params.rescheduledAppointmentId;
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
-        it("should return 400 if newAppointmentId is invalid", async () => {
-            params.newAppointmentId = 1;
+        it("should return 400 if rescheduledAppointmentId is invalid", async () => {
+            params.rescheduledAppointmentId = 1;
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
-        it("should return 400 if newAppointmentId is not found", async () => {
-            params.newAppointmentId = mongoose.Types.ObjectId();
+        it("should return 400 if rescheduledAppointmentId is not found", async () => {
+            params.rescheduledAppointmentId = mongoose.Types.ObjectId();
             const response = await exec();
             expect(response.status).toBe(400);
         });
@@ -926,11 +1045,11 @@ describe("/api/appointments", () => {
             expect(response.status).toBe(400);
         });
 
-        it("should remove the profile properties in the db if request is valid", async () => {
+        it("should set appointment cancelled to true if request is valid", async () => {
             await exec();
             const appointment = await Appointment.findById(id);
 
-            expect(appointment).toHaveProperty("profile", undefined);
+            expect(appointment).toHaveProperty("cancelled", true);
         });
 
         it("should add the profile property in the db in the newAppointment if request is valid", async () => {
@@ -942,12 +1061,37 @@ describe("/api/appointments", () => {
             expect(new_Appointment.profile).toEqual(appointment.profile);
         });
 
-        it("should add newAppointmentId and remove appointmentId in the appointments list of the profile if request is valid", async () => {
+        it("should add rescheduledAppointmentId in the appointments list of the profile if request is valid", async () => {
             await exec();
             const p = await Profile.findById(profile._id);
 
-            expect(p.appointments.length).toBe(1);
-            expect(p.appointments[0]).toEqual(newAppointment._id);
+            expect(p.appointments.length).toBe(2);
+            expect(p.appointments[1]).toEqual(newAppointment._id);
+        });
+
+        it("should add replacement appointment in the appointments list of the doctor if request is valid", async () => {
+            await exec();
+            const d = await Doctor.findById(doctor._id).populate(
+                "appointments.appointments"
+            );
+
+            expect(d.appointments[0].appointments.length).toEqual(2);
+            expect(d.appointments[0].appointments[1]).toHaveProperty(
+                "doctor",
+                doctor._id
+            );
+            expect(d.appointments[0].appointments[1]).toHaveProperty(
+                "timeSlot",
+                appointment.timeSlot
+            );
+            expect(d.appointments[0].appointments[1]).toHaveProperty(
+                "profile",
+                undefined
+            );
+            expect(d.appointments[0].appointments[1]).toHaveProperty(
+                "cancelled",
+                undefined
+            );
         });
 
         it("should return the new appointment if request is valid", async () => {
@@ -975,6 +1119,7 @@ describe("/api/appointments", () => {
 
     describe("PATCH /cancel/:id", () => {
         let token,
+            params,
             account,
             appointment,
             id,
@@ -995,6 +1140,7 @@ describe("/api/appointments", () => {
                 doctors: [doctor._id],
             });
             doctor.hospital = hospital._id;
+
             hospitalAccount = new Account({
                 email: "abcde@abc.com",
                 password: "123456",
@@ -1022,27 +1168,45 @@ describe("/api/appointments", () => {
             });
 
             profile.appointments.push(appointment._id);
+            doctor.appointments.push({
+                date: moment().add(7, "days"),
+                appointments: [appointment._id],
+            });
 
-            await hospital.save();
             await doctor.save();
+            await hospital.save();
             await profile.save();
             await account.save();
             await appointment.save();
 
             token = account.generateAuthToken();
             id = appointment._id;
+            params = {};
         });
 
         const exec = async function () {
             return await request(server)
                 .patch("/api/appointments/cancel/" + id)
-                .set("x-auth-token", token);
+                .set("x-auth-token", token)
+                .send(params);
         };
 
         it("should return 401 if client is not logged in", async () => {
             token = "";
             const res = await exec();
             expect(res.status).toBe(401);
+        });
+
+        it("should return 404 if appointment id is invalid", async () => {
+            id = 1;
+            const response = await exec();
+            expect(response.status).toBe(404);
+        });
+
+        it("should return 404 if appointment id is not found", async () => {
+            id = mongoose.Types.ObjectId();
+            const response = await exec();
+            expect(response.status).toBe(404);
         });
 
         it("should return 403 if account is user and profileId does not belong to account", async () => {
@@ -1055,14 +1219,14 @@ describe("/api/appointments", () => {
 
         it("should return 403 if account is hospital and doctor does not belong to hospital", async () => {
             token = hospitalAccount.generateAuthToken();
-            doctor.hospital = mongoose.Types.ObjectId();
-            await doctor.save();
+            appointment.doctor = mongoose.Types.ObjectId();
+            await appointment.save();
 
             const res = await exec();
             expect(res.status).toBe(403);
         });
 
-        it("should allow to cancel if account is hospital and doctor belongs to hospital", async () => {
+        it("should allow to cancel if account is hospital and doctor belongs to account", async () => {
             token = hospitalAccount.generateAuthToken();
             const res = await exec();
             expect(res.status).toBe(200);
@@ -1088,24 +1252,47 @@ describe("/api/appointments", () => {
             expect(response.status).toBe(403);
         });
 
-        it("should set cancelled to true in the db if request is valid", async () => {
+        it("should return 400 status if appointment has already been cancelled", async () => {
+            appointment.cancelled = true;
+            await appointment.save();
+
+            const response = await exec();
+            expect(response.status).toBe(400);
+        });
+
+        it("should set appointment cancelled to true if request is valid", async () => {
             await exec();
             const appointment = await Appointment.findById(id);
 
             expect(appointment).toHaveProperty("cancelled", true);
         });
 
-        it("should add another appointment with the same createdByAccountId and timeSlot in the db if request is valid", async () => {
+        it("should add replacement appointment in the appointments list of the doctor if request is valid", async () => {
             await exec();
-            const appointments = await Appointment.find({
-                doctor: appointment.doctor,
-                timeSlot: appointment.timeSlot,
-            });
+            const d = await Doctor.findById(doctor._id).populate(
+                "appointments.appointments"
+            );
 
-            expect(appointments.length).toBe(2);
+            expect(d.appointments[0].appointments.length).toEqual(2);
+            expect(d.appointments[0].appointments[1]).toHaveProperty(
+                "doctor",
+                doctor._id
+            );
+            expect(d.appointments[0].appointments[1]).toHaveProperty(
+                "timeSlot",
+                appointment.timeSlot
+            );
+            expect(d.appointments[0].appointments[1]).toHaveProperty(
+                "profile",
+                undefined
+            );
+            expect(d.appointments[0].appointments[1]).toHaveProperty(
+                "cancelled",
+                undefined
+            );
         });
 
-        it("should return the cancelled appointment if request is valid", async () => {
+        it("should return the new appointment if request is valid", async () => {
             const res = await exec();
 
             expect(res.status).toBe(200);
@@ -1115,22 +1302,48 @@ describe("/api/appointments", () => {
                 appointment.timeSlot.toISOString()
             );
             expect(res.body).toHaveProperty(
-                "profile",
-                appointment.profile.toString()
-            );
-            expect(res.body).toHaveProperty(
                 "doctor",
                 appointment.doctor.toString()
+            );
+            expect(res.body).toHaveProperty(
+                "profile",
+                appointment.profile.toString()
             );
             expect(res.body).toHaveProperty("cancelled", true);
         });
     });
 
     describe("DELETE /:id", () => {
-        let token, account, appointment, id, profile;
+        let token,
+            adminAccount,
+            doctor,
+            hospital,
+            hospitalAccount,
+            appointment,
+            id,
+            profile;
 
         beforeEach(async () => {
-            account = new Account({
+            doctor = new Doctor({
+                name: "doctor1",
+                specialization: mongoose.Types.ObjectId(),
+                qualifications: "MBBS",
+                practicingSince: "1995",
+            });
+            hospital = new Hospital({
+                name: "hospital1",
+                doctors: [doctor._id],
+            });
+            doctor.hospital = hospital._id;
+
+            hospitalAccount = new Account({
+                email: "abcde@abc.com",
+                password: "123456",
+                accessLevel: roles.hospital,
+                hospital: hospital._id,
+            });
+
+            adminAccount = new Account({
                 email: "abc@abc.com",
                 password: "123456",
                 accessLevel: roles.admin,
@@ -1146,26 +1359,22 @@ describe("/api/appointments", () => {
 
             appointment = new Appointment({
                 timeSlot: moment().add(7, "days"),
-                doctor: mongoose.Types.ObjectId(),
+                doctor: doctor._id,
                 profile: profile._id,
             });
 
             profile.appointments.push(appointment._id);
+            doctor.appointments.push({
+                date: moment().add(7, "days"),
+                appointments: [appointment._id],
+            });
 
-            // profile = new Profile({
-            //     name: "profile1",
-            //     gender: "male",
-            //     dob: "04/24/1995",
-            //     account: mongoose.Types.ObjectId(),
-            //     appointments: [appointment._id],
-            // });
-            // appointment.profile = profile._id;
-
-            await account.save();
+            await adminAccount.save();
             await appointment.save();
             await profile.save();
+            await doctor.save();
 
-            token = account.generateAuthToken();
+            token = hospitalAccount.generateAuthToken();
             id = appointment._id;
         });
 
@@ -1181,7 +1390,7 @@ describe("/api/appointments", () => {
             expect(res.status).toBe(401);
         });
 
-        it("should return 403 if account is not admin", async () => {
+        it("should return 403 if account is not hospital or admin", async () => {
             token = new Account({
                 accessLevel: roles.user,
             }).generateAuthToken();
@@ -1201,11 +1410,26 @@ describe("/api/appointments", () => {
             expect(response.status).toBe(404);
         });
 
+        it("should return 403 if account is hospital and doctor does not belong to hospital", async () => {
+            appointment.doctor = mongoose.Types.ObjectId();
+            await appointment.save();
+
+            const res = await exec();
+            expect(res.status).toBe(403);
+        });
+
         it("should remove the appointment from the profile if request is valid", async () => {
             await exec();
 
-            const p = await Profile.findById(appointment.profile);
+            const p = await Profile.findById(profile._id);
             expect(p.appointments).toEqual([]);
+        });
+
+        it("should remove the appointment from the doctor if request is valid", async () => {
+            await exec();
+
+            const d = await Doctor.findById(doctor._id);
+            expect(d.appointments[0].appointments).toEqual([]);
         });
 
         it("should remove the appointment from the db if request is valid", async () => {
@@ -1215,7 +1439,15 @@ describe("/api/appointments", () => {
             expect(a).toBeNull();
         });
 
-        it("should return the cancelled appointment if request is valid", async () => {
+        it("should remove the appointment from the db if account is admin and request is valid", async () => {
+            token = adminAccount.generateAuthToken();
+            await exec();
+
+            const a = await Appointment.findById(appointment._id);
+            expect(a).toBeNull();
+        });
+
+        it("should return the deleted appointment if request is valid", async () => {
             const res = await exec();
 
             expect(res.status).toBe(200);

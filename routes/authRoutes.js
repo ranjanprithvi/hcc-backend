@@ -21,7 +21,6 @@ router.post("/login", validateBody(authSchemaObject), async (req, res) => {
 
     const token = account.generateAuthToken();
     const creds = await getCredentials();
-    console.log(creds);
     res.send({ token, creds });
 });
 

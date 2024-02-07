@@ -12,7 +12,7 @@ export const appointmentSchema = {
         .regex(/^[a-f\d]{24}$/i)
         .required(),
 
-    newAppointmentId: Joi.string()
+    rescheduledAppointmentId: Joi.string()
         .regex(/^[a-f\d]{24}$/i)
         .required(),
 

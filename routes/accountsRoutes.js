@@ -145,7 +145,6 @@ router.patch(
             { $set: { password: req.body.password } },
             { new: true, runValidators: true }
         );
-        if (!account) return res.status(404).send("Resource not found");
 
         res.send(_.pick(account, ["_id", "email", "accessLevel"]));
     }

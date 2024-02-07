@@ -19,52 +19,6 @@ import { Doctor } from "../models/doctorModel.js";
 import Joi from "joi";
 const router = express.Router();
 
-// router.get("/", [auth], async (req, res) => {
-//     let queryStr = JSON.stringify({ ...req.query });
-//     queryStr = queryStr.replace(
-//         /\b(gt|gte|lt|lte|eq|ne)\b/g,
-//         (match) => `$${match}`
-//     );
-//     const query = JSON.parse(queryStr);
-
-//     let doctor = await Doctor.findById(query.doctorId);
-
-//     switch (req.account.accessLevel) {
-//         case roles.user:
-//             // User can get only open appointment slots
-//             query.profile = undefined;
-
-//             // User must provide a doctorId
-//             if (!Object.keys(query).includes("doctorId"))
-//                 return res.status(400).send("Please provide doctorId");
-//             query.doctor = query.doctorId;
-//             delete query.doctorId;
-//             break;
-//         case roles.hospital:
-//             if (!Object.keys(query).includes("doctorId"))
-//                 return res.status(400).send("Please provide doctorId");
-//             if (req.account.hospital != doctor.hospital)
-//                 return res.status(403).send("Access Denied");
-//             query.doctor = query.doctorId;
-//             delete query.doctorId;
-//             break;
-//         case roles.admin:
-//             break;
-//         default:
-//             return res.status(403).send("Invalid User Type");
-//     }
-
-//     let date = query.date ? date : undefined;
-//     delete query.date;
-
-//     const appointments = await Appointment.find(query);
-//     res.send(
-//         date
-//             ? appointments.filter((a) => moment(a.timeSlot).isSame(date, "day"))
-//             : appointments
-//     );
-// });
-
 router.get("/", [auth], async (req, res) => {
     let queryStr = JSON.stringify({ ...req.query });
     queryStr = queryStr.replace(
@@ -73,82 +27,67 @@ router.get("/", [auth], async (req, res) => {
     );
     const query = JSON.parse(queryStr);
 
-    switch (req.account.accessLevel) {
-        case roles.user:
-            // User must provide a doctorId
-            if (!Object.keys(query).includes("profileId"))
-                return res.status(400).send("Please provide profileId");
-
-            if (!req.account.profiles.includes(query.profileId))
-                return res.status(403).send("Access Denied");
-
-            const profile = await Profile.findById(query.profileId).populate(
-                "appointments"
-            );
-            return res.send(profile.appointments);
-        case roles.hospital:
-            if (!Object.keys(query).includes("doctorId"))
-                return res.status(400).send("Please provide doctorId");
-
-            if (!Object.keys(query).includes("date"))
-                return res.status(400).send("Please provide date");
-
-            let doctor = await Doctor.findById(query.doctorId);
-
-            if (req.account.hospital != doctor.hospital)
-                return res.status(403).send("Access Denied");
-
-            const dayGroup = doctor.appointments.find((a) =>
-                moment(a.date).isSame(query.date, "day")
-            );
-            if (!dayGroup) return res.send([]);
-            const appointmentPromises = dayGroup.appointments.map((id) => {
-                const a = Appointment.findById(id).populate("profile");
-                return a;
-            });
-            const appointments = await Promise.all(appointmentPromises);
-            return res.send(appointments);
-
-        case roles.admin:
-            const allAppointments = await Appointment.find();
-            return res.send(allAppointments);
-        default:
-            return res.status(403).send("Invalid User Type");
+    if (roles.admin == req.account.accessLevel) {
+        const allAppointments = await Appointment.find();
+        return res.send(allAppointments);
     }
 
-    let date = query.date ? date : undefined;
-    delete query.date;
+    if (!Object.keys(query).includes("doctorId"))
+        return res.status(400).send("Please provide doctorId");
 
-    const appointments = await Appointment.find(query);
-    res.send(
-        date
-            ? appointments.filter((a) => moment(a.timeSlot).isSame(date, "day"))
-            : appointments
+    if (!Object.keys(query).includes("date"))
+        return res.status(400).send("Please provide date");
+
+    // Get appointments for a specific doctor
+    let doctor = await Doctor.findById(query.doctorId);
+
+    if (!doctor) return res.status(400).send("Invalid DoctorId");
+
+    if (req.account.accessLevel == roles.hospital) {
+        if (req.account.hospital != doctor.hospital)
+            return res.status(403).send("Access Denied");
+    }
+
+    const dayGroup = doctor.appointments.find((group) =>
+        moment(group.date).isSame(query.date, "day")
     );
+    if (!dayGroup) return res.send([]);
+    const appointmentPromises = dayGroup.appointments.map((id) => {
+        const a = Appointment.findById(id).populate("profile");
+        return a;
+    });
+    let appointments = await Promise.all(appointmentPromises);
+
+    if (req.account.accessLevel == roles.user) {
+        appointments = appointments.filter((a) => !a.profile);
+    }
+
+    res.send(appointments);
 });
 
-// router.get("/openslots", auth, async (req, res) => {
-//     let queryStr = JSON.stringify({ ...req.query });
-//     queryStr = queryStr.replace(
-//         /\b(gt|gte|lt|lte|eq|ne)\b/g,
-//         (match) => `$${match}`
-//     );
-//     const query = JSON.parse(queryStr);
-//     query.profile = undefined;
+router.get("/my", auth, async (req, res) => {
+    let queryStr = JSON.stringify({ ...req.query });
+    queryStr = queryStr.replace(
+        /\b(gt|gte|lt|lte|eq|ne)\b/g,
+        (match) => `$${match}`
+    );
+    const query = JSON.parse(queryStr);
 
-//     if (req.account.accessLevel == roles.hospital)
-//         query.createdByAccountId = req.account._id;
+    if (!Object.keys(query).includes("profileId"))
+        return res.status(400).send("Please provide profileId");
 
-//     let date = query.date ? date : undefined;
-//     delete query.date;
+    const profile = await Profile.findById(query.profileId).populate(
+        "appointments"
+    );
+    if (!profile) return res.status(400).send("Invalid profileId");
 
-//     const appointments = await Appointment.find(query);
-//     res.send(
-//         date
-//             ? appointments.filter((a) => moment(a.timeSlot).isSame(date, "day"))
-//             : appointments
-//     );
-// });
+    const user = await Account.findById(req.account._id);
+
+    if (!user.profiles.includes(profile._id))
+        return res.status(403).send("Access Denied");
+
+    res.send(profile.appointments);
+});
 
 // router.get(
 //     "/:id",
@@ -206,14 +145,11 @@ router.post(
             moment(a.date).isSame(req.body.date, "day")
         );
 
-        const obj = {
-            date: req.body.date,
-            appointments: appointments.map((a) => a._id),
-        };
-        // console.log(obj);
-
         if (!dayGroup) {
-            doctor.appointments.push(obj);
+            doctor.appointments.push({
+                date: req.body.date,
+                appointments: appointments.map((a) => a._id),
+            });
         } else {
             // console.log(dayGroup);
             dayGroup.appointments.push(...appointments.map((a) => a._id));
@@ -276,7 +212,7 @@ router.patch(
         validateObjectId,
         auth,
         validateBody(
-            Joi.object(_.pick(appointmentSchema, ["newAppointmentId"]))
+            Joi.object(_.pick(appointmentSchema, ["rescheduledAppointmentId"]))
         ),
         checkAccess(
             [roles.admin, roles.user],
@@ -294,60 +230,56 @@ router.patch(
         ),
     ],
     async (req, res) => {
-        //Check previous appointment
+        // Mark old appointment as cancelled
         let appointment = await Appointment.findById(req.params.id);
-        if (!appointment) res.status(404).send("Resource not found");
+        appointment.cancelled = true;
+        await appointment.save();
 
-        if (!appointment.profile)
-            return res.status(400).send("Appointment has not been booked yet");
-
-        let newAppointment = await Appointment.findById(
-            req.body.newAppointmentId
+        // Check rescheduled appointment
+        let rescheduledAppointment = await Appointment.findById(
+            req.body.rescheduledAppointmentId
         );
-
-        // Check new appointment
-        if (!newAppointment) res.status(400).send("Invalid New Appointment Id");
-
-        if (newAppointment.profile)
+        if (!rescheduledAppointment)
+            res.status(400).send("Invalid New Appointment Id");
+        if (rescheduledAppointment.profile)
             return res
                 .status(400)
                 .send("New appointment slot has already been booked");
-
-        if (appointment.doctor.toString() != newAppointment.doctor.toString()) {
+        if (
+            appointment.doctor.toString() !=
+            rescheduledAppointment.doctor.toString()
+        ) {
             return res
                 .status(403)
                 .send("Cannot reschedule appointment to a different doctor");
         }
+        // Add profile to rescheduled appointment
+        rescheduledAppointment.profile = appointment.profile;
+        await rescheduledAppointment.save();
 
         const profile = await Profile.findById(appointment.profile);
-        // Remove old appointment from profile
-        // profile.appointments.splice(
-        //     profile.appointments.indexOf(appointment._id),
-        //     1
-        // );
 
-        // Add new appointment to profile
-        profile.appointments.push(newAppointment._id);
+        // Add rescheduled appointment to profile
+        profile.appointments.push(rescheduledAppointment._id);
         await profile.save();
 
         const doctor = await Doctor.findById(appointment.doctor);
 
-        // Add new appointment to doctor
+        // Create replacement appointment for the same time slot and same doctor
+        const replacementAppointment = new Appointment({
+            doctor: appointment.doctor,
+            timeSlot: appointment.timeSlot,
+        });
+        await replacementAppointment.save();
+
+        // Add replacement appointment to doctor's appointments
         const dayGroup = doctor.appointments.find((a) =>
-            moment(a.day).isSame(appointment.timeSlot.day, "day")
+            moment(a.date).isSame(appointment.timeSlot, "day")
         );
-        dayGroup.appointments.push(newAppointment._id);
+        dayGroup.appointments.push(replacementAppointment._id);
         await doctor.save();
 
-        // Add profile to new appointment
-        newAppointment.profile = appointment.profile;
-        await newAppointment.save();
-
-        // Remove profile from old appointment
-        appointment.profile = undefined;
-        await appointment.save();
-
-        res.send(newAppointment);
+        res.send(rescheduledAppointment);
     }
 );
 
@@ -373,12 +305,6 @@ router.patch(
     ],
     async (req, res) => {
         const appointment = await Appointment.findById(req.params.id);
-        if (!appointment) res.status(404).send("Resource not found");
-
-        if (!appointment.profile)
-            return res
-                .status(400)
-                .send("Appointment slot has not yet been booked");
 
         if (appointment.cancelled == true)
             return res
@@ -389,7 +315,7 @@ router.patch(
         appointment.cancelled = true;
         await appointment.save();
 
-        // Create new appointment for the same time slot and same doctor
+        // Create rescheduled appointment for the same time slot and same doctor
         const newAppointment = new Appointment({
             timeSlot: appointment.timeSlot,
             doctor: appointment.doctor,
@@ -398,7 +324,7 @@ router.patch(
 
         const doctor = await Doctor.findById(appointment.doctor);
 
-        // Add new appointment to doctor
+        // Add rescheduled appointment to doctor
         const dayGroup = doctor.appointments.find((a) =>
             moment(a.date).isSame(appointment.timeSlot, "day")
         );
@@ -417,34 +343,47 @@ router.patch(
     }
 );
 
-router.delete("/:id", [validateObjectId, auth, hospital], async (req, res) => {
-    const appointment = await Appointment.findByIdAndDelete(req.params.id);
-    //  if (!appointment) return res.status(404).send("Resource not found");
+router.delete(
+    "/:id",
+    [
+        validateObjectId,
+        auth,
+        hospital,
+        checkAccess(
+            [roles.admin, roles.user],
+            "hospital",
+            Appointment,
+            "doctor.hospital",
+            "doctor"
+        ),
+    ],
+    async (req, res) => {
+        const appointment = await Appointment.findByIdAndDelete(req.params.id);
+        // if (!appointment) return res.status(404).send("Resource not found");
 
-    // Remove appointment from profile
-    if (appointment.profile) {
-        const profile = await Profile.findById(appointment.profile);
-        profile.appointments.splice(
-            profile.appointments.indexOf(appointment._id),
+        // Remove appointment from profile
+        if (appointment.profile) {
+            const profile = await Profile.findById(appointment.profile);
+            profile.appointments.splice(
+                profile.appointments.indexOf(appointment._id),
+                1
+            );
+            await profile.save();
+        }
+
+        // Remove appointment from doctor
+        const doctor = await Doctor.findById(appointment.doctor);
+        const dayGroup = doctor.appointments.find((a) =>
+            moment(a.date).isSame(appointment.timeSlot, "day")
+        );
+        dayGroup.appointments.splice(
+            dayGroup.appointments.indexOf(appointment._id),
             1
         );
-        await profile.save();
-        console.log(profile);
+        await doctor.save();
+
+        res.send(appointment);
     }
-
-    // Remove appointment from doctor
-    const doctor = await Doctor.findById(appointment.doctor).populate();
-    const dayGroup = doctor.appointments.find((a) =>
-        moment(a.date).isSame(appointment.timeSlot, "day")
-    );
-    console.log(dayGroup);
-    dayGroup.appointments.splice(
-        dayGroup.appointments.indexOf(appointment._id),
-        1
-    );
-    await doctor.save();
-
-    res.send(appointment);
-});
+);
 
 export default router;

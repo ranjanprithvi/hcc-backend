@@ -1,6 +1,8 @@
 {
-  "name": "hcc-backend-dev",
-  "mail": {
-    "host": "dev-mail-server"
-  }
+    "name": "hcc-backend-dev",
+    "mail": {
+        "host": "dev-mail-server"
+    },
+    "AWS_ACCESS_KEY_ID": "dev-access",
+    "AWS_SECRET_ACCESS_KEY": "dev-secret"
 }

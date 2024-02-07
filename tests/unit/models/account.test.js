@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 import _ from "lodash";
 
 describe("account.generateAuthToken", () => {
-    it("should generate a valid auth Token for hospital account", () => {
+    it("should generate a valid auth Token for hospital account", async () => {
         const payload = {
             _id: mongoose.Types.ObjectId(),
             email: "abc@gmail.com",
@@ -19,7 +19,7 @@ describe("account.generateAuthToken", () => {
         };
 
         const account = new Account(payload);
-        const token = account.generateAuthToken();
+        const token = account.generateAuthToken("2s");
         const decoded = jwt.verify(token, config.get("JWTPrivateKey"));
         expect(decoded).toHaveProperty(
             "_id",
@@ -30,6 +30,11 @@ describe("account.generateAuthToken", () => {
             _.pick(payload, ["email", "accessLevel"])
         );
         expect(decoded).not.toHaveProperty("password");
+
+        await new Promise((r) => setTimeout(r, 3000));
+        expect(() => {
+            jwt.verify(token, config.get("JWTPrivateKey"));
+        }).toThrow(jwt.TokenExpiredError);
     });
 
     it("should generate a valid auth Token for user account", () => {

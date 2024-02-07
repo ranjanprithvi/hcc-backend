@@ -21,7 +21,7 @@ const appointmentGroupSchema = {
         type: Date,
         // min: moment().startOf("day"),
         required: true,
-        unique: true,
+        // unique: true,
     },
     appointments: [{ type: Types.ObjectId, ref: "appointment" }],
 };
