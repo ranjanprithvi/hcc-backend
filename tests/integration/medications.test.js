@@ -3,8 +3,8 @@ import request from "supertest";
 import server from "../../index";
 import { logger } from "../../startup/logger";
 import { conn } from "../../startup/mongo";
-import { Medication } from "../../models/medicationModel.js";
-import { Account, roles } from "../../models/accountModel.js";
+import { Medication } from "../../models/medication-model.js";
+import { Account, roles } from "../../models/account-model.js";
 
 describe("/api/medications", () => {
     // beforeEach(() => {

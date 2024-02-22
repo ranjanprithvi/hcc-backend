@@ -1,16 +1,16 @@
 import express from "express";
 import { auth } from "../middleware/auth.js";
 import { admin } from "../middleware/admin.js";
-import validateObjectId from "../middleware/validateObjectId.js";
+import validateObjectId from "../middleware/validate-object-id.js";
 import {
     Doctor,
     doctorSchema,
     doctorSchemaObject,
-} from "../models/doctorModel.js";
+} from "../models/doctor-model.js";
 import { validateBody, validateEachParameter } from "../middleware/validate.js";
 import _ from "lodash";
-import { Hospital } from "../models/hospitalModel.js";
-import { Specialization } from "../models/specializationModel.js";
+import { Hospital } from "../models/hospital-model.js";
+import { Specialization } from "../models/specialization-model.js";
 const router = express.Router();
 
 router.get("/", async (req, res) => {

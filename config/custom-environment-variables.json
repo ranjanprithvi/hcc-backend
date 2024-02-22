@@ -1,4 +1,5 @@
 {
     "JWTPrivateKey": "hcc_JWTPrivateKey",
-    "MongoPassword": "MongoDBPassword"
+    "MongoPassword": "MongoDBPassword",
+    "connectionString": "MongoAtlasConnectionString"
 }

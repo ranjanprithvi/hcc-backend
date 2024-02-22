@@ -3,18 +3,24 @@ import _ from "lodash";
 import mongoose from "mongoose";
 import { hospital } from "../middleware/hospital.js";
 import { auth } from "../middleware/auth.js";
-import { checkAccess } from "../middleware/checkAccess.js";
+import { checkAccess } from "../middleware/check-access.js";
 import { validateBody, validateEachParameter } from "../middleware/validate.js";
-import validateObjectId from "../middleware/validateObjectId.js";
-import { Account, roles } from "../models/accountModel.js";
+import validateObjectId from "../middleware/validate-object-id.js";
+import { Account, roles } from "../models/account-model.js";
 import {
     Profile,
     profileSchema,
     profileSchemaObject,
-} from "../models/profileModel.js";
+} from "../models/profile-model.js";
 const router = express.Router();
 
-router.get("/", [auth, hospital], async (req, res) => {
+router.get("/", auth, async (req, res) => {
+    if (req.account.accessLevel == roles.user) {
+        const account = await Account.findById(req.account._id).populate(
+            "profiles"
+        );
+        return res.send(account.profiles);
+    }
     const profiles = await Profile.find();
     res.send(profiles);
 });
@@ -28,7 +34,22 @@ router.get(
     ],
     async (req, res) => {
         const profile = await Profile.findById(req.params.id);
-        if (!profile) return res.status(404).send("Resource not found");
+        res.send(profile);
+    }
+);
+
+router.get(
+    "/overview/:id",
+    [validateObjectId, [auth, hospital]],
+    async (req, res) => {
+        const profile = await Profile.findById(req.params.id).populate([
+            "appointments",
+            "medicalRecords",
+            "prescriptions",
+            "externalRecords",
+            "externalPrescriptions",
+        ]);
+        console.log(profile);
         res.send(profile);
     }
 );
@@ -37,8 +58,8 @@ router.post(
     "/",
     [auth, validateBody(profileSchemaObject)],
     async (req, res) => {
-        if (req.account.accessLevel == roles.hospital)
-            return res.status(403).send("Access Denied");
+        // if (req.account.accessLevel == roles.hospital)
+        //     return res.status(403).send("Access Denied");
 
         let id;
         if (req.account.accessLevel == roles.user) {
@@ -75,8 +96,8 @@ router.patch(
         validateEachParameter(_.omit(profileSchema, ["accountId"])),
     ],
     async (req, res) => {
-        if (req.account.accessLevel == roles.hospital)
-            return res.status(403).send("Access Denied");
+        // if (req.account.accessLevel == roles.hospital)
+        //     return res.status(403).send("Access Denied");
 
         const profile = await Profile.findByIdAndUpdate(
             req.params.id,
@@ -85,7 +106,6 @@ router.patch(
             },
             { new: true, runValidators: true }
         );
-        if (!profile) return res.status(404).send("Resource not found");
         res.send(profile);
     }
 );
@@ -98,11 +118,10 @@ router.delete(
         checkAccess([roles.admin, roles.hospital], "_id", Profile, "account"),
     ],
     async (req, res) => {
-        if (req.account.accessLevel == roles.hospital)
-            return res.status(403).send("Access Denied");
+        // if (req.account.accessLevel == roles.hospital)
+        //     return res.status(403).send("Access Denied");
 
         const profile = await Profile.findByIdAndDelete(req.params.id);
-        if (!profile) return res.status(404).send("Resource not found");
 
         const account = await Account.findById(profile.account);
         account.profiles.splice(account.profiles.indexOf(profile._id), 1);

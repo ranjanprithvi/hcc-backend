@@ -1,7 +1,7 @@
 import express from "express";
 import bcrypt from "bcrypt";
-import { Account } from "../models/accountModel.js";
-import { authSchemaObject } from "../models/authModel.js";
+import { Account } from "../models/account-model.js";
+import { authSchemaObject } from "../models/auth-model.js";
 import { validateBody } from "../middleware/validate.js";
 import { getCredentials } from "../startup/s3.js";
 // import { generateUploadUrl } from "../startup/s3.js";
@@ -21,12 +21,12 @@ router.post("/login", validateBody(authSchemaObject), async (req, res) => {
 
     const token = account.generateAuthToken();
     const creds = await getCredentials();
-    res.send({ token, creds });
+    res.send({ token, creds, accessLevel: account.accessLevel });
 });
 
-router.get("/s3Url", async (req, res) => {
-    const url = generateUploadUrl();
-    return url;
-});
+// router.get("/s3Url", async (req, res) => {
+//     const url = generateUploadUrl();
+//     return url;
+// });
 
 export default router;

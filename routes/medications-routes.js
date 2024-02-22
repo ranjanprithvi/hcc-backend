@@ -1,11 +1,11 @@
 import express from "express";
 import { auth } from "../middleware/auth.js";
 import { admin } from "../middleware/admin.js";
-import validateObjectId from "../middleware/validateObjectId.js";
+import validateObjectId from "../middleware/validate-object-id.js";
 import {
     Medication,
     medicationSchemaObject,
-} from "../models/medicationModel.js";
+} from "../models/medication-model.js";
 import { validateBody } from "../middleware/validate.js";
 import { hospital } from "../middleware/hospital.js";
 const router = express.Router();

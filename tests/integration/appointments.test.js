@@ -3,9 +3,9 @@ import request from "supertest";
 import server from "../../index";
 import { logger } from "../../startup/logger";
 import { conn } from "../../startup/mongo";
-import { Appointment } from "../../models/appointmentModel.js";
-import { Profile } from "../../models/profileModel.js";
-import { Account, roles } from "../../models/accountModel.js";
+import { Appointment } from "../../models/appointment-model.js";
+import { Profile } from "../../models/profile-model.js";
+import { Account, roles } from "../../models/account-model.js";
 import moment from "moment";
 import { Doctor } from "../../models/doctorModel";
 import { Hospital } from "../../models/hospitalModel";
@@ -913,7 +913,7 @@ describe("/api/appointments", () => {
             token = account.generateAuthToken();
             id = appointment._id;
             params = {
-                rescheduledAppointmentId: newAppointment._id.toString(),
+                newAppointmentId: newAppointment._id.toString(),
             };
         });
 
@@ -942,20 +942,20 @@ describe("/api/appointments", () => {
             expect(response.status).toBe(404);
         });
 
-        it("should return 400 if rescheduledAppointmentId is not provided", async () => {
-            delete params.rescheduledAppointmentId;
+        it("should return 400 if newAppointmentId is not provided", async () => {
+            delete params.newAppointmentId;
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
-        it("should return 400 if rescheduledAppointmentId is invalid", async () => {
-            params.rescheduledAppointmentId = 1;
+        it("should return 400 if newAppointmentId is invalid", async () => {
+            params.newAppointmentId = 1;
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
-        it("should return 400 if rescheduledAppointmentId is not found", async () => {
-            params.rescheduledAppointmentId = mongoose.Types.ObjectId();
+        it("should return 400 if newAppointmentId is not found", async () => {
+            params.newAppointmentId = mongoose.Types.ObjectId();
             const response = await exec();
             expect(response.status).toBe(400);
         });
@@ -1061,7 +1061,7 @@ describe("/api/appointments", () => {
             expect(new_Appointment.profile).toEqual(appointment.profile);
         });
 
-        it("should add rescheduledAppointmentId in the appointments list of the profile if request is valid", async () => {
+        it("should add newAppointmentId in the appointments list of the profile if request is valid", async () => {
             await exec();
             const p = await Profile.findById(profile._id);
 

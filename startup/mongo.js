@@ -2,7 +2,9 @@ import mongoose from "mongoose";
 import config from "config";
 import { logger } from "./logger.js";
 
-export const connectionString = config.get("db");
+export const connectionString = config.has("connectionString")
+    ? config.get("connectionString")
+    : config.get("db");
 // export const connectionString =
 //     "mongodb+srv://ranjanprithvi:" +
 //     config.get("MongoPassword") +

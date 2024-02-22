@@ -10,10 +10,7 @@ export const profileSchema = {
     name: Joi.string().min(3).max(50).required(),
     gender: Joi.string().valid("male", "female", "other").required(),
     dob: Joi.date().max(moment()).required(),
-    phone: Joi.string()
-        .max(14)
-        .min(10)
-        .pattern(/^[0-9]+$/),
+    phone: Joi.string().pattern(/^[+]?[0-9]{9,13}$/),
 };
 export const profileSchemaObject = Joi.object(profileSchema);
 
@@ -27,9 +24,13 @@ const dbSchema = new Schema({
     gender: { type: String, enum: ["male", "female", "other"], required: true },
     dob: { type: Date, max: moment(), required: true },
     phone: { type: String, maxLength: 14, minLength: 10 },
+    appointments: [{ type: mongoose.Types.ObjectId, ref: "appointment" }],
     medicalRecords: [{ type: mongoose.Types.ObjectId, ref: "medicalRecord" }],
     prescriptions: [{ type: mongoose.Types.ObjectId, ref: "prescription" }],
-    appointments: [{ type: mongoose.Types.ObjectId, ref: "appointment" }],
+    externalRecords: [{ type: mongoose.Types.ObjectId, ref: "externalRecord" }],
+    externalPrescriptions: [
+        { type: mongoose.Types.ObjectId, ref: "externalPrescription" },
+    ],
 });
 
 export const Profile = model("profile", dbSchema);

@@ -1,13 +1,13 @@
 import express from "express";
 import bcrypt from "bcrypt";
 import _ from "lodash";
-import { Account, roles } from "../models/accountModel.js";
-import { accountSchema } from "../models/accountModel.js";
+import { Account, roles } from "../models/account-model.js";
+import { accountSchema } from "../models/account-model.js";
 import { auth } from "../middleware/auth.js";
 import { admin } from "../middleware/admin.js";
-import validateObjectId from "../middleware/validateObjectId.js";
+import validateObjectId from "../middleware/validate-object-id.js";
 import { validateBody, validateEachParameter } from "../middleware/validate.js";
-import { Hospital } from "../models/hospitalModel.js";
+import { Hospital } from "../models/hospital-model.js";
 import Joi from "joi";
 const router = express.Router();
 

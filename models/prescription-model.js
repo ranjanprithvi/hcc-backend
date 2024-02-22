@@ -2,8 +2,8 @@ import Joi from "joi";
 import _ from "lodash";
 import moment from "moment";
 import mongoose, { Schema, model } from "mongoose";
-import { specializationSchema } from "./specializationModel.js";
-import { medicationSchema } from "./medicationModel.js";
+import { specializationSchema } from "./specialization-model.js";
+import { medicationSchema } from "./medication-model.js";
 
 export const prescriptionSchema = {
     // Patient related
@@ -12,26 +12,9 @@ export const prescriptionSchema = {
         .required(),
 
     // Doctor related
-    doctorId: Joi.string().regex(/^[a-f\d]{24}$/i),
-    doctorName: Joi.when("doctorId", {
-        is: Joi.exist(),
-        then: Joi.forbidden(),
-        otherwise: Joi.string().required(),
-    }),
-    hospitalName: Joi.when("doctorId", {
-        is: Joi.exist(),
-        then: Joi.forbidden(),
-        otherwise: Joi.string().required(),
-    }),
-
-    // Document related
-    specializationId: Joi.when("doctorId", {
-        is: Joi.exist(),
-        then: Joi.forbidden(),
-        otherwise: Joi.string()
-            .regex(/^[a-f\d]{24}$/i)
-            .required(),
-    }),
+    doctorId: Joi.string()
+        .regex(/^[a-f\d]{24}$/i)
+        .required(),
     dateOnDocument: Joi.date().max(moment()),
 
     content: Joi.string().min(10).max(5000),
@@ -60,9 +43,6 @@ export const prescriptionSchema = {
 export const prescriptionSchemaObject = Joi.object(prescriptionSchema);
 
 export const editPrescriptionSchema = {
-    doctorName: Joi.string(),
-    hospitalName: Joi.string(),
-    specializationId: Joi.string().regex(/^[a-f\d]{24}$/i),
     dateOnDocument: Joi.date().max(moment()),
     content: Joi.string().min(10).max(5000),
 };
@@ -81,27 +61,7 @@ const dbSchema = new Schema({
         type: mongoose.Types.ObjectId,
         ref: "doctor",
     },
-    doctorName: {
-        type: String,
-        required: function () {
-            return !this.doctor;
-        },
-    },
-    hospitalName: {
-        type: String,
-        required: function () {
-            return !this.doctor;
-        },
-    },
 
-    // Document related
-    specialization: {
-        type: mongoose.Types.ObjectId,
-        ref: "specialization",
-        required: function () {
-            return !this.doctor;
-        },
-    },
     dateOnDocument: { type: Date, max: moment() },
     content: {
         type: String,
@@ -120,7 +80,6 @@ const dbSchema = new Schema({
         ],
         default: [],
     },
-    external: Boolean,
 
     // S3 storage related
     folderPath: {

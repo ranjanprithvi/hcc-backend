@@ -1,5 +1,5 @@
 import { admin } from "../../../middleware/admin";
-import { roles } from "../../../models/accountModel.js";
+import { roles } from "../../../models/account-model.js";
 
 describe("admin middleware", () => {
     it("should return 403 status if account is not admin", () => {

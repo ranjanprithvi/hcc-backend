@@ -4,11 +4,11 @@ import request from "supertest";
 import server from "../../index";
 import { logger } from "../../startup/logger";
 import { conn } from "../../startup/mongo";
-import { Prescription } from "../../models/prescriptionModel.js";
-import { Profile } from "../../models/profileModel.js";
-import { Account, roles } from "../../models/accountModel.js";
-import { Specialization } from "../../models/specializationModel.js";
-import { Medication } from "../../models/medicationModel.js";
+import { Prescription } from "../../models/prescription-model.js";
+import { Profile } from "../../models/profile-model.js";
+import { Account, roles } from "../../models/account-model.js";
+import { Specialization } from "../../models/specialization-model.js";
+import { Medication } from "../../models/medication-model.js";
 import _ from "lodash";
 
 describe("/api/prescriptions", () => {

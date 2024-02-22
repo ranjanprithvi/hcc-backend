@@ -1,4 +1,4 @@
-import { roles } from "../../../models/accountModel.js";
+import { roles } from "../../../models/account-model.js";
 import { hospital } from "../../../middleware/hospital";
 
 describe("admin middleware", () => {

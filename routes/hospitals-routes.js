@@ -1,12 +1,12 @@
 import express from "express";
 import { auth } from "../middleware/auth.js";
 import { admin } from "../middleware/admin.js";
-import validateObjectId from "../middleware/validateObjectId.js";
+import validateObjectId from "../middleware/validate-object-id.js";
 import {
     Hospital,
     hospitalSchema,
     hospitalSchemaObject,
-} from "../models/hospitalModel.js";
+} from "../models/hospital-model.js";
 import { validateBody, validateEachParameter } from "../middleware/validate.js";
 import _ from "lodash";
 const router = express.Router();

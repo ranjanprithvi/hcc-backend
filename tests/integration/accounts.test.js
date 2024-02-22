@@ -4,7 +4,7 @@ import request from "supertest";
 import server from "../../index";
 import { logger } from "../../startup/logger";
 import { conn } from "../../startup/mongo";
-import { Account, roles } from "../../models/accountModel.js";
+import { Account, roles } from "../../models/account-model.js";
 import bcrypt from "bcrypt";
 import { Hospital } from "../../models/hospitalModel";
 

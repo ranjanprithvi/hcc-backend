@@ -3,19 +3,19 @@ import _ from "lodash";
 import mongoose from "mongoose";
 import { admin } from "../middleware/admin.js";
 import { auth } from "../middleware/auth.js";
-import { checkAccess } from "../middleware/checkAccess.js";
+import { checkAccess } from "../middleware/check-access.js";
 import { validateBody, validateEachParameter } from "../middleware/validate.js";
-import validateObjectId from "../middleware/validateObjectId.js";
-import { Profile } from "../models/profileModel.js";
-import { Account, roles } from "../models/accountModel.js";
+import validateObjectId from "../middleware/validate-object-id.js";
+import { Profile } from "../models/profile-model.js";
+import { Account, roles } from "../models/account-model.js";
 import {
     Appointment,
     appointmentSchema,
     createSlotsSchemaObject,
-} from "../models/appointmentModel.js";
+} from "../models/appointment-model.js";
 import moment from "moment";
 import { hospital } from "../middleware/hospital.js";
-import { Doctor } from "../models/doctorModel.js";
+import { Doctor } from "../models/doctor-model.js";
 import Joi from "joi";
 const router = express.Router();
 
@@ -212,7 +212,7 @@ router.patch(
         validateObjectId,
         auth,
         validateBody(
-            Joi.object(_.pick(appointmentSchema, ["rescheduledAppointmentId"]))
+            Joi.object(_.pick(appointmentSchema, ["newAppointmentId"]))
         ),
         checkAccess(
             [roles.admin, roles.user],
@@ -236,31 +236,27 @@ router.patch(
         await appointment.save();
 
         // Check rescheduled appointment
-        let rescheduledAppointment = await Appointment.findById(
-            req.body.rescheduledAppointmentId
+        let newAppointment = await Appointment.findById(
+            req.body.newAppointmentId
         );
-        if (!rescheduledAppointment)
-            res.status(400).send("Invalid New Appointment Id");
-        if (rescheduledAppointment.profile)
+        if (!newAppointment) res.status(400).send("Invalid New Appointment Id");
+        if (newAppointment.profile)
             return res
                 .status(400)
                 .send("New appointment slot has already been booked");
-        if (
-            appointment.doctor.toString() !=
-            rescheduledAppointment.doctor.toString()
-        ) {
+        if (appointment.doctor.toString() != newAppointment.doctor.toString()) {
             return res
                 .status(403)
                 .send("Cannot reschedule appointment to a different doctor");
         }
         // Add profile to rescheduled appointment
-        rescheduledAppointment.profile = appointment.profile;
-        await rescheduledAppointment.save();
+        newAppointment.profile = appointment.profile;
+        await newAppointment.save();
 
         const profile = await Profile.findById(appointment.profile);
 
         // Add rescheduled appointment to profile
-        profile.appointments.push(rescheduledAppointment._id);
+        profile.appointments.push(newAppointment._id);
         await profile.save();
 
         const doctor = await Doctor.findById(appointment.doctor);
@@ -279,7 +275,7 @@ router.patch(
         dayGroup.appointments.push(replacementAppointment._id);
         await doctor.save();
 
-        res.send(rescheduledAppointment);
+        res.send(newAppointment);
     }
 );
 

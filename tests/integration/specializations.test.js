@@ -3,8 +3,8 @@ import request from "supertest";
 import server from "../../index";
 import { logger } from "../../startup/logger";
 import { conn } from "../../startup/mongo";
-import { Specialization } from "../../models/specializationModel.js";
-import { Account, roles } from "../../models/accountModel.js";
+import { Specialization } from "../../models/specialization-model.js";
+import { Account, roles } from "../../models/account-model.js";
 import { param } from "express/lib/router";
 
 describe("/api/specializations", () => {

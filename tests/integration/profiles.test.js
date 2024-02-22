@@ -3,10 +3,11 @@ import request from "supertest";
 import server from "../../index";
 import { logger } from "../../startup/logger";
 import { conn } from "../../startup/mongo";
-import { Profile } from "../../models/profileModel.js";
+import { Profile } from "../../models/profile-model.js";
 import bcrypt from "bcrypt";
-import { Account, roles } from "../../models/accountModel.js";
+import { Account, roles } from "../../models/account-model.js";
 import { admin } from "../../middleware/admin";
+import { hospital } from "../../middleware/hospital.js";
 
 describe("/api/profiles", () => {
     afterEach(async () => {
@@ -167,6 +168,15 @@ describe("/api/profiles", () => {
             expect(res.status).toBe(401);
         });
 
+        // it("should return 403 if account is hospital", async () => {
+        //     token = new Account({
+        //         accessLevel: roles.hospital,
+        //     }).generateAuthToken();
+
+        //     const res = await exec();
+        //     expect(res.status).toBe(403);
+        // });
+
         it("should return 400 if account is admin and accountId is not provided", async () => {
             const adminAccount = new Account({
                 email: "admin@abc.com",
@@ -200,11 +210,15 @@ describe("/api/profiles", () => {
             expect(response.status).toBe(400);
         });
 
-        // it("should return 400 if no account with accountId exists", async () => {
-        //     params.accountId = mongoose.Types.ObjectId();
-        //     const response = await exec();
-        //     expect(response.status).toBe(400);
-        // });
+        it("should return 400 if account is not user and no account with accountId exists", async () => {
+            token = new Account({
+                accessLevel: roles.hospital,
+            }).generateAuthToken();
+            params.accountId = mongoose.Types.ObjectId();
+
+            const response = await exec();
+            expect(response.status).toBe(400);
+        });
 
         it("should return 400 if name is not provided", async () => {
             delete params.name;
@@ -363,6 +377,15 @@ describe("/api/profiles", () => {
             expect(res.status).toBe(403);
         });
 
+        // it("should return 403 if account is hospital", async () => {
+        //     token = new Account({
+        //         accessLevel: roles.hospital,
+        //     }).generateAuthToken();
+
+        //     const res = await exec();
+        //     expect(res.status).toBe(403);
+        // });
+
         it("should allow for modification if account is admin", async () => {
             token = new Account({
                 accessLevel: roles.admin,
@@ -373,12 +396,6 @@ describe("/api/profiles", () => {
 
         it("should return 400 if accountId is provided", async () => {
             params.accountId = account._id;
-            const response = await exec();
-            expect(response.status).toBe(400);
-        });
-
-        it("should return 400 if no account with accountId exists", async () => {
-            params.accountId = mongoose.Types.ObjectId();
             const response = await exec();
             expect(response.status).toBe(400);
         });
@@ -505,6 +522,15 @@ describe("/api/profiles", () => {
             const res = await exec();
             expect(res.status).toBe(403);
         });
+
+        // it("should return 403 if account is hospital", async () => {
+        //     token = new Account({
+        //         accessLevel: roles.hospital,
+        //     }).generateAuthToken();
+
+        //     const res = await exec();
+        //     expect(res.status).toBe(403);
+        // });
 
         it("should allow for deletion if account is admin", async () => {
             token = new Account({

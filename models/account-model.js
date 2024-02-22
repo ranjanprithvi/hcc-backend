@@ -71,8 +71,9 @@ dbSchema.methods.generateAuthToken = function (expiresIn) {
         email: this.email,
         accessLevel: this.accessLevel,
     };
-    if (this.accessLevel == roles.hospital) info.hospital = this.hospital;
-    else if (this.accessLevel == roles.user) info.profiles = this.profiles;
+    if (this.accessLevel == roles.hospital) {
+        info.hospital = this.hospital;
+    } else if (this.accessLevel == roles.user) info.profiles = this.profiles;
 
     const options = {};
     if (expiresIn) options.expiresIn = expiresIn;

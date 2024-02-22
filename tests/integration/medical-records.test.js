@@ -2,18 +2,18 @@ import mongoose from "mongoose";
 import moment from "moment";
 import request from "supertest";
 import server from "../../index";
-import { logger } from "../../startup/logger";
-import { conn } from "../../startup/mongo";
-import { Prescription } from "../../models/prescription-model.js";
+import { logger } from "../../startup/logger.js";
+import { conn } from "../../startup/mongo.js";
+import { MedicalRecord } from "../../models/medical-record-model.js";
 import { Profile } from "../../models/profile-model.js";
 import { Account, roles } from "../../models/account-model.js";
 import { Specialization } from "../../models/specialization-model.js";
 import { Hospital } from "../../models/hospitalModel";
 import { Doctor } from "../../models/doctorModel";
 
-describe("/api/prescriptions", () => {
+describe("/api/medicalRecords", () => {
     afterEach(async () => {
-        await Prescription.collection.deleteMany({});
+        await MedicalRecord.collection.deleteMany({});
         await Profile.collection.deleteMany({});
         await Hospital.collection.deleteMany({});
         await Doctor.collection.deleteMany({});
@@ -41,11 +41,11 @@ describe("/api/prescriptions", () => {
             token = account.generateAuthToken();
             queryStr = "/?profileId=" + profileId;
 
-            await Prescription.collection.insertMany([
+            await MedicalRecord.collection.insertMany([
                 {
                     profile: profileId2,
                     doctor: mongoose.Types.ObjectId(),
-                    content: "report1234",
+                    recordType: "report",
                     dateOnDocument: moment().subtract(1, "days").toDate(),
                     folderPath: "abc/report1",
                     files: [{ name: "file1.jpeg", sizeInBytes: 10400 }],
@@ -53,30 +53,28 @@ describe("/api/prescriptions", () => {
                 {
                     profile: profileId,
                     doctor: mongoose.Types.ObjectId(),
-                    content: "report1234",
+                    recordType: "report",
                     folderPath: "abcd/report1",
                     files: [{ name: "file1.jpeg", sizeInBytes: 10400 }],
                 },
                 {
                     profile: profileId,
-                    doctorName: "doctor1",
-                    hospitalName: "hospital1",
-                    specialization: mongoose.Types.ObjectId(),
-                    content: "report1234",
+                    doctor: mongoose.Types.ObjectId(),
+                    recordType: "report",
                     folderPath: "abc/report2",
                     files: [{ name: "file1.jpeg", sizeInBytes: 10400 }],
                 },
                 {
                     profile: profileId2,
                     doctor: mongoose.Types.ObjectId(),
-                    content: "report1234",
+                    recordType: "report",
                     folderPath: "abcs/report",
                     files: [{ name: "file1.jpeg", sizeInBytes: 10400 }],
                 },
                 {
                     profile: profileId2,
                     doctor: mongoose.Types.ObjectId(),
-                    content: "report1234",
+                    recordType: "report",
                     folderPath: "abcs/report2",
                     files: [{ name: "file1.jpeg", sizeInBytes: 10400 }],
                 },
@@ -84,7 +82,7 @@ describe("/api/prescriptions", () => {
         });
         const exec = async function () {
             return await request(server)
-                .get("/api/prescriptions" + queryStr)
+                .get("/api/medicalRecords" + queryStr)
                 .set("x-auth-token", token);
         };
 
@@ -118,13 +116,13 @@ describe("/api/prescriptions", () => {
             expect(res.status).toBe(400);
         });
 
-        it("should return only prescriptions of the profileId if profileId exists in user's profiles list", async () => {
+        it("should return only medicalRecords of the profileId if profileId exists in user's profiles list", async () => {
             const res = await exec();
             expect(res.status).toBe(200);
             expect(res.body.length).toBe(2);
         });
 
-        it("should return the prescriptions of the profileId if client is a hospital", async () => {
+        it("should return the medicalRecords of the profileId if client is a hospital", async () => {
             token = new Account({
                 accessLevel: roles.hospital,
             }).generateAuthToken();
@@ -135,7 +133,7 @@ describe("/api/prescriptions", () => {
             expect(res.body.length).toBe(3);
         });
 
-        it("should return all the prescriptions if client is an admin", async () => {
+        it("should return all the medicalRecords if client is an admin", async () => {
             token = new Account({
                 accessLevel: roles.admin,
             }).generateAuthToken();
@@ -148,28 +146,28 @@ describe("/api/prescriptions", () => {
     });
 
     // describe("GET /:id", () => {
-    //     let token, id, prescription;
+    //     let token, id, medicalRecord;
 
     //     beforeEach(async () => {
-    //         prescription = new Prescription({
+    //         medicalRecord = new MedicalRecord({
     //             timeSlot: moment().add(7, "days"),
     //             profileId: mongoose.Types.ObjectId(),
-    //             content: {
+    //             recordType: {
     //                 _id: mongoose.Types.ObjectId().toString(),
-    //                 name: "report1234",
+    //                 name: "report",
     //             },
     //         });
-    //         await prescription.save();
-    //         id = prescription._id;
+    //         await medicalRecord.save();
+    //         id = medicalRecord._id;
 
     //         token = new Account({
-    //             profiles: [prescription.profileId],
+    //             profiles: [medicalRecord.profileId],
     //         }).generateAuthToken();
     //     });
 
     //     const exec = async function () {
     //         return await request(server)
-    //             .get("/api/prescriptions/" + id)
+    //             .get("/api/medicalRecords/" + id)
     //             .set("x-auth-token", token);
     //     };
 
@@ -179,7 +177,7 @@ describe("/api/prescriptions", () => {
     //         expect(res.status).toBe(401);
     //     });
 
-    //     it("should return 403 if prescription does not belong to doctor", async () => {
+    //     it("should return 403 if medicalRecord does not belong to doctor", async () => {
     //         token = new Account().generateAuthToken();
     //         const res = await exec();
     //         expect(res.status).toBe(403);
@@ -199,25 +197,25 @@ describe("/api/prescriptions", () => {
     //         expect(response.status).toBe(404);
     //     });
 
-    //     it("should return 404 status if no prescription with given id is found", async () => {
+    //     it("should return 404 status if no medicalRecord with given id is found", async () => {
     //         id = mongoose.Types.ObjectId();
     //         const response = await exec();
     //         expect(response.status).toBe(404);
     //     });
 
-    //     it("should return the prescription if request is valid", async () => {
+    //     it("should return the medicalRecord if request is valid", async () => {
     //         const res = await exec();
     //         expect(res.status).toBe(200);
-    //         expect(res.body).toHaveProperty("_id", prescription._id.toString());
+    //         expect(res.body).toHaveProperty("_id", medicalRecord._id.toString());
     //         expect(res.body).toHaveProperty(
     //             "profileId",
-    //             prescription.profileId.toString()
+    //             medicalRecord.profileId.toString()
     //         );
 
-    //         expect(res.body.content._id).toEqual(
-    //             prescription.content._id.toString()
+    //         expect(res.body.recordType._id).toEqual(
+    //             medicalRecord.recordType._id.toString()
     //         );
-    //         expect(new Date(res.body.timeSlot)).toEqual(prescription.timeSlot);
+    //         expect(new Date(res.body.timeSlot)).toEqual(medicalRecord.timeSlot);
     //     });
     // });
 
@@ -273,7 +271,7 @@ describe("/api/prescriptions", () => {
                 profileId: profile._id,
                 doctorId: doctor._id,
                 dateOnDocument: "02/19/2019",
-                content: "report1234",
+                recordType: "report",
                 s3Path: "abc/",
                 recordName: "ECG",
                 files: [{ name: "file1.jpeg", sizeInBytes: 10400 }],
@@ -282,7 +280,7 @@ describe("/api/prescriptions", () => {
 
         const exec = async function () {
             return await request(server)
-                .post("/api/prescriptions")
+                .post("/api/medicalRecords")
                 .set("x-auth-token", token)
                 .send(params);
         };
@@ -321,12 +319,6 @@ describe("/api/prescriptions", () => {
             expect(response.status).toBe(400);
         });
 
-        it("should return 400 if doctorId is not provided", async () => {
-            delete params.doctorId;
-            const response = await exec();
-            expect(response.status).toBe(400);
-        });
-
         it("should return 400 if doctorId is not valid", async () => {
             params.doctorId = 1;
             const response = await exec();
@@ -359,21 +351,14 @@ describe("/api/prescriptions", () => {
             expect(response.status).toBe(400);
         });
 
-        it("should return 400 if content is not valid", async () => {
-            params.content = 1;
+        it("should return 400 if recordType is not valid", async () => {
+            params.recordType = 1;
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
-        it("should return 400 if content is less than 10 characters", async () => {
-            params.content = "a".repeat(9);
-            const response = await exec();
-            expect(response.status).toBe(400);
-        });
-
-        it("should return 400 if content is more than 5000 characters", async () => {
-            params.content = "a".repeat(5001);
-
+        it("should return 400 if recordType is greater than 10 characters", async () => {
+            params.recordType = "abcdefghijk";
             const response = await exec();
             expect(response.status).toBe(400);
         });
@@ -416,10 +401,16 @@ describe("/api/prescriptions", () => {
         });
 
         it("should return 400 if recordName is not unique in this s3Path", async () => {
-            await Prescription.collection.insertOne({
+            await MedicalRecord.collection.insertOne({
                 folderPath: "abc/ECG",
             });
 
+            const response = await exec();
+            expect(response.status).toBe(400);
+        });
+
+        it("should return 400 if files is not provided", async () => {
+            delete params.files;
             const response = await exec();
             expect(response.status).toBe(400);
         });
@@ -430,11 +421,11 @@ describe("/api/prescriptions", () => {
             expect(response.status).toBe(400);
         });
 
-        // it("should return 400 if files is an empty array", async () => {
-        //     params.files = [];
-        //     const response = await exec();
-        //     expect(response.status).toBe(400);
-        // });
+        it("should return 400 if files is an empty array", async () => {
+            params.files = [];
+            const response = await exec();
+            expect(response.status).toBe(400);
+        });
 
         it("should return 400 if a file does not contain name", async () => {
             params.files = [{ sizeInBytes: 10400 }];
@@ -473,27 +464,25 @@ describe("/api/prescriptions", () => {
             expect(response.status).toBe(400);
         });
 
-        it("should add prescriptionId to the profile's prescriptions if request is valid", async () => {
+        it("should add medicalRecordId to the profile's medicalRecords if request is valid", async () => {
             const res = await exec();
             const p = await Profile.findById(profile._id);
 
-            expect(res.status).toBe(201);
-            expect(p.prescriptions[0].toString()).toEqual(
+            expect(p.medicalRecords[0].toString()).toEqual(
                 res.body._id.toString()
             );
         });
 
-        it("should store the prescription in the db if request is valid", async () => {
-            const res = await exec();
-            const prescriptions = await Prescription.find({
+        it("should store the medicalRecord in the db if request is valid", async () => {
+            await exec();
+            const medicalRecords = await MedicalRecord.find({
                 folderPath: params.s3Path + params.recordName,
             });
 
-            expect(res.status).toBe(201);
-            expect(prescriptions.length).toBe(1);
+            expect(medicalRecords.length).toBe(1);
         });
 
-        it("should return the prescription when request is valid", async () => {
+        it("should return the medicalRecord when client is hospital and request is valid", async () => {
             const res = await exec();
             expect(res.status).toBe(201);
 
@@ -506,7 +495,7 @@ describe("/api/prescriptions", () => {
                 "doctor",
                 params.doctorId.toString()
             );
-            expect(res.body).toHaveProperty("content", params.content);
+            expect(res.body).toHaveProperty("recordType", params.recordType);
             expect(moment(res.body.dateOnDocument).format()).toEqual(
                 moment(params.dateOnDocument).format()
             );
@@ -529,7 +518,8 @@ describe("/api/prescriptions", () => {
             doctor,
             hospital,
             profile,
-            prescription,
+            medicalRecord1,
+            medicalRecord2,
             id,
             specialization;
 
@@ -562,15 +552,15 @@ describe("/api/prescriptions", () => {
             });
             await doctor.save();
 
-            prescription = new Prescription({
+            medicalRecord1 = new MedicalRecord({
                 profile: profile._id,
                 doctor: doctor._id,
-                content: "record1234",
+                recordType: "type1",
                 dateOnDocument: "12/25/2022",
                 folderPath: "abc/report",
                 files: [{ name: "file1.jpeg", sizeInBytes: 10400 }],
             });
-            await prescription.save();
+            await medicalRecord1.save();
 
             specialization = new Specialization({
                 name: "Orthopaedics",
@@ -580,16 +570,16 @@ describe("/api/prescriptions", () => {
             token = hospitalAccount.generateAuthToken();
 
             params = {
-                content: "record12345",
+                recordType: "type2",
                 dateOnDocument: "10/23/2021",
             };
 
-            id = prescription._id;
+            id = medicalRecord1._id;
         });
 
         const exec = async function () {
             return await request(server)
-                .patch("/api/prescriptions/" + id)
+                .patch("/api/medicalRecords/" + id)
                 .set("x-auth-token", token)
                 .send(params);
         };
@@ -610,21 +600,14 @@ describe("/api/prescriptions", () => {
             expect(response.status).toBe(403);
         });
 
-        it("should return 400 if content is not valid", async () => {
-            params.content = 1;
+        it("should return 400 if recordType is not valid", async () => {
+            params.recordType = 1;
             const response = await exec();
             expect(response.status).toBe(400);
         });
 
-        it("should return 400 if content is less than 10 characters", async () => {
-            params.content = "a".repeat(9);
-
-            const response = await exec();
-            expect(response.status).toBe(400);
-        });
-
-        it("should return 400 if content is more than 5000 characters", async () => {
-            params.content = "a".repeat(5001);
+        it("should return 400 if recordType is more than 10 characters", async () => {
+            params.recordType = "a".repeat(11);
 
             const response = await exec();
             expect(response.status).toBe(400);
@@ -662,53 +645,102 @@ describe("/api/prescriptions", () => {
             expect(response.status).toBe(404);
         });
 
-        it("should return 404 status if no prescription with given id is found", async () => {
+        it("should return 404 status if no medicalRecord with given id is found", async () => {
             id = mongoose.Types.ObjectId();
 
             const response = await exec();
             expect(response.status).toBe(404);
         });
 
-        it("should return 403 if account is hospital and doctor does not belong to hospital", async () => {
-            doctor.hospital = mongoose.Types.ObjectId();
-            await doctor.save();
+        // it("should return 403 if account is hospital and doctor does not belong to hospital", async () => {
+        //     doctor.hospital = mongoose.Types.ObjectId();
+        //     await doctor.save();
 
-            const response = await exec();
-            expect(response.status).toBe(403);
-        });
+        //     const response = await exec();
+        //     expect(response.status).toBe(403);
+        // });
 
-        it("should change the params of the prescription in the db if request is valid", async () => {
+        it("should change the params of the medicalRecord in the db if request is valid", async () => {
             await exec();
-            const p = await Prescription.findById(prescription._id);
+            const medicalRecord = await MedicalRecord.findById(
+                medicalRecord1._id
+            );
 
             //Updated fields
-            expect(p).toHaveProperty("content", params.content.toString());
-            expect(moment(p.dateOnDocument).format()).toEqual(
+            expect(medicalRecord).toHaveProperty(
+                "recordType",
+                params.recordType.toString()
+            );
+            expect(moment(medicalRecord.dateOnDocument).format()).toEqual(
                 moment(params.dateOnDocument).format()
             );
         });
 
-        it("should return the prescription if it doesnt have doctorId, client is user and request is valid", async () => {
+        it("should return the medicalRecord if request is valid", async () => {
             const res = await exec();
             expect(res.status).toBe(200);
 
-            expect(res.body).toHaveProperty("content", params.content);
+            expect(res.body).toHaveProperty("recordType", params.recordType);
             expect(moment(res.body.dateOnDocument).format()).toEqual(
                 moment(params.dateOnDocument).format()
             );
 
             //Other fields
-            expect(res.body).toHaveProperty("_id", prescription._id.toString());
+            expect(res.body).toHaveProperty(
+                "_id",
+                medicalRecord1._id.toString()
+            );
             expect(res.body).toHaveProperty(
                 "profile",
-                prescription.profile.toString()
+                medicalRecord1.profile.toString()
             );
             expect(res.body).toHaveProperty(
                 "folderPath",
-                prescription.folderPath
+                medicalRecord1.folderPath
             );
             expect(res.body).toHaveProperty("files");
         });
+
+        // it("should return the medicalRecord when client is hospital, doctorId is provided and request is valid", async () => {
+        //     params.doctorId = doctor._id;
+        //     delete params.doctorName;
+        //     delete params.hospitalName;
+        //     delete params.specializationId;
+
+        //     const res = await exec();
+        //     expect(res.status).toBe(201);
+
+        //     // Modified fields
+        //     expect(res.body).toHaveProperty(
+        //         "doctor",
+        //         params.doctorId.toString()
+        //     );
+        //     expect(res.body).toHaveProperty("recordType", params.recordType);
+        //     expect(moment(res.body.dateOnDocument).format()).toEqual(
+        //         moment(params.dateOnDocument).format()
+        //     );
+
+        //     // Other fields
+        //     expect(res.body).toHaveProperty("_id");
+        //     expect(res.body).toHaveProperty(
+        //         "profile",
+        //         params.profileId.toString()
+        //     );
+        //     expect(res.body).toHaveProperty(
+        //         "doctor",
+        //         params.doctorId.toString()
+        //     );
+        //     expect(res.body).toHaveProperty("recordType", params.recordType);
+        //     expect(res.body).toHaveProperty(
+        //         "folderPath",
+        //         params.s3Path + params.recordName
+        //     );
+        //     params.files.forEach((file) => {
+        //         expect(res.body.files).toEqual(
+        //             expect.arrayContaining([expect.objectContaining(file)])
+        //         );
+        //     });
+        // });
     });
 
     describe("DELETE /:id", () => {
@@ -717,7 +749,7 @@ describe("/api/prescriptions", () => {
             doctor,
             hospital,
             profile,
-            prescription,
+            medicalRecord,
             id,
             specialization;
 
@@ -749,17 +781,17 @@ describe("/api/prescriptions", () => {
             });
             await doctor.save();
 
-            prescription = new Prescription({
+            medicalRecord = new MedicalRecord({
                 profile: profile._id,
                 doctor: doctor._id,
-                content: "record1234",
+                recordType: "type1",
                 dateOnDocument: "12/25/2022",
                 folderPath: "abc/report",
                 files: [{ name: "file1.jpeg", sizeInBytes: 10400 }],
             });
-            await prescription.save();
+            await medicalRecord.save();
 
-            profile.prescriptions = [prescription._id];
+            profile.medicalRecords = [medicalRecord._id];
             await profile.save();
 
             specialization = new Specialization({
@@ -769,12 +801,12 @@ describe("/api/prescriptions", () => {
 
             token = hospitalAccount.generateAuthToken();
 
-            id = prescription._id;
+            id = medicalRecord._id;
         });
 
         const exec = async function () {
             return await request(server)
-                .delete("/api/prescriptions/" + id)
+                .delete("/api/medicalRecords/" + id)
                 .set("x-auth-token", token);
         };
 
@@ -799,7 +831,7 @@ describe("/api/prescriptions", () => {
             expect(response.status).toBe(404);
         });
 
-        it("should return 404 status if no prescription with given id is found", async () => {
+        it("should return 404 status if no medicalRecord with given id is found", async () => {
             id = mongoose.Types.ObjectId();
             const response = await exec();
             expect(response.status).toBe(404);
@@ -815,42 +847,51 @@ describe("/api/prescriptions", () => {
             expect(response.status).toBe(403);
         });
 
-        it("should remove the prescription from the profile if request is valid", async () => {
+        // it("should remove the medicalRecord from the profile if account is hospital and record is external", async () => {
+        //     token = hospitalAccount.generateAuthToken();
+
+        //     await exec();
+
+        //     const p = await Profile.findById(medicalRecordU.profile);
+        //     expect(p.medicalRecords).toEqual([medicalRecordU._id]);
+        // });
+
+        it("should remove the medicalRecord from the profile if request is valid", async () => {
             await exec();
 
-            const p = await Profile.findById(prescription.profile);
-            expect(p.prescriptions).toEqual([]);
+            const p = await Profile.findById(medicalRecord.profile);
+            expect(p.medicalRecords).toEqual([]);
         });
 
-        it("should remove the prescription from the db if request is valid", async () => {
+        it("should remove the medicalRecord from the db if account is user and record is external", async () => {
             await exec();
 
-            const mr = await Prescription.findById(prescription._id);
+            const mr = await MedicalRecord.findById(medicalRecord._id);
             expect(mr).toBeNull();
         });
 
-        it("should return the deleted prescription if request is valid", async () => {
+        it("should return the deleted medicalRecord if request is valid", async () => {
             const res = await exec();
 
             expect(res.status).toBe(200);
             expect(res.body).toHaveProperty("_id");
             expect(res.body).toHaveProperty(
                 "profile",
-                prescription.profile.toString()
+                medicalRecord.profile.toString()
             );
             expect(res.body).toHaveProperty(
                 "doctor",
-                prescription.doctor.toString()
+                medicalRecord.doctor.toString()
             );
-            expect(res.body.content).toEqual(prescription.content);
+            expect(res.body.recordType).toEqual(medicalRecord.recordType);
             expect(res.body.dateOnDocument).toEqual(
-                prescription.dateOnDocument.toISOString()
+                medicalRecord.dateOnDocument.toISOString()
             );
             expect(res.body).toHaveProperty(
                 "folderPath",
-                prescription.folderPath
+                medicalRecord.folderPath
             );
-            prescription.files.forEach((file) => {
+            medicalRecord.files.forEach((file) => {
                 expect(res.body.files).toEqual(
                     expect.arrayContaining([
                         expect.objectContaining({

@@ -1,6 +1,6 @@
 import _ from "lodash";
 import { auth } from "../../../middleware/auth";
-import { Account, roles } from "../../../models/accountModel.js";
+import { Account, roles } from "../../../models/account-model.js";
 import mongoose from "mongoose";
 
 describe("auth middleware", () => {

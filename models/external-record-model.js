@@ -3,33 +3,20 @@ import _ from "lodash";
 import moment from "moment";
 import mongoose, { Schema, model } from "mongoose";
 
-export const medicalRecordSchema = {
+export const externalRecordSchema = {
     // Patient related
     profileId: Joi.string()
         .regex(/^[a-f\d]{24}$/i)
         .required(),
 
     // Doctor related
-    doctorId: Joi.string().regex(/^[a-f\d]{24}$/i),
-    doctorName: Joi.when("doctorId", {
-        is: Joi.exist(),
-        then: Joi.forbidden(),
-        otherwise: Joi.string().required(),
-    }),
-    hospitalName: Joi.when("doctorId", {
-        is: Joi.exist(),
-        then: Joi.forbidden(),
-        otherwise: Joi.string().required(),
-    }),
+    doctor: Joi.string().required(),
+    hospital: Joi.string().required(),
 
     // Document related
-    specializationId: Joi.when("doctorId", {
-        is: Joi.exist(),
-        then: Joi.forbidden(),
-        otherwise: Joi.string()
-            .regex(/^[a-f\d]{24}$/i)
-            .required(),
-    }),
+    specializationId: Joi.string()
+        .regex(/^[a-f\d]{24}$/i)
+        .required(),
     dateOnDocument: Joi.date().max(moment()),
     recordType: Joi.string().max(10),
 
@@ -46,11 +33,11 @@ export const medicalRecordSchema = {
         .min(1)
         .required(),
 };
-export const medicalRecordSchemaObject = Joi.object(medicalRecordSchema);
+export const externalRecordSchemaObject = Joi.object(externalRecordSchema);
 
-export const editMedicalRecordSchema = {
-    doctorName: Joi.string(),
-    hospitalName: Joi.string(),
+export const editExternalRecordSchema = {
+    doctor: Joi.string(),
+    hospital: Joi.string(),
     specializationId: Joi.string().regex(/^[a-f\d]{24}$/i),
     dateOnDocument: Joi.date().max(moment()),
     recordType: Joi.string().max(10),
@@ -67,20 +54,12 @@ const dbSchema = new Schema({
 
     // Doctor related
     doctor: {
-        type: mongoose.Types.ObjectId,
-        ref: "doctor",
-    },
-    doctorName: {
         type: String,
-        required: function () {
-            return !this.doctor;
-        },
+        required: true,
     },
-    hospitalName: {
+    hospital: {
         type: String,
-        required: function () {
-            return !this.doctor;
-        },
+        required: true,
     },
 
     // Document related
@@ -93,7 +72,6 @@ const dbSchema = new Schema({
     },
     recordType: { type: String, maxlength: 10 },
     dateOnDocument: { type: Date, max: moment() },
-    external: Boolean,
 
     // S3 storage related
     folderPath: {
@@ -117,4 +95,4 @@ const dbSchema = new Schema({
     },
 });
 
-export const MedicalRecord = model("medicalRecord", dbSchema);
+export const ExternalRecord = model("externalRecord", dbSchema);

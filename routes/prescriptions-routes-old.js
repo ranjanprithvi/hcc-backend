@@ -3,18 +3,18 @@ import _ from "lodash";
 import moment from "moment";
 import { admin } from "../middleware/admin.js";
 import { auth } from "../middleware/auth.js";
-import { checkAccess } from "../middleware/checkAccess.js";
+import { checkAccess } from "../middleware/check-access.js";
 import { validateBody, validateEachParameter } from "../middleware/validate.js";
-import validateObjectId from "../middleware/validateObjectId.js";
-import { Profile } from "../models/profileModel.js";
-import { Account, roles } from "../models/accountModel.js";
+import validateObjectId from "../middleware/validate-object-id.js";
+import { Profile } from "../models/profile-model.js";
+import { Account, roles } from "../models/account-model.js";
 import {
     Prescription,
     prescriptionSchema,
     prescriptionSchemaObject,
-} from "../models/prescriptionModel.js";
-import { Specialization } from "../models/specializationModel.js";
-import { Medication } from "../models/medicationModel.js";
+} from "../models/prescription-model.js";
+import { Specialization } from "../models/specialization-model.js";
+import { Medication } from "../models/medication-model.js";
 const router = express.Router();
 
 router.get("/", auth, async (req, res) => {
