@@ -66,10 +66,14 @@ router.post(
         if (!specialization)
             return res.status(400).send("Invalid specialization");
 
-        req.body.folderPath = req.body.s3Path + req.body.recordName;
+        req.body.folderPath =
+            "hcc/" +
+            profile._id +
+            "/ExternalPrescriptions/" +
+            req.body.recordName;
 
         let externalPrescription = await ExternalPrescription.findOne({
-            folderPath: req.body.s3Path + req.body.recordName,
+            folderPath: req.body.folderPath,
         });
         if (externalPrescription)
             return res.status(400).send("Record name should be unique");
@@ -77,12 +81,12 @@ router.post(
         externalPrescription = new ExternalPrescription({
             profile: req.body.profileId,
             specialization: req.body.specializationId,
-            folderPath: req.body.s3Path + req.body.recordName,
 
             ..._.pick(req.body, [
                 "doctor",
                 "hospital",
                 "dateOnDocument",
+                "folderPath",
                 "files",
             ]),
         });
