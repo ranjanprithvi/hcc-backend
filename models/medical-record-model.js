@@ -16,7 +16,7 @@ export const medicalRecordSchema = {
     recordType: Joi.string().max(10),
 
     // S3 storage related
-    s3Path: Joi.string().required(),
+    // s3Path: Joi.string().required(),
     recordName: Joi.string().min(3).max(50).required(),
     files: Joi.array()
         .items(
