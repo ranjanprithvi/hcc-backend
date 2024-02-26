@@ -63,10 +63,11 @@ router.post(
             if (doctor.hospital != req.account.hospital)
                 return res.status(403).send("Access Denied");
 
-        req.body.folderPath = req.body.s3Path + req.body.recordName;
+        req.body.folderPath =
+            "hcc/" + profile._id + "/Prescriptions/" + req.body.recordName;
 
         let prescription = await Prescription.findOne({
-            folderPath: req.body.s3Path + req.body.recordName,
+            folderPath: req.body.folderPath,
         });
         if (prescription)
             return res.status(400).send("Record name should be unique");
@@ -74,9 +75,13 @@ router.post(
         prescription = new Prescription({
             profile: req.body.profileId,
             doctor: req.body.doctorId,
-            folderPath: req.body.s3Path + req.body.recordName,
 
-            ..._.pick(req.body, ["content", "dateOnDocument", "files"]),
+            ..._.pick(req.body, [
+                "content",
+                "dateOnDocument",
+                "folderPath",
+                "files",
+            ]),
         });
         await prescription.save();
 
