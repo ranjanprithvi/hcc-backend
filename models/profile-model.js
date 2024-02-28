@@ -18,7 +18,7 @@ const dbSchema = new Schema({
     account: {
         type: mongoose.Types.ObjectId,
         ref: "account",
-        required: true,
+        // required: true,
     },
     name: { type: String, minLength: 3, maxLength: 50, required: true },
     gender: { type: String, enum: ["male", "female", "other"], required: true },

@@ -9,6 +9,7 @@ import validateObjectId from "../middleware/validate-object-id.js";
 import { validateBody, validateEachParameter } from "../middleware/validate.js";
 import { Hospital } from "../models/hospital-model.js";
 import Joi from "joi";
+import { hospital } from "../middleware/hospital.js";
 const router = express.Router();
 
 router.get("/me", auth, async (req, res) => {
@@ -28,8 +29,11 @@ router.get("/me", auth, async (req, res) => {
     res.send(account);
 });
 
-router.get("/", [auth, admin], async (req, res) => {
-    const accounts = await Account.find().select("-password");
+router.get("/", [auth, hospital], async (req, res) => {
+    let query = {};
+    if (req.account.accessLevel != roles.admin) query.accessLevel = roles.user;
+
+    const accounts = await Account.find(query).select("-password");
     res.send(accounts);
 });
 

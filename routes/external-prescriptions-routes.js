@@ -35,7 +35,9 @@ router.get("/", auth, async (req, res) => {
         delete query.profileId;
     }
 
-    const externalPrescriptions = await ExternalPrescription.find(query);
+    const externalPrescriptions = await ExternalPrescription.find(
+        query
+    ).populate("specialization");
     res.send(externalPrescriptions);
 });
 

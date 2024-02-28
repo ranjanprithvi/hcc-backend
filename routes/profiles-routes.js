@@ -12,16 +12,29 @@ import {
     profileSchema,
     profileSchemaObject,
 } from "../models/profile-model.js";
+import Joi from "joi";
 const router = express.Router();
 
 router.get("/", auth, async (req, res) => {
+    let queryStr = JSON.stringify({ ...req.query });
+    queryStr = queryStr.replace(
+        /\b(gt|gte|lt|lte|eq|ne)\b/g,
+        (match) => `$${match}`
+    );
+    const query = JSON.parse(queryStr);
+
     if (req.account.accessLevel == roles.user) {
         const account = await Account.findById(req.account._id).populate(
             "profiles"
         );
         return res.send(account.profiles);
     }
-    const profiles = await Profile.find();
+    const profiles = await Profile.find({
+        $or: [
+            { name: new RegExp(query.search, "i") },
+            { phone: new RegExp(query.search, "i") },
+        ],
+    });
     res.send(profiles);
 });
 
@@ -46,8 +59,8 @@ router.get(
             "appointments",
             "medicalRecords",
             "prescriptions",
-            "externalRecords",
-            "externalPrescriptions",
+            { path: "externalRecords", populate: "specialization" },
+            { path: "externalPrescriptions", populate: "specialization" },
         ]);
         console.log(profile);
         res.send(profile);
@@ -61,27 +74,31 @@ router.post(
         // if (req.account.accessLevel == roles.hospital)
         //     return res.status(403).send("Access Denied");
 
-        let id;
+        // let id;
+        let profile;
         if (req.account.accessLevel == roles.user) {
-            id = req.account._id;
+            const id = req.account._id;
+
+            const account = await Account.findById(id);
+            if (!account) return res.status(400).send("Invalid Account Id");
+
+            if (account.accessLevel != roles.user)
+                return res.status(400).send("Account must be a user");
+
+            req.body.account = account._id;
+            profile = await new Profile(req.body).save();
+
+            account.profiles.push(profile._id);
+            await account.save();
         } else {
-            if (!req.body.accountId)
-                return res.status(400).send("accountId is required");
-            id = req.body.accountId;
-            delete req.body.accountId;
+            profile = await new Profile(req.body).save();
         }
-
-        const account = await Account.findById(id);
-        if (!account) return res.status(400).send("Invalid Account Id");
-
-        if (account.accessLevel != roles.user)
-            return res.status(400).send("Account must be a user");
-
-        req.body.account = account._id;
-        const profile = await new Profile(req.body).save();
-
-        account.profiles.push(profile._id);
-        await account.save();
+        //  else {
+        //     if (!req.body.accountId)
+        //         return res.status(400).send("accountId is required");
+        //     id = req.body.accountId;
+        //     delete req.body.accountId;
+        // }
 
         res.status(201).send(profile);
     }
@@ -106,6 +123,39 @@ router.patch(
             },
             { new: true, runValidators: true }
         );
+        res.send(profile);
+    }
+);
+
+router.patch(
+    "/link/:id",
+    [
+        validateObjectId,
+        auth,
+        hospital,
+        validateBody(Joi.object(_.pick(profileSchema, ["accountId"]))),
+    ],
+    async (req, res) => {
+        // if (req.account.accessLevel == roles.hospital)
+        //     return res.status(403).send("Access Denied");
+
+        const profile = await Profile.findById(req.params.id);
+
+        if (!profile) return res.status(400).send("Invalid Profile Id");
+
+        if (profile.account)
+            return res.status(400).send("Profile already linked to an account");
+
+        const account = await Account.findById(req.body.accountId);
+        if (!account) return res.status(400).send("Invalid Account Id");
+        if (account.accessLevel != roles.user)
+            return res.status(400).send("Account must be a user");
+
+        profile.account = req.body.accountId;
+        account.profiles.push(profile._id);
+        await account.save();
+        await profile.save();
+
         res.send(profile);
     }
 );

@@ -232,8 +232,6 @@ router.patch(
     async (req, res) => {
         // Mark old appointment as cancelled
         let appointment = await Appointment.findById(req.params.id);
-        appointment.cancelled = true;
-        await appointment.save();
 
         // Check rescheduled appointment
         let newAppointment = await Appointment.findById(
@@ -249,6 +247,10 @@ router.patch(
                 .status(403)
                 .send("Cannot reschedule appointment to a different doctor");
         }
+
+        appointment.cancelled = true;
+        await appointment.save();
+
         // Add profile to rescheduled appointment
         newAppointment.profile = appointment.profile;
         await newAppointment.save();
@@ -328,12 +330,12 @@ router.patch(
         await doctor.save();
 
         // Remove appointment from profile
-        const profile = await Profile.findById(appointment.profile._id);
-        profile.appointments.splice(
-            profile.appointments.indexOf(appointment._id),
-            1
-        );
-        await profile.save();
+        // const profile = await Profile.findById(appointment.profile._id);
+        // profile.appointments.splice(
+        //     profile.appointments.indexOf(appointment._id),
+        //     1
+        // );
+        // await profile.save();
 
         res.send(appointment);
     }

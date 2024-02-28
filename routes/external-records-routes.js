@@ -34,7 +34,9 @@ router.get("/", auth, async (req, res) => {
         delete query.profileId;
     }
 
-    const externalRecords = await ExternalRecord.find(query);
+    const externalRecords = await ExternalRecord.find(query).populate(
+        "specialization"
+    );
     res.send(externalRecords);
 });
 
