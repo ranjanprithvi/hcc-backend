@@ -5,7 +5,7 @@ import initialiseDb from "./startup/mongo.js";
 import initialiseRoutes from "./startup/routes.js";
 
 import https from "https";
-import fs from "fs";
+// import fs from "fs";
 
 const app = express();
 
@@ -18,8 +18,8 @@ const server = app.listen(port, () =>
     logger.info(`Listening on port ${port}..`)
 );
 
-https.createServer(app).listen(443, () => {
-    logger.info("Listening to HTTPS requests on port 443...");
+https.createServer(app).listen(4430, () => {
+    logger.info("Listening to HTTPS requests on port 4430...");
 });
 
 export default server;
