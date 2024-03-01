@@ -18,20 +18,8 @@ const server = app.listen(port, () =>
     logger.info(`Listening on port ${port}..`)
 );
 
-https
-    .createServer(
-        {
-            key: fs.readFileSync(
-                "/etc/letsencrypt/live/mytestingdomain.link/privkey.pem"
-            ),
-            cert: fs.readFileSync(
-                "/etc/letsencrypt/live/mytestingdomain.link/fullchain.pem"
-            ),
-        },
-        app
-    )
-    .listen(4430, () => {
-        console.log("Listening on port 4430...");
-    });
+https.createServer(app).listen(443, () => {
+    logger.info("Listening to HTTPS requests on port 443...");
+});
 
 export default server;
