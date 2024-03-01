@@ -40,5 +40,9 @@ export default function initialiseRoutes(app) {
     app.use("/api/prescriptions", prescriptions);
     app.use("/api/externalPrescriptions", externalPrescriptions);
 
+    app.use("/", (req, res) => {
+        res.send("Welcome to HCC Backend..");
+    });
+
     app.use(error);
 }
