@@ -3,7 +3,6 @@ import bcrypt from "bcrypt";
 import { Account } from "../models/account-model.js";
 import { authSchemaObject } from "../models/auth-model.js";
 import { validateBody } from "../middleware/validate.js";
-import { getCredentials } from "../startup/s3.js";
 // import { generateUploadUrl } from "../startup/s3.js";
 
 const router = express.Router();
@@ -20,8 +19,7 @@ router.post("/login", validateBody(authSchemaObject), async (req, res) => {
         return res.status(400).send("Invalid Email or password");
 
     const token = account.generateAuthToken();
-    const creds = await getCredentials();
-    res.send({ token, creds, accessLevel: account.accessLevel });
+    res.send({ token });
 });
 
 // router.get("/s3Url", async (req, res) => {
