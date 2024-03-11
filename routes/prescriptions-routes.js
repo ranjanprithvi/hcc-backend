@@ -11,7 +11,6 @@ import {
     editPrescriptionSchema,
     prescriptionSchemaObject,
 } from "../models/prescription-model.js";
-import { Specialization } from "../models/specialization-model.js";
 import { Doctor } from "../models/doctor-model.js";
 import { hospital } from "../middleware/hospital.js";
 const router = express.Router();
@@ -40,15 +39,6 @@ router.get("/", auth, async (req, res) => {
     res.send(prescriptions);
 });
 
-// router.get(
-//     "/:id",
-//     [validateObjectId, auth, checkOwner(Prescription, "createdByAccountId")],
-//     async (req, res) => {
-//         const prescription = await Prescription.findById(req.params.id);
-//         res.send(prescription);
-//     }
-// );
-
 router.post(
     "/",
     [auth, hospital, validateBody(prescriptionSchemaObject)],
@@ -70,7 +60,7 @@ router.post(
             folderPath: req.body.folderPath,
         });
         if (prescription)
-            return res.status(400).send("Record name should be unique");
+            return res.status(400).send("Prescription name should be unique");
 
         prescription = new Prescription({
             profile: req.body.profileId,
@@ -81,6 +71,7 @@ router.post(
                 "dateOnDocument",
                 "folderPath",
                 "files",
+                "medications",
             ]),
         });
         await prescription.save();

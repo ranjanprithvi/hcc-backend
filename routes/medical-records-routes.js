@@ -8,7 +8,7 @@ import { Profile } from "../models/profile-model.js";
 import { roles } from "../models/account-model.js";
 import {
     MedicalRecord,
-    editMedicalRecordSchema,
+    medicalRecordSchema,
     medicalRecordSchemaObject,
 } from "../models/medical-record-model.js";
 import { Doctor } from "../models/doctor-model.js";
@@ -64,26 +64,16 @@ router.post(
             if (doctor.hospital != req.account.hospital)
                 return res.status(403).send("Access Denied");
 
-        req.body.folderPath =
-            "hcc/" + profile._id + "/MedicalRecords/" + req.body.recordName;
+        // req.body.folderPath =
+        //     profile._id + "/MedicalRecords/" + req.body.recordName;
 
-        let medicalRecord = await MedicalRecord.findOne({
-            folderPath: req.body.folderPath,
-        });
-        if (medicalRecord)
-            return res.status(400).send("Record name should be unique");
+        // let medicalRecord = await MedicalRecord.findOne({
+        //     folderPath: req.body.folderPath,
+        // });
+        // if (medicalRecord)
+        //     return res.status(400).send("Record name should be unique");
 
-        medicalRecord = new MedicalRecord({
-            profile: req.body.profileId,
-            doctor: req.body.doctorId,
-
-            ..._.pick(req.body, [
-                "recordType",
-                "dateOnDocument",
-                "folderPath",
-                "files",
-            ]),
-        });
+        const medicalRecord = new MedicalRecord(req.body);
         await medicalRecord.save();
 
         profile.medicalRecords.push(medicalRecord._id);
@@ -99,7 +89,7 @@ router.patch(
         validateObjectId,
         auth,
         hospital,
-        validateEachParameter(editMedicalRecordSchema),
+        validateEachParameter(medicalRecordSchema),
         checkAccess(
             [roles.admin, roles.user],
             "hospital",

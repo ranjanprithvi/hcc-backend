@@ -11,7 +11,16 @@ import { hospital } from "../middleware/hospital.js";
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-    const medications = await Medication.find().sort("name");
+    let queryStr = JSON.stringify({ ...req.query });
+    queryStr = queryStr.replace(
+        /\b(gt|gte|lt|lte|eq|ne)\b/g,
+        (match) => `$${match}`
+    );
+    const query = JSON.parse(queryStr);
+
+    const medications = await Medication.find({
+        name: new RegExp(query.search, "i"),
+    });
     res.send(medications);
 });
 

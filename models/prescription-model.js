@@ -15,17 +15,15 @@ export const prescriptionSchema = {
     doctorId: Joi.string()
         .regex(/^[a-f\d]{24}$/i)
         .required(),
-    dateOnDocument: Joi.date().max(moment()),
+    dateOnDocument: Joi.date().max(moment().add(1, "day")),
 
-    content: Joi.string().min(10).max(5000),
+    content: Joi.string().max(5000).min(0),
     medications: Joi.array().items(
         Joi.object({
-            medicationId: Joi.string()
-                .regex(/^[a-f\d]{24}$/i)
-                .required(),
+            name: Joi.string().required(),
             dosage: Joi.string().max(20),
             interval: Joi.string().max(20),
-            durationInDays: Joi.number().max(300),
+            quantity: Joi.string().max(20),
             instructions: Joi.string().max(100),
         })
     ),
@@ -43,8 +41,17 @@ export const prescriptionSchema = {
 export const prescriptionSchemaObject = Joi.object(prescriptionSchema);
 
 export const editPrescriptionSchema = {
-    dateOnDocument: Joi.date().max(moment()),
-    content: Joi.string().min(10).max(5000),
+    dateOnDocument: Joi.date().max(moment().add(1, "day")),
+    content: Joi.string().max(5000),
+    medications: Joi.array().items(
+        Joi.object({
+            name: Joi.string().required(),
+            dosage: Joi.string().max(20),
+            interval: Joi.string().max(20),
+            quantity: Joi.string().max(20),
+            instructions: Joi.string().max(100),
+        })
+    ),
 };
 
 const dbSchema = new Schema({
@@ -62,19 +69,18 @@ const dbSchema = new Schema({
         ref: "doctor",
     },
 
-    dateOnDocument: { type: Date, max: moment() },
+    dateOnDocument: { type: Date, max: moment().add(1, "day") },
     content: {
         type: String,
-        minLength: 10,
         maxLength: 5000,
     },
     medications: {
         type: [
             {
-                medication: { type: medicationSchema, required: true },
+                name: { type: String, required: true },
                 dosage: { type: String, maxLength: 20 },
                 interval: { type: String, maxLength: 20 },
-                durationInDays: { type: Number, max: 300 },
+                quantity: { type: String, maxLength: 20 },
                 instructions: { type: String, maxLength: 100 },
             },
         ],
