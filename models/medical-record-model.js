@@ -12,7 +12,7 @@ export const medicalRecordSchema = {
     // Doctor related
     doctor: Joi.string().regex(/^[a-f\d]{24}$/i),
 
-    dateOnDocument: Joi.date().max(moment()),
+    dateOnDocument: Joi.date().max(moment().add(1, "day")),
     recordType: Joi.string().max(50),
 
     // S3 storage related
@@ -51,7 +51,7 @@ const dbSchema = new Schema({
     },
 
     recordType: { type: String, maxLength: 50 },
-    dateOnDocument: { type: Date, max: moment() },
+    dateOnDocument: { type: Date, max: moment().add(1, "day") },
 
     recordName: { type: String, maxLength: 50, required: true },
     // S3 storage related

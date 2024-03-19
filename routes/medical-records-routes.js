@@ -26,39 +26,55 @@ router.get("/", auth, async (req, res) => {
     const query = JSON.parse(queryStr);
 
     if (req.account.accessLevel != roles.admin) {
-        if (!query.profileId)
+        if (!query.profile)
             return res.status(400).send("Please provide profileId");
 
         if (req.account.accessLevel == roles.user)
-            if (!req.account.profiles.includes(query.profileId))
+            if (!req.account.profiles.includes(query.profile))
                 return res.status(403).send("Access Denied");
-
-        query.profile = query.profileId;
-        delete query.profileId;
     }
 
     const medicalRecords = await MedicalRecord.find(query);
     res.send(medicalRecords);
 });
 
-// router.get(
-//     "/:id",
-//     [validateObjectId, auth, checkOwner(MedicalRecord, "createdByAccountId")],
-//     async (req, res) => {
-//         const medicalRecord = await MedicalRecord.findById(req.params.id);
-//         res.send(medicalRecord);
-//     }
-// );
+router.get(
+    "/:id",
+    [
+        validateObjectId,
+        auth,
+        checkAccess(
+            [roles.admin, roles.hospital],
+            "_id",
+            MedicalRecord,
+            "profile.account",
+            "profile"
+        ),
+        checkAccess(
+            [roles.admin, roles.user],
+            "hospital",
+            MedicalRecord,
+            "doctor.hospital",
+            "doctor"
+        ),
+    ],
+    async (req, res) => {
+        const medicalRecord = await MedicalRecord.findById(
+            req.params.id
+        ).populate("profile");
+        res.send(medicalRecord);
+    }
+);
 
 router.post(
     "/",
     [auth, hospital, validateBody(medicalRecordSchemaObject)],
     async (req, res) => {
-        const profile = await Profile.findById(req.body.profileId);
-        if (!profile) return res.status(400).send("Invalid ProfileId");
+        const profile = await Profile.findById(req.body.profile);
+        if (!profile) return res.status(400).send("Invalid Profile Id");
 
-        const doctor = await Doctor.findById(req.body.doctorId);
-        if (!doctor) return res.status(400).send("Invalid doctorId");
+        const doctor = await Doctor.findById(req.body.doctor);
+        if (!doctor) return res.status(400).send("Invalid Doctor Id");
 
         if (req.account.accessLevel == roles.hospital)
             if (doctor.hospital != req.account.hospital)
@@ -90,6 +106,13 @@ router.patch(
         auth,
         hospital,
         validateEachParameter(medicalRecordSchema),
+        checkAccess(
+            [roles.admin, roles.hospital],
+            "_id",
+            MedicalRecord,
+            "profile.account",
+            "profile"
+        ),
         checkAccess(
             [roles.admin, roles.user],
             "hospital",

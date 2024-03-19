@@ -8,7 +8,7 @@ import { Profile } from "../models/profile-model.js";
 import { roles } from "../models/account-model.js";
 import {
     ExternalPrescription,
-    editExternalPrescriptionSchema,
+    externalPrescriptionSchema,
     externalPrescriptionSchemaObject,
 } from "../models/external-prescription-model.js";
 import { Specialization } from "../models/specialization-model.js";
@@ -24,15 +24,15 @@ router.get("/", auth, async (req, res) => {
     const query = JSON.parse(queryStr);
 
     if (req.account.accessLevel != roles.admin) {
-        if (!query.profileId)
+        if (!query.profile)
             return res.status(400).send("Please provide profileId");
 
         if (req.account.accessLevel == roles.user)
-            if (!req.account.profiles.includes(query.profileId))
+            if (!req.account.profiles.includes(query.profile))
                 return res.status(403).send("Access Denied");
 
-        query.profile = query.profileId;
-        delete query.profileId;
+        // query.profile = query.profileId;
+        // delete query.profileId;
     }
 
     const externalPrescriptions = await ExternalPrescription.find(
@@ -41,20 +41,32 @@ router.get("/", auth, async (req, res) => {
     res.send(externalPrescriptions);
 });
 
-// router.get(
-//     "/:id",
-//     [validateObjectId, auth, checkOwner(Prescription, "createdByAccountId")],
-//     async (req, res) => {
-//         const externalPrescription = await ExternalPrescription.findById(req.params.id);
-//         res.send(externalPrescription);
-//     }
-// );
+router.get(
+    "/:id",
+    [
+        validateObjectId,
+        auth,
+        checkAccess(
+            [roles.admin, roles.hospital],
+            "_id",
+            ExternalPrescription,
+            "profile.account",
+            "profile"
+        ),
+    ],
+    async (req, res) => {
+        const externalPrescription = await ExternalPrescription.findById(
+            req.params.id
+        ).populate("specialization");
+        res.send(externalPrescription);
+    }
+);
 
 router.post(
     "/",
     [auth, validateBody(externalPrescriptionSchemaObject)],
     async (req, res) => {
-        const profile = await Profile.findById(req.body.profileId);
+        const profile = await Profile.findById(req.body.profile);
         if (!profile) return res.status(400).send("Invalid ProfileId");
 
         if (req.account.accessLevel == roles.user) {
@@ -63,35 +75,24 @@ router.post(
         }
 
         const specialization = await Specialization.findById(
-            req.body.specializationId
+            req.body.specialization
         );
         if (!specialization)
             return res.status(400).send("Invalid specialization");
 
-        req.body.folderPath =
-            "hcc/" +
-            profile._id +
-            "/ExternalPrescriptions/" +
-            req.body.recordName;
+        // req.body.folderPath =
+        //     "hcc/" +
+        //     profile._id +
+        //     "/ExternalPrescriptions/" +
+        //     req.body.recordName;
 
-        let externalPrescription = await ExternalPrescription.findOne({
-            folderPath: req.body.folderPath,
-        });
-        if (externalPrescription)
-            return res.status(400).send("Record name should be unique");
+        // let externalPrescription = await ExternalPrescription.findOne({
+        //     folderPath: req.body.folderPath,
+        // });
+        // if (externalPrescription)
+        //     return res.status(400).send("Record name should be unique");
 
-        externalPrescription = new ExternalPrescription({
-            profile: req.body.profileId,
-            specialization: req.body.specializationId,
-
-            ..._.pick(req.body, [
-                "doctor",
-                "hospital",
-                "dateOnDocument",
-                "folderPath",
-                "files",
-            ]),
-        });
+        const externalPrescription = new ExternalPrescription(req.body);
         await externalPrescription.save();
 
         profile.externalPrescriptions.push(externalPrescription._id);
@@ -106,7 +107,7 @@ router.patch(
     [
         validateObjectId,
         auth,
-        validateEachParameter(editExternalPrescriptionSchema),
+        validateEachParameter(externalPrescriptionSchema),
         checkAccess(
             [roles.admin, roles.user],
             "hospital",
@@ -123,14 +124,14 @@ router.patch(
         ),
     ],
     async (req, res) => {
-        if (req.body.specializationId) {
+        if (req.body.specialization) {
             const specialization = await Specialization.findById(
-                req.body.specializationId
+                req.body.specialization
             );
             if (!specialization)
                 return res.status(400).send("Invalid specializationId");
-            req.body.specialization = specialization._id;
-            delete req.body.specializationId;
+            // req.body.specialization = specialization._id;
+            // delete req.body.specializationId;
         }
 
         const externalPrescription =

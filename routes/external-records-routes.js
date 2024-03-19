@@ -8,7 +8,7 @@ import { Profile } from "../models/profile-model.js";
 import { Account, roles } from "../models/account-model.js";
 import {
     ExternalRecord,
-    editExternalRecordSchema,
+    externalRecordSchema,
     externalRecordSchemaObject,
 } from "../models/external-record-model.js";
 import { Specialization } from "../models/specialization-model.js";
@@ -23,15 +23,15 @@ router.get("/", auth, async (req, res) => {
     const query = JSON.parse(queryStr);
 
     if (req.account.accessLevel != roles.admin) {
-        if (!query.profileId)
+        if (!query.profile)
             return res.status(400).send("Please provide profileId");
 
         if (req.account.accessLevel == roles.user)
-            if (!req.account.profiles.includes(query.profileId))
+            if (!req.account.profiles.includes(query.profile))
                 return res.status(403).send("Access Denied");
 
-        query.profile = query.profileId;
-        delete query.profileId;
+        // query.profile = query.profileId;
+        // delete query.profileId;
     }
 
     const externalRecords = await ExternalRecord.find(query).populate(
@@ -40,20 +40,32 @@ router.get("/", auth, async (req, res) => {
     res.send(externalRecords);
 });
 
-// router.get(
-//     "/:id",
-//     [validateObjectId, auth, checkOwner(ExternalRecord, "createdByAccountId")],
-//     async (req, res) => {
-//         const externalRecord = await ExternalRecord.findById(req.params.id);
-//         res.send(externalRecord);
-//     }
-// );
+router.get(
+    "/:id",
+    [
+        validateObjectId,
+        auth,
+        checkAccess(
+            [roles.admin, roles.hospital],
+            "_id",
+            ExternalRecord,
+            "profile.account",
+            "profile"
+        ),
+    ],
+    async (req, res) => {
+        const externalRecord = await ExternalRecord.findById(
+            req.params.id
+        ).populate("specialization");
+        res.send(externalRecord);
+    }
+);
 
 router.post(
     "/",
     [auth, validateBody(externalRecordSchemaObject)],
     async (req, res) => {
-        const profile = await Profile.findById(req.body.profileId);
+        const profile = await Profile.findById(req.body.profile);
         if (!profile) return res.status(400).send("Invalid ProfileId");
 
         if (req.account.accessLevel == roles.user) {
@@ -62,33 +74,21 @@ router.post(
         }
 
         const specialization = await Specialization.findById(
-            req.body.specializationId
+            req.body.specialization
         );
         if (!specialization)
             return res.status(400).send("Invalid specialization");
 
-        req.body.folderPath =
-            "hcc/" + profile._id + "/ExternalRecords/" + req.body.recordName;
+        // req.body.folderPath =
+        //     "hcc/" + profile._id + "/ExternalRecords/" + req.body.recordName;
 
-        let externalRecord = await ExternalRecord.findOne({
-            folderPath: req.body.folderPath,
-        });
-        if (externalRecord)
-            return res.status(400).send("Record name should be unique");
+        // let externalRecord = await ExternalRecord.findOne({
+        //     folderPath: req.body.folderPath,
+        // });
+        // if (externalRecord)
+        //     return res.status(400).send("Record name should be unique");
 
-        externalRecord = new ExternalRecord({
-            profile: req.body.profileId,
-            specialization: req.body.specializationId,
-
-            ..._.pick(req.body, [
-                "doctor",
-                "hospital",
-                "recordType",
-                "dateOnDocument",
-                "folderPath",
-                "files",
-            ]),
-        });
+        const externalRecord = new ExternalRecord(req.body);
         await externalRecord.save();
 
         profile.externalRecords.push(externalRecord._id);
@@ -103,14 +103,7 @@ router.patch(
     [
         validateObjectId,
         auth,
-        validateEachParameter(editExternalRecordSchema),
-        checkAccess(
-            [roles.admin, roles.user],
-            "hospital",
-            ExternalRecord,
-            "doctor.hospital",
-            "doctor"
-        ),
+        validateEachParameter(externalRecordSchema),
         checkAccess(
             [roles.admin, roles.hospital],
             "_id",
@@ -121,12 +114,10 @@ router.patch(
     ],
     async (req, res) => {
         const specialization = await Specialization.findById(
-            req.body.specializationId
+            req.body.specialization
         );
         if (!specialization)
             return res.status(400).send("Invalid specializationId");
-        req.body.specialization = specialization._id;
-        delete req.body.specializationId;
 
         const externalRecord = await ExternalRecord.findByIdAndUpdate(
             req.params.id,
