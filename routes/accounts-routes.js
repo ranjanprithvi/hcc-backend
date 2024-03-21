@@ -25,7 +25,7 @@ router.get("/me", auth, async (req, res) => {
     if (!account) {
         return res.status(400).send("Account not found");
     }
-    if (account.accessLevel == roles.hospital) delete account.profiles;
+    // if (account.accessLevel == roles.hospital) delete account.profiles;
     res.send(account);
 });
 

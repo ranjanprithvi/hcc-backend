@@ -19,7 +19,9 @@ router.post("/login", validateBody(authSchemaObject), async (req, res) => {
         return res.status(400).send("Invalid Email or password");
 
     const token = account.generateAuthToken();
-    res.send({ token });
+    res.header("x-auth-token", token)
+        .header("access-control-expose-headers", "x-auth-token")
+        .send("Success");
 });
 
 // router.get("/s3Url", async (req, res) => {

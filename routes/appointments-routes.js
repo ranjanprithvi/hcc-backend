@@ -188,14 +188,13 @@ router.patch(
         if (!req.body.profileId)
             return res.status(400).send("Please provide profileId");
 
-        let profile = await Profile.findById(req.body.profileId);
+        const profile = await Profile.findById(req.body.profileId);
         if (!profile) return res.status(400).send("Invalid profileId");
 
-        if (req.account.accessLevel == roles.user) {
-            if (!req.account.profiles.includes(req.body.profileId))
+        if (req.account.accessLevel == roles.user)
+            if (profile.account != req.account._id) {
                 return res.status(403).send("Access Denied");
-        }
-
+            }
         appointment.profile = profile._id;
         await appointment.save();
 

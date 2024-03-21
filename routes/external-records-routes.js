@@ -26,10 +26,13 @@ router.get("/", auth, async (req, res) => {
         if (!query.profile)
             return res.status(400).send("Please provide profileId");
 
-        if (req.account.accessLevel == roles.user)
-            if (!req.account.profiles.includes(query.profile))
-                return res.status(403).send("Access Denied");
+        const profile = await Profile.findById(query.profile);
+        if (!profile) return res.status(400).send("Invalid Profile Id");
 
+        if (req.account.accessLevel == roles.user)
+            if (profile.account != req.account._id) {
+                return res.status(403).send("Access Denied");
+            }
         // query.profile = query.profileId;
         // delete query.profileId;
     }
