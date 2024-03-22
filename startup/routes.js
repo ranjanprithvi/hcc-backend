@@ -27,18 +27,18 @@ export default function initialiseRoutes(app) {
     logger.info("Morgan enabled");
     app.use(morgan("tiny"));
 
-    app.use("/api/auth", auth);
-    app.use("/api/profiles", profiles);
-    app.use("/api/accounts", accounts);
-    app.use("/api/appointments", appointments);
-    app.use("/api/doctors", doctors);
-    app.use("/api/hospitals", hospitals);
-    app.use("/api/medicalRecords", medicalRecords);
-    app.use("/api/externalRecords", externalRecords);
-    app.use("/api/specializations", specializations);
-    app.use("/api/medications", medications);
-    app.use("/api/prescriptions", prescriptions);
-    app.use("/api/externalPrescriptions", externalPrescriptions);
+    app.use("/hcc/api/auth", auth);
+    app.use("/hcc/api/profiles", profiles);
+    app.use("/hcc/api/accounts", accounts);
+    app.use("/hcc/api/appointments", appointments);
+    app.use("/hcc/api/doctors", doctors);
+    app.use("/hcc/api/hospitals", hospitals);
+    app.use("/hcc/api/medicalRecords", medicalRecords);
+    app.use("/hcc/api/externalRecords", externalRecords);
+    app.use("/hcc/api/specializations", specializations);
+    app.use("/hcc/api/medications", medications);
+    app.use("/hcc/api/prescriptions", prescriptions);
+    app.use("/hcc/api/externalPrescriptions", externalPrescriptions);
 
     app.use("/", (req, res) => {
         res.send("Welcome to HCC Backend..");
