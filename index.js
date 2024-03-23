@@ -18,8 +18,8 @@ const server = app.listen(port, () =>
     logger.info(`Listening on port ${port}..`)
 );
 
-https.createServer(app).listen(4430, () => {
-    logger.info("Listening to HTTPS requests on port 4430...");
-});
+// https.createServer(app).listen(4430, () => {
+//     logger.info("Listening to HTTPS requests on port 4430...");
+// });
 
 export default server;
