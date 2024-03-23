@@ -3,8 +3,8 @@ import config from "config";
 import { logger } from "./logger.js";
 
 export const connectionString = config.has("connectionString")
-    ? config.get("connectionString")
-    : config.get("db");
+    ? config.get("connectionString") + config.get("name")
+    : config.get("db") + config.get("name");
 // export const connectionString =
 //     "mongodb+srv://ranjanprithvi:" +
 //     config.get("MongoPassword") +
