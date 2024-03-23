@@ -27,18 +27,18 @@ export default function initialiseRoutes(app) {
     logger.info("Morgan enabled");
     app.use(morgan("tiny"));
 
-    app.use("/hcc/api/auth", auth);
-    app.use("/hcc/api/profiles", profiles);
-    app.use("/hcc/api/accounts", accounts);
-    app.use("/hcc/api/appointments", appointments);
-    app.use("/hcc/api/doctors", doctors);
-    app.use("/hcc/api/hospitals", hospitals);
-    app.use("/hcc/api/medicalRecords", medicalRecords);
-    app.use("/hcc/api/externalRecords", externalRecords);
-    app.use("/hcc/api/specializations", specializations);
-    app.use("/hcc/api/medications", medications);
-    app.use("/hcc/api/prescriptions", prescriptions);
-    app.use("/hcc/api/externalPrescriptions", externalPrescriptions);
+    app.use("/hcc_demo/api/auth", auth);
+    app.use("/hcc_demo/api/profiles", profiles);
+    app.use("/hcc_demo/api/accounts", accounts);
+    app.use("/hcc_demo/api/appointments", appointments);
+    app.use("/hcc_demo/api/doctors", doctors);
+    app.use("/hcc_demo/api/hospitals", hospitals);
+    app.use("/hcc_demo/api/medicalRecords", medicalRecords);
+    app.use("/hcc_demo/api/externalRecords", externalRecords);
+    app.use("/hcc_demo/api/specializations", specializations);
+    app.use("/hcc_demo/api/medications", medications);
+    app.use("/hcc_demo/api/prescriptions", prescriptions);
+    app.use("/hcc_demo/api/externalPrescriptions", externalPrescriptions);
 
     app.use("/", (req, res) => {
         res.send("Welcome to HCC Backend..");
