@@ -16,6 +16,7 @@ import prescriptions from "../routes/prescriptions-routes.js";
 import externalPrescriptions from "../routes/external-prescriptions-routes.js";
 import medicalRecords from "../routes/medical-records-routes.js";
 import externalRecords from "../routes/external-records-routes.js";
+import config from "config";
 
 export default function initialiseRoutes(app) {
     app.use(cors());
@@ -27,18 +28,21 @@ export default function initialiseRoutes(app) {
     logger.info("Morgan enabled");
     app.use(morgan("tiny"));
 
-    app.use("/hcc/api/auth", auth);
-    app.use("/hcc/api/profiles", profiles);
-    app.use("/hcc/api/accounts", accounts);
-    app.use("/hcc/api/appointments", appointments);
-    app.use("/hcc/api/doctors", doctors);
-    app.use("/hcc/api/hospitals", hospitals);
-    app.use("/hcc/api/medicalRecords", medicalRecords);
-    app.use("/hcc/api/externalRecords", externalRecords);
-    app.use("/hcc/api/specializations", specializations);
-    app.use("/hcc/api/medications", medications);
-    app.use("/hcc/api/prescriptions", prescriptions);
-    app.use("/hcc/api/externalPrescriptions", externalPrescriptions);
+    app.use(`/${config.get("name")}/api/auth`, auth);
+    app.use(`/${config.get("name")}/api/profiles`, profiles);
+    app.use(`/${config.get("name")}/api/accounts`, accounts);
+    app.use(`/${config.get("name")}/api/appointments`, appointments);
+    app.use(`/${config.get("name")}/api/doctors`, doctors);
+    app.use(`/${config.get("name")}/api/hospitals`, hospitals);
+    app.use(`/${config.get("name")}/api/medicalRecords`, medicalRecords);
+    app.use(`/${config.get("name")}/api/externalRecords`, externalRecords);
+    app.use(`/${config.get("name")}/api/specializations`, specializations);
+    app.use(`/${config.get("name")}/api/medications`, medications);
+    app.use(`/${config.get("name")}/api/prescriptions`, prescriptions);
+    app.use(
+        `/${config.get("name")}/api/externalPrescriptions`,
+        externalPrescriptions
+    );
 
     app.use("/", (req, res) => {
         res.send("Welcome to HCC Backend..");
