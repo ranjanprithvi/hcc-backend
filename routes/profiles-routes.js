@@ -62,7 +62,6 @@ router.get(
             { path: "externalRecords", populate: "specialization" },
             { path: "externalPrescriptions", populate: "specialization" },
         ]);
-        console.log(profile);
         res.send(profile);
     }
 );

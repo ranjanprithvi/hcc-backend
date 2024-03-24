@@ -25,7 +25,6 @@ router.get("/", async (req, res) => {
         path: "appointments",
         populate: { path: "appointments", model: "appointment" },
     });
-    console.log(doctors);
     res.send(doctors);
 });
 

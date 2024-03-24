@@ -9,7 +9,7 @@ const myFormat = printf(({ level, message, label, timestamp }) => {
 });
 
 export const logger = createLogger({
-    format: combine(label({ label: "Starbooks" }), timestamp(), myFormat),
+    format: combine(label({ label: "HCC" }), timestamp(), myFormat),
     transports: [
         new transports.Console(),
         new transports.File({ filename: "logs/logfile.log" }),

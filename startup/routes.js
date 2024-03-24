@@ -26,7 +26,12 @@ export default function initialiseRoutes(app) {
     app.use(helmet());
 
     logger.info("Morgan enabled");
-    app.use(morgan("tiny"));
+    app.use(
+        morgan(
+            ":date[iso] - :method :url :status :res[content-length] - :response-time ms"
+        )
+    );
+    // app.use(morgan("tiny"));
 
     app.use(`/${config.get("name")}/api/auth`, auth);
     app.use(`/${config.get("name")}/api/profiles`, profiles);

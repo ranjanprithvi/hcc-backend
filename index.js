@@ -4,9 +4,6 @@ import { logger } from "./startup/logger.js";
 import initialiseDb from "./startup/mongo.js";
 import initialiseRoutes from "./startup/routes.js";
 
-import https from "https";
-// import fs from "fs";
-
 const app = express();
 
 initialiseDb();
