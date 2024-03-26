@@ -39,16 +39,20 @@ router.get("/", [auth, hospital], async (req, res) => {
 
 router.post(
     "/registerUser",
-    validateBody(Joi.object(_.pick(accountSchema, ["email", "password"]))),
+    validateBody(
+        Joi.object(_.pick(accountSchema, ["email", "password", "sub"]))
+    ),
     async (req, res) => {
         let account = await Account.findOne({ email: req.body.email });
         if (account) return res.status(400).send("Account already registered.");
 
         const salt = await bcrypt.genSalt(10);
-        const password = await bcrypt.hash(req.body.password, salt);
+        // const password = await bcrypt.hash(req.body.password, salt);
+        const password = "random";
         account = new Account({
             email: req.body.email,
             password,
+            sub: req.body.sub,
         });
 
         try {
@@ -60,7 +64,7 @@ router.post(
         res.status(201)
             .header("x-auth-token", token)
             .header("access-control-expose-headers", "x-auth-token")
-            .send(_.pick(account, ["_id", "email", "accessLevel"]));
+            .send(_.pick(account, ["_id", "email", "accessLevel", "sub"]));
     }
 );
 

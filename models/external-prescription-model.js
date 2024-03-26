@@ -14,7 +14,7 @@ export const externalPrescriptionSchema = {
     hospital: Joi.string().required(),
 
     // Document related
-    specializationId: Joi.string()
+    specialization: Joi.string()
         .regex(/^[a-f\d]{24}$/i)
         .required(),
 
