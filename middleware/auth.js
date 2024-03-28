@@ -38,6 +38,7 @@ export async function auth(req, res, next) {
             req.account.hospital = account.hospital.toString();
 
         console.log(req.account);
+
         next();
     } catch (err) {
         res.status(400).send(err);

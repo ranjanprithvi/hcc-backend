@@ -33,7 +33,9 @@ router.get("/", [auth, hospital], async (req, res) => {
     let query = {};
     if (req.account.accessLevel != roles.admin) query.accessLevel = roles.user;
 
-    const accounts = await Account.find(query).select("-password");
+    const accounts = await Account.find(query)
+        .populate("account")
+        .select("-password");
     res.send(accounts);
 });
 
@@ -116,69 +118,105 @@ router.post(
     }
 );
 
+// router.patch(
+//     "/changePassword",
+//     [
+//         validateEachParameter(
+//             _.pick(accountSchema, ["email", "password", "oldPassword"])
+//         ),
+//     ],
+//     async (req, res) => {
+//         if (!req.body.email) {
+//             return res.status(400).send("Please enter email");
+//         }
+
+//         let account = await Account.findOne({ email: req.body.email });
+//         if (!account) return res.status(400).send("Email not found");
+
+//         if (!req.body.oldPassword) {
+//             return res.status(400).send("Please enter old password");
+//         }
+//         if (!req.body.password) {
+//             return res.status(400).send("Please enter new password");
+//         }
+
+//         const match = await bcrypt.compare(
+//             req.body.oldPassword,
+//             account.password
+//         );
+
+//         if (!match) return res.status(400).send("Invalid password");
+
+//         const salt = await bcrypt.genSalt(10);
+//         req.body.password = await bcrypt.hash(req.body.password, salt);
+
+//         account = await Account.findByIdAndUpdate(
+//             account._id,
+//             { $set: { password: req.body.password } },
+//             { new: true, runValidators: true }
+//         );
+
+//         res.send(_.pick(account, ["_id", "email", "accessLevel"]));
+//     }
+// );
+
+// router.patch(
+//     "/forgotPassword",
+//     [auth, validateEachParameter(_.pick(accountSchema, ["email", "password"]))],
+//     async (req, res) => {
+//         let account = await Account.findById(req.account._id);
+//         if (!account) return res.status(404).send("Account not found");
+
+//         if (!req.body.password) {
+//             return res.status(400).send("Please enter new password");
+//         }
+//         const salt = await bcrypt.genSalt(10);
+//         req.body.password = await bcrypt.hash(req.body.password, salt);
+
+//         account = await Account.findByIdAndUpdate(
+//             req.account._id,
+//             { $set: { password: req.body.password } },
+//             { new: true, runValidators: true }
+//         );
+//         if (!account) return res.status(404).send("Resource not found");
+
+//         res.send(_.pick(account, ["_id", "email", "accessLevel"]));
+//     }
+// );
+
 router.patch(
-    "/changePassword",
-    [
-        validateEachParameter(
-            _.pick(accountSchema, ["email", "password", "oldPassword"])
-        ),
-    ],
+    "/updateIdentityId",
+    [auth, validateEachParameter(_.pick(accountSchema, ["identityId"]))],
     async (req, res) => {
-        if (!req.body.email) {
-            return res.status(400).send("Please enter email");
-        }
-
-        let account = await Account.findOne({ email: req.body.email });
-        if (!account) return res.status(400).send("Email not found");
-
-        if (!req.body.oldPassword) {
-            return res.status(400).send("Please enter old password");
-        }
-        if (!req.body.password) {
-            return res.status(400).send("Please enter new password");
-        }
-
-        const match = await bcrypt.compare(
-            req.body.oldPassword,
-            account.password
-        );
-
-        if (!match) return res.status(400).send("Invalid password");
-
-        const salt = await bcrypt.genSalt(10);
-        req.body.password = await bcrypt.hash(req.body.password, salt);
-
-        account = await Account.findByIdAndUpdate(
-            account._id,
-            { $set: { password: req.body.password } },
-            { new: true, runValidators: true }
-        );
-
-        res.send(_.pick(account, ["_id", "email", "accessLevel"]));
-    }
-);
-
-router.patch(
-    "/forgotPassword",
-    [auth, validateEachParameter(_.pick(accountSchema, ["email", "password"]))],
-    async (req, res) => {
-        let account = await Account.findById(req.account._id);
-        if (!account) return res.status(404).send("Account not found");
-
-        if (!req.body.password) {
-            return res.status(400).send("Please enter new password");
-        }
-        const salt = await bcrypt.genSalt(10);
-        req.body.password = await bcrypt.hash(req.body.password, salt);
-
-        account = await Account.findByIdAndUpdate(
+        console.log(req.body);
+        const account = await Account.findByIdAndUpdate(
             req.account._id,
-            { $set: { password: req.body.password } },
+            { $set: req.body },
             { new: true, runValidators: true }
         );
         if (!account) return res.status(404).send("Resource not found");
 
-        res.send(_.pick(account, ["_id", "email", "accessLevel"]));
+        res.send(account);
+    }
+);
+
+router.patch(
+    "/:id",
+    [
+        validateObjectId,
+        auth,
+        admin,
+        validateEachParameter(_.pick(accountSchema, ["accessLevel"])),
+    ],
+    async (req, res) => {
+        let account = await Account.findByIdAndUpdate(
+            req.params.id,
+            { $set: req.body },
+            { new: true, runValidators: true }
+        );
+        if (!account) return res.status(404).send("Resource not found");
+
+        res.send(account);
     }
 );
 

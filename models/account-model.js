@@ -25,6 +25,7 @@ export const accountSchema = {
     email: Joi.string().email().min(5).max(255).required(),
     // password: passwordComplexity(complexityOptions).required(),
     sub: Joi.string().required(),
+    identityId: Joi.string(),
     accessLevel: Joi.number().valid(...Object.values(roles)),
     hospitalId: Joi.alternatives().conditional("accessLevel", {
         is: roles.hospital,
@@ -44,6 +45,7 @@ const dbSchema = new Schema({
     },
     password: { type: String, minLength: 5, maxLength: 1024, required: true },
     sub: { type: String, required: true },
+    identityId: { type: String },
     accessLevel: {
         type: Number,
         enum: Object.values(roles),
