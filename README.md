@@ -6,8 +6,6 @@
 
 # Admin Accounts:
 
-    Hospitals
-
 -   Can create and edit/delete all hospitals
     Doctors
 -   Can create and edit/delete all doctors
