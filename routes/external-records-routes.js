@@ -37,9 +37,10 @@ router.get("/", auth, async (req, res) => {
         // delete query.profileId;
     }
 
-    const externalRecords = await ExternalRecord.find(query).populate(
-        "specialization"
-    );
+    const externalRecords = await ExternalRecord.find(query).populate([
+        "specialization",
+        { path: "profile", populate: "account" },
+    ]);
     res.send(externalRecords);
 });
 
@@ -59,7 +60,10 @@ router.get(
     async (req, res) => {
         const externalRecord = await ExternalRecord.findById(
             req.params.id
-        ).populate("specialization");
+        ).populate([
+            "specialization",
+            { path: "profile", populate: "account" },
+        ]);
         res.send(externalRecord);
     }
 );

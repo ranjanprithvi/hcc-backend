@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import config from "config";
-import { logger } from "./logger.js";
+// import { logger } from "./logger.js";
 
 export const connectionString = config.has("connectionString")
     ? config.get("connectionString") + config.get("name")
@@ -16,6 +16,6 @@ export default function initialiseDb() {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         })
-        .then(() => logger.info(`Connected to ${connectionString}..`));
+        .then(() => console.log(`Connected to ${connectionString}..`));
 }
 export const conn = mongoose.connection;

@@ -25,7 +25,7 @@ export default function initialiseRoutes(app) {
     app.use(express.static("public")); // All resources inside public folder can be served
     app.use(helmet());
 
-    logger.info("Morgan enabled");
+    console.log("Morgan enabled");
     app.use(
         morgan(
             ":date[iso] - :method :url :status :res[content-length] - :response-time ms"

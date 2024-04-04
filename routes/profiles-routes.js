@@ -46,7 +46,9 @@ router.get(
         checkAccess([roles.admin, roles.hospital], "_id", Profile, "account"),
     ],
     async (req, res) => {
-        const profile = await Profile.findById(req.params.id);
+        const profile = await Profile.findById(req.params.id).populate(
+            "account"
+        );
         res.send(profile);
     }
 );
@@ -59,6 +61,7 @@ router.get(
             "appointments",
             "medicalRecords",
             "prescriptions",
+            "account",
             { path: "externalRecords", populate: "specialization" },
             { path: "externalPrescriptions", populate: "specialization" },
         ]);

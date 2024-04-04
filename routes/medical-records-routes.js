@@ -38,7 +38,9 @@ router.get("/", auth, async (req, res) => {
             }
     }
 
-    const medicalRecords = await MedicalRecord.find(query);
+    const medicalRecords = await MedicalRecord.find(query).populate([
+        { path: "profile", populate: "account" },
+    ]);
     res.send(medicalRecords);
 });
 
@@ -65,7 +67,8 @@ router.get(
     async (req, res) => {
         const medicalRecord = await MedicalRecord.findById(
             req.params.id
-        ).populate("profile");
+        ).populate(["profile", { path: "profile", populate: "account" }]);
+        console.log(medicalRecord);
         res.send(medicalRecord);
     }
 );

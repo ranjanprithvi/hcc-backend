@@ -39,7 +39,8 @@ router.get("/", auth, async (req, res) => {
 
     const externalPrescriptions = await ExternalPrescription.find(
         query
-    ).populate("specialization");
+    ).populate(["specialization", { path: "profile", populate: "account" }]);
+
     res.send(externalPrescriptions);
 });
 
@@ -59,7 +60,10 @@ router.get(
     async (req, res) => {
         const externalPrescription = await ExternalPrescription.findById(
             req.params.id
-        ).populate("specialization");
+        ).populate([
+            "specialization",
+            { path: "profile", populate: "account" },
+        ]);
         res.send(externalPrescription);
     }
 );

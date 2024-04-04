@@ -12,6 +12,16 @@ import Joi from "joi";
 import { hospital } from "../middleware/hospital.js";
 const router = express.Router();
 
+router.get("/", [auth, hospital], async (req, res) => {
+    let query = {};
+    if (req.account.accessLevel != roles.admin) query.accessLevel = roles.user;
+
+    const accounts = await Account.find(query)
+        .populate("account")
+        .select("-password");
+    res.send(accounts);
+});
+
 router.get("/me", auth, async (req, res) => {
     const account = await Account.findById(req.account._id)
         .select("-password")
@@ -29,15 +39,22 @@ router.get("/me", auth, async (req, res) => {
     res.send(account);
 });
 
-router.get("/", [auth, hospital], async (req, res) => {
-    let query = {};
-    if (req.account.accessLevel != roles.admin) query.accessLevel = roles.user;
-
-    const accounts = await Account.find(query)
-        .populate("account")
-        .select("-password");
-    res.send(accounts);
-});
+// router.get("/:id", [auth, hospital], async (req, res) => {
+//     const account = await Account.findById(req.params.id)
+//         .select("-password")
+//         .populate([
+//             { path: "profiles" },
+//             {
+//                 path: "hospital",
+//                 populate: { path: "doctors", model: "doctor" },
+//             },
+//         ]);
+//     if (!account) {
+//         return res.status(400).send("Account not found");
+//     }
+//     // if (account.accessLevel == roles.hospital) delete account.profiles;
+//     res.send(account);
+// });
 
 router.post(
     "/registerUser",

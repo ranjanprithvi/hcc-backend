@@ -58,7 +58,7 @@ router.get(
     async (req, res) => {
         const prescription = await Prescription.findById(
             req.params.id
-        ).populate("profile");
+        ).populate([{ path: "profile", populate: "account" }]);
         res.send(prescription);
     }
 );
