@@ -5,7 +5,7 @@ import { logger } from "../../startup/logger";
 import { conn } from "../../startup/mongo";
 import { Profile } from "../../models/profile-model.js";
 import bcrypt from "bcrypt";
-import { Account, roles } from "../../models/account-model.js";
+import { Account, Roles } from "../../models/account-model.js";
 import { admin } from "../../middleware/admin";
 import { hospital } from "../../middleware/hospital.js";
 
@@ -59,7 +59,7 @@ describe("/api/profiles", () => {
             ]);
 
             token = new Account({
-                accessLevel: roles.admin,
+                accessLevel: Roles.Admin,
             }).generateAuthToken();
             const res = await exec();
             expect(res.status).toBe(200);
@@ -107,7 +107,7 @@ describe("/api/profiles", () => {
 
         it("should allow for retrieval if account is admin", async () => {
             token = new Account({
-                accessLevel: roles.admin,
+                accessLevel: Roles.Admin,
             }).generateAuthToken();
             const res = await exec();
             expect(res.status).toBe(200);
@@ -170,7 +170,7 @@ describe("/api/profiles", () => {
 
         // it("should return 403 if account is hospital", async () => {
         //     token = new Account({
-        //         accessLevel: roles.hospital,
+        //         accessLevel: Roles.Hospital,
         //     }).generateAuthToken();
 
         //     const res = await exec();
@@ -181,7 +181,7 @@ describe("/api/profiles", () => {
             const adminAccount = new Account({
                 email: "admin@abc.com",
                 password: "123456",
-                accessLevel: roles.admin,
+                accessLevel: Roles.Admin,
             });
             await adminAccount.save();
             token = adminAccount.generateAuthToken();
@@ -194,7 +194,7 @@ describe("/api/profiles", () => {
             const adminAccount = new Account({
                 email: "admin@abc.com",
                 password: "123456",
-                accessLevel: roles.admin,
+                accessLevel: Roles.Admin,
             });
             await adminAccount.save();
             token = adminAccount.generateAuthToken();
@@ -212,7 +212,7 @@ describe("/api/profiles", () => {
 
         it("should return 400 if account is not user and no account with accountId exists", async () => {
             token = new Account({
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
             }).generateAuthToken();
             params.accountId = mongoose.Types.ObjectId();
 
@@ -294,7 +294,7 @@ describe("/api/profiles", () => {
             const adminAccount = new Account({
                 email: "admin@abc.com",
                 password: "123456",
-                accessLevel: roles.admin,
+                accessLevel: Roles.Admin,
             });
             await adminAccount.save();
             token = adminAccount.generateAuthToken();
@@ -379,7 +379,7 @@ describe("/api/profiles", () => {
 
         // it("should return 403 if account is hospital", async () => {
         //     token = new Account({
-        //         accessLevel: roles.hospital,
+        //         accessLevel: Roles.Hospital,
         //     }).generateAuthToken();
 
         //     const res = await exec();
@@ -388,7 +388,7 @@ describe("/api/profiles", () => {
 
         it("should allow for modification if account is admin", async () => {
             token = new Account({
-                accessLevel: roles.admin,
+                accessLevel: Roles.Admin,
             }).generateAuthToken();
             const res = await exec();
             expect(res.status).toBe(200);
@@ -525,7 +525,7 @@ describe("/api/profiles", () => {
 
         // it("should return 403 if account is hospital", async () => {
         //     token = new Account({
-        //         accessLevel: roles.hospital,
+        //         accessLevel: Roles.Hospital,
         //     }).generateAuthToken();
 
         //     const res = await exec();
@@ -534,7 +534,7 @@ describe("/api/profiles", () => {
 
         it("should allow for deletion if account is admin", async () => {
             token = new Account({
-                accessLevel: roles.admin,
+                accessLevel: Roles.Admin,
             }).generateAuthToken();
             const res = await exec();
             expect(res.status).toBe(200);

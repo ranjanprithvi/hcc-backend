@@ -4,7 +4,7 @@ import server from "../../index";
 import { logger } from "../../startup/logger";
 import { conn } from "../../startup/mongo";
 import { Specialization } from "../../models/specialization-model.js";
-import { Account, roles } from "../../models/account-model.js";
+import { Account, Roles } from "../../models/account-model.js";
 import { param } from "express/lib/router";
 
 describe("/api/specializations", () => {
@@ -70,7 +70,7 @@ describe("/api/specializations", () => {
 
         beforeEach(() => {
             token = new Account({
-                accessLevel: roles.admin,
+                accessLevel: Roles.Admin,
             }).generateAuthToken();
             params = { name: "Cardiology" };
         });
@@ -91,7 +91,7 @@ describe("/api/specializations", () => {
 
         it("should return 403 if client is not an admin", async () => {
             token = new Account({
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
             }).generateAuthToken();
             const response = await exec();
 
@@ -158,7 +158,7 @@ describe("/api/specializations", () => {
             id = specialization._id;
 
             token = new Account({
-                accessLevel: roles.admin,
+                accessLevel: Roles.Admin,
             }).generateAuthToken();
             params = { name: "Orthopaedics" };
         });
@@ -179,7 +179,7 @@ describe("/api/specializations", () => {
 
         it("should return 403 if client is not an admin", async () => {
             token = new Account({
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
             }).generateAuthToken();
             const response = await exec();
 
@@ -256,7 +256,7 @@ describe("/api/specializations", () => {
             id = specialization._id;
 
             token = new Account({
-                accessLevel: roles.admin,
+                accessLevel: Roles.Admin,
             }).generateAuthToken();
         });
 
@@ -275,7 +275,7 @@ describe("/api/specializations", () => {
 
         it("should return 403 if client is not an admin", async () => {
             token = new Account({
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
             }).generateAuthToken();
             const response = await exec();
 

@@ -4,7 +4,7 @@ import server from "../../index";
 import { logger } from "../../startup/logger";
 import { conn } from "../../startup/mongo";
 import { Doctor } from "../../models/doctor-model.js";
-import { Account, roles } from "../../models/account-model.js";
+import { Account, Roles } from "../../models/account-model.js";
 import { Hospital } from "../../models/hospitalModel";
 import { Specialization } from "../../models/specializationModel";
 import moment from "moment";
@@ -127,7 +127,7 @@ describe("/api/doctors", () => {
             await specialization.save();
 
             token = new Account({
-                accessLevel: roles.admin,
+                accessLevel: Roles.Admin,
             }).generateAuthToken();
 
             params = {
@@ -155,7 +155,7 @@ describe("/api/doctors", () => {
 
         it("should return 403 if client is not an admin", async () => {
             token = new Account({
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
             }).generateAuthToken();
             const response = await exec();
 
@@ -325,7 +325,7 @@ describe("/api/doctors", () => {
             await specialization.save();
 
             token = new Account({
-                accessLevel: roles.admin,
+                accessLevel: Roles.Admin,
             }).generateAuthToken();
             params = {
                 name: "Doctor2",
@@ -351,7 +351,7 @@ describe("/api/doctors", () => {
 
         it("should return 403 if client is not an admin", async () => {
             token = new Account({
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
             }).generateAuthToken();
             const response = await exec();
 
@@ -481,7 +481,7 @@ describe("/api/doctors", () => {
             id = doctor._id;
 
             token = new Account({
-                accessLevel: roles.admin,
+                accessLevel: Roles.Admin,
             }).generateAuthToken();
         });
 
@@ -500,7 +500,7 @@ describe("/api/doctors", () => {
 
         it("should return 403 if client is not an admin", async () => {
             token = new Account({
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
             }).generateAuthToken();
             const response = await exec();
 

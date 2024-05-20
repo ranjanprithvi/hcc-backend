@@ -5,7 +5,7 @@ import { logger } from "../../startup/logger";
 import { conn } from "../../startup/mongo";
 import { Appointment } from "../../models/appointment-model.js";
 import { Profile } from "../../models/profile-model.js";
-import { Account, roles } from "../../models/account-model.js";
+import { Account, Roles } from "../../models/account-model.js";
 import moment from "moment";
 import { Doctor } from "../../models/doctorModel";
 import { Hospital } from "../../models/hospitalModel";
@@ -54,7 +54,7 @@ describe("/api/appointments", () => {
             hospitalAccount = new Account({
                 email: "abcde@abc.com",
                 password: "123456",
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
                 hospital: hospital._id,
             });
 
@@ -73,7 +73,7 @@ describe("/api/appointments", () => {
             });
 
             userAccount = new Account({
-                accessLevel: roles.user,
+                accessLevel: Roles.User,
                 profiles: [profile._id],
             });
 
@@ -189,7 +189,7 @@ describe("/api/appointments", () => {
 
         it("should return all the appointments if client is an admin", async () => {
             token = new Account({
-                accessLevel: roles.admin,
+                accessLevel: Roles.Admin,
             }).generateAuthToken();
             queryStr = "";
 
@@ -237,7 +237,7 @@ describe("/api/appointments", () => {
             });
 
             userAccount = new Account({
-                accessLevel: roles.user,
+                accessLevel: Roles.User,
                 email: "asdf@akdjf.com",
                 password: "123456",
                 profiles: [profile._id],
@@ -384,7 +384,7 @@ describe("/api/appointments", () => {
 
     //     it("should allow for retrieval if account is admin", async () => {
     //         token = new Account({
-    //             accessLevel: roles.admin,
+    //             accessLevel: Roles.Admin,
     //         }).generateAuthToken();
     //         const res = await exec();
     //         expect(res.status).toBe(200);
@@ -442,7 +442,7 @@ describe("/api/appointments", () => {
             account = new Account({
                 email: "abc@abc.com",
                 password: "123456",
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
                 hospital: hospital._id,
             });
             await doctor.save();
@@ -478,7 +478,7 @@ describe("/api/appointments", () => {
 
         it("should return 403 if account is not at least a hospital", async () => {
             token = new Account({
-                accessLevel: roles.user,
+                accessLevel: Roles.User,
             }).generateAuthToken();
 
             const response = await exec();
@@ -487,7 +487,7 @@ describe("/api/appointments", () => {
 
         // it("should return 400 if client is admin and doctorId is not provided", async () => {
         //     token = new Account({
-        //         accessLevel: roles.admin,
+        //         accessLevel: Roles.Admin,
         //     }).generateAuthToken();
 
         //     const response = await exec();
@@ -496,7 +496,7 @@ describe("/api/appointments", () => {
 
         it("should return 400 if doctorId is invalid", async () => {
             token = new Account({
-                accessLevel: roles.admin,
+                accessLevel: Roles.Admin,
             }).generateAuthToken();
             params.doctorId = 1;
 
@@ -506,7 +506,7 @@ describe("/api/appointments", () => {
 
         it("should return 400 if client is admin and no doctor with the given doctorId exists", async () => {
             token = new Account({
-                accessLevel: roles.admin,
+                accessLevel: Roles.Admin,
             }).generateAuthToken();
             params.doctorId = mongoose.Types.ObjectId();
 
@@ -524,7 +524,7 @@ describe("/api/appointments", () => {
 
         it("should allow for appointment slots creation if client is admin and doctorId is valid", async () => {
             token = new Account({
-                accessLevel: roles.admin,
+                accessLevel: Roles.Admin,
             }).generateAuthToken();
             params.doctorId = doctor._id;
 
@@ -673,7 +673,7 @@ describe("/api/appointments", () => {
             hospitalAccount = new Account({
                 email: "abcde@abc.com",
                 password: "123456",
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
                 hospital: hospital._id,
             });
 
@@ -756,7 +756,7 @@ describe("/api/appointments", () => {
 
         // it("should return 403 if account is user and profileId does not belong to account", async () => {
         //     token = new Account({
-        //         accessLevel: roles.user,
+        //         accessLevel: Roles.User,
         //     }).generateAuthToken();
         //     const res = await exec();
         //     expect(res.status).toBe(403);
@@ -863,7 +863,7 @@ describe("/api/appointments", () => {
             hospitalAccount = new Account({
                 email: "abcde@abc.com",
                 password: "123456",
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
                 hospital: hospital._id,
             });
 
@@ -980,7 +980,7 @@ describe("/api/appointments", () => {
 
         it("should return 403 if account is user and profileId does not belong to account", async () => {
             token = new Account({
-                accessLevel: roles.user,
+                accessLevel: Roles.User,
             }).generateAuthToken();
             const res = await exec();
             expect(res.status).toBe(403);
@@ -1144,7 +1144,7 @@ describe("/api/appointments", () => {
             hospitalAccount = new Account({
                 email: "abcde@abc.com",
                 password: "123456",
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
                 hospital: hospital._id,
             });
 
@@ -1211,7 +1211,7 @@ describe("/api/appointments", () => {
 
         it("should return 403 if account is user and profileId does not belong to account", async () => {
             token = new Account({
-                accessLevel: roles.user,
+                accessLevel: Roles.User,
             }).generateAuthToken();
             const res = await exec();
             expect(res.status).toBe(403);
@@ -1339,14 +1339,14 @@ describe("/api/appointments", () => {
             hospitalAccount = new Account({
                 email: "abcde@abc.com",
                 password: "123456",
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
                 hospital: hospital._id,
             });
 
             adminAccount = new Account({
                 email: "abc@abc.com",
                 password: "123456",
-                accessLevel: roles.admin,
+                accessLevel: Roles.Admin,
             });
 
             profile = new Profile({
@@ -1392,7 +1392,7 @@ describe("/api/appointments", () => {
 
         it("should return 403 if account is not hospital or admin", async () => {
             token = new Account({
-                accessLevel: roles.user,
+                accessLevel: Roles.User,
             }).generateAuthToken();
             const res = await exec();
             expect(res.status).toBe(403);

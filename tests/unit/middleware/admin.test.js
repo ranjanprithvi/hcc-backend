@@ -1,10 +1,10 @@
 import { admin } from "../../../middleware/admin";
-import { roles } from "../../../models/account-model.js";
+import { Roles } from "../../../models/account-model.js";
 
 describe("admin middleware", () => {
     it("should return 403 status if account is not admin", () => {
         const account = {
-            accessLevel: roles.user,
+            accessLevel: Roles.User,
         };
         const req = {
             account: account,
@@ -18,7 +18,7 @@ describe("admin middleware", () => {
 
     it("should call next if account is admin", () => {
         const account = {
-            accessLevel: roles.admin,
+            accessLevel: Roles.Admin,
         };
         const req = {
             account: account,

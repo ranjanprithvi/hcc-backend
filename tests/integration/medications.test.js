@@ -4,7 +4,7 @@ import server from "../../index";
 import { logger } from "../../startup/logger";
 import { conn } from "../../startup/mongo";
 import { Medication } from "../../models/medication-model.js";
-import { Account, roles } from "../../models/account-model.js";
+import { Account, Roles } from "../../models/account-model.js";
 
 describe("/api/medications", () => {
     // beforeEach(() => {
@@ -67,7 +67,7 @@ describe("/api/medications", () => {
 
         beforeEach(() => {
             token = new Account({
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
             }).generateAuthToken();
             params = { name: "medication1" };
         });
@@ -154,7 +154,7 @@ describe("/api/medications", () => {
             id = medication._id;
 
             token = new Account({
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
             }).generateAuthToken();
             params = { name: "medication2" };
         });
@@ -251,7 +251,7 @@ describe("/api/medications", () => {
             id = medication._id;
 
             token = new Account({
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
             }).generateAuthToken();
         });
 

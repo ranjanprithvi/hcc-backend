@@ -1,10 +1,10 @@
-import { roles } from "../../../models/account-model.js";
+import { Roles } from "../../../models/account-model.js";
 import { hospital } from "../../../middleware/hospital.js";
 
 describe("admin middleware", () => {
     it("should return 403 status if account is not hospital or higher access level", () => {
         const account = {
-            accessLevel: roles.user,
+            accessLevel: Roles.User,
         };
         const req = {
             account: account,
@@ -18,7 +18,7 @@ describe("admin middleware", () => {
 
     it("should call next if account is at least hospital access level", () => {
         const account = {
-            accessLevel: roles.hospital,
+            accessLevel: Roles.Hospital,
         };
         const req = {
             account: account,

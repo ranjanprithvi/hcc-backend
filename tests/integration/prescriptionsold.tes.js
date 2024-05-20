@@ -6,7 +6,7 @@ import { logger } from "../../startup/logger";
 import { conn } from "../../startup/mongo";
 import { Prescription } from "../../models/prescription-model.js";
 import { Profile } from "../../models/profile-model.js";
-import { Account, roles } from "../../models/account-model.js";
+import { Account, Roles } from "../../models/account-model.js";
 import { Specialization } from "../../models/specialization-model.js";
 import { Medication } from "../../models/medication-model.js";
 import _ from "lodash";
@@ -33,7 +33,7 @@ describe("/api/prescriptions", () => {
         beforeEach(async () => {
             profileId = mongoose.Types.ObjectId();
             account = new Account({
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
                 profiles: [profileId],
             });
             token = account.generateAuthToken();
@@ -163,7 +163,7 @@ describe("/api/prescriptions", () => {
 
         it("should return all the prescriptions if client is an admin", async () => {
             token = new Account({
-                accessLevel: roles.admin,
+                accessLevel: Roles.Admin,
             }).generateAuthToken();
             queryStr = "";
 
@@ -213,7 +213,7 @@ describe("/api/prescriptions", () => {
 
     //     it("should allow for retrieval if account is admin", async () => {
     //         token = new Account({
-    //             accessLevel: roles.admin,
+    //             accessLevel: Roles.Admin,
     //         }).generateAuthToken();
     //         const res = await exec();
     //         expect(res.status).toBe(200);
@@ -260,7 +260,7 @@ describe("/api/prescriptions", () => {
             account = new Account({
                 email: "abc@abc.com",
                 password: "123456",
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
                 hospitalName: "hospital1",
             });
             await account.save();
@@ -611,7 +611,7 @@ describe("/api/prescriptions", () => {
 
         it("should return 403 if client is a user and profileId does not belong to the account", async () => {
             token = new Account({
-                accessLevel: roles.user,
+                accessLevel: Roles.User,
                 profiles: [mongoose.Types.ObjectId()],
             }).generateAuthToken();
 
@@ -694,7 +694,7 @@ describe("/api/prescriptions", () => {
 
         it("should return the prescription with hospitalName of params when client is user and request is valid", async () => {
             account = new Account({
-                accessLevel: roles.user,
+                accessLevel: Roles.User,
                 profiles: [profile._id],
             });
 
@@ -773,7 +773,7 @@ describe("/api/prescriptions", () => {
             account = new Account({
                 email: "abc@abc.com",
                 password: "123456",
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
                 hospitalName: "hospital1",
             });
             await account.save();
@@ -1024,7 +1024,7 @@ describe("/api/prescriptions", () => {
             account = new Account({
                 email: "abc@abc.com",
                 password: "123456",
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
                 hospitalName: "hospital1",
             });
             await account.save();

@@ -6,7 +6,7 @@ import { logger } from "../../startup/logger.js";
 import { conn } from "../../startup/mongo.js";
 import { ExternalRecord } from "../../models/external-record-model.js";
 import { Profile } from "../../models/profile-model.js";
-import { Account, roles } from "../../models/account-model.js";
+import { Account, Roles } from "../../models/account-model.js";
 import { Specialization } from "../../models/specialization-model.js";
 import { Hospital } from "../../models/hospital-model.js";
 import { Doctor } from "../../models/doctor-model.js";
@@ -35,7 +35,7 @@ describe("/api/externalRecords", () => {
             profileId = mongoose.Types.ObjectId();
             profileId2 = mongoose.Types.ObjectId();
             account = new Account({
-                accessLevel: roles.user,
+                accessLevel: Roles.User,
                 profiles: [profileId],
             });
             token = account.generateAuthToken();
@@ -118,7 +118,7 @@ describe("/api/externalRecords", () => {
 
         it("should return 400 if client is a hospital and profileId is not provided in query", async () => {
             token = new Account({
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
             }).generateAuthToken();
             queryStr = "";
 
@@ -134,7 +134,7 @@ describe("/api/externalRecords", () => {
 
         it("should return the externalRecords of the profileId if client is a hospital", async () => {
             token = new Account({
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
             }).generateAuthToken();
             queryStr = "/?profileId=" + profileId2;
 
@@ -145,7 +145,7 @@ describe("/api/externalRecords", () => {
 
         it("should return all the externalRecords if client is an admin", async () => {
             token = new Account({
-                accessLevel: roles.admin,
+                accessLevel: Roles.Admin,
             }).generateAuthToken();
             queryStr = "";
 
@@ -195,7 +195,7 @@ describe("/api/externalRecords", () => {
 
     //     it("should allow for retrieval if account is admin", async () => {
     //         token = new Account({
-    //             accessLevel: roles.admin,
+    //             accessLevel: Roles.Admin,
     //         }).generateAuthToken();
     //         const res = await exec();
     //         expect(res.status).toBe(200);
@@ -264,7 +264,7 @@ describe("/api/externalRecords", () => {
             userAccount = new Account({
                 email: "abcd@abc.com",
                 password: "123456",
-                accessLevel: roles.user,
+                accessLevel: Roles.User,
                 profiles: [profile._id],
             });
             profile.account = userAccount._id;
@@ -484,7 +484,7 @@ describe("/api/externalRecords", () => {
 
         it("should return 403 if client is a user and profileId does not belong to the account", async () => {
             token = new Account({
-                accessLevel: roles.user,
+                accessLevel: Roles.User,
                 profiles: [mongoose.Types.ObjectId()],
             }).generateAuthToken();
 
@@ -572,7 +572,7 @@ describe("/api/externalRecords", () => {
             hospitalAccount = new Account({
                 email: "abc@abc.com",
                 password: "123456",
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
             });
 
             hospital = new Hospital({ name: "Hospital1" });
@@ -713,7 +713,7 @@ describe("/api/externalRecords", () => {
 
         it("should return 403 if account is user and profile does not belong to account", async () => {
             token = new Account({
-                accessLevel: roles.user,
+                accessLevel: Roles.User,
                 profiles: [],
             }).generateAuthToken();
 
@@ -849,7 +849,7 @@ describe("/api/externalRecords", () => {
             hospitalAccount = new Account({
                 email: "abc@abc.com",
                 password: "123456",
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
             });
 
             hospital = new Hospital({ name: "Hospital1" });

@@ -1,4 +1,4 @@
-import { Account, roles } from "../../../models/account-model.js";
+import { Account, Roles } from "../../../models/account-model.js";
 import jwt from "jsonwebtoken";
 import config from "config";
 import mongoose from "mongoose";
@@ -10,7 +10,7 @@ describe("account.generateAuthToken", () => {
             _id: mongoose.Types.ObjectId(),
             email: "abc@gmail.com",
             password: "1234556",
-            accessLevel: roles.hospital,
+            accessLevel: Roles.Hospital,
             hospital: mongoose.Types.ObjectId(),
             profiles: [
                 new mongoose.Types.ObjectId(),
@@ -42,7 +42,7 @@ describe("account.generateAuthToken", () => {
             _id: mongoose.Types.ObjectId(),
             email: "abc@gmail.com",
             password: "1234556",
-            accessLevel: roles.user,
+            accessLevel: Roles.User,
             profiles: [
                 new mongoose.Types.ObjectId(),
                 new mongoose.Types.ObjectId(),

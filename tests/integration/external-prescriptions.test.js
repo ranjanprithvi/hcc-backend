@@ -6,7 +6,7 @@ import { logger } from "../../startup/logger.js";
 import { conn } from "../../startup/mongo.js";
 import { ExternalPrescription } from "../../models/external-prescription-model.js";
 import { Profile } from "../../models/profile-model.js";
-import { Account, roles } from "../../models/account-model.js";
+import { Account, Roles } from "../../models/account-model.js";
 import { Specialization } from "../../models/specialization-model.js";
 import { Hospital } from "../../models/hospitalModel";
 import { Doctor } from "../../models/doctorModel";
@@ -35,7 +35,7 @@ describe("/api/externalPrescriptions", () => {
             profileId = mongoose.Types.ObjectId();
             profileId2 = mongoose.Types.ObjectId();
             account = new Account({
-                accessLevel: roles.user,
+                accessLevel: Roles.User,
                 profiles: [profileId],
             });
             token = account.generateAuthToken();
@@ -115,7 +115,7 @@ describe("/api/externalPrescriptions", () => {
 
         it("should return 400 if client is a hospital and profileId is not provided in query", async () => {
             token = new Account({
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
             }).generateAuthToken();
             queryStr = "";
 
@@ -131,7 +131,7 @@ describe("/api/externalPrescriptions", () => {
 
         it("should return the externalPrescriptions of the profileId if client is a hospital", async () => {
             token = new Account({
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
             }).generateAuthToken();
             queryStr = "/?profileId=" + profileId2;
 
@@ -142,7 +142,7 @@ describe("/api/externalPrescriptions", () => {
 
         it("should return all the externalPrescriptions if client is an admin", async () => {
             token = new Account({
-                accessLevel: roles.admin,
+                accessLevel: Roles.Admin,
             }).generateAuthToken();
             queryStr = "";
 
@@ -192,7 +192,7 @@ describe("/api/externalPrescriptions", () => {
 
     //     it("should allow for retrieval if account is admin", async () => {
     //         token = new Account({
-    //             accessLevel: roles.admin,
+    //             accessLevel: Roles.Admin,
     //         }).generateAuthToken();
     //         const res = await exec();
     //         expect(res.status).toBe(200);
@@ -262,7 +262,7 @@ describe("/api/externalPrescriptions", () => {
             userAccount = new Account({
                 email: "abcd@abc.com",
                 password: "123456",
-                accessLevel: roles.user,
+                accessLevel: Roles.User,
                 profiles: [profile._id],
             });
             await userAccount.save();
@@ -273,7 +273,7 @@ describe("/api/externalPrescriptions", () => {
             hospitalAccount = new Account({
                 email: "abc@abc.com",
                 password: "123456",
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
                 hospital: hospital._id,
             });
 
@@ -571,7 +571,7 @@ describe("/api/externalPrescriptions", () => {
             hospitalAccount = new Account({
                 email: "abc@abc.com",
                 password: "123456",
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
             });
 
             hospital = new Hospital({ name: "Hospital1" });
@@ -800,7 +800,7 @@ describe("/api/externalPrescriptions", () => {
             hospitalAccount = new Account({
                 email: "abc@abc.com",
                 password: "123456",
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
             });
 
             hospital = new Hospital({ name: "Hospital1" });

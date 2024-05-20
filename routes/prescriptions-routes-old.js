@@ -7,7 +7,7 @@ import { checkAccess } from "../middleware/check-access.js";
 import { validateBody, validateEachParameter } from "../middleware/validate.js";
 import validateObjectId from "../middleware/validate-object-id.js";
 import { Profile } from "../models/profile-model.js";
-import { Account, roles } from "../models/account-model.js";
+import { Account, Roles } from "../models/account-model.js";
 import {
     Prescription,
     prescriptionSchema,
@@ -25,7 +25,7 @@ router.get("/", auth, async (req, res) => {
     );
     const query = JSON.parse(queryStr);
 
-    if (req.account.accessLevel != roles.admin) {
+    if (req.account.accessLevel != Roles.Admin) {
         if (!query.profileId)
             return res.status(400).send("Please provide profileId");
 
@@ -49,7 +49,7 @@ router.post(
     "/",
     [auth, validateBody(prescriptionSchemaObject)],
     async (req, res) => {
-        if (req.account.accessLevel == roles.user) {
+        if (req.account.accessLevel == Roles.User) {
             if (!req.account.profiles.includes(req.body.profileId))
                 return res.status(403).send("Access Denied");
         }
@@ -123,7 +123,7 @@ router.patch(
                 "specializationId",
             ])
         ),
-        checkAccess([roles.admin], Prescription, "createdByAccountId"),
+        checkAccess([Roles.Admin], Prescription, "createdByAccountId"),
     ],
     async (req, res) => {
         let params = _.pick(req.body, [
@@ -170,7 +170,7 @@ router.delete(
     [
         validateObjectId,
         auth,
-        checkAccess([roles.admin], Prescription, "createdByAccountId"),
+        checkAccess([Roles.Admin], Prescription, "createdByAccountId"),
     ],
     async (req, res) => {
         const prescription = await Prescription.findByIdAndDelete(

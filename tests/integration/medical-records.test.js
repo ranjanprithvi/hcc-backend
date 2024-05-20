@@ -6,7 +6,7 @@ import { logger } from "../../startup/logger.js";
 import { conn } from "../../startup/mongo.js";
 import { MedicalRecord } from "../../models/medical-record-model.js";
 import { Profile } from "../../models/profile-model.js";
-import { Account, roles } from "../../models/account-model.js";
+import { Account, Roles } from "../../models/account-model.js";
 import { Specialization } from "../../models/specialization-model.js";
 import { Hospital } from "../../models/hospitalModel";
 import { Doctor } from "../../models/doctorModel";
@@ -35,7 +35,7 @@ describe("/api/medicalRecords", () => {
             profileId = mongoose.Types.ObjectId();
             profileId2 = mongoose.Types.ObjectId();
             account = new Account({
-                accessLevel: roles.user,
+                accessLevel: Roles.User,
                 profiles: [profileId],
             });
             token = account.generateAuthToken();
@@ -108,7 +108,7 @@ describe("/api/medicalRecords", () => {
 
         it("should return 400 if client is a hospital and profileId is not provided in query", async () => {
             token = new Account({
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
             }).generateAuthToken();
             queryStr = "";
 
@@ -124,7 +124,7 @@ describe("/api/medicalRecords", () => {
 
         it("should return the medicalRecords of the profileId if client is a hospital", async () => {
             token = new Account({
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
             }).generateAuthToken();
             queryStr = "/?profileId=" + profileId2;
 
@@ -135,7 +135,7 @@ describe("/api/medicalRecords", () => {
 
         it("should return all the medicalRecords if client is an admin", async () => {
             token = new Account({
-                accessLevel: roles.admin,
+                accessLevel: Roles.Admin,
             }).generateAuthToken();
             queryStr = "";
 
@@ -185,7 +185,7 @@ describe("/api/medicalRecords", () => {
 
     //     it("should allow for retrieval if account is admin", async () => {
     //         token = new Account({
-    //             accessLevel: roles.admin,
+    //             accessLevel: Roles.Admin,
     //         }).generateAuthToken();
     //         const res = await exec();
     //         expect(res.status).toBe(200);
@@ -256,7 +256,7 @@ describe("/api/medicalRecords", () => {
             hospitalAccount = new Account({
                 email: "abc@abc.com",
                 password: "123456",
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
                 hospital: hospital._id,
             });
 
@@ -294,7 +294,7 @@ describe("/api/medicalRecords", () => {
 
         it("should return 403 if account is not at least a hospital", async () => {
             token = new Account({
-                accessLevel: roles.user,
+                accessLevel: Roles.User,
             }).generateAuthToken();
 
             const response = await exec();
@@ -535,7 +535,7 @@ describe("/api/medicalRecords", () => {
             hospitalAccount = new Account({
                 email: "abc@abc.com",
                 password: "123456",
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
             });
 
             hospital = new Hospital({ name: "Hospital1" });
@@ -593,7 +593,7 @@ describe("/api/medicalRecords", () => {
 
         it("should return 403 if account is not at least a hospital", async () => {
             token = new Account({
-                accessLevel: roles.user,
+                accessLevel: Roles.User,
             }).generateAuthToken();
 
             const response = await exec();
@@ -764,7 +764,7 @@ describe("/api/medicalRecords", () => {
             hospitalAccount = new Account({
                 email: "abc@abc.com",
                 password: "123456",
-                accessLevel: roles.hospital,
+                accessLevel: Roles.Hospital,
             });
 
             hospital = new Hospital({ name: "Hospital1" });
@@ -818,7 +818,7 @@ describe("/api/medicalRecords", () => {
 
         it("should return 403 if account is not at least a hospital", async () => {
             token = new Account({
-                accessLevel: roles.user,
+                accessLevel: Roles.User,
             }).generateAuthToken();
 
             const response = await exec();
