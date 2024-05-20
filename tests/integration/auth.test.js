@@ -1,9 +1,9 @@
 import request from "supertest";
-import server from "../../index";
-import { conn } from "../../startup/mongo";
-import { logger } from "../../startup/logger";
-import { Hospital } from "../../models/hospital-model.js";
-import { Account, Roles } from "../../models/account-model.js";
+import server from "../../dist/index";
+import { conn } from "../../dist/startup/mongo";
+import { logger } from "../../dist/startup/logger";
+import { Hospital } from "../../dist/models/hospital-model.js";
+import { Account, Roles } from "../../dist/models/account-model.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import config from "config";

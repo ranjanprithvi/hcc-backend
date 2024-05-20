@@ -1,5 +1,5 @@
 import { CognitoJwtVerifier } from "aws-jwt-verify";
-import { Account, Roles } from "../models/account-model";
+import { Account, Roles } from "../models/account-model.js";
 import { Request, Response, NextFunction } from "express";
 
 // Verifier that expects valid access tokens:

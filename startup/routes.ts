@@ -1,20 +1,20 @@
-import { error } from "../middleware/error";
+import { error } from "../middleware/error.js";
 import express, { Express, Request, Response } from "express";
 import helmet from "helmet";
 import morgan from "morgan";
 import cors from "cors";
-import hospitals from "../routes/hospitals-routes";
-import doctors from "../routes/doctors-routes";
-import profiles from "../routes/profiles-routes";
-import auth from "../routes/auth-routes";
-import accounts from "../routes/accounts-routes";
-import appointments from "../routes/appointments-routes";
-import specializations from "../routes/specializations-routes";
-import medications from "../routes/medications-routes";
-import prescriptions from "../routes/prescriptions-routes";
-import externalPrescriptions from "../routes/external-prescriptions-routes";
-import medicalRecords from "../routes/medical-records-routes";
-import externalRecords from "../routes/external-records-routes";
+import hospitals from "../routes/hospitals-routes.js";
+import doctors from "../routes/doctors-routes.js";
+import profiles from "../routes/profiles-routes.js";
+import auth from "../routes/auth-routes.js";
+import accounts from "../routes/accounts-routes.js";
+import appointments from "../routes/appointments-routes.js";
+import specializations from "../routes/specializations-routes.js";
+import medications from "../routes/medications-routes.js";
+import prescriptions from "../routes/prescriptions-routes.js";
+import externalPrescriptions from "../routes/external-prescriptions-routes.js";
+import medicalRecords from "../routes/medical-records-routes.js";
+import externalRecords from "../routes/external-records-routes.js";
 import config from "config";
 
 export default function initialiseRoutes(app: Express) {

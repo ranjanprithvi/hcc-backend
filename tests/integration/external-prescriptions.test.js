@@ -1,15 +1,15 @@
 import mongoose from "mongoose";
 import moment from "moment";
 import request from "supertest";
-import server from "../../index";
-import { logger } from "../../startup/logger.js";
-import { conn } from "../../startup/mongo.js";
-import { ExternalPrescription } from "../../models/external-prescription-model.js";
-import { Profile } from "../../models/profile-model.js";
-import { Account, Roles } from "../../models/account-model.js";
-import { Specialization } from "../../models/specialization-model.js";
-import { Hospital } from "../../models/hospitalModel";
-import { Doctor } from "../../models/doctorModel";
+import server from "../../dist/index";
+import { logger } from "../../dist/startup/logger.js";
+import { conn } from "../../dist/startup/mongo.js";
+import { ExternalPrescription } from "../../dist/models/external-prescription-model.js";
+import { Profile } from "../../dist/models/profile-model.js";
+import { Account, Roles } from "../../dist/models/account-model.js";
+import { Specialization } from "../../dist/models/specialization-model.js";
+import { Hospital } from "../../dist/models/hospitalModel";
+import { Doctor } from "../../dist/models/doctorModel";
 
 describe("/api/externalPrescriptions", () => {
     afterEach(async () => {

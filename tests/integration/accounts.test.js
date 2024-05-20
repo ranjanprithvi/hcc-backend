@@ -1,12 +1,12 @@
 import _ from "lodash";
 import mongoose from "mongoose";
 import request from "supertest";
-import server from "../../index";
-import { logger } from "../../startup/logger.js";
-import { conn } from "../../startup/mongo.js";
-import { Account, Roles } from "../../models/account-model.js";
+import server from "../../dist/index";
+import { logger } from "../../dist/startup/logger.js";
+import { conn } from "../../dist/startup/mongo.js";
+import { Account, Roles } from "../../dist/models/account-model.js";
 import bcrypt from "bcrypt";
-import { Hospital } from "../../models/hospital-model.js";
+import { Hospital } from "../../dist/models/hospital-model.js";
 
 describe("/api/accounts", () => {
     afterEach(async () => {

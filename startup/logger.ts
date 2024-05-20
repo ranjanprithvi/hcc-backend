@@ -1,7 +1,7 @@
 import { createLogger, transports, format } from "winston";
 import "winston-mongodb";
 import "express-async-errors";
-import { connectionString } from "./mongo";
+import { connectionString } from "./mongo.js";
 const { combine, timestamp, label, printf } = format;
 
 const myFormat = printf(({ level, message, label, timestamp }) => {

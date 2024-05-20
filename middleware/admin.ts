@@ -1,4 +1,4 @@
-import { Roles } from "../models/account-model";
+import { Roles } from "../models/account-model.js";
 import config from "config";
 import { NextFunction, Request, Response } from "express";
 

@@ -1,4 +1,4 @@
-import { logger } from "../startup/logger";
+import { logger } from "../startup/logger.js";
 import { NextFunction, Request, Response } from "express";
 
 export function error(

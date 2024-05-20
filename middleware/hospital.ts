@@ -1,4 +1,4 @@
-import { Roles } from "../models/account-model";
+import { Roles } from "../models/account-model.js";
 import { NextFunction, Request, Response } from "express";
 
 export function hospital(req: Request, res: Response, next: NextFunction) {

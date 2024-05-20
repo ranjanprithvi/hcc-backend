@@ -1,4 +1,4 @@
-import { Roles } from "./../models/account-model";
+import { Roles } from "./../models/account-model.js";
 import _ from "lodash";
 import { Request, Response, NextFunction } from "express";
 

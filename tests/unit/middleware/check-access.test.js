@@ -1,5 +1,5 @@
-import { Roles } from "../../../models/account-model.js";
-import { hospital } from "../../../middleware/hospital.js";
+import { Roles } from "../../dist/../models/account-model.js";
+import { hospital } from "../../dist/../middleware/hospital.js";
 
 describe("admin middleware", () => {
     it("should return 403 status if account is not hospital or higher access level", () => {
